@@ -1,12 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Content Creator Toolkit</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creator Toolkit - Free Thumbnail & Captions Generator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body style="text-align: center; font-family: Arial; padding-top: 100px; background-color: #f4f4f9;">
-    <h1 style="color: #333;">ThumbnailCreator.online</h1>
-    <p style="font-size: 18px; color: #666;">All-in-One Content Creator Toolkit (Thumbnail Generator & Social Media Captions)</p>
-    <h2 style="color: #6c5ce7;">✨ Coming Soon ✨</h2>
-    <p>We are building something awesome for YouTube, TikTok, and Facebook creators!</p>
+<body>
+
+    <div class="container">
+        <h1>✨ Creator Toolkit ✨</h1>
+        <p class="subtitle">Generate catchy captions for YouTube, TikTok & Facebook</p>
+
+        <div class="tool-box">
+            <label for="topicInput">What is your video about? (Enter Topic):</label>
+            <input type="text" id="topicInput" placeholder="e.g., My First Vlog, Pubg Mobile Gameplay, Cooking Recipe...">
+
+            <label for="platformSelect">Select Social Platform:</label>
+            <select id="platformSelect">
+                <option value="youtube">🔴 YouTube (Description & Tags)</option>
+                <option value="tiktok">⚫ TikTok (Short & Trendy with Hashtags)</option>
+                <option value="facebook">🔵 Facebook (Engaging & Emojis)</option>
+            </select>
+
+            <button id="generateBtn">Generate Caption 🚀</button>
+        </div>
+
+        <div class="output-box" id="outputBox" style="display: none;">
+            <h3>Your Caption is Ready:</h3>
+            <div id="captionResult" class="result-text"></div>
+            <button id="copyBtn">Copy to Clipboard 📋</button>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>Frequently Asked Questions (FAQs)</h2>
+        
+        <div class="faq-item">
+            <h4>Q1: Is this Creator Toolkit completely free to use?</h4>
+            <p>Yes! ThumbnailCreator.online is a 100% free web tool designed for digital content creators. You can generate unlimited video descriptions and social media captions without any hidden costs or subscription fees.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>Q2: How does the automated caption generator work?</h4>
+            <p>Our tool uses pre-optimized algorithmic text structures specifically tailored for the algorithms of YouTube, TikTok, and Facebook. It instantly attaches trending hashtags, engaging descriptions, and interactive emojis based on the topic you input.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>Q3: Will using these optimized captions boost my social media views?</h4>
+            <p>While video reach depends heavily on your content quality, using targeted keywords and structured text patterns ensures search engine optimization (SEO). This helps platform algorithms accurately categorize your videos and push them to the correct audience.</p>
+        </div>
+    </div>
+
+    <div id="privacy" class="content-section">
+        <h2>Privacy Policy</h2>
+        <p>At ThumbnailCreator.online, the privacy of our visitors is of extreme importance to us. This privacy policy document outlines the types of personal information received and collected by our website and how it is securely handled.</p>
+        
+        <h3>Log Files & Data Collection</h3>
+        <p>Like many other standard websites, we make use of log files. The information inside the log files includes internet protocol (IP) addresses, type of browser used, Internet Service Provider (ISP), date/time stamps, referring/exit pages, and the total number of clicks to effectively analyze trends and administer the site safely.</p>
+        
+        <h3>Google AdSense & DoubleClick Cookie Compliance</h3>
+        <p>Google, as a third-party advertisement vendor, uses cookies to serve premium ads on our site. Google's use of advertising cookies enables it to serve targeted ads to our users based on their active visit to our site and other relevant platforms across the Internet. Users may choose to opt out of personalized advertising by managing Google ad settings anytime.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ThumbnailCreator.online | All Rights Reserved.</p>
+        <div class="footer-links">
+            <a href="#privacy">Privacy Policy</a> | 
+            <a href="mailto:your-email@gmail.com">Contact Us</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,19 @@
+/* FAQs & Extra Formatting Styling */
+.faq-item {
+    margin-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #edf2f7;
+}
+.faq-item h4 {
+    color: #4a5568;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+.faq-item p {
+    color: #718096;
+    margin: 0;
+    font-size: 14px;
+}
+html {
+    scroll-behavior: smooth; /* Ensures a smooth slide down when clicking Privacy Policy link */
+}
