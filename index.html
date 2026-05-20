@@ -4,7 +4,128 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creator Toolkit - Free Thumbnail & Captions Generator</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ALL DESIGN STYLES INCLUDED HERE DIRECTLY */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        h1 { color: #4a5568; margin-bottom: 5px; }
+        .subtitle { color: #718096; margin-bottom: 25px; }
+
+        .tool-box { text-align: left; }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+            color: #4a5568;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 14px;
+            margin-top: 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover { background: #5a67d8; }
+
+        .output-box {
+            margin-top: 25px;
+            padding: 15px;
+            background: #f7fafc;
+            border-radius: 8px;
+            border-left: 5px solid #667eea;
+            text-align: left;
+        }
+
+        .result-text {
+            white-space: pre-line;
+            background: white;
+            padding: 10px;
+            border: 1px solid #edf2f7;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        #copyBtn { background: #38a169; margin-top: 5px; }
+        #copyBtn:hover { background: #2f855a; }
+
+        /* Content & Footer Sections */
+        .content-section {
+            max-width: 800px;
+            width: 100%;
+            margin: 30px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: left;
+            line-height: 1.6;
+            box-sizing: border-box;
+        }
+        .content-section h2 { color: #2d3748; }
+        .content-section h3 { color: #4a5568; margin-top: 20px; }
+        .content-section p { color: #4a5568; font-size: 15px; }
+
+        .faq-item {
+            margin-top: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #edf2f7;
+        }
+        .faq-item h4 { color: #4a5568; margin-bottom: 5px; font-size: 16px; }
+        .faq-item p { color: #718096; margin: 0; font-size: 14px; }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: white;
+            font-size: 14px;
+            margin-top: 20px;
+            width: 100%;
+        }
+        footer a { color: #cbd5e0; text-decoration: none; margin: 0 10px; }
+        footer a:hover { text-decoration: underline; }
+        html { scroll-behavior: smooth; }
+    </style>
 </head>
 <body>
 
@@ -14,7 +135,7 @@
 
         <div class="tool-box">
             <label for="topicInput">What is your video about? (Enter Topic):</label>
-            <input type="text" id="topicInput" placeholder="e.g., My First Vlog, Pubg Mobile Gameplay, Cooking Recipe...">
+            <input type="text" id="topicInput" placeholder="e.g., My First Vlog, Pubg Mobile Gameplay...">
 
             <label for="platformSelect">Select Social Platform:</label>
             <select id="platformSelect">
@@ -35,17 +156,14 @@
 
     <div class="content-section">
         <h2>Frequently Asked Questions (FAQs)</h2>
-        
         <div class="faq-item">
             <h4>Q1: Is this Creator Toolkit completely free to use?</h4>
             <p>Yes! ThumbnailCreator.online is a 100% free web tool designed for digital content creators. You can generate unlimited video descriptions and social media captions without any hidden costs or subscription fees.</p>
         </div>
-
         <div class="faq-item">
             <h4>Q2: How does the automated caption generator work?</h4>
             <p>Our tool uses pre-optimized algorithmic text structures specifically tailored for the algorithms of YouTube, TikTok, and Facebook. It instantly attaches trending hashtags, engaging descriptions, and interactive emojis based on the topic you input.</p>
         </div>
-
         <div class="faq-item">
             <h4>Q3: Will using these optimized captions boost my social media views?</h4>
             <p>While video reach depends heavily on your content quality, using targeted keywords and structured text patterns ensures search engine optimization (SEO). This helps platform algorithms accurately categorize your videos and push them to the correct audience.</p>
@@ -55,10 +173,8 @@
     <div id="privacy" class="content-section">
         <h2>Privacy Policy</h2>
         <p>At ThumbnailCreator.online, the privacy of our visitors is of extreme importance to us. This privacy policy document outlines the types of personal information received and collected by our website and how it is securely handled.</p>
-        
         <h3>Log Files & Data Collection</h3>
         <p>Like many other standard websites, we make use of log files. The information inside the log files includes internet protocol (IP) addresses, type of browser used, Internet Service Provider (ISP), date/time stamps, referring/exit pages, and the total number of clicks to effectively analyze trends and administer the site safely.</p>
-        
         <h3>Google AdSense & DoubleClick Cookie Compliance</h3>
         <p>Google, as a third-party advertisement vendor, uses cookies to serve premium ads on our site. Google's use of advertising cookies enables it to serve targeted ads to our users based on their active visit to our site and other relevant platforms across the Internet. Users may choose to opt out of personalized advertising by managing Google ad settings anytime.</p>
     </div>
