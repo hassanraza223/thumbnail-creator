@@ -3,187 +3,427 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creator Toolkit - Free Thumbnail & Captions Generator</title>
+    <title>ThumbnailCreator - AI Thumbnail Downloader & Rich Content Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* ALL DESIGN STYLES INCLUDED HERE DIRECTLY */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #0f172a;
+            --text-muted: #64748b;
+            --bg-light: #f8fafc;
+        }
+
+        * {
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            color: var(--secondary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION BAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .logo span { color: var(--primary); }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+
+        /* Dropdown Style */
+        .dropdown { position: relative; }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            padding: 15px;
+            width: 260px;
+            margin-top: 10px;
+            border: 1px solid #f1f5f9;
+        }
+        .dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-item {
+            padding: 10px;
+            border-radius: 8px;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .dropdown-item:hover { background: var(--bg-light); }
+        .dropdown-item h5 { font-size: 14px; color: var(--secondary); }
+        .dropdown-item p { font-size: 12px; color: var(--text-muted); }
+
+        .btn-start {
+            background: var(--secondary);
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        .btn-start:hover { background: var(--primary-dark); }
+
+        /* HERO SECTION WITH DYNAMIC WORKSPACE */
+        .hero-section {
+            padding: 150px 8% 80px 8%;
+            background: radial-gradient(100% 100% at 50% 0%, rgba(99, 102, 241, 0.08) 0%, rgba(255, 255, 255, 0) 100%);
+            text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
         }
 
-        .container {
+        .hero-badge {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .hero-section h1 {
+            font-size: 48px;
+            font-weight: 800;
+            max-width: 800px;
+            letter-spacing: -1px;
+            margin-bottom: 15px;
+        }
+
+        .hero-section h1 span { color: var(--primary); }
+
+        .hero-p {
+            color: var(--text-muted);
+            font-size: 18px;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        /* MULTI-TOOL WORKSPACE */
+        .workspace-card {
             background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            max-width: 500px;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f1f5f9;
             width: 100%;
-            text-align: center;
-            margin-top: 40px;
+            max-width: 650px;
+            padding: 35px;
+            text-align: left;
         }
 
-        h1 { color: #4a5568; margin-bottom: 5px; }
-        .subtitle { color: #718096; margin-bottom: 25px; }
+        .tabs-header {
+            display: flex;
+            gap: 15px;
+            border-bottom: 2px solid #f1f5f9;
+            margin-bottom: 25px;
+        }
 
-        .tool-box { text-align: left; }
+        .tab-trigger {
+            padding: 12px 20px;
+            background: none;
+            border: none;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-muted);
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: 0.2s;
+        }
+
+        .tab-trigger.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .tool-content { display: none; }
+        .tool-content.active { display: block; }
 
         label {
-            font-weight: bold;
             display: block;
-            margin-top: 15px;
-            color: #4a5568;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: var(--secondary);
         }
 
         input, select {
             width: 100%;
-            padding: 12px;
-            margin-top: 5px;
+            padding: 14px;
+            border-radius: 12px;
             border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            box-sizing: border-box;
-            font-size: 16px;
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            outline: none;
+            transition: 0.2s;
         }
 
-        button {
+        input:focus, select:focus { border-color: var(--primary); }
+
+        .action-btn {
             width: 100%;
-            background: #667eea;
+            background: var(--primary);
             color: white;
             border: none;
-            padding: 14px;
-            margin-top: 20px;
-            border-radius: 8px;
+            padding: 16px;
+            border-radius: 12px;
             font-size: 16px;
-            font-weight: bold;
+            font-weight: 700;
             cursor: pointer;
             transition: 0.3s;
         }
+        .action-btn:hover { background: var(--primary-dark); }
 
-        button:hover { background: #5a67d8; }
-
-        .output-box {
+        /* OUTPUT STYLES */
+        .output-wrapper {
             margin-top: 25px;
-            padding: 15px;
-            background: #f7fafc;
-            border-radius: 8px;
-            border-left: 5px solid #667eea;
-            text-align: left;
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            display: none;
         }
 
-        .result-text {
-            white-space: pre-line;
+        .output-display {
             background: white;
-            padding: 10px;
-            border: 1px solid #edf2f7;
-            border-radius: 5px;
-            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            white-space: pre-line;
             font-size: 15px;
+            margin-bottom: 15px;
         }
 
-        #copyBtn { background: #38a169; margin-top: 5px; }
-        #copyBtn:hover { background: #2f855a; }
-
-        /* Content & Footer Sections */
-        .content-section {
-            max-width: 800px;
+        .copy-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
             width: 100%;
-            margin: 30px auto;
+        }
+
+        /* Thumbnail Preview */
+        .preview-box { display: none; text-align: center; margin-top: 20px; }
+        .preview-box img { width: 100%; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .dl-btn { display: inline-block; background: #ef4444; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 700; }
+
+        /* STATS/FEATURES GRID */
+        .features-section {
+            padding: 60px 8%;
+            text-align: center;
+            background: var(--bg-light);
+        }
+
+        .section-title { font-size: 32px; font-weight: 800; margin-bottom: 40px; }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
             background: white;
             padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            border: 1px solid #f1f5f9;
             text-align: left;
-            line-height: 1.6;
-            box-sizing: border-box;
+            transition: 0.3s;
         }
-        .content-section h2 { color: #2d3748; }
-        .content-section h3 { color: #4a5568; margin-top: 20px; }
-        .content-section p { color: #4a5568; font-size: 15px; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.03); }
+        .feature-card h4 { font-size: 18px; margin-bottom: 10px; color: var(--secondary); }
+        .feature-card p { font-size: 14px; color: var(--text-muted); }
 
-        .faq-item {
-            margin-top: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #edf2f7;
-        }
-        .faq-item h4 { color: #4a5568; margin-bottom: 5px; font-size: 16px; }
-        .faq-item p { color: #718096; margin: 0; font-size: 14px; }
+        /* FAQs */
+        .faq-section { padding: 80px 8%; max-width: 800px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid #e2e8f0; padding: 20px 0; }
+        .faq-item h4 { font-size: 18px; margin-bottom: 8px; }
+        .faq-item p { color: var(--text-muted); font-size: 15px; }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: white;
-            font-size: 14px;
-            margin-top: 20px;
-            width: 100%;
-        }
-        footer a { color: #cbd5e0; text-decoration: none; margin: 0 10px; }
-        footer a:hover { text-decoration: underline; }
-        html { scroll-behavior: smooth; }
+        /* FOOTER */
+        footer { background: var(--secondary); color: white; padding: 40px 8%; text-align: center; font-size: 14px; }
+        .footer-links { margin-top: 15px; }
+        .footer-links a { color: #94a3b8; text-decoration: none; margin: 0 10px; }
+        .footer-links a:hover { color: white; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>✨ Creator Toolkit ✨</h1>
-        <p class="subtitle">Generate catchy captions for YouTube, TikTok & Facebook</p>
+    <nav class="navbar">
+        <div class="logo" onclick="window.location.reload()">Thumbnail<span>Creator</span></div>
+        <ul class="nav-links">
+            <li class="dropdown">
+                <a href="#features">Features</a>
+                <div class="dropdown-menu">
+                    <div class="dropdown-item">
+                        <h5>Thumbnail Downloader</h5>
+                        <p>Extract HD YouTube thumbnails instantly.</p>
+                    </div>
+                    <div class="dropdown-item">
+                        <h5>AI Keyword Content</h5>
+                        <p>Generate rich keyword descriptions.</p>
+                    </div>
+                </div>
+            </li>
+            <li><a href="#features">Pricing</a></li>
+            <li><a href="#faqs">Help</a></li>
+            <li><a href="#workspace" class="btn-start">Get Started Free</a></li>
+        </ul>
+    </nav>
 
-        <div class="tool-box">
-            <label for="topicInput">What is your video about? (Enter Topic):</label>
-            <input type="text" id="topicInput" placeholder="e.g., My First Vlog, Pubg Mobile Gameplay...">
+    <header class="hero-section">
+        <div class="hero-badge">Free All-In-One Creator Suite</div>
+        <h1>Stop Losing Views to Bad Thumbnails & Captions</h1>
+        <p class="hero-p">Extract raw high-definition thumbnails and instantly write search-optimized, keyword-rich profiles and descriptions.</p>
 
-            <label for="platformSelect">Select Social Platform:</label>
-            <select id="platformSelect">
-                <option value="youtube">🔴 YouTube (Description & Tags)</option>
-                <option value="tiktok">⚫ TikTok (Short & Trendy with Hashtags)</option>
-                <option value="facebook">🔵 Facebook (Engaging & Emojis)</option>
-            </select>
+        <div class="workspace-card" id="workspace">
+            <div class="tabs-header">
+                <button class="tab-trigger active" onclick="openTab(event, 'contentGenerator')">Rich Keyword Content</button>
+                <button class="tab-trigger" onclick="openTab(event, 'thumbExtractor')">Thumbnail Downloader</button>
+            </div>
 
-            <button id="generateBtn">Generate Caption 🚀</button>
+            <div id="contentGenerator" class="tool-content active">
+                <label>Enter Topic / Focus Area:</label>
+                <input type="text" id="topicInput" placeholder="e.g., Budget Tech Setup, Creative Fashion Bio...">
+
+                <label>Select Optimization Target:</label>
+                <select id="strategySelect">
+                    <option value="insta_rich">Instagram Rich Keyword Description</option>
+                    <option value="tiktok_rich">TikTok High-Search SEO Caption</option>
+                    <option value="profile_bio">High-Keyword Authority Bio (Insta/TikTok)</option>
+                    <option value="yt_desc">YouTube Contextual Rich Description</option>
+                </select>
+
+                <button class="action-btn" id="generateBtn">Generate Optimized Layout</button>
+
+                <div class="output-wrapper" id="outputContainer">
+                    <label>Your Ready-to-Paste Content:</label>
+                    <div class="output-display" id="outputResult"></div>
+                    <button class="copy-btn" id="copyTextBtn">Copy to Clipboard</button>
+                </div>
+            </div>
+
+            <div id="thumbExtractor" class="tool-content">
+                <label>Paste YouTube Video Link:</label>
+                <input type="text" id="ytUrlInput" placeholder="https://www.youtube.com/watch?v=... ya https://youtu.be/...">
+
+                <button class="action-btn" id="fetchThumbBtn">Fetch Thumbnail Image</button>
+
+                <div class="preview-box" id="previewContainer">
+                    <label>Thumbnail Preview:</label>
+                    <img id="previewImg" src="" alt="Thumbnail File">
+                    <br>
+                    <a id="downloadAction" class="dl-btn" href="" target="_blank" download="thumbnail.jpg">Download HD Quality</a>
+                </div>
+            </div>
         </div>
+    </header>
 
-        <div class="output-box" id="outputBox" style="display: none;">
-            <h3>Your Caption is Ready:</h3>
-            <div id="captionResult" class="result-text"></div>
-            <button id="copyBtn">Copy to Clipboard 📋</button>
+    <section class="features-section" id="features">
+        <h2 class="section-title">Designed for Next-Gen Growth</h2>
+        <div class="grid-container">
+            <div class="feature-card">
+                <h4>100% Free Access</h4>
+                <p>No subscriptions, no usage thresholds, and zero hidden payments. Built natively for independent content creators.</p>
+            </div>
+            <div class="feature-card">
+                <h4>No API Key Bottlenecks</h4>
+                <p>Runs smoothly via robust front-end parsing algorithms. Guarantees 100% uptime with instant browser results.</p>
+            </div>
+            <div class="feature-card">
+                <h4>SaaS Layout Standards</h4>
+                <p>An elegant user experience engineered for fast performance, high readability, and clean layout executions.</p>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <div class="content-section">
-        <h2>Frequently Asked Questions (FAQs)</h2>
+    <section class="faq-section" id="faqs">
+        <h2 style="text-align: center; margin-bottom: 30px;">Frequently Asked Questions</h2>
         <div class="faq-item">
-            <h4>Q1: Is this Creator Toolkit completely free to use?</h4>
-            <p>Yes! ThumbnailCreator.online is a 100% free web tool designed for digital content creators. You can generate unlimited video descriptions and social media captions without any hidden costs or subscription fees.</p>
+            <h4>How does the rich keyword integration engine function?</h4>
+            <p>Instead of spewing a basic list of isolated hashtags, our system embeds high-intent search terms seamlessly into readable human text patterns. This enhances platform SEO metrics natively without violating spam regulations.</p>
         </div>
         <div class="faq-item">
-            <h4>Q2: How does the automated caption generator work?</h4>
-            <p>Our tool uses pre-optimized algorithmic text structures specifically tailored for the algorithms of YouTube, TikTok, and Facebook. It instantly attaches trending hashtags, engaging descriptions, and interactive emojis based on the topic you input.</p>
+            <h4>Can I download the maximum available resolution for thumbnails?</h4>
+            <p>Yes. The downloader directly interfaces with the standard YouTube asset endpoint, delivering the highest file size resolution (maxresdefault.jpg) uploaded by the publisher.</p>
         </div>
-        <div class="faq-item">
-            <h4>Q3: Will using these optimized captions boost my social media views?</h4>
-            <p>While video reach depends heavily on your content quality, using targeted keywords and structured text patterns ensures search engine optimization (SEO). This helps platform algorithms accurately categorize your videos and push them to the correct audience.</p>
-        </div>
-    </div>
+    </section>
 
-    <div id="privacy" class="content-section">
-        <h2>Privacy Policy</h2>
-        <p>At ThumbnailCreator.online, the privacy of our visitors is of extreme importance to us. This privacy policy document outlines the types of personal information received and collected by our website and how it is securely handled.</p>
-        <h3>Log Files & Data Collection</h3>
-        <p>Like many other standard websites, we make use of log files. The information inside the log files includes internet protocol (IP) addresses, type of browser used, Internet Service Provider (ISP), date/time stamps, referring/exit pages, and the total number of clicks to effectively analyze trends and administer the site safely.</p>
-        <h3>Google AdSense & DoubleClick Cookie Compliance</h3>
-        <p>Google, as a third-party advertisement vendor, uses cookies to serve premium ads on our site. Google's use of advertising cookies enables it to serve targeted ads to our users based on their active visit to our site and other relevant platforms across the Internet. Users may choose to opt out of personalized advertising by managing Google ad settings anytime.</p>
-    </div>
+    <section class="faq-section" id="write-for-us" style="background: #fff; border-top: 1px solid #f1f5f9; padding-top: 40px;">
+        <h2>Write For Us (Guest Posting)</h2>
+        <p style="color: var(--text-muted); margin-top: 15px;">
+            Are you a digital marketer, content creator, or SEO expert? We accept premium guest posts and articles related to YouTube growth, video editing, social media algorithms, and digital marketing strategies.
+        </p>
+        <p style="color: var(--text-muted); margin-top: 10px;">
+            <strong>Submission Guidelines:</strong> Your content must be 100% unique, highly informative, and at least 800+ words long. We allow 1 relevant contextual backlink to your website.
+        </p>
+        <p style="margin-top: 15px; font-weight: 700; color: var(--primary);">
+            Send your pitches directly to: <a href="mailto:thumbnailcreator.online@gmail.com" style="color: var(--primary); text-decoration: underline;">thumbnailcreator.online@gmail.com</a>
+        </p>
+    </section>
+
+    <section class="faq-section" id="privacy" style="background: #fff; border-top: 1px solid #f1f5f9;">
+        <h2>Privacy Policy & System Compliance</h2>
+        <p style="color: var(--text-muted); margin-top: 15px;">ThumbnailCreator.online operates as a fully sovereign web framework. We never warehouse user keystrokes, clipboard details, or external URLs onto remote tracking nodes. Data structures resolve exclusively in the active context of your localized browser instance.</p>
+    </section>
 
     <footer>
         <p>&copy; 2026 ThumbnailCreator.online | All Rights Reserved.</p>
         <div class="footer-links">
             <a href="#privacy">Privacy Policy</a> | 
-            <a href="mailto:your-email@gmail.com">Contact Us</a>
+            <a href="#write-for-us">Write For Us</a> | 
+            <a href="mailto:thumbnailcreator.online@gmail.com">Contact Support (thumbnailcreator.online@gmail.com)</a>
         </div>
     </footer>
 
