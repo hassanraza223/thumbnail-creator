@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ThumbnailCreator - AI Thumbnail Downloader & Rich Content Generator</title>
+    <title>ThumbnailCreator - Free YouTube Thumbnail Downloader & Blog</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -12,6 +12,7 @@
             --secondary: #0f172a;
             --text-muted: #64748b;
             --bg-light: #f8fafc;
+            --border-color: #e2e8f0;
         }
 
         * {
@@ -28,13 +29,13 @@
             line-height: 1.6;
         }
 
-        /* NAVIGATION BAR */
+        /* NAVBAR */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 8%;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(12px);
             position: fixed;
             top: 0;
@@ -47,9 +48,7 @@
             font-size: 22px;
             font-weight: 800;
             color: var(--secondary);
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            text-decoration: none;
             cursor: pointer;
         }
 
@@ -72,32 +71,6 @@
 
         .nav-links a:hover { color: var(--primary); }
 
-        /* Dropdown Style */
-        .dropdown { position: relative; }
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border-radius: 12px;
-            padding: 15px;
-            width: 260px;
-            margin-top: 10px;
-            border: 1px solid #f1f5f9;
-        }
-        .dropdown:hover .dropdown-menu { display: block; }
-        .dropdown-item {
-            padding: 10px;
-            border-radius: 8px;
-            transition: 0.2s;
-            cursor: pointer;
-        }
-        .dropdown-item:hover { background: var(--bg-light); }
-        .dropdown-item h5 { font-size: 14px; color: var(--secondary); }
-        .dropdown-item p { font-size: 12px; color: var(--text-muted); }
-
         .btn-start {
             background: var(--secondary);
             color: white !important;
@@ -107,10 +80,10 @@
         }
         .btn-start:hover { background: var(--primary-dark); }
 
-        /* HERO SECTION WITH DYNAMIC WORKSPACE */
+        /* HERO SECTION */
         .hero-section {
-            padding: 150px 8% 80px 8%;
-            background: radial-gradient(100% 100% at 50% 0%, rgba(99, 102, 241, 0.08) 0%, rgba(255, 255, 255, 0) 100%);
+            padding: 160px 8% 60px 8%;
+            background: radial-gradient(100% 100% at 50% 0%, rgba(99, 102, 241, 0.06) 0%, rgba(255, 255, 255, 0) 100%);
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -129,7 +102,7 @@
         }
 
         .hero-section h1 {
-            font-size: 48px;
+            font-size: 44px;
             font-weight: 800;
             max-width: 800px;
             letter-spacing: -1px;
@@ -145,7 +118,7 @@
             margin-bottom: 40px;
         }
 
-        /* MULTI-TOOL WORKSPACE */
+        /* MAIN WORKSPACE */
         .workspace-card {
             background: white;
             border-radius: 24px;
@@ -201,7 +174,6 @@
             font-weight: 500;
             margin-bottom: 20px;
             outline: none;
-            transition: 0.2s;
         }
 
         input:focus, select:focus { border-color: var(--primary); }
@@ -220,7 +192,7 @@
         }
         .action-btn:hover { background: var(--primary-dark); }
 
-        /* OUTPUT STYLES */
+        /* OUTPUT ELEMENTS */
         .output-wrapper {
             margin-top: 25px;
             background: var(--bg-light);
@@ -251,71 +223,119 @@
             width: 100%;
         }
 
-        /* Thumbnail Preview */
-        .preview-box { display: none; text-align: center; margin-top: 20px; }
-        .preview-box img { width: 100%; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .dl-btn { display: inline-block; background: #ef4444; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 700; }
+        /* Thumbnail Preview Layout */
+        .preview-box { display: none; margin-top: 25px; background: var(--bg-light); padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0; }
+        .preview-box img { width: 100%; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: block; }
+        .dl-btn { display: block; text-align: center; background: #ef4444; color: white; padding: 14px; border-radius: 8px; text-decoration: none; font-weight: 700; }
 
-        /* STATS/FEATURES GRID */
-        .features-section {
-            padding: 60px 8%;
+        /* BLOG SECTION GRID */
+        .blog-section {
+            padding: 80px 8%;
+            background: #fff;
             text-align: center;
-            background: var(--bg-light);
         }
 
-        .section-title { font-size: 32px; font-weight: 800; margin-bottom: 40px; }
-
-        .grid-container {
+        .blog-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             max-width: 1100px;
-            margin: 0 auto;
+            margin: 40px auto 0 auto;
         }
 
-        .feature-card {
+        .blog-card {
             background: white;
-            padding: 30px;
-            border-radius: 20px;
+            border-radius: 16px;
             border: 1px solid #f1f5f9;
             text-align: left;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
             transition: 0.3s;
         }
-        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.03); }
-        .feature-card h4 { font-size: 18px; margin-bottom: 10px; color: var(--secondary); }
-        .feature-card p { font-size: 14px; color: var(--text-muted); }
 
-        /* FAQs */
-        .faq-section { padding: 80px 8%; max-width: 800px; margin: 0 auto; }
+        .blog-card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,0.05); }
+        
+        .blog-meta {
+            padding: 20px 20px 10px 20px;
+            font-size: 12px;
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .blog-card h3 {
+            padding: 0 20px 10px 20px;
+            font-size: 18px;
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        .blog-card p {
+            padding: 0 20px 20px 20px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* GENERIC INTERFACE LAYOUTS */
+        .features-section { padding: 60px 8%; text-align: center; background: var(--bg-light); }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1100px; margin: 40px auto 0 auto; }
+        .feature-card { background: white; padding: 30px; border-radius: 20px; border: 1px solid #f1f5f9; text-align: left; }
+        .faq-section { padding: 60px 8%; max-width: 800px; margin: 0 auto; }
         .faq-item { border-bottom: 1px solid #e2e8f0; padding: 20px 0; }
-        .faq-item h4 { font-size: 18px; margin-bottom: 8px; }
-        .faq-item p { color: var(--text-muted); font-size: 15px; }
 
-        /* FOOTER */
-        footer { background: var(--secondary); color: white; padding: 40px 8%; text-align: center; font-size: 14px; }
-        .footer-links { margin-top: 15px; }
-        .footer-links a { color: #94a3b8; text-decoration: none; margin: 0 10px; }
-        .footer-links a:hover { color: white; }
+        /* CORPORATE FOOTER */
+        .premium-footer {
+            background: #0b0f19;
+            color: #94a3b8;
+            padding: 70px 8% 30px 8%;
+            border-top: 1px solid #1e293b;
+            font-size: 14px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 50px auto;
+        }
+
+        .footer-brand h3 { color: #fff; font-size: 20px; margin-bottom: 15px; font-weight: 800; }
+        .footer-brand h3 span { color: var(--primary); }
+        .footer-column h4 { color: #fff; font-size: 15px; margin-bottom: 20px; text-transform: uppercase; }
+        .footer-column ul { list-style: none; }
+        .footer-column ul li { margin-bottom: 12px; }
+        .footer-column ul li a { color: #94a3b8; text-decoration: none; }
+        .footer-column ul li a:hover { color: #fff; }
+
+        .footer-bottom {
+            border-top: 1px solid #1e293b;
+            padding-top: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-legal-links a { color: #64748b; text-decoration: none; margin-left: 20px; }
+        .footer-legal-links a:hover { color: #fff; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-section h1 { font-size: 32px; }
+            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+        }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="logo" onclick="window.location.reload()">Thumbnail<span>Creator</span></div>
+        <a href="#" class="logo">Thumbnail<span>Creator</span></a>
         <ul class="nav-links">
-            <li class="dropdown">
-                <a href="#features">Features</a>
-                <div class="dropdown-menu">
-                    <div class="dropdown-item">
-                        <h5>Thumbnail Downloader</h5>
-                        <p>Extract HD YouTube thumbnails instantly.</p>
-                    </div>
-                    <div class="dropdown-item">
-                        <h5>AI Keyword Content</h5>
-                        <p>Generate rich keyword descriptions.</p>
-                    </div>
-                </div>
-            </li>
+            <li><a href="#workspace">Tools</a></li>
+            <li><a href="#blog">Blog</a></li>
             <li><a href="#features">Pricing</a></li>
             <li><a href="#faqs">Help</a></li>
             <li><a href="#workspace" class="btn-start">Get Started Free</a></li>
@@ -324,24 +344,37 @@
 
     <header class="hero-section">
         <div class="hero-badge">Free All-In-One Creator Suite</div>
-        <h1>Stop Losing Views to Bad Thumbnails & Captions</h1>
+        <h1>Stop Losing Views to Bad <span>Thumbnails & Captions</span></h1>
         <p class="hero-p">Extract raw high-definition thumbnails and instantly write search-optimized, keyword-rich profiles and descriptions.</p>
 
         <div class="workspace-card" id="workspace">
             <div class="tabs-header">
-                <button class="tab-trigger active" onclick="openTab(event, 'contentGenerator')">Rich Keyword Content</button>
-                <button class="tab-trigger" onclick="openTab(event, 'thumbExtractor')">Thumbnail Downloader</button>
+                <button class="tab-trigger active" onclick="openTab(event, 'thumbExtractor')">Thumbnail Downloader</button>
+                <button class="tab-trigger" onclick="openTab(event, 'contentGenerator')">Rich Keyword Content</button>
             </div>
 
-            <div id="contentGenerator" class="tool-content active">
+            <div id="thumbExtractor" class="tool-content active">
+                <label>Paste YouTube Video Link:</label>
+                <input type="text" id="ytUrlInput" placeholder="https://www.youtube.com/watch?v=... or https://youtu.be/...">
+
+                <button class="action-btn" id="fetchThumbBtn">Fetch Thumbnail Image</button>
+
+                <div class="preview-box" id="previewContainer">
+                    <label>Thumbnail Preview:</label>
+                    <img id="previewImg" src="" alt="YouTube Asset Asset">
+                    <a id="downloadAction" class="dl-btn" href="#" target="_blank" download="thumbnail.jpg">Download HD Quality</a>
+                </div>
+            </div>
+
+            <div id="contentGenerator" class="tool-content">
                 <label>Enter Topic / Focus Area:</label>
-                <input type="text" id="topicInput" placeholder="e.g., Budget Tech Setup, Creative Fashion Bio...">
+                <input type="text" id="topicInput" placeholder="e.g., Budget Tech Setup...">
 
                 <label>Select Optimization Target:</label>
                 <select id="strategySelect">
                     <option value="insta_rich">Instagram Rich Keyword Description</option>
                     <option value="tiktok_rich">TikTok High-Search SEO Caption</option>
-                    <option value="profile_bio">High-Keyword Authority Bio (Insta/TikTok)</option>
+                    <option value="profile_bio">High-Keyword Authority Bio</option>
                     <option value="yt_desc">YouTube Contextual Rich Description</option>
                 </select>
 
@@ -353,22 +386,31 @@
                     <button class="copy-btn" id="copyTextBtn">Copy to Clipboard</button>
                 </div>
             </div>
-
-            <div id="thumbExtractor" class="tool-content">
-                <label>Paste YouTube Video Link:</label>
-                <input type="text" id="ytUrlInput" placeholder="https://www.youtube.com/watch?v=... ya https://youtu.be/...">
-
-                <button class="action-btn" id="fetchThumbBtn">Fetch Thumbnail Image</button>
-
-                <div class="preview-box" id="previewContainer">
-                    <label>Thumbnail Preview:</label>
-                    <img id="previewImg" src="" alt="Thumbnail File">
-                    <br>
-                    <a id="downloadAction" class="dl-btn" href="" target="_blank" download="thumbnail.jpg">Download HD Quality</a>
-                </div>
-            </div>
         </div>
     </header>
+
+    <section class="blog-section" id="blog">
+        <h2 style="font-size: 32px; font-weight: 800;">Latest from the Blog</h2>
+        <p style="color: var(--text-muted); margin-top: 10px;">Tips, guides, and insights for digital content creators.</p>
+        
+        <div class="blog-container">
+            <div class="blog-card">
+                <div class="blog-meta">SEO Strategy - May 2026</div>
+                <h3>How to Optimize YouTube Descriptions for Higher CTR</h3>
+                <p>Discover how embedding relevant long-tail search parameters naturally inside your first three description sentences can compound video traffic safely.</p>
+            </div>
+            <div class="blog-card">
+                <div class="blog-meta">Graphic Tips - May 2026</div>
+                <h3>The Psychology of High-Click Thumbnail Composition</h3>
+                <p>A systematic breakdown tracking how human facial expression clarity scores combined with high-contrast color nodes impact platform recommendation algorithms.</p>
+            </div>
+            <div class="blog-card">
+                <div class="blog-meta">Growth Hacks - May 2026</div>
+                <h3>Mastering Platform Discoverability Mechanics</h3>
+                <p>Learn the exact operational frameworks required to format multi-channel asset distribution pipelines without tripping duplicate metadata filters.</p>
+            </div>
+        </div>
+    </section>
 
     <section class="features-section" id="features">
         <h2 class="section-title">Designed for Next-Gen Growth</h2>
@@ -392,7 +434,7 @@
         <h2 style="text-align: center; margin-bottom: 30px;">Frequently Asked Questions</h2>
         <div class="faq-item">
             <h4>How does the rich keyword integration engine function?</h4>
-            <p>Instead of spewing a basic list of isolated hashtags, our system embeds high-intent search terms seamlessly into readable human text patterns. This enhances platform SEO metrics natively without violating spam regulations.</p>
+            <p>Instead of spewing a basic list of isolated hashtags, our system embeds high-intent search terms seamlessly into readable human text patterns.</p>
         </div>
         <div class="faq-item">
             <h4>Can I download the maximum available resolution for thumbnails?</h4>
@@ -400,14 +442,9 @@
         </div>
     </section>
 
-    <section class="faq-section" id="write-for-us" style="background: #fff; border-top: 1px solid #f1f5f9; padding-top: 40px;">
+    <section class="faq-section" id="write-for-us" style="background: #fff; border-top: 1px solid #f1f5f9;">
         <h2>Write For Us (Guest Posting)</h2>
-        <p style="color: var(--text-muted); margin-top: 15px;">
-            Are you a digital marketer, content creator, or SEO expert? We accept premium guest posts and articles related to YouTube growth, video editing, social media algorithms, and digital marketing strategies.
-        </p>
-        <p style="color: var(--text-muted); margin-top: 10px;">
-            <strong>Submission Guidelines:</strong> Your content must be 100% unique, highly informative, and at least 800+ words long. We allow 1 relevant contextual backlink to your website.
-        </p>
+        <p style="color: var(--text-muted); margin-top: 15px;">We accept premium guest posts and articles related to YouTube growth, video editing, social media algorithms, and digital marketing strategies.</p>
         <p style="margin-top: 15px; font-weight: 700; color: var(--primary);">
             Send your pitches directly to: <a href="mailto:thumbnailcreator.online@gmail.com" style="color: var(--primary); text-decoration: underline;">thumbnailcreator.online@gmail.com</a>
         </p>
@@ -415,18 +452,130 @@
 
     <section class="faq-section" id="privacy" style="background: #fff; border-top: 1px solid #f1f5f9;">
         <h2>Privacy Policy & System Compliance</h2>
-        <p style="color: var(--text-muted); margin-top: 15px;">ThumbnailCreator.online operates as a fully sovereign web framework. We never warehouse user keystrokes, clipboard details, or external URLs onto remote tracking nodes. Data structures resolve exclusively in the active context of your localized browser instance.</p>
+        <p style="color: var(--text-muted); margin-top: 15px;">Data structures resolve exclusively in the active context of your localized browser instance. We do not store or capture any submitted data layers.</p>
     </section>
 
-    <footer>
-        <p>&copy; 2026 ThumbnailCreator.online | All Rights Reserved.</p>
-        <div class="footer-links">
-            <a href="#privacy">Privacy Policy</a> | 
-            <a href="#write-for-us">Write For Us</a> | 
-            <a href="mailto:thumbnailcreator.online@gmail.com">Contact Support (thumbnailcreator.online@gmail.com)</a>
+    <footer class="premium-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Thumbnail<span>Creator</span></h3>
+                <p>High performance utility web application engineered for digital platform publishers, content developers, and media planners.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#workspace">Home Workspace</a></li>
+                    <li><a href="#features">Platform Pricing</a></li>
+                    <li><a href="#blog">Official Blog</a></li>
+                    <li><a href="#faqs">Help Center</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Utility Tools</h4>
+                <ul>
+                    <li><a href="#workspace">Thumbnail Grabber</a></li>
+                    <li><a href="#workspace">Keyword Description Builder</a></li>
+                    <li><a href="#write-for-us">Guest Contributions</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact Vector</h4>
+                <ul>
+                    <li><a href="mailto:thumbnailcreator.online@gmail.com">thumbnailcreator.online@gmail.com</a></li>
+                    <li><a href="#privacy">System Compliance Node</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ThumbnailCreator.online | All Rights Reserved.</p>
+            <div class="footer-legal-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#write-for-us">Write For Us</a>
+                <a href="mailto:thumbnailcreator.online@gmail.com">Support Interface</a>
+            </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        function openTab(evt, tabName) {
+            var contents = document.querySelectorAll(".tool-content");
+            contents.forEach(function(content) { content.style.display = "none"; });
+
+            var triggers = document.querySelectorAll(".tab-trigger");
+            triggers.forEach(function(trigger) { trigger.classList.remove("active"); });
+
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.classList.add("active");
+        }
+
+        // THUMBNAIL PARSING PROCESS
+        document.getElementById('fetchThumbBtn').addEventListener('click', function() {
+            var rawUrl = document.getElementById('ytUrlInput').value.trim();
+            var container = document.getElementById('previewContainer');
+            var imageDisplay = document.getElementById('previewImg');
+            var actionLink = document.getElementById('downloadAction');
+
+            if (rawUrl === "") {
+                alert("Please enter a YouTube link.");
+                return;
+            }
+
+            var parsedId = "";
+            if (rawUrl.includes("v=")) {
+                parsedId = rawUrl.split('v=')[1].split('&')[0];
+            } else if (rawUrl.includes("youtu.be/")) {
+                parsedId = rawUrl.split('youtu.be/')[1].split('?')[0];
+            } else if (rawUrl.includes("shorts/")) {
+                parsedId = rawUrl.split('shorts/')[1].split('?')[0];
+            } else if (rawUrl.includes("embed/")) {
+                parsedId = rawUrl.split('embed/')[1].split('?')[0];
+            } else {
+                alert("Please paste a valid standard YouTube video URL.");
+                return;
+            }
+
+            if (parsedId) {
+                var targetThumbnail = "https://img.youtube.com/vi/" + parsedId + "/maxresdefault.jpg";
+                imageDisplay.src = targetThumbnail;
+                actionLink.href = targetThumbnail;
+                container.style.display = "block";
+            }
+        });
+
+        // TEXT ENGINE CONTEXT SYSTEM
+        document.getElementById('generateBtn').addEventListener('click', function() {
+            var topic = document.getElementById('topicInput').value.trim();
+            var strategy = document.getElementById('strategySelect').value;
+            var container = document.getElementById('outputContainer');
+            var display = document.getElementById('outputResult');
+
+            if (topic === "") {
+                alert("Please enter a target topic asset.");
+                return;
+            }
+
+            var cleanTag = topic.replace(/\s+/g, '');
+            var output = "";
+
+            if (strategy === "insta_rich") {
+                output = "INSTAGRAM OPTIMIZED CONTENT LAYOUT:\n\nDeep dive analysis focusing specifically on " + topic + ". Success across platform ecosystems requires constant execution and high consistency patterns.\n\n#\n" + cleanTag + " #creators #instagramseo #growthstrategy";
+            } else if (strategy === "tiktok_rich") {
+                output = "TIKTOK REVENUE SEO CAPTION:\n\nPOV: Working consistently on expanding reach for " + topic + " in 2026. Watch the complete workflow resolution dynamic.\n\n#" + cleanTag + " #fyp #trending #algorithm";
+            } else if (strategy === "profile_bio") {
+                output = "HIGH VALUE BIO LAYOUT:\n\nOptimizing workflows for " + topic + "\nProviding technical infrastructure and scaling options daily\nConnect below\n[YourLinkHere]";
+            } else if (strategy === "yt_desc") {
+                output = "YOUTUBE SEO DESCRIPTION COMPLIANCE:\n\nMasterclass Tutorial Guide regarding: " + topic + ".\n\nTimestamps:\n0:00 - Initial Strategic Setup\n4:15 - Core Workflow Breakdown\n\nSearch Association Matrix:\n" + topic + ", tutorial, scaling systems, developer guides";
+            }
+
+            display.innerText = output;
+            container.style.display = "block";
+        });
+
+        document.getElementById('copyTextBtn').addEventListener('click', function() {
+            var text = document.getElementById('outputResult').innerText;
+            navigator.clipboard.writeText(text);
+            alert("Copied to clipboard successfully.");
+        });
+    </script>
 </body>
 </html>
