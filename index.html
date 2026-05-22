@@ -228,7 +228,7 @@
         .preview-box img { width: 100%; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: block; }
         .dl-btn { display: block; text-align: center; background: #ef4444; color: white; padding: 14px; border-radius: 8px; text-decoration: none; font-weight: 700; }
 
-        /* BLOG SECTION GRID */
+        /* BLOG SECTION GRID WITH LINK WRAPPERS */
         .blog-section {
             padding: 80px 8%;
             background: #fff;
@@ -243,6 +243,12 @@
             margin: 40px auto 0 auto;
         }
 
+        .blog-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
         .blog-card {
             background: white;
             border-radius: 16px;
@@ -251,6 +257,7 @@
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0,0,0,0.02);
             transition: 0.3s;
+            height: 100%;
         }
 
         .blog-card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,0.05); }
@@ -268,6 +275,7 @@
             font-size: 18px;
             color: var(--secondary);
             font-weight: 700;
+            line-height: 1.4;
         }
 
         .blog-card p {
@@ -394,21 +402,27 @@
         <p style="color: var(--text-muted); margin-top: 10px;">Tips, guides, and insights for digital content creators.</p>
         
         <div class="blog-container">
-            <div class="blog-card">
-                <div class="blog-meta">SEO Strategy - May 2026</div>
-                <h3>How to Optimize YouTube Descriptions for Higher CTR</h3>
-                <p>Discover how embedding relevant long-tail search parameters naturally inside your first three description sentences can compound video traffic safely.</p>
-            </div>
-            <div class="blog-card">
-                <div class="blog-meta">Graphic Tips - May 2026</div>
-                <h3>The Psychology of High-Click Thumbnail Composition</h3>
-                <p>A systematic breakdown tracking how human facial expression clarity scores combined with high-contrast color nodes impact platform recommendation algorithms.</p>
-            </div>
-            <div class="blog-card">
-                <div class="blog-meta">Growth Hacks - May 2026</div>
-                <h3>Mastering Platform Discoverability Mechanics</h3>
-                <p>Learn the exact operational frameworks required to format multi-channel asset distribution pipelines without tripping duplicate metadata filters.</p>
-            </div>
+            <a href="blog-post-1.html" class="blog-link">
+                <div class="blog-card">
+                    <div class="blog-meta">SEO Strategy - May 2026</div>
+                    <h3>How to Optimize YouTube Descriptions for Higher CTR</h3>
+                    <p>Discover how embedding relevant long-tail search parameters naturally inside your first three description sentences can compound video traffic safely.</p>
+                </div>
+            </a>
+            <a href="blog-post-2.html" class="blog-link">
+                <div class="blog-card">
+                    <div class="blog-meta">Graphic Tips - May 2026</div>
+                    <h3>The Psychology of High-Click Thumbnail Composition</h3>
+                    <p>A systematic breakdown tracking how human facial expression clarity scores combined with high-contrast color nodes impact platform recommendation algorithms.</p>
+                </div>
+            </a>
+            <a href="blog-post-3.html" class="blog-link">
+                <div class="blog-card">
+                    <div class="blog-meta">Growth Hacks - May 2026</div>
+                    <h3>Mastering Platform Discoverability Mechanics</h3>
+                    <p>Learn the exact operational frameworks required to format multi-channel asset distribution pipelines without tripping duplicate metadata filters.</p>
+                </div>
+            </a>
         </div>
     </section>
 
