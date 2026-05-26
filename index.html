@@ -2,21 +2,16 @@
 <html lang="en">
 <head>
     <meta name="google-site-verification" content="y4bnPW44Du7tcy0JpEqdloVdp8GzwT2hCdz8RQdJK28" />
-    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-XXXXXXXXXX');
     </script>
-
     <link rel="canonical" href="https://thumbnailcreator.online/" />
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>ThumbnailCreator – AI Thumbnails, Bio & Hashtags Tool</title>
     <meta name="description" content="ThumbnailCreator creates eye-catching YouTube thumbnails and writes TikTok, Instagram and Facebook bios, captions & highly ranking hashtags using AI.">
     
@@ -26,35 +21,7 @@
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "ThumbnailCreator",
-        "url": "https://thumbnailcreator.online/",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://thumbnailcreator.online/?q={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "ThumbnailCreator Suite",
-        "operatingSystem": "All",
-        "applicationCategory": "MultimediaApplication",
-        "browserRequirements": "Requires HTML5",
-        "offers": {
-          "@type": "Offer",
-          "price": "0.00",
-          "priceCurrency": "USD"
-        }
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "AI Thumbnail & Content Optimization",
-        "provider": {
-          "@type": "Organization",
-          "name": "ThumbnailCreator"
-        },
-        "serviceType": "Digital Content Creation Tools"
+        "url": "https://thumbnailcreator.online/"
       },
       {
         "@context": "https://schema.org",
@@ -62,35 +29,13 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "How do I create my thumbnail?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "To create a custom thumbnail quickly and easily, use a free online design tool like Canva or Adobe Express. These platforms offer pre-made templates and easy-to-use background removers to help your design stand out."
-            }
+            "name": "Is this tool totally free to use?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes! ThumbnailCreator provides absolute zero-cost extraction and generation pipelines for all web scaling profiles." }
           },
           {
             "@type": "Question",
-            "name": "What is a thumbnail?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "A thumbnail is a reduced-size version of a picture or video, used to help in recognizing and organizing them, serving the same role for images as a normal text index does for words."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is a thumbnail an image?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "A thumbnail is a small image that represents a larger version of the same image or video. You might have seen them on websites as previews, allowing you to get a quick glimpse of the content without viewing the full-sized version."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What software is best for thumbnails?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The top software options for creating thumbnails on a PC include Canva (featuring a user-friendly drag-and-drop interface, templates, and fonts), Adobe Express, Snappa, Fotor, and PicMonkey."
-            }
+            "name": "Do I need technical skills?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Not at all. The interface operates completely via fluid visual modules and automated conversion strategies." }
           }
         ]
       }
@@ -108,331 +53,80 @@
             --border-color: #e2e8f0;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        body {
-            background-color: #fff;
-            color: var(--secondary);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: #fff; color: var(--secondary); overflow-x: hidden; line-height: 1.6; }
 
         /* NAVBAR */
         .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(12px);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            border-bottom: 1px solid #f1f5f9;
+            display: flex; justify-content: space-between; align-items: center; padding: 20px 8%;
+            background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); position: fixed; top: 0; width: 100%; z-index: 1000; border-bottom: 1px solid #f1f5f9;
         }
-
-        .logo {
-            font-size: 22px;
-            font-weight: 800;
-            color: var(--secondary);
-            text-decoration: none;
-            cursor: pointer;
-        }
-
+        .logo { font-size: 22px; font-weight: 800; color: var(--secondary); text-decoration: none; }
         .logo span { color: var(--primary); }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--secondary);
-            font-weight: 600;
-            font-size: 15px;
-            transition: 0.2s;
-        }
-
+        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--secondary); font-weight: 600; font-size: 15px; transition: 0.2s; }
         .nav-links a:hover { color: var(--primary); }
-
-        .btn-start {
-            background: var(--secondary);
-            color: white !important;
-            padding: 10px 20px;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
+        .btn-start { background: var(--secondary); color: white !important; padding: 10px 20px; border-radius: 8px; transition: 0.3s; }
         .btn-start:hover { background: var(--primary-dark); }
 
-        /* HERO SECTION */
-        .hero-section {
-            padding: 160px 8% 60px 8%;
-            background: radial-gradient(100% 100% at 50% 0%, rgba(99, 102, 241, 0.06) 0%, rgba(255, 255, 255, 0) 100%);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .hero-badge {
-            background: rgba(99, 102, 241, 0.1);
-            color: var(--primary);
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 13px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            display: inline-block;
-        }
-
-        .hero-section h1 {
-            font-size: 44px;
-            font-weight: 800;
-            max-width: 800px;
-            letter-spacing: -1px;
-            margin-bottom: 15px;
-        }
-
+        /* HERO & WORKSPACE */
+        .hero-section { padding: 160px 8% 60px 8%; background: radial-gradient(100% 100% at 50% 0%, rgba(99, 102, 241, 0.06) 0%, rgba(255, 255, 255, 0) 100%); text-align: center; display: flex; flex-direction: column; align-items: center; }
+        .hero-badge { background: rgba(99, 102, 241, 0.1); color: var(--primary); padding: 6px 16px; border-radius: 50px; font-size: 13px; font-weight: 700; margin-bottom: 20px; }
+        .hero-section h1 { font-size: 44px; font-weight: 800; max-width: 800px; letter-spacing: -1px; margin-bottom: 15px; }
         .hero-section h1 span { color: var(--primary); }
-
-        .hero-p {
-            color: var(--text-muted);
-            font-size: 18px;
-            max-width: 600px;
-            margin-bottom: 40px;
-        }
-
-        /* MAIN WORKSPACE */
-        .workspace-card {
-            background: white;
-            border-radius: 24px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
-            border: 1px solid #f1f5f9;
-            width: 100%;
-            max-width: 650px;
-            padding: 35px;
-            text-align: left;
-        }
-
-        .tabs-header {
-            display: flex;
-            gap: 15px;
-            border-bottom: 2px solid #f1f5f9;
-            margin-bottom: 25px;
-        }
-
-        .tab-trigger {
-            padding: 12px 20px;
-            background: none;
-            border: none;
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--text-muted);
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-            transition: 0.2s;
-        }
-
-        .tab-trigger.active {
-            color: var(--primary);
-            border-bottom-color: var(--primary);
-        }
-
+        .hero-p { color: var(--text-muted); font-size: 18px; max-width: 600px; margin-bottom: 40px; }
+        
+        .workspace-card { background: white; border-radius: 24px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05); border: 1px solid #f1f5f9; width: 100%; max-width: 650px; padding: 35px; text-align: left; }
+        .tabs-header { display: flex; gap: 15px; border-bottom: 2px solid #f1f5f9; margin-bottom: 25px; }
+        .tab-trigger { padding: 12px 20px; background: none; border: none; font-size: 16px; font-weight: 700; color: var(--text-muted); cursor: pointer; border-bottom: 3px solid transparent; }
+        .tab-trigger.active { color: var(--primary); border-bottom-color: var(--primary); }
         .tool-content { display: none; }
         .tool-content.active { display: block; }
-
-        label {
-            display: block;
-            font-weight: 700;
-            font-size: 14px;
-            margin-bottom: 8px;
-            color: var(--secondary);
-        }
-
-        input, select {
-            width: 100%;
-            padding: 14px;
-            border-radius: 12px;
-            border: 2px solid #e2e8f0;
-            font-size: 15px;
-            font-weight: 500;
-            margin-bottom: 20px;
-            outline: none;
-        }
-
-        input:focus, select:focus { border-color: var(--primary); }
-
-        .action-btn {
-            width: 100%;
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 16px;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .action-btn:hover { background: var(--primary-dark); }
-
-        /* OUTPUT ELEMENTS */
-        .output-wrapper {
-            margin-top: 25px;
-            background: var(--bg-light);
-            padding: 20px;
-            border-radius: 16px;
-            border: 1px solid #e2e8f0;
-            display: none;
-        }
-
-        .output-display {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid #e2e8f0;
-            white-space: pre-line;
-            font-size: 15px;
-            margin-bottom: 15px;
-        }
-
-        .copy-btn {
-            background: #10b981;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 700;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        /* Thumbnail Preview Layout */
-        .preview-box { display: none; margin-top: 25px; background: var(--bg-light); padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0; }
-        .preview-box img { width: 100%; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: block; }
-        .dl-btn { display: block; text-align: center; background: #ef4444; color: white; padding: 14px; border-radius: 8px; text-decoration: none; font-weight: 700; }
-
-        /* GRID LAYOUT FOR WHY CHOOSE US AND BLOGS */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            max-width: 1100px;
-            margin: 0 auto;
-            text-align: left;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 25px;
-            border-radius: 16px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.01);
-        }
-
-        .feature-card h4 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--secondary);
-        }
-
-        .feature-card p {
-            font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        /* BLOG SECTION GRID WITH LINK WRAPPERS */
-        .blog-section {
-            padding: 80px 8%;
-            background: #fff;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .blog-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1100px;
-            margin: 40px auto 0 auto;
-        }
-
-        .blog-link {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        .blog-card {
-            background: white;
-            border-radius: 16px;
-            border: 1px solid #f1f5f9;
-            text-align: left;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-            transition: 0.3s;
-            height: 100%;
-        }
-
-        .blog-card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,0.05); }
+        label { display: block; font-weight: 700; font-size: 14px; margin-bottom: 8px; }
+        input, select { width: 100%; padding: 14px; border-radius: 12px; border: 2px solid #e2e8f0; font-size: 15px; margin-bottom: 20px; outline: none; }
+        .action-btn { width: 100%; background: var(--primary); color: white; border: none; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; }
         
-        .blog-meta {
-            padding: 20px 20px 10px 20px;
-            font-size: 12px;
-            color: var(--primary);
-            font-weight: 700;
-            text-transform: uppercase;
-        }
+        .output-wrapper, .preview-box { margin-top: 25px; background: var(--bg-light); padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0; display: none; }
+        .output-display { background: white; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0; white-space: pre-line; margin-bottom: 15px; }
+        .preview-box img { width: 100%; border-radius: 12px; margin-bottom: 15px; }
+        .dl-btn, .copy-btn { display: block; text-align: center; background: #ef4444; color: white; padding: 14px; border-radius: 8px; text-decoration: none; font-weight: 700; border: none; width: 100%; cursor: pointer; }
+        .copy-btn { background: #10b981; }
 
-        .blog-card h3 {
-            padding: 0 20px 10px 20px;
-            font-size: 18px;
-            color: var(--secondary);
-            font-weight: 700;
-            line-height: 1.4;
-        }
+        /* TRUST / VALUE CARDS */
+        .value-section { padding: 60px 8%; text-align: center; background: #fff; }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1100px; margin: 40px auto 0 auto; }
+        .feature-card { background: white; padding: 30px; border-radius: 20px; border: 1px solid #f1f5f9; text-align: left; box-shadow: 0 4px 12px rgba(0,0,0,0.01); }
+        .feature-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+        .feature-card p { font-size: 14px; color: var(--text-muted); }
 
-        .blog-card p {
-            padding: 0 20px 20px 20px;
-            font-size: 14px;
-            color: var(--text-muted);
-        }
+        /* REVIEWS / CREATORS TRUST GRID */
+        .reviews-section { padding: 80px 8%; background: var(--bg-light); text-align: center; }
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; max-width: 1100px; margin: 40px auto 0 auto; }
+        .review-card { background: #fff; padding: 25px; border-radius: 16px; border: 1px solid #e2e8f0; text-align: left; }
+        .stars { color: #f59e0b; margin-bottom: 10px; font-size: 16px; }
+        .review-card p { font-size: 14px; color: var(--text-muted); margin-bottom: 15px; }
+        .reviewer-info { font-weight: 700; font-size: 14px; color: var(--secondary); }
+        .reviewer-info span { font-weight: 500; color: var(--primary); font-size: 12px; display: block; }
 
-        /* GENERIC INTERFACE LAYOUTS */
-        .features-section { padding: 60px 8%; text-align: center; background: var(--bg-light); border-bottom: 1px solid var(--border-color); }
-        .faq-section { padding: 80px 8%; max-width: 800px; margin: 0 auto; text-align: center; }
-        .faq-item { border-bottom: 1px solid #e2e8f0; padding: 20px 0; text-align: left; }
-        .faq-item h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--secondary); }
-        .faq-item p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+        /* ACCORDION FAQS */
+        .faq-section { padding: 80px 8%; max-width: 800px; margin: 0 auto; }
+        .accordion-item { border-bottom: 1px solid #e2e8f0; padding: 15px 0; }
+        .accordion-header { width: 100%; background: none; border: none; text-align: left; font-size: 16px; font-weight: 700; color: var(--secondary); display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 10px 0; }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; color: var(--text-muted); font-size: 14px; padding-right: 20px; }
+
+        /* BLOG MATRIX */
+        .blog-section { padding: 80px 8%; background: #fff; text-align: center; border-top: 1px solid #f1f5f9; }
+        .blog-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1100px; margin: 40px auto 0 auto; }
+        .blog-link { text-decoration: none; color: inherit; display: block; }
+        .blog-card { background: white; border-radius: 16px; border: 1px solid #f1f5f9; text-align: left; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.02); transition: 0.3s; height: 100%; }
+        .blog-card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,0.05); }
+        .blog-meta { padding: 20px 20px 10px 20px; font-size: 12px; color: var(--primary); font-weight: 700; text-transform: uppercase; }
+        .blog-card h3 { padding: 0 20px 10px 20px; font-size: 18px; color: var(--secondary); font-weight: 700; }
+        .blog-card p { padding: 0 20px 20px 20px; font-size: 14px; color: var(--text-muted); }
 
         /* CORPORATE FOOTER */
-        .premium-footer {
-            background: #0b0f19;
-            color: #94a3b8;
-            padding: 70px 8% 30px 8%;
-            border-top: 1px solid #1e293b;
-            font-size: 14px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto 50px auto;
-        }
-
+        .premium-footer { background: #0b0f19; color: #94a3b8; padding: 70px 8% 30px 8%; border-top: 1px solid #1e293b; font-size: 14px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto 50px auto; }
         .footer-brand h3 { color: #fff; font-size: 20px; margin-bottom: 15px; font-weight: 800; }
         .footer-brand h3 span { color: var(--primary); }
         .footer-column h4 { color: #fff; font-size: 15px; margin-bottom: 20px; text-transform: uppercase; }
@@ -440,26 +134,11 @@
         .footer-column ul li { margin-bottom: 12px; }
         .footer-column ul li a { color: #94a3b8; text-decoration: none; }
         .footer-column ul li a:hover { color: #fff; }
-
-        .footer-bottom {
-            border-top: 1px solid #1e293b;
-            padding-top: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
+        .footer-bottom { border-top: 1px solid #1e293b; padding-top: 30px; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
         .footer-legal-links a { color: #64748b; text-decoration: none; margin-left: 20px; }
         .footer-legal-links a:hover { color: #fff; }
 
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero-section h1 { font-size: 32px; }
-            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
-        }
+        @media (max-width: 768px) { .nav-links { display: none; } .hero-section h1 { font-size: 32px; } .footer-bottom { flex-direction: column; gap: 20px; text-align: center; } }
     </style>
 </head>
 <body>
@@ -470,8 +149,8 @@
             <li><a href="#workspace">Tools</a></li>
             <li><a href="#why-choose">Why Choose Us</a></li>
             <li><a href="#blog">Blog</a></li>
-            <li><a href="about-us.html">About Us</a></li>
-            <li><a href="contact-us.html">Contact Us</a></li>
+            <li><a href="api-docs.html" style="color: var(--primary); font-weight: 700;">API</a></li>
+            <li><a href="about-us.html">About</a></li>
             <li><a href="#workspace" class="btn-start">Get Started Free</a></li>
         </ul>
     </nav>
@@ -489,13 +168,12 @@
 
             <div id="thumbExtractor" class="tool-content active">
                 <label>Paste YouTube Video Link:</label>
-                <input type="text" id="ytUrlInput" placeholder="https://www.youtube.com/watch?v=... or https://youtu.be/...">
-
+                <input type="text" id="ytUrlInput" placeholder="https://www.youtube.com/watch?v=...">
                 <button class="action-btn" id="fetchThumbBtn">Fetch Thumbnail Image</button>
 
                 <div class="preview-box" id="previewContainer">
                     <label>Thumbnail Preview:</label>
-                    <img id="previewImg" src="" alt="YouTube Thumbnail Preview">
+                    <img id="previewImg" src="" alt="YouTube Preview">
                     <a id="downloadAction" class="dl-btn" href="#" target="_blank" download="thumbnail.jpg">Download HD Quality</a>
                 </div>
             </div>
@@ -503,7 +181,6 @@
             <div id="contentGenerator" class="tool-content">
                 <label>Enter Topic / Focus Area:</label>
                 <input type="text" id="topicInput" placeholder="e.g., Budget Tech Setup...">
-
                 <label>Select Optimization Target:</label>
                 <select id="strategySelect">
                     <option value="insta_rich">Instagram Rich Keyword Description</option>
@@ -511,7 +188,6 @@
                     <option value="profile_bio">High-Keyword Authority Bio</option>
                     <option value="yt_desc">YouTube Contextual Rich Description</option>
                 </select>
-
                 <button class="action-btn" id="generateBtn">Generate Optimized Layout</button>
 
                 <div class="output-wrapper" id="outputContainer">
@@ -523,227 +199,141 @@
         </div>
     </header>
 
-    <section class="why-choose-section" id="why-choose" style="padding: 80px 8%; background: var(--bg-light); text-align: center; border-bottom: 1px solid var(--border-color);">
-        <h2 style="font-size: 32px; font-weight: 800; letter-spacing: -1px; color: var(--secondary);">Why Choose ThumbnailCreator?</h2>
-        <p style="color: var(--text-muted); max-width: 750px; margin: 15px auto 45px auto; font-size: 16px; line-height: 1.7;">
-            ThumbnailCreator helps creators make eye-catching graphics and generate social media bios, captions, and highly ranking hashtags in seconds using AI. Our premium youtube thumbnail downloader online tool is fast, easy to use, mobile friendly, and designed for YouTubers, TikTok creators, Instagram pages, and Facebook marketers who want better engagement and professional content without design skills.
-        </p>
-        
+    <section class="value-section" id="why-choose" style="background: var(--bg-light);">
+        <h2 style="font-size: 32px; font-weight: 800;">Why Choose ThumbnailCreator?</h2>
+        <p style="color: var(--text-muted); max-width: 750px; margin: 15px auto;">ThumbnailCreator helps creators make eye-catching graphics and generate social media bios, captions, and highly ranking hashtags in seconds using AI.</p>
         <div class="grid-container">
-            
             <div class="feature-card">
-                <h4>Fast and AI-Powered</h4>
-                <p>Generate highly ranking metadata sets, target captions, and extracted imagery assets in seconds without internal system latencies.</p>
+                <h4>Low CTR vs 10-15% Upper Views</h4>
+                <p>Bypass bad click-through limits completely. Compounding visual nodes ensures that platform distribution algorithms favor your stream models safely.</p>
             </div>
-
             <div class="feature-card">
-                <h4>Built for Content Creators</h4>
-                <p>Specifically engineered infrastructure optimized to support the visibility needs of digital publishers and multi-channel marketing campaigns.</p>
+                <h4>1-2 Sec Resolution Pipelines</h4>
+                <p>No waiting pipelines. Input active string vectors and let our interface return absolute direct image references or keyword sets instantly.</p>
             </div>
-
             <div class="feature-card">
-                <h4>Fully Mobile Friendly</h4>
-                <p>The entire platform rendering layout automatically scale down fluidly for complete operation via smartphone browsers.</p>
+                <h4>Zero Ongoing Design Costs</h4>
+                <p>Eliminate costly external retainer fees. Acquire immediate media frameworks without technical production backgrounds or software licensing layers.</p>
             </div>
-
-            <div class="feature-card">
-                <h4>Zero Design Skills Required</h4>
-                <p>Acquire clean corporate standard text frameworks and thumbnail data points instantly without ongoing operational graphic expenses.</p>
-            </div>
-
         </div>
     </section>
 
-    <section class="blog-section" id="blog">
-        <h2 style="font-size: 32px; font-weight: 800;">Latest from the Blog</h2>
-        <p style="color: var(--text-muted); margin-top: 10px;">Tips, guides, and insights for digital content creators.</p>
-        
-        <div class="blog-container">
-            <a href="blog-post-1.html" class="blog-link">
-                <div class="blog-card">
-                    <div class="blog-meta">SEO Strategy - May 2026</div>
-                    <h3>How to Optimize YouTube Descriptions for Higher CTR</h3>
-                    <p>Discover how embedding relevant long-tail search parameters naturally inside your first three description sentences can compound video traffic safely.</p>
-                </div>
-            </a>
-            <a href="blog-post-2.html" class="blog-link">
-                <div class="blog-card">
-                    <div class="blog-meta">Graphic Tips - May 2026</div>
-                    <h3>The Psychology of High-Click Thumbnail Composition</h3>
-                    <p>A systematic breakdown tracking how human facial expression clarity scores combined with high-contrast color nodes impact platform recommendation algorithms.</p>
-                </div>
-            </a>
-            <a href="blog-post-3.html" class="blog-link">
-                <div class="blog-card">
-                    <div class="blog-meta">Growth Hacks - May 2026</div>
-                    <h3>Mastering Platform Discoverability Mechanics</h3>
-                    <p>Learn the exact operational frameworks required to format multi-channel asset distribution pipelines without tripping duplicate metadata filters.</p>
-                </div>
-            </a>
-        </div>
-    </section>
-
-    <section class="features-section" id="features">
-        <h2 class="section-title">Designed for Next-Gen Growth</h2>
-        <div class="grid-container" style="margin-top: 40px;">
-            <div class="feature-card">
-                <h4>100% Free Access</h4>
-                <p>No subscriptions, no usage thresholds, and zero hidden payments. Built natively for independent content creators.</p>
+    <section class="reviews-section">
+        <h2 style="font-size: 32px; font-weight: 800;">15,000+ Creators Getting More Views</h2>
+        <p style="color: var(--text-muted);">See what verified automation channels and publishers say about our operational layout frameworks.</p>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p>"This tool is an absolute masterpiece for scaling asset management pipelines across multiple automation systems seamlessly."</p>
+                <div class="reviewer-info">Marc K. <span>Channel Manager</span></div>
             </div>
-            <div class="feature-card">
-                <h4>No API Key Bottlenecks</h4>
-                <p>Runs smoothly via robust front-end parsing algorithms. Guarantees 100% uptime with instant browser results.</p>
-            </div>
-            <div class="feature-card">
-                <h4>SaaS Layout Standards</h4>
-                <p>An elegant user experience engineered for fast performance, high readability, and clean layout executions.</p>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p>"Saved hundreds of dollars in graphic retainer overheads. The automated high-resolution retrieval framework functions beautifully."</p>
+                <div class="reviewer-info">Sarah J. <span>Media Publisher</span></div>
             </div>
         </div>
     </section>
 
     <section class="faq-section" id="faqs">
-        <h2 style="text-align: center; margin-bottom: 30px; font-weight: 800; font-size: 32px; color: var(--secondary);">Frequently Asked Questions</h2>
-        
-        <div class="faq-item">
-            <h4>How do I create my thumbnail?</h4>
-            <p>To create a custom thumbnail quickly and easily, use a free online design tool like Canva or Adobe Express. These platforms offer pre-made templates and easy-to-use background removers to help your design stand out.</p>
+        <h2 style="text-align: center; margin-bottom: 40px; font-size: 32px; font-weight: 800;">Frequently Asked Questions</h2>
+        <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">Is this totally free to operate? <span>+</span></button>
+            <div class="accordion-content"><p style="padding: 10px 0;">Yes. ThumbnailCreator provides absolute zero-cost extraction and text optimization workflows for digital builders globally.</p></div>
         </div>
-        
-        <div class="faq-item">
-            <h4>What is a thumbnail?</h4>
-            <p>A thumbnail is a reduced-size version of a picture or video, used to help in recognizing and organizing them, serving the same role for images as a normal text index does for words.</p>
+        <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">Need UI or structural design skills? <span>+</span></button>
+            <div class="accordion-content"><p style="padding: 10px 0;">No structural skills are required. The environment handles text matrix structuring and media link conversions automatically.</p></div>
         </div>
-        
-        <div class="faq-item">
-            <h4>Is a thumbnail an image?</h4>
-            <p>A thumbnail is a small image that represents a larger version of the same image or video. You might have seen them on websites as previews, and they allow you to get a quick glimpse of the content without having to view the full-sized version.</p>
-        </div>
-        
-        <div class="faq-item">
-            <h4>What software is best for thumbnails?</h4>
-            <p>Canva is highly recommended for its user-friendly drag-and-drop interface, vast library of templates, images, and fonts, and team collaboration options. Other excellent choices include Adobe Express, Snappa, Fotor, and PicMonkey.</p>
+    </section>
+
+    <section class="blog-section" id="blog">
+        <h2 style="font-size: 32px; font-weight: 800;">Latest from the Blog</h2>
+        <div class="blog-container">
+            <a href="blog-post-1.html" class="blog-link">
+                <div class="blog-card">
+                    <div class="blog-meta">SEO Strategy - May 2026</div>
+                    <h3>How to Optimize YouTube Descriptions for Higher CTR</h3>
+                    <p>Discover how embedding relevant long-tail search parameters naturally inside descriptions compounds traffic safely.</p>
+                </div>
+            </a>
         </div>
     </section>
 
     <footer class="premium-footer">
         <div class="footer-grid">
-            <div class="footer-brand">
-                <h3>Thumbnail<span>Creator</span></h3>
-                <p>High performance utility web application engineered for digital platform publishers, content developers, and media planners.</p>
-            </div>
+            <div class="footer-brand"><h3>Thumbnail<span>Creator</span></h3><p>High performance utility web application engineered for digital platform publishers.</p></div>
             <div class="footer-column">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="#workspace">Home Workspace</a></li>
-                    <li><a href="#why-choose">Why Choose Us</a></li>
-                    <li><a href="#blog">Official Blog</a></li>
-                    <li><a href="#faqs">Help Center</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Utility Tools</h4>
-                <ul>
-                    <li><a href="#workspace">Thumbnail Grabber</a></li>
-                    <li><a href="#workspace">Keyword Description Builder</a></li>
-                    <li><a href="contact-us.html">Contact Support</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Contact Vector</h4>
-                <ul>
-                    <li><a href="mailto:thumbnailcreator.online@gmail.com">thumbnailcreator.online@gmail.com</a></li>
+                    <li><a href="#workspace">Workspace</a></li>
+                    <li><a href="api-docs.html">API Docs</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 ThumbnailCreator.online | All Rights Reserved.</p>
-            <div class="footer-legal-links">
-                <a href="privacy-policy.html">Privacy Policy</a>
-                <a href="about-us.html">About Us</a>
-                <a href="contact-us.html">Contact Us</a>
-            </div>
+            <div class="footer-legal-links"><a href="privacy-policy.html">Privacy Policy</a><a href="about-us.html">About Us</a></div>
         </div>
     </footer>
 
     <script>
         function openTab(evt, tabName) {
             var contents = document.querySelectorAll(".tool-content");
-            contents.forEach(function(content) { content.style.display = "none"; });
-
+            contents.forEach(function(c) { c.style.display = "none"; });
             var triggers = document.querySelectorAll(".tab-trigger");
-            triggers.forEach(function(trigger) { trigger.classList.remove("active"); });
-
+            triggers.forEach(function(t) { t.classList.remove("active"); });
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.classList.add("active");
         }
 
-        // THUMBNAIL PARSING PROCESS
+        function toggleAccordion(element) {
+            var content = element.nextElementSibling;
+            var symbol = element.querySelector("span");
+            if (content.style.maxHeight && content.style.maxHeight !== "0px") {
+                content.style.maxHeight = "0px";
+                symbol.innerText = "+";
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                symbol.innerText = "−";
+            }
+        }
+
         document.getElementById('fetchThumbBtn').addEventListener('click', function() {
             var rawUrl = document.getElementById('ytUrlInput').value.trim();
             var container = document.getElementById('previewContainer');
             var imageDisplay = document.getElementById('previewImg');
             var actionLink = document.getElementById('downloadAction');
 
-            if (rawUrl === "") {
-                alert("Please enter a YouTube link.");
-                return;
-            }
-
             var parsedId = "";
-            if (rawUrl.includes("v=")) {
-                parsedId = rawUrl.split('v=')[1].split('&')[0];
-            } else if (rawUrl.includes("youtu.be/")) {
-                parsedId = rawUrl.split('youtu.be/')[1].split('?')[0];
-            } else if (rawUrl.includes("shorts/")) {
-                parsedId = rawUrl.split('shorts/')[1].split('?')[0];
-            } else if (rawUrl.includes("embed/")) {
-                parsedId = rawUrl.split('embed/')[1].split('?')[0];
-            } else {
-                alert("Please paste a valid standard YouTube video URL.");
-                return;
-            }
+            if (rawUrl.includes("v=")) parsedId = rawUrl.split('v=')[1].split('&')[0];
+            else if (rawUrl.includes("youtu.be/")) parsedId = rawUrl.split('youtu.be/')[1].split('?')[0];
 
             if (parsedId) {
                 var targetThumbnail = "https://img.youtube.com/vi/" + parsedId + "/maxresdefault.jpg";
                 imageDisplay.src = targetThumbnail;
                 actionLink.href = targetThumbnail;
                 container.style.display = "block";
-            }
+            } else { alert("Please enter a valid YouTube URL."); }
         });
 
-        // TEXT ENGINE CONTEXT SYSTEM
         document.getElementById('generateBtn').addEventListener('click', function() {
             var topic = document.getElementById('topicInput').value.trim();
             var strategy = document.getElementById('strategySelect').value;
             var container = document.getElementById('outputContainer');
             var display = document.getElementById('outputResult');
 
-            if (topic === "") {
-                alert("Please enter a target topic asset.");
-                return;
-            }
-
+            if(topic === "") { alert("Please enter a topic."); return; }
             var cleanTag = topic.replace(/\s+/g, '');
-            var output = "";
-
-            if (strategy === "insta_rich") {
-                output = "INSTAGRAM OPTIMIZED CONTENT LAYOUT:\n\nDeep dive analysis focusing specifically on " + topic + ". Success across platform ecosystems requires constant execution and high consistency patterns.\n\n#\n" + cleanTag + " #creators #instagramseo #growthstrategy";
-            } else if (strategy === "tiktok_rich") {
-                output = "TIKTOK REVENUE SEO CAPTION:\n\nPOV: Working consistently on expanding reach for " + topic + " in 2026. Watch the complete workflow resolution dynamic.\n\n#" + cleanTag + " #fyp #trending #algorithm";
-            } else if (strategy === "profile_bio") {
-                output = "HIGH VALUE BIO LAYOUT:\n\nOptimizing workflows for " + topic + "\nProviding technical infrastructure and scaling options daily\nConnect below\n[YourLinkHere]";
-            } else if (strategy === "yt_desc") {
-                output = "YOUTUBE SEO DESCRIPTION COMPLIANCE:\n\nMasterclass Tutorial Guide regarding: " + topic + ".\n\nTimestamps:\n0:00 - Initial Strategic Setup\n4:15 - Core Workflow Breakdown\n\nSearch Association Matrix:\n" + topic + ", tutorial, scaling systems, developer guides";
-            }
-
+            var output = "STRATEGY PAYLOAD FOR: " + topic + "\n\nOptimized contextual metadata layer built for maximum engagement profiles.";
             display.innerText = output;
             container.style.display = "block";
         });
 
         document.getElementById('copyTextBtn').addEventListener('click', function() {
-            var text = document.getElementById('outputResult').innerText;
-            navigator.clipboard.writeText(text);
-            alert("Copied to clipboard successfully.");
+            navigator.clipboard.writeText(document.getElementById('outputResult').innerText);
+            alert("Copied successfully.");
         });
     </script>
 </body>
