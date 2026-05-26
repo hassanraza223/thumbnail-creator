@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation - ThumbnailCreator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #090d16;
+            --card-dark: #111827;
+            --primary: #6366f1;
+            --text-light: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border: #1f2937;
+            --accent-green: #10b981;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; display: flex; }
+
+        /* SIDEBAR NAVIGATION */
+        .api-sidebar {
+            width: 280px;
+            height: 100vh;
+            background: #0b0f19;
+            border-right: 1px solid var(--border);
+            position: fixed;
+            padding: 30px 20px;
+            overflow-y: auto;
+        }
+
+        .sidebar-brand { font-size: 20px; font-weight: 800; color: #fff; text-decoration: none; display: block; margin-bottom: 40px; }
+        .sidebar-brand span { color: var(--primary); }
+        
+        .sidebar-menu h4 { font-size: 12px; uppercase; color: var(--text-muted); letter-spacing: 1px; margin-bottom: 15px; text-transform: uppercase; }
+        .sidebar-menu ul { list-style: none; margin-bottom: 30px; }
+        .sidebar-menu ul li { margin-bottom: 10px; }
+        .sidebar-menu ul li a { color: var(--text-light); text-decoration: none; font-size: 14px; font-weight: 500; display: block; padding: 8px 12px; border-radius: 6px; transition: 0.2s; }
+        .sidebar-menu ul li a:hover, .sidebar-menu ul li a.active { background: rgba(99, 102, 241, 0.15); color: var(--primary); }
+
+        /* MAIN CONTENT AREA */
+        .api-content { margin-left: 280px; padding: 60px 5%; width: calc(100% - 280px); max-width: 1200px; }
+        
+        .method-badge { background: var(--accent-green); color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: 700; font-family: 'Fira Code', monospace; display: inline-block; margin-right: 10px; }
+        .endpoint-url { font-family: 'Fira Code', monospace; color: var(--text-muted); background: #1f2937; padding: 6px 12px; border-radius: 6px; font-size: 14px; }
+
+        h1 { font-size: 36px; font-weight: 800; margin-bottom: 15px; }
+        h2 { font-size: 24px; font-weight: 700; margin-top: 40px; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+        p { color: var(--text-muted); margin-bottom: 20px; font-size: 15px; }
+
+        .api-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 20px; }
+        @media (max-width: 968px) { .api-grid { grid-template-columns: 1fr; } .api-sidebar { display: none; } .api-content { margin-left: 0; width: 100%; } }
+
+        /* PARAMETERS TABLE */
+        .param-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .param-table th, .param-table td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
+        .param-table th { color: #fff; font-size: 14px; text-transform: uppercase; }
+        .param-table td { font-size: 14px; }
+        .param-name { font-family: 'Fira Code', monospace; color: var(--primary); font-weight: 600; }
+        .param-type { font-family: 'Fira Code', monospace; color: var(--text-muted); font-size: 12px; }
+
+        /* CODE BLOCK ENVIRONMENT */
+        .code-block { background: #0b0f17; border: 1px solid var(--border); border-radius: 12px; padding: 20px; font-family: 'Fira Code', monospace; font-size: 13px; color: #34d399; overflow-x: auto; max-height: 400px; }
+        .code-header { color: var(--text-muted); font-size: 11px; text-transform: uppercase; margin-bottom: 10px; border-bottom: 1px solid var(--border); padding-bottom: 5px; font-family: sans-serif; }
+    </style>
+</head>
+<body>
+
+    <aside class="api-sidebar">
+        <a href="index.html" class="sidebar-brand">Thumbnail<span>Creator</span></a>
+        <nav class="sidebar-menu">
+            <h4>Core Rest API</h4>
+            <ul>
+                <li><a href="#authentication" class="active">Authentication</a></li>
+                <li><a href="#endpoints">Endpoints Reference</a></li>
+            </ul>
+            <h4>Asset Extraction</h4>
+            <ul>
+                <li><a href="#get-thumbnail">Fetch Max Resolution</a></li>
+                <li><a href="#meta-generator">AI Text Generator</a></li>
+            </ul>
+            <h4>Support Context</h4>
+            <ul>
+                <li><a href="index.html">Return to Home</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="api-content">
+        <h1>API Documentation Reference</h1>
+        <p>Integrate our autonomous media extraction engine and contextual content generation matrices directly into your localized applications or CMS workflows.</p>
+
+        <section id="authentication">
+            <h2>Authentication Configuration</h2>
+            <p>Our operational architecture currently delivers high-performance public tier parsing parameters. Standard workflows require no API keys or access tokens, running seamless extraction endpoints across high-availability front-end routers.</p>
+        </section>
+
+        <section id="get-thumbnail">
+            <h2>Fetch Max Resolution Thumbnail</h2>
+            <p>Pass any valid streaming target node parameters to resolve the primary media asset signature file reference instantly.</p>
+            
+            <div class="api-grid">
+                <div>
+                    <div style="margin-bottom: 20px;">
+                        <span class="method-badge">GET</span>
+                        <span class="endpoint-url">https://img.youtube.com/vi/{video_id}/maxresdefault.jpg</span>
+                    </div>
+                    
+                    <h4>Query Parameters</h4>
+                    <table class="param-table">
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="param-name">video_id</td>
+                                <td class="param-type">string</td>
+                                <td>The isolated alphanumeric tracking sequence extracted from the target stream link.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div>
+                    <div class="code-header">Example Request Node</div>
+                    <pre class="code-block">
+// Fetching High Definition Asset
+fetch('https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg')
+  .then(response => {
+    if(response.ok) {
+       console.log("HD Image Payload Active");
+    }
+  });
+                    </pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="meta-generator" style="margin-top: 40px;">
+            <h2>AI Strategy Generation Matrix</h2>
+            <p>Leverage structured content templates configured to safely bypass platform optimization filters and match human semantic discovery patterns.</p>
+            
+            <div class="api-grid">
+                <div>
+                    <h4>Context Strategies Available</h4>
+                    <table class="param-table">
+                        <thead>
+                            <tr>
+                                <th>Strategy Engine</th>
+                                <th>Output Matrix</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="param-name">insta_rich</td>
+                                <td>Instagram Long-Tail SEO Caption Layer</td>
+                            </tr>
+                            <tr>
+                                <td class="param-name">tiktok_rich</td>
+                                <td>TikTok Viral Retention Placement Nodes</td>
+                            </tr>
+                            <tr>
+                                <td class="param-name">profile_bio</td>
+                                <td>High-Authority Algorithmic User Profiles</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div>
+                    <div class="code-header">Expected System Payload</div>
+                    <pre class="code-block">
+{
+  "status": "success",
+  "engine": "AI-Context-v2",
+  "data": {
+    "cleaned_tag": "#TechSetup",
+    "rendered_payload": "INSTAGRAM OPTIMIZED CONTENT..."
+  }
+}
+                    </pre>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
