@@ -61,6 +61,7 @@
             display: flex; justify-content: space-between; align-items: center; padding: 20px 8%;
             background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); position: fixed; top: 0; width: 100%; z-index: 1000; border-bottom: 1px solid #f1f5f9;
         }
+        .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .logo { font-size: 22px; font-weight: 800; color: var(--secondary); text-decoration: none; }
         .logo span { color: var(--primary); }
         .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
@@ -144,7 +145,13 @@
 <body>
 
     <nav class="navbar">
-        <a href="#" class="logo">Thumbnail<span>Creator</span></a>
+        <div class="logo-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 32px; height: 32px; color: #6366f1; vertical-align: middle;">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              <polygon points="10 9 15 12 10 15 10 9" fill="#6366f1" style="stroke: none;"></polygon>
+            </svg>
+            <span class="logo">Thumbnail<span>Creator</span></span>
+        </div>
         <ul class="nav-links">
             <li><a href="#workspace">Tools</a></li>
             <li><a href="#why-choose">Why Choose Us</a></li>
