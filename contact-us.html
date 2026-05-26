@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - ThumbnailCreator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; color: #0f172a; line-height: 1.7; padding: 40px 8%; max-width: 700px; margin: 0 auto; background: #fff; }
+        h1 { font-size: 36px; font-weight: 800; margin-bottom: 15px; color: #6366f1; }
+        p { color: #64748b; margin-bottom: 30px; font-size: 15px; }
+        .back-home { display: inline-block; margin-bottom: 30px; color: #6366f1; text-decoration: none; font-weight: 600; }
+        
+        label { display: block; font-weight: 700; font-size: 14px; margin-bottom: 8px; color: #0f172a; }
+        input, textarea { width: 100%; padding: 14px; border-radius: 12px; border: 2px solid #e2e8f0; font-size: 15px; margin-bottom: 20px; outline: none; font-family: inherit; box-sizing: border-box; }
+        textarea { height: 150px; resize: none; }
+        .submit-btn { width: 100%; background: #6366f1; color: white; border: none; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; transition: 0.3s; }
+        .submit-btn:hover { background: #4f46e5; }
+        
+        .contact-info { margin-top: 40px; border-top: 1px solid #e2e8f0; padding-top: 30px; text-align: center; font-size: 14px; color: #64748b; }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-home">&larr; Back to Home Workspace</a>
+    
+    <h1>Contact Us</h1>
+    <p>Have questions, technical inquiries, or feature recommendations? Send us a query, and our system support team will respond within 24-48 operational hours.</p>
+
+    <form onsubmit="event.preventDefault(); alert('Message sent successfully. Thank you!');">
+        <label>Your Name:</label>
+        <input type="text" placeholder="John Doe" required>
+
+        <label>Email Address:</label>
+        <input type="email" placeholder="john@example.com" required>
+
+        <label>Subject / Topic Area:</label>
+        <input type="text" placeholder="API access, partnership, bug report..." required>
+
+        <label>Your Message:</label>
+        <textarea placeholder="Write details about your query here..." required></textarea>
+
+        <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+
+    <div class="contact-info">
+        <p>Alternatively, reach out directly at: <strong>support@thumbnailcreator.online</strong></p>
+        <p>&copy; 2026 ThumbnailCreator.online. All operational rights reserved.</p>
+    </div>
+
+</body>
+</html>
