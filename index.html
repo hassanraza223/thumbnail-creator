@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta name="google-site-verification" content="y4bnPW44Du7tcy0JpEqdloVdp8GzwT2hCdz8RQdJK28" />
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -9,9 +10,11 @@
       gtag('js', new Date());
       gtag('config', 'G-XXXXXXXXXX');
     </script>
+    
     <link rel="canonical" href="https://thumbnailcreator.online/" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>ThumbnailCreator – AI Thumbnails, Bio & Hashtags Tool</title>
     <meta name="description" content="ThumbnailCreator creates eye-catching YouTube thumbnails and writes TikTok, Instagram and Facebook bios, captions & highly ranking hashtags using AI.">
     
@@ -94,16 +97,15 @@
         .copy-btn { background: #10b981; }
 
         /* VALUE CARDS */
-        .value-section { padding: 80px 8%; text-align: center; background: #fff; }
+        .value-section { padding: 60px 8%; text-align: center; background: #fff; }
         .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1100px; margin: 40px auto 0 auto; }
         .feature-card { background: white; padding: 30px; border-radius: 20px; border: 1px solid #f1f5f9; text-align: left; box-shadow: 0 4px 12px rgba(0,0,0,0.01); }
         .feature-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
         .feature-card p { font-size: 14px; color: var(--text-muted); }
 
         /* ACCORDION FAQS */
-        .faq-section { padding: 80px 8%; max-width: 800px; margin: 0 auto; background: var(--bg-light); border-radius: 24px; margin-bottom: 60px; }
+        .faq-section { padding: 80px 8%; max-width: 800px; margin: 0 auto; }
         .accordion-item { border-bottom: 1px solid #e2e8f0; padding: 15px 0; }
-        .accordion-item:last-child { border-bottom: none; }
         .accordion-header { width: 100%; background: none; border: none; text-align: left; font-size: 16px; font-weight: 700; color: var(--secondary); display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 10px 0; }
         .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; color: var(--text-muted); font-size: 14px; padding-right: 20px; }
 
@@ -117,7 +119,7 @@
         .blog-card h3 { padding: 0 20px 10px 20px; font-size: 18px; color: var(--secondary); font-weight: 700; }
         .blog-card p { padding: 0 20px 20px 20px; font-size: 14px; color: var(--text-muted); }
 
-        /* CORPORATE FOOTER */
+        /* FOOTER */
         .premium-footer { background: #0b0f19; color: #94a3b8; padding: 70px 8% 30px 8%; border-top: 1px solid #1e293b; font-size: 14px; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto 50px auto; }
         .footer-brand h3 { color: #fff; font-size: 20px; margin-bottom: 15px; font-weight: 800; }
@@ -138,4 +140,189 @@
 
     <nav class="navbar">
         <div class="logo-container">
-            <svg xmlns="
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 32px; height: 32px; color: #6366f1; vertical-align: middle;">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              <polygon points="10 9 15 12 10 15 10 9" fill="#6366f1" style="stroke: none;"></polygon>
+            </svg>
+            <span class="logo">Thumbnail<span>Creator</span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#workspace">Tools</a></li>
+            <li><a href="#why-choose">Why Choose Us</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="api-docs.html" style="color: var(--primary); font-weight: 700;">API</a></li>
+            <li><a href="about-us.html">About</a></li>
+            <li><a href="#workspace" class="btn-start">Get Started Free</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero-section">
+        <div class="hero-badge">Free All-In-One Creator Suite</div>
+        <h1>Stop Losing Views to Bad <span>Thumbnails & Captions</span></h1>
+        <p class="hero-p">Extract raw high-definition thumbnails and instantly write search-optimized, keyword-rich profiles and descriptions.</p>
+
+        <div class="workspace-card" id="workspace">
+            <div class="tabs-header">
+                <button class="tab-trigger active" onclick="openTab(event, 'thumbExtractor')">Thumbnail Downloader</button>
+                <button class="tab-trigger" onclick="openTab(event, 'contentGenerator')">Rich Keyword Content</button>
+            </div>
+
+            <div id="thumbExtractor" class="tool-content active">
+                <label>Paste YouTube Video Link:</label>
+                <input type="text" id="ytUrlInput" placeholder="https://www.youtube.com/watch?v=...">
+                <button class="action-btn" id="fetchThumbBtn">Fetch Thumbnail Image</button>
+
+                <div class="preview-box" id="previewContainer">
+                    <label>Thumbnail Preview:</label>
+                    <img id="previewImg" src="" alt="YouTube Preview">
+                    <a id="downloadAction" class="dl-btn" href="#" target="_blank" download="thumbnail.jpg">Download HD Quality</a>
+                </div>
+            </div>
+
+            <div id="contentGenerator" class="tool-content">
+                <label>Enter Topic / Focus Area:</label>
+                <input type="text" id="topicInput" placeholder="e.g., Budget Tech Setup...">
+                <label>Select Optimization Target:</label>
+                <select id="strategySelect">
+                    <option value="insta_rich">Instagram Rich Keyword Description</option>
+                    <option value="tiktok_rich">TikTok High-Search SEO Caption</option>
+                    <option value="profile_bio">High-Keyword Authority Bio</option>
+                    <option value="yt_desc">YouTube Contextual Rich Description</option>
+                </select>
+                <button class="action-btn" id="generateBtn">Generate Optimized Layout</button>
+
+                <div class="output-wrapper" id="outputContainer">
+                    <label>Your Ready-to-Paste Content:</label>
+                    <div class="output-display" id="outputResult"></div>
+                    <button class="copy-btn" id="copyTextBtn">Copy to Clipboard</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="value-section" id="why-choose">
+        <h2 style="font-size: 32px; font-weight: 800;">Why Choose ThumbnailCreator?</h2>
+        <p style="color: var(--text-muted); max-width: 750px; margin: 15px auto;">ThumbnailCreator helps creators make eye-catching graphics and generate social media bios, captions, and highly ranking hashtags in seconds using AI.</p>
+        <div class="grid-container">
+            <div class="feature-card">
+                <h4>Low CTR vs 10-15% Upper Views</h4>
+                <p>Bypass bad click-through limits completely. Compounding visual nodes ensures that platform distribution algorithms favor your stream models safely.</p>
+            </div>
+            <div class="feature-card">
+                <h4>1-2 Sec Resolution Pipelines</h4>
+                <p>No waiting pipelines. Input active string vectors and let our interface return absolute direct image references or keyword sets instantly.</p>
+            </div>
+            <div class="feature-card">
+                <h4>Zero Ongoing Design Costs</h4>
+                <p>Eliminate costly external retainer fees. Acquire immediate media frameworks without technical production backgrounds or software licensing layers.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section" id="faqs">
+        <h2 style="text-align: center; margin-bottom: 40px; font-size: 32px; font-weight: 800;">Frequently Asked Questions</h2>
+        
+        <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">Is this tool totally free to use? <span>+</span></button>
+            <div class="accordion-content">
+                <p style="padding: 10px 0;">Yes! ThumbnailCreator provides absolute zero-cost extraction and generation pipelines for all web scaling profiles.</p>
+            </div>
+        </div>
+        
+        <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">Do I need technical skills? <span>+</span></button>
+            <div class="accordion-content">
+                <p style="padding: 10px 0;">Not at all. The interface operates completely via fluid visual modules and automated conversion strategies.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="blog-section" id="blog">
+        <h2 style="font-size: 32px; font-weight: 800;">Latest from the Blog</h2>
+        <div class="blog-container">
+            <a href="blog-post-1.html" class="blog-link">
+                <div class="blog-card">
+                    <div class="blog-meta">SEO Strategy - May 2026</div>
+                    <h3>How to Optimize YouTube Descriptions for Higher CTR</h3>
+                    <p>Discover how embedding relevant long-tail search parameters naturally inside descriptions compounds traffic safely.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <footer class="premium-footer">
+        <div class="footer-grid">
+            <div class="footer-brand"><h3>Thumbnail<span>Creator</span></h3><p>High performance utility web application engineered for digital platform publishers.</p></div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#workspace">Workspace</a></li>
+                    <li><a href="api-docs.html">API Docs</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ThumbnailCreator.online | All Rights Reserved.</p>
+            <div class="footer-legal-links"><a href="privacy-policy.html">Privacy Policy</a><a href="about-us.html">About Us</a></div>
+        </div>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var contents = document.querySelectorAll(".tool-content");
+            contents.forEach(function(c) { c.style.display = "none"; });
+            var triggers = document.querySelectorAll(".tab-trigger");
+            triggers.forEach(function(t) { t.classList.remove("active"); });
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.classList.add("active");
+        }
+
+        function toggleAccordion(element) {
+            var content = element.nextElementSibling;
+            var symbol = element.querySelector("span");
+            if (content.style.maxHeight && content.style.maxHeight !== "0px") {
+                content.style.maxHeight = "0px";
+                symbol.innerText = "+";
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                symbol.innerText = "−";
+            }
+        }
+
+        document.getElementById('fetchThumbBtn').addEventListener('click', function() {
+            var rawUrl = document.getElementById('ytUrlInput').value.trim();
+            var container = document.getElementById('previewContainer');
+            var imageDisplay = document.getElementById('previewImg');
+            var actionLink = document.getElementById('downloadAction');
+
+            var parsedId = "";
+            if (rawUrl.includes("v=")) parsedId = rawUrl.split('v=')[1].split('&')[0];
+            else if (rawUrl.includes("youtu.be/")) parsedId = rawUrl.split('youtu.be/')[1].split('?')[0];
+
+            if (parsedId) {
+                var targetThumbnail = "https://img.youtube.com/vi/" + parsedId + "/maxresdefault.jpg";
+                imageDisplay.src = targetThumbnail;
+                actionLink.href = targetThumbnail;
+                container.style.display = "block";
+            } else { alert("Please enter a valid YouTube URL."); }
+        });
+
+        document.getElementById('generateBtn').addEventListener('click', function() {
+            var topic = document.getElementById('topicInput').value.trim();
+            var container = document.getElementById('outputContainer');
+            var display = document.getElementById('outputResult');
+
+            if(topic === "") { alert("Please enter a topic."); return; }
+            var output = "STRATEGY PAYLOAD FOR: " + topic + "\n\nOptimized contextual metadata layer built for maximum engagement profiles.";
+            display.innerText = output;
+            container.style.display = "block";
+        });
+
+        document.getElementById('copyTextBtn').addEventListener('click', function() {
+            navigator.clipboard.writeText(document.getElementById('outputResult').innerText);
+            alert("Copied successfully.");
+        });
+    </script>
+</body>
+</html>
