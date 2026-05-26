@@ -1,0 +1,10 @@
+# User-Agent target for all web robots
+User-agent: *
+Allow: /
+
+# Exclude potential system fragments or raw script sheets if needed
+Disallow: /script.js
+Disallow: /style.css
+
+# Direct sitemap pointer for immediate crawler discovery
+Sitemap: https://thumbnailcreator.online/sitemap.xml
