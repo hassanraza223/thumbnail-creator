@@ -113,7 +113,7 @@
         .action-btn { width: 100%; background: var(--primary); color: white; border: none; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; }
         
         .output-wrapper, .preview-box { margin-top: 25px; background: var(--bg-light); padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0; display: none; }
-        .output-display { background: white; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0; white-space: pre-line; margin-bottom: 15px; }
+        .output-display { background: white; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0; white-space: pre-wrap; margin-bottom: 15px; max-height: 300px; overflow-y: auto; text-align: left; color: #1e293b; font-size: 15px; }
         .preview-box img { width: 100%; border-radius: 12px; margin-bottom: 15px; }
         .dl-btn, .copy-btn { display: block; text-align: center; background: #ef4444; color: white; padding: 14px; border-radius: 8px; text-decoration: none; font-weight: 700; border: none; width: 100%; cursor: pointer; }
         .copy-btn { background: #10b981; }
@@ -176,7 +176,7 @@
             <li><a href="#workspace">Tools</a></li>
             <li><a href="#why-choose">Why Choose Us</a></li>
             <li><a href="#blog">Blog</a></li>
-            <li><a href="api-docs.html" style="color: var(--primary); font-weight: 700;">API</a></li>
+            <li><a href="api-docs" style="color: var(--primary); font-weight: 700;">API</a></li>
             <li><a href="about-us">About</a></li>
             <li><a href="#workspace" class="btn-start">Get Started Free</a></li>
         </ul>
@@ -301,13 +301,11 @@
     <section class="blog-section" id="blog">
         <h2 style="font-size: 32px; font-weight: 800;">Latest from the Blog</h2>
         <div class="blog-container">
-            <a href="blog-post" class="blog-link">
-                <div class="blog-card">
-                    <div class="blog-meta">SEO Strategy - May 2026</div>
-                    <h3>How to Optimize YouTube Descriptions for Higher CTR</h3>
-                    <p>Discover how embedding relevant long-tail search parameters naturally inside descriptions compounds traffic safely.</p>
-                </div>
-            </a>
+            <div class="blog-card">
+                <div class="blog-meta">SEO Strategy - May 2026</div>
+                <h3>How to Optimize YouTube Descriptions for Higher CTR</h3>
+                <p>Discover how embedding relevant long-tail search parameters naturally inside descriptions compounds traffic safely.</p>
+            </div>
         </div>
     </section>
 
@@ -374,21 +372,69 @@
             } else { alert("Please enter a valid YouTube URL."); }
         });
 
+        // --- UPDATED ACTIVE CONTENT GENERATOR ALGORITHM (EMOJI FREE) ---
         document.getElementById('generateBtn').addEventListener('click', function() {
             var topic = document.getElementById('topicInput').value.trim();
+            var strategy = document.getElementById('strategySelect').value;
             var container = document.getElementById('outputContainer');
             var display = document.getElementById('outputResult');
 
-            if(topic === "") { alert("Please enter a topic."); return; }
-            var cleanTag = topic.replace(/\s+/g, '');
-            var output = "STRATEGY PAYLOAD FOR: " + topic + "\n\nOptimized contextual metadata layer built for maximum engagement profiles.";
-            display.innerText = output;
+            if(topic === "") { 
+                alert("Please enter a topic."); 
+                return; 
+            }
+            
+            var cleanTopic = topic.replace(/[#]/g, ''); 
+            var words = cleanTopic.toLowerCase().split(/\s+/);
+            var mainKeyword = words.map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+            var baseTag = words.join('');
+            var tags = "#" + baseTag + " #" + words[0] + " #viral #trending #contentcreator #seo2026";
+
+            var finalOutput = "";
+
+            switch(strategy) {
+                case "insta_rich":
+                    finalOutput = "[ " + mainKeyword.toUpperCase() + " MASTERCLASS ]\n\n" +
+                                 "Looking for the absolute best guide on " + cleanTopic + "? In this deep dive, we reveal the hidden strategies, essential tools, and step-by-step methods you need to succeed. Perfect for creators looking to upgrade their content game.\n\n" +
+                                 "Key Takeaway: Proper planning beats luck every single time. What is your biggest challenge with this? Let me know below.\n\n" +
+                                 "Save this post so you do not lose it later.\n\n" +
+                                 tags + " #instagramseo #explorepage #creatorsuccess";
+                    break;
+                    
+                case "tiktok_rich":
+                    finalOutput = "The ultimate " + cleanTopic + " hack you need to know.\n\n" +
+                                 "Stop scrolling if you want to fix your workflow with " + cleanTopic + ". This simple 3-step formula changes everything. Watch until the very end for the secret tip that absolute pros use every single day.\n\n" +
+                                 "Let me know if you want a detailed part 2 in the comments.\n\n" +
+                                 tags + " #tiktokseo #foryoupage #fyp #trendingtutorial";
+                    break;
+                    
+                case "profile_bio":
+                    finalOutput = mainKeyword + " Growth and Strategy\n" +
+                                 "Daily actionable tips about " + cleanTopic + "\n" +
+                                 "Helping content managers scale up their search distribution matrix\n" +
+                                 "Access the absolute best zero-cost tools here:\n" +
+                                 "thumbnailcreator.online";
+                    break;
+                    
+                case "yt_desc":
+                    finalOutput = "In this comprehensive tutorial, we break down everything you need to know about " + cleanTopic + ".\n\n" +
+                                 "We look at the core infrastructure modules, strategic setups, and real-world implementation variables needed to master " + cleanTopic + " in 2026. This step-by-step video guide is built perfectly for both beginners and scaling publishers.\n\n" +
+                                 "TIMESTAMPS:\n0:00 - Introduction and Context\n1:35 - Main Pillars of " + mainKeyword + "\n5:10 - Complete Practical Setup\n9:45 - Advanced SEO Optimization Layer\n13:10 - Final Summary and Key Insights\n\n" +
+                                 "RECOMMENDED RESOURCES:\n- Visit our official platform suite: https://thumbnailcreator.onlinenn" +
+                                 "If you found value in this system breakdown, make sure to Like, Subscribe, and turn on the Notification Bell for regular algorithmic growth updates.\n\n" +
+                                 tags + " #youtubeseo #algorithmgrowth #videomarketing";
+                    break;
+            }
+
+            display.innerText = finalOutput;
             container.style.display = "block";
         });
 
         document.getElementById('copyTextBtn').addEventListener('click', function() {
-            navigator.clipboard.writeText(document.getElementById('outputResult').innerText);
-            alert("Copied successfully.");
+            var textToCopy = document.getElementById('outputResult').innerText;
+            navigator.clipboard.writeText(textToCopy).then(function() {
+                alert("Content copied successfully to clipboard!");
+            });
         });
     </script>
 </body>
