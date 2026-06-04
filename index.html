@@ -126,7 +126,7 @@
         .feature-card p { font-size: 14px; color: var(--text-muted); }
         
         /* 300 Words Ranking Queries Rich Paragraph Box */
-        .ranking-paragraph-box { text-align: left; max-width: 850px; margin: 0 order; padding: 30px; background: #fafafa; border-radius: 16px; border: 1px solid #eee; }
+        .ranking-paragraph-box { text-align: left; max-width: 850px; margin: 0 auto; padding: 30px; background: #fafafa; border-radius: 16px; border: 1px solid #eee; }
         .ranking-paragraph-box p { font-size: 15px; color: #475569; line-height: 1.8; margin-bottom: 15px; }
 
         /* ACCORDION FAQS */
@@ -143,7 +143,11 @@
         .blog-card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,0.05); }
         .blog-meta { padding: 20px 20px 10px 20px; font-size: 12px; color: var(--primary); font-weight: 700; text-transform: uppercase; }
         .blog-card h3 { padding: 0 20px 10px 20px; font-size: 18px; color: var(--secondary); font-weight: 700; }
-        .blog-card p { padding: 0 20px 20px 20px; font-size: 14px; color: var(--text-muted); }
+        .blog-card p { padding: 0 20px 20px 20px; font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+        
+        /* Read More Link Style */
+        .read-more-link { display: inline-block; padding: 0 20px 20px 20px; color: var(--primary); font-weight: 700; font-size: 14px; text-decoration: none; }
+        .read-more-link:hover { color: var(--primary-dark); text-decoration: underline; }
 
         /* FOOTER */
         .premium-footer { background: #0b0f19; color: #94a3b8; padding: 70px 8% 30px 8%; border-top: 1px solid #1e293b; font-size: 14px; }
@@ -302,9 +306,12 @@
         <h2 style="font-size: 32px; font-weight: 800;">Latest from the Blog</h2>
         <div class="blog-container">
             <div class="blog-card">
-                <div class="blog-meta">SEO Strategy - May 2026</div>
-                <h3>How to Optimize YouTube Descriptions for Higher CTR</h3>
-                <p>Discover how embedding relevant long-tail search parameters naturally inside descriptions compounds traffic safely.</p>
+                <a href="./blog/" class="blog-link">
+                    <div class="blog-meta">SEO Strategy - June 2026</div>
+                    <h3>The Ultimate Guide to Using a YouTube Thumbnail Downloader Online for Massive Channel Growth</h3>
+                    <p>Every single day, millions of videos are uploaded across YouTube and social media, making it incredibly hard for new creators to get noticed. Learn how studying top-performing thumbnails can boost your CTR instantly...</p>
+                </a>
+                <a href="./blog/" class="read-more-link">Read Full Article →</a>
             </div>
         </div>
     </section>
@@ -376,7 +383,6 @@
             } else { alert("Please enter a valid YouTube URL."); }
         });
 
-        // --- NEW REAL-TIME GOOGLE AUTOCOMPLETE INTERFACE GENERATOR ---
         document.getElementById('generateBtn').addEventListener('click', function() {
             var topic = document.getElementById('topicInput').value.trim();
             var strategy = document.getElementById('strategySelect').value;
@@ -394,10 +400,8 @@
             
             var isFood = words.some(w => ["food", "vlog", "cooking", "recipe", "street", "taste", "restaurant", "eat", "biryani", "dhaba", "kitchen"].includes(w));
             
-            // Set up a proxy fallback pool to bypass CORS or slow networks securely
             var targetQueryUrl = "https://suggestqueries.google.com/complete/search?client=firefox&q=" + encodeURIComponent(cleanTopic);
             
-            // We use script insertion strategy or clean text fallback structures if network parameters compress
             fetch(targetQueryUrl)
             .then(res => res.json())
             .then(data => {
@@ -405,13 +409,11 @@
                 processOutputWithQueries(extractedQueries);
             })
             .catch(err => {
-                // Secure algorithmic fallback if external fetch fails
                 var standardFallbacks = [cleanTopic + " tutorial", cleanTopic + " tips", "best " + cleanTopic + " 2026", cleanTopic + " trend"];
                 processOutputWithQueries(standardFallbacks);
             });
 
             function processOutputWithQueries(liveQueries) {
-                // Pick top extracted words from Google
                 var topQueriesStr = liveQueries.slice(0, 4).join(', ');
                 var rawTags = liveQueries.slice(0, 3).map(q => "#" + q.toLowerCase().replace(/\s+/g, '')).join(' ');
 
@@ -473,33 +475,13 @@
                         
                     case "yt_desc":
                         if (isFood) {
-                            finalOutput = "Welcome to our ultimate journey where we experience the best " + cleanTopic + ".\n\n" +
-                                         "In this video, we go behind the scenes to address popular user queries like " + topQueriesStr + ". We show you the full cooking process, authentic local spices, and an honest taste review of " + cleanTopic + ". Whether you are a food lover or an aspiring creator, this video brings value.\n\n" +
-                                         "TIMESTAMPS:\n0:00 - Introduction and First Look\n1:35 - Exploring the Kitchen and Ingredients\n5:10 - Complete Making Process\n9:45 - The Taste Review and Rating\n13:10 - Price and Final Location Details\n\n" +
-                                         "RECOMMENDED RESOURCES:\n- Visit our official platform suite: https://thumbnailcreator.onlinenn" +
-                                         "If you enjoyed this food tour, make sure to Like, Subscribe, and turn on the Notification Bell for weekly delicious vlogs.\n\n" +
-                                         tags + " #foodvlogger #youtubefood #desifood";
-                        } else {
-                            finalOutput = "In this comprehensive tutorial, we break down everything you need to know about " + cleanTopic + ".\n\n" +
-                                         "We analyze high-volume search matrix nodes like " + topQueriesStr + " to provide the ultimate guide. This video guide is built perfectly for both beginners and scaling publishers looking to grow in 2026.\n\n" +
-                                         "TIMESTAMPS:\n0:00 - Introduction and Context\n1:35 - Main Pillars of " + mainKeyword + "\n5:10 - Complete Practical Setup\n9:45 - Advanced SEO Optimization Layer\n13:10 - Final Summary and Key Insights\n\n" +
-                                         "RECOMMENDED RESOURCES:\n- Visit our official platform suite: https://thumbnailcreator.onlinenn" +
-                                         "If you found value in this system breakdown, make sure to Like, Subscribe, and turn on the Notification Bell for regular algorithmic growth updates.\n\n" +
-                                         tags + " #youtubeseo #algorithmgrowth #videomarketing";
+                            finalOutput = "Welcome to our ultimate journey where we experience the best " + cleanTopic + ".\n\n";
                         }
                         break;
                 }
-
                 display.innerText = finalOutput;
                 container.style.display = "block";
             }
-        });
-
-        document.getElementById('copyTextBtn').addEventListener('click', function() {
-            var textToCopy = document.getElementById('outputResult').innerText;
-            navigator.clipboard.writeText(textToCopy).then(function() {
-                alert("Content copied successfully to clipboard!");
-            });
         });
     </script>
 </body>
