@@ -35,32 +35,32 @@
           {
             "@type": "Question",
             "name": "Is this tool totally free to use?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes! ThumbnailCreator provides absolute zero-cost extraction and generation pipelines for all web scaling profiles." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes! ThumbnailCreator is 100% free with no hidden fees, subscriptions, or limits." }
           },
           {
             "@type": "Question",
             "name": "Do I need technical skills to generate social assets?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Not at all. The interface operates completely via fluid visual modules and automated conversion strategies." }
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Just paste a link or type a topic — everything else is handled for you automatically." }
           },
           {
             "@type": "Question",
             "name": "How does ThumbnailCreator extract high-definition images?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Our platform streams direct file infrastructure parameters directly from the source server to return absolute maxresdefault quality instantly." }
+            "acceptedAnswer": { "@type": "Answer", "text": "We fetch the thumbnail image directly from YouTube or Vimeo servers at the highest available resolution." }
           },
           {
             "@type": "Question",
             "name": "Can I use these hashtags and bios for commercial monetization?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. All metadata outputs match platform schema compliance guidelines, ensuring safe ranking distribution layers across TikTok, YouTube, and Instagram." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. All generated content follows platform guidelines and is safe to use commercially on TikTok, YouTube, and Instagram." }
           },
           {
             "@type": "Question",
             "name": "Does this application save or track user input links?",
-            "acceptedAnswer": { "@type": "Answer", "text": "No. ThumbnailCreator maintains zero data retention policies. Every extraction runs on decentralized cloud runtime variables for complete privacy protection." }
+            "acceptedAnswer": { "@type": "Answer", "text": "No. We never store your URLs or generated content. Everything is processed in real time and discarded immediately." }
           },
           {
             "@type": "Question",
             "name": "Is there any limit on daily thumbnail downloads?",
-            "acceptedAnswer": { "@type": "Answer", "text": "There are no bandwidth limits or caps. Content publishers can extract unlimited image layers and process profiles 24/7 without licensing fees." }
+            "acceptedAnswer": { "@type": "Answer", "text": "No limits at all. Download as many thumbnails as you need, any time, for free." }
           }
         ]
       }
@@ -112,9 +112,27 @@
         input, select { width: 100%; padding: 14px; border-radius: 12px; border: 2px solid #e2e8f0; font-size: 15px; margin-bottom: 20px; outline: none; }
         .action-btn { width: 100%; background: var(--primary); color: white; border: none; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; }
         
-        .output-wrapper, .preview-box { margin-top: 25px; background: var(--bg-light); padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0; display: none; }
+        /* MULTI-RESOLUTION GRID */
+        .preview-box { margin-top: 25px; background: var(--bg-light); padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0; display: none; }
+        .preview-box .main-preview { width: 100%; border-radius: 12px; margin-bottom: 20px; display: block; }
+        
+        .resolution-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
+        .res-card { background: white; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; }
+        .res-card img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; background: #f1f5f9; }
+        .res-card-footer { padding: 10px 12px; display: flex; justify-content: space-between; align-items: center; }
+        .res-label { font-size: 12px; font-weight: 700; color: var(--text-muted); }
+        .res-size { font-size: 11px; color: #94a3b8; }
+        .res-dl-btn { font-size: 12px; font-weight: 700; background: var(--primary); color: white; padding: 5px 12px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; white-space: nowrap; }
+        .res-dl-btn:hover { background: var(--primary-dark); }
+
+        /* platform badge on tool card */
+        .platform-badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 14px; }
+        .platform-badge.youtube { background: #fff0f0; color: #dc2626; }
+        .platform-badge.vimeo { background: #f0f4ff; color: #1ab7ea; }
+        .platform-badge-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
+
+        .output-wrapper { margin-top: 25px; background: var(--bg-light); padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0; display: none; }
         .output-display { background: white; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0; white-space: pre-wrap; margin-bottom: 15px; max-height: 300px; overflow-y: auto; text-align: left; color: #1e293b; font-size: 15px; }
-        .preview-box img { width: 100%; border-radius: 12px; margin-bottom: 15px; }
         .dl-btn, .copy-btn { display: block; text-align: center; background: #ef4444; color: white; padding: 14px; border-radius: 8px; text-decoration: none; font-weight: 700; border: none; width: 100%; cursor: pointer; }
         .copy-btn { background: #10b981; }
 
@@ -125,7 +143,6 @@
         .feature-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
         .feature-card p { font-size: 14px; color: var(--text-muted); }
         
-        /* 300 Words Ranking Queries Rich Paragraph Box */
         .ranking-paragraph-box { text-align: left; max-width: 850px; margin: 0 auto; padding: 30px; background: #fafafa; border-radius: 16px; border: 1px solid #eee; }
         .ranking-paragraph-box p { font-size: 15px; color: #475569; line-height: 1.8; margin-bottom: 15px; }
 
@@ -144,8 +161,6 @@
         .blog-meta { padding: 20px 20px 10px 20px; font-size: 12px; color: var(--primary); font-weight: 700; text-transform: uppercase; }
         .blog-card h3 { padding: 0 20px 10px 20px; font-size: 18px; color: var(--secondary); font-weight: 700; }
         .blog-card p { padding: 0 20px 20px 20px; font-size: 14px; color: var(--text-muted); line-height: 1.6; }
-        
-        /* Read More Link Style */
         .read-more-link { display: inline-block; padding: 0 20px 20px 20px; color: var(--primary); font-weight: 700; font-size: 14px; text-decoration: none; }
         .read-more-link:hover { color: var(--primary-dark); text-decoration: underline; }
 
@@ -163,7 +178,15 @@
         .footer-legal-links a { color: #64748b; text-decoration: none; margin-left: 20px; }
         .footer-legal-links a:hover { color: #fff; }
 
-        @media (max-width: 768px) { .nav-links { display: none; } .hero-section h1 { font-size: 32px; } .footer-bottom { flex-direction: column; gap: 20px; text-align: center; } }
+        /* error notice */
+        .fetch-error { display:none; margin-top: 14px; background: #fff0f0; color: #dc2626; padding: 12px 16px; border-radius: 10px; font-size: 14px; font-weight: 600; border: 1px solid #fecaca; }
+
+        @media (max-width: 768px) { 
+            .nav-links { display: none; } 
+            .hero-section h1 { font-size: 32px; } 
+            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; } 
+            .resolution-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -187,9 +210,9 @@
     </nav>
 
     <header class="hero-section">
-        <div class="hero-badge">YouTube Thumbnail Downloader Online</div>
+        <div class="hero-badge">YouTube & Vimeo Thumbnail Downloader</div>
         <h1>Stop Losing Views to Bad <span>Thumbnails & Captions</span></h1>
-        <p class="hero-p">Extract raw high-definition thumbnails and instantly write search-optimized, keyword-rich profiles and descriptions using live search insights.</p>
+        <p class="hero-p">Download HD thumbnails from YouTube and Vimeo in every available size, and generate AI-powered captions, bios, and hashtags — all for free.</p>
 
         <div class="workspace-card" id="workspace">
             <div class="tabs-header">
@@ -197,18 +220,24 @@
                 <button class="tab-trigger" onclick="openTab(event, 'contentGenerator')">Rich Keyword Content</button>
             </div>
 
+            <!-- THUMBNAIL EXTRACTOR TAB -->
             <div id="thumbExtractor" class="tool-content active">
-                <label>Paste YouTube Video Link:</label>
-                <input type="text" id="ytUrlInput" placeholder="https://www.youtube.com/watch?v=...">
-                <button class="action-btn" id="fetchThumbBtn">Fetch Thumbnail Image</button>
+                <div class="platform-badge-row">
+                    <span class="platform-badge youtube">▶ YouTube</span>
+                    <span class="platform-badge vimeo">● Vimeo</span>
+                </div>
+                <label>Paste YouTube or Vimeo Video Link:</label>
+                <input type="text" id="ytUrlInput" placeholder="https://www.youtube.com/watch?v=... or https://vimeo.com/...">
+                <button class="action-btn" id="fetchThumbBtn">Fetch Thumbnail Images</button>
+                <div class="fetch-error" id="fetchError">Could not load thumbnails. Please check the URL and try again.</div>
 
                 <div class="preview-box" id="previewContainer">
-                    <label>Thumbnail Preview:</label>
-                    <img id="previewImg" src="" alt="YouTube Preview">
-                    <a id="downloadAction" class="dl-btn" href="#" target="_blank" download="thumbnail.jpg">Download HD Quality</a>
+                    <label style="margin-bottom:12px;">Available Resolutions — right-click any image to save, or use the download buttons:</label>
+                    <div class="resolution-grid" id="resolutionGrid"></div>
                 </div>
             </div>
 
+            <!-- CONTENT GENERATOR TAB -->
             <div id="contentGenerator" class="tool-content">
                 <label>Enter Topic / Focus Area:</label>
                 <input type="text" id="topicInput" placeholder="e.g., Budget Tech Setup...">
@@ -232,27 +261,27 @@
 
     <section class="value-section" id="why-choose">
         <h2 style="font-size: 32px; font-weight: 800;">Why Choose ThumbnailCreator?</h2>
-        <p style="color: var(--text-muted); max-width: 750px; margin: 15px auto;">ThumbnailCreator helps creators make eye-catching graphics and generate social media bios, captions, and highly ranking hashtags in seconds using live analytical data layers.</p>
+        <p style="color: var(--text-muted); max-width: 750px; margin: 15px auto;">ThumbnailCreator gives creators every size of a video thumbnail in one click, plus AI-generated captions, bios, and hashtags — saving you hours of manual work every week.</p>
         
         <div class="grid-container">
             <div class="feature-card">
-                <h4>Low CTR vs 10-15% Upper Views</h4>
-                <p>Bypass bad click-through limits completely. Compounding visual nodes ensures that platform distribution algorithms favor your stream models safely.</p>
+                <h4>More Clicks, More Views</h4>
+                <p>Studying what works in top-performing thumbnails is the fastest way to improve your own click-through rate. Download any thumbnail instantly and use it as a reference.</p>
             </div>
             <div class="feature-card">
-                <h4>1-2 Sec Resolution Pipelines</h4>
-                <p>No waiting pipelines. Input active string vectors and let our interface return absolute direct image references or keyword sets instantly.</p>
+                <h4>Results in Under 2 Seconds</h4>
+                <p>Paste your video link and get every available thumbnail resolution immediately — no waiting, no sign-up, no email required.</p>
             </div>
             <div class="feature-card">
-                <h4>Zero Ongoing Design Costs</h4>
-                <p>Eliminate costly external retainer fees. Acquire immediate media frameworks without technical production backgrounds or software licensing layers.</p>
+                <h4>Completely Free, Forever</h4>
+                <p>No subscriptions, no watermarks, no design software needed. Get professional-quality thumbnails and AI-written captions at zero cost.</p>
             </div>
         </div>
 
         <div class="ranking-paragraph-box">
-            <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px; color: var(--secondary);">Maximize Your Organic Algorithm Visibility</h3>
-            <p>In the highly competitive landscape of modern digital media distribution, securing a high search ranking visibility query threshold determines the success profile of your content strategy operations. ThumbnailCreator serves as a high-efficiency interface designed to capture organic traffic loops through advanced indexing pipelines. When publishers deploy optimized social asset parameters across networks like YouTube, TikTok, and Instagram, the integration of structured metadata tags creates an authoritative footprint that search bots parse favorably. Our tool analyzes platform-specific schema layers to ensure that every generated biography layout, ranking hashtag string array, and contextual caption module aligns perfectly with discoverability matrices.</p>
-            <p>Furthermore, relying on old manual production methods can severely degrade your click-through rate parameters. By embedding long-tail keyword strings seamlessly within dynamic profile nodes, creators compress the traditional multi-hour research setup pipeline into an instantaneous execution variable. This optimization mechanism helps content managers maintain algorithmic retention layers while bypassing continuous scaling overheads. Whether your system requires a fast high-definition graphic asset retrieval pipeline or a structured descriptive keyword framework, our platform operates at scale to deliver absolute zero-cost optimization resources for creators worldwide.</p>
+            <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px; color: var(--secondary);">Get More Organic Views Without Paid Ads</h3>
+            <p>Growing a channel on YouTube, TikTok, or Instagram today is harder than ever. With millions of videos uploaded daily, your thumbnail and caption are the first things a potential viewer sees — and they decide in less than a second whether to click. A great thumbnail can double or triple your click-through rate, which directly tells the algorithm to push your video to more people.</p>
+            <p>ThumbnailCreator helps you work smarter: download thumbnails from top-performing videos to study what's working in your niche, then use our AI caption and bio generator to write search-optimized descriptions in seconds. Instead of spending hours researching keywords and writing copy from scratch, you get ready-to-paste content built around what people are actually searching for right now — giving your content a real edge without any extra cost.</p>
         </div>
     </section>
 
@@ -262,42 +291,49 @@
         <div class="accordion-item">
             <button class="accordion-header" onclick="toggleAccordion(this)">Is this tool totally free to use? <span>+</span></button>
             <div class="accordion-content">
-                <p style="padding: 10px 0;">Yes! ThumbnailCreator provides absolute zero-cost extraction and generation pipelines for all web scaling profiles.</p>
+                <p style="padding: 10px 0;">Yes — 100% free, no account needed, no hidden fees, and no daily limits. Use it as much as you want.</p>
             </div>
         </div>
         
         <div class="accordion-item">
-            <button class="accordion-header" onclick="toggleAccordion(this)">Do I need technical skills to generate social assets? <span>+</span></button>
+            <button class="accordion-header" onclick="toggleAccordion(this)">Do I need technical skills to use ThumbnailCreator? <span>+</span></button>
             <div class="accordion-content">
-                <p style="padding: 10px 0;">Not at all. The interface operates completely via fluid visual modules and automated conversion strategies.</p>
+                <p style="padding: 10px 0;">No. Just paste a YouTube or Vimeo link, click the button, and download the size you want. The caption generator works the same way — type a topic and get ready-to-use content instantly.</p>
             </div>
         </div>
 
         <div class="accordion-item">
-            <button class="accordion-header" onclick="toggleAccordion(this)">How does ThumbnailCreator extract high-definition images? <span>+</span></button>
+            <button class="accordion-header" onclick="toggleAccordion(this)">Which video platforms are supported? <span>+</span></button>
             <div class="accordion-content">
-                <p style="padding: 10px 0;">Our platform streams direct file infrastructure parameters directly from the source server to return absolute maxresdefault quality instantly.</p>
+                <p style="padding: 10px 0;">We support YouTube and Vimeo. Paste any standard video URL from either platform and all available thumbnail resolutions will be fetched automatically.</p>
             </div>
         </div>
 
         <div class="accordion-item">
-            <button class="accordion-header" onclick="toggleAccordion(this)">Can I use these hashtags and bios for commercial monetization? <span>+</span></button>
+            <button class="accordion-header" onclick="toggleAccordion(this)">What thumbnail resolutions are available? <span>+</span></button>
             <div class="accordion-content">
-                <p style="padding: 10px 0;">Absolutely. All metadata outputs match platform schema compliance guidelines, ensuring safe ranking distribution layers across TikTok, YouTube, and Instagram.</p>
+                <p style="padding: 10px 0;">For YouTube videos, we display up to 5 sizes: HD (1280×720), SD (640×480), Medium (480×360), Small (320×180), and Minimal (120×90). Each has its own download button. Vimeo thumbnails are served at the highest resolution available.</p>
             </div>
         </div>
 
         <div class="accordion-item">
-            <button class="accordion-header" onclick="toggleAccordion(this)">Does this application save or track user input links? <span>+</span></button>
+            <button class="accordion-header" onclick="toggleAccordion(this)">Can I use the generated captions and bios commercially? <span>+</span></button>
             <div class="accordion-content">
-                <p style="padding: 10px 0;">No. ThumbnailCreator maintains zero data retention policies. Every extraction runs on decentralized cloud runtime variables for complete privacy protection.</p>
+                <p style="padding: 10px 0;">Yes. All generated content is yours to use however you like, including for monetized channels and commercial accounts on TikTok, YouTube, and Instagram.</p>
             </div>
         </div>
 
         <div class="accordion-item">
-            <button class="accordion-header" onclick="toggleAccordion(this)">Is there any limit on daily thumbnail downloads? <span>+</span></button>
+            <button class="accordion-header" onclick="toggleAccordion(this)">Does ThumbnailCreator save my links or data? <span>+</span></button>
             <div class="accordion-content">
-                <p style="padding: 10px 0;">There are no bandwidth limits or caps. Content publishers can extract unlimited image layers and process profiles 24/7 without licensing fees.</p>
+                <p style="padding: 10px 0;">No. We never store your video URLs or any content you generate. Everything is processed in real time and nothing is saved on our servers.</p>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">Is there a limit on how many thumbnails I can download? <span>+</span></button>
+            <div class="accordion-content">
+                <p style="padding: 10px 0;">No limits at all. Download as many thumbnails as you need, at any time, completely free.</p>
             </div>
         </div>
     </section>
@@ -344,15 +380,15 @@
     </footer>
 
     <script>
+        /* ── TAB SWITCHER ── */
         function openTab(evt, tabName) {
-            var contents = document.querySelectorAll(".tool-content");
-            contents.forEach(function(c) { c.style.display = "none"; });
-            var triggers = document.querySelectorAll(".tab-trigger");
-            triggers.forEach(function(t) { t.classList.remove("active"); });
+            document.querySelectorAll(".tool-content").forEach(c => c.style.display = "none");
+            document.querySelectorAll(".tab-trigger").forEach(t => t.classList.remove("active"));
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.classList.add("active");
         }
 
+        /* ── ACCORDION ── */
         function toggleAccordion(element) {
             var content = element.nextElementSibling;
             var symbol = element.querySelector("span");
@@ -365,123 +401,191 @@
             }
         }
 
-        document.getElementById('fetchThumbBtn').addEventListener('click', function() {
-            var rawUrl = document.getElementById('ytUrlInput').value.trim();
-            var container = document.getElementById('previewContainer');
-            var imageDisplay = document.getElementById('previewImg');
-            var actionLink = document.getElementById('downloadAction');
+        /* ── RESOLUTION DATA ── */
+        var YT_RESOLUTIONS = [
+            { key: "maxresdefault", label: "HD",     size: "1280×720" },
+            { key: "sddefault",     label: "SD",     size: "640×480"  },
+            { key: "hqdefault",     label: "HQ",     size: "480×360"  },
+            { key: "mqdefault",     label: "MQ",     size: "320×180"  },
+            { key: "default",       label: "Minimal",size: "120×90"   }
+        ];
 
-            var parsedId = "";
-            if (rawUrl.includes("v=")) parsedId = rawUrl.split('v=')[1].split('&')[0];
-            else if (rawUrl.includes("youtu.be/")) parsedId = rawUrl.split('youtu.be/')[1].split('?')[0];
+        /* ── BUILD RESOLUTION CARD ── */
+        function buildResCard(src, label, size, filename) {
+            var card = document.createElement("div");
+            card.className = "res-card";
+            var img = document.createElement("img");
+            img.src = src;
+            img.alt = label + " thumbnail";
+            img.loading = "lazy";
+            // hide card if image fails (resolution may not exist)
+            img.onerror = function() { card.style.display = "none"; };
 
-            if (parsedId) {
-                var targetThumbnail = "https://img.youtube.com/vi/" + parsedId + "/maxresdefault.jpg";
-                imageDisplay.src = targetThumbnail;
-                actionLink.href = targetThumbnail;
-                container.style.display = "block";
-            } else { alert("Please enter a valid YouTube URL."); }
+            var footer = document.createElement("div");
+            footer.className = "res-card-footer";
+
+            var info = document.createElement("div");
+            var lbl = document.createElement("div");
+            lbl.className = "res-label";
+            lbl.textContent = label;
+            var sz = document.createElement("div");
+            sz.className = "res-size";
+            sz.textContent = size;
+            info.appendChild(lbl);
+            info.appendChild(sz);
+
+            var dlBtn = document.createElement("a");
+            dlBtn.className = "res-dl-btn";
+            dlBtn.href = src;
+            dlBtn.target = "_blank";
+            dlBtn.download = filename;
+            dlBtn.textContent = "Download";
+
+            footer.appendChild(info);
+            footer.appendChild(dlBtn);
+            card.appendChild(img);
+            card.appendChild(footer);
+            return card;
+        }
+
+        /* ── PARSE VIDEO ID ── */
+        function parseVideoId(rawUrl) {
+            if (rawUrl.includes("youtu.be/")) {
+                return { platform: "youtube", id: rawUrl.split("youtu.be/")[1].split("?")[0] };
+            }
+            if (rawUrl.includes("youtube.com") && rawUrl.includes("v=")) {
+                return { platform: "youtube", id: rawUrl.split("v=")[1].split("&")[0] };
+            }
+            // Vimeo: vimeo.com/123456789
+            var vimeoMatch = rawUrl.match(/vimeo\.com\/(\d+)/);
+            if (vimeoMatch) {
+                return { platform: "vimeo", id: vimeoMatch[1] };
+            }
+            return null;
+        }
+
+        /* ── RENDER YOUTUBE RESOLUTIONS ── */
+        function renderYouTube(videoId) {
+            var grid = document.getElementById("resolutionGrid");
+            grid.innerHTML = "";
+            YT_RESOLUTIONS.forEach(function(res) {
+                var src = "https://img.youtube.com/vi/" + videoId + "/" + res.key + ".jpg";
+                grid.appendChild(buildResCard(src, res.label, res.size, "thumbnail_" + res.key + ".jpg"));
+            });
+            document.getElementById("previewContainer").style.display = "block";
+            document.getElementById("fetchError").style.display = "none";
+        }
+
+        /* ── RENDER VIMEO (uses oEmbed API for thumbnail URL) ── */
+        function renderVimeo(videoId) {
+            var oEmbedUrl = "https://vimeo.com/api/oembed.json?url=https://vimeo.com/" + videoId;
+            fetch(oEmbedUrl)
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    var thumbUrl = data.thumbnail_url || "";
+                    // Vimeo returns e.g. …/640.jpg — request higher res by replacing size
+                    var hdUrl = thumbUrl.replace(/_\d+x\d+/, "_1280");
+                    var grid = document.getElementById("resolutionGrid");
+                    grid.innerHTML = "";
+                    var resolutions = [
+                        { url: hdUrl,    label: "HD",     size: "1280px wide" },
+                        { url: thumbUrl, label: "Original", size: data.thumbnail_width + "×" + data.thumbnail_height }
+                    ];
+                    resolutions.forEach(function(res) {
+                        grid.appendChild(buildResCard(res.url, res.label, res.size, "vimeo_thumbnail.jpg"));
+                    });
+                    document.getElementById("previewContainer").style.display = "block";
+                    document.getElementById("fetchError").style.display = "none";
+                })
+                .catch(function() {
+                    document.getElementById("fetchError").style.display = "block";
+                    document.getElementById("previewContainer").style.display = "none";
+                });
+        }
+
+        /* ── FETCH BUTTON ── */
+        document.getElementById("fetchThumbBtn").addEventListener("click", function() {
+            var rawUrl = document.getElementById("ytUrlInput").value.trim();
+            var parsed = parseVideoId(rawUrl);
+            if (!parsed) {
+                document.getElementById("fetchError").style.display = "block";
+                document.getElementById("previewContainer").style.display = "none";
+                return;
+            }
+            if (parsed.platform === "youtube") {
+                renderYouTube(parsed.id);
+            } else {
+                renderVimeo(parsed.id);
+            }
         });
 
-        document.getElementById('generateBtn').addEventListener('click', function() {
-            var topic = document.getElementById('topicInput').value.trim();
-            var strategy = document.getElementById('strategySelect').value;
-            var container = document.getElementById('outputContainer');
-            var display = document.getElementById('outputResult');
+        /* ── CONTENT GENERATOR ── */
+        document.getElementById("generateBtn").addEventListener("click", function() {
+            var topic = document.getElementById("topicInput").value.trim();
+            var strategy = document.getElementById("strategySelect").value;
+            var container = document.getElementById("outputContainer");
+            var display = document.getElementById("outputResult");
 
-            if(topic === "") { 
-                alert("Please enter a topic."); 
-                return; 
-            }
-            
-            var cleanTopic = topic.replace(/[#]/g, ''); 
+            if (topic === "") { alert("Please enter a topic."); return; }
+
+            var cleanTopic = topic.replace(/[#]/g, "");
             var words = cleanTopic.toLowerCase().split(/\s+/);
-            var mainKeyword = words.map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-            
-            var isFood = words.some(w => ["food", "vlog", "cooking", "recipe", "street", "taste", "restaurant", "eat", "biryani", "dhaba", "kitchen"].includes(w));
-            
-            var targetQueryUrl = "https://suggestqueries.google.com/complete/search?client=firefox&q=" + encodeURIComponent(cleanTopic);
-            
-            fetch(targetQueryUrl)
-            .then(res => res.json())
-            .then(data => {
-                var extractedQueries = data[1] || [];
-                processOutputWithQueries(extractedQueries);
-            })
-            .catch(err => {
-                var standardFallbacks = [cleanTopic + " tutorial", cleanTopic + " tips", "best " + cleanTopic + " 2026", cleanTopic + " trend"];
-                processOutputWithQueries(standardFallbacks);
-            });
+            var mainKeyword = words.map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+            var isFood = words.some(w => ["food","vlog","cooking","recipe","street","taste","restaurant","eat","biryani","dhaba","kitchen"].includes(w));
+
+            fetch("https://suggestqueries.google.com/complete/search?client=firefox&q=" + encodeURIComponent(cleanTopic))
+                .then(r => r.json())
+                .then(data => processOutputWithQueries(data[1] || []))
+                .catch(() => processOutputWithQueries([cleanTopic + " tutorial", cleanTopic + " tips", "best " + cleanTopic + " 2026", cleanTopic + " trend"]));
 
             function processOutputWithQueries(liveQueries) {
-                var topQueriesStr = liveQueries.slice(0, 4).join(', ');
-                var rawTags = liveQueries.slice(0, 3).map(q => "#" + q.toLowerCase().replace(/\s+/g, '')).join(' ');
-
-                var tags = "";
-                if (isFood) {
-                    tags = rawTags + " #foodvlog #streetfood #foodie #recipe #viralrecipes";
-                } else {
-                    tags = rawTags + " #viral #trending #contentcreator #seo2026 #youtubeseo";
-                }
+                var topQueriesStr = liveQueries.slice(0, 4).join(", ");
+                var rawTags = liveQueries.slice(0, 3).map(q => "#" + q.toLowerCase().replace(/\s+/g, "")).join(" ");
+                var tags = isFood
+                    ? rawTags + " #foodvlog #streetfood #foodie #recipe #viralrecipes"
+                    : rawTags + " #viral #trending #contentcreator #seo2026 #youtubeseo";
 
                 var finalOutput = "";
 
-                switch(strategy) {
+                switch (strategy) {
                     case "insta_rich":
-                        if (isFood) {
-                            finalOutput = "[ " + mainKeyword.toUpperCase() + " ]\n\n" +
-                                         "Exploring the ultimate flavours and bringing you the most delicious review of " + cleanTopic + ". People are constantly searching for " + topQueriesStr + ", and in this deep dive, we are covering everything that makes this food absolutely special.\n\n" +
-                                         "Tell us in the comments: What is your absolute favourite spot for this dish?\n\n" +
-                                         "Save this post for your next food tour reference.\n\n" +
-                                         tags + " #instagramfood #foodlovers #explorepage";
-                        } else {
-                            finalOutput = "[ " + mainKeyword.toUpperCase() + " MASTERCLASS ]\n\n" +
-                                         "Looking for the absolute best guide on " + cleanTopic + "? With high focus on queries like " + topQueriesStr + ", we reveal the hidden strategies, essential tools, and step-by-step methods you need to succeed.\n\n" +
-                                         "Key Takeaway: Proper planning beats luck every single time. What is your biggest challenge with this? Let me know below.\n\n" +
-                                         "Save this post so you do not lose it later.\n\n" +
-                                         tags + " #instagramseo #explorepage #creatorsuccess";
-                        }
+                        finalOutput = isFood
+                            ? "[ " + mainKeyword.toUpperCase() + " ]\n\nExploring the ultimate flavours and bringing you the most delicious review of " + cleanTopic + ". People are constantly searching for " + topQueriesStr + ", and in this deep dive, we are covering everything that makes this food absolutely special.\n\nTell us in the comments: What is your absolute favourite spot for this dish?\n\nSave this post for your next food tour reference.\n\n" + tags + " #instagramfood #foodlovers #explorepage"
+                            : "[ " + mainKeyword.toUpperCase() + " MASTERCLASS ]\n\nLooking for the absolute best guide on " + cleanTopic + "? With high focus on queries like " + topQueriesStr + ", we reveal the hidden strategies, essential tools, and step-by-step methods you need to succeed.\n\nKey Takeaway: Proper planning beats luck every single time. What is your biggest challenge with this? Let me know below.\n\nSave this post so you do not lose it later.\n\n" + tags + " #instagramseo #explorepage #creatorsuccess";
                         break;
-                        
+
                     case "tiktok_rich":
-                        if (isFood) {
-                            finalOutput = "The best " + cleanTopic + " you will see on your feed today.\n\n" +
-                                         "If you love exploring trending topics like " + topQueriesStr + ", this breakdown of " + cleanTopic + " is exactly what you need. From the perfect aroma to the presentation, every layer is purely mouthwatering.\n\n" +
-                                         "Drop your food recommendations in the comments below.\n\n" +
-                                         tags + " #tiktokfood #foodtok #fyp #streetfoodpakistan";
-                        } else {
-                            finalOutput = "The ultimate " + cleanTopic + " hack you need to know.\n\n" +
-                                         "Stop scrolling if you want to fix your workflow regarding " + topQueriesStr + ". This simple formula changes everything. Watch until the very end for the secret tip that pros use every single day.\n\n" +
-                                         "Let me know if you want a detailed part 2 in the comments.\n\n" +
-                                         tags + " #tiktokseo #foryoupage #fyp #trendingtutorial";
-                        }
+                        finalOutput = isFood
+                            ? "The best " + cleanTopic + " you will see on your feed today.\n\nIf you love exploring trending topics like " + topQueriesStr + ", this breakdown of " + cleanTopic + " is exactly what you need. From the perfect aroma to the presentation, every layer is purely mouthwatering.\n\nDrop your food recommendations in the comments below.\n\n" + tags + " #tiktokfood #foodtok #fyp #streetfoodpakistan"
+                            : "The ultimate " + cleanTopic + " hack you need to know.\n\nStop scrolling if you want to fix your workflow regarding " + topQueriesStr + ". This simple formula changes everything. Watch until the very end for the secret tip that pros use every single day.\n\nLet me know if you want a detailed part 2 in the comments.\n\n" + tags + " #tiktokseo #foryoupage #fyp #trendingtutorial";
                         break;
-                        
+
                     case "profile_bio":
-                        if (isFood) {
-                            finalOutput = mainKeyword + " Reviews & Strategy\n" +
-                                         "Covering: " + topQueriesStr.slice(0, 45) + "...\n" +
-                                         "Helping food lovers discover elite culinary experiences daily\n" +
-                                         "Check out our recommended tools here:\n" +
-                                         "thumbnailcreator.online";
-                        } else {
-                            finalOutput = mainKeyword + " Insights & Strategy\n" +
-                                         "Specialist in " + topQueriesStr.slice(0, 45) + "...\n" +
-                                         "Helping content managers scale up their search distribution matrix\n" +
-                                         "Access the absolute best zero-cost tools here:\n" +
-                                         "thumbnailcreator.online";
-                        }
+                        finalOutput = isFood
+                            ? mainKeyword + " Reviews & Strategy\nCovering: " + topQueriesStr.slice(0, 60) + "...\nHelping food lovers discover elite culinary experiences daily\nCheck out our recommended tools here:\nthumbnailcreator.online"
+                            : mainKeyword + " Insights & Strategy\nSpecialist in: " + topQueriesStr.slice(0, 60) + "...\nHelping creators grow their channels with smarter content tools\nFree tools at: thumbnailcreator.online";
                         break;
-                        
+
                     case "yt_desc":
-                        if (isFood) {
-                            finalOutput = "Welcome to our ultimate journey where we experience the best " + cleanTopic + ".\n\n";
-                        }
+                        finalOutput = isFood
+                            ? "Welcome to today's video where we dive into the world of " + cleanTopic + ".\n\nIn this video, we cover everything you need to know — from the best spots to find it, to what makes it stand out from the rest. Viewers who searched for " + topQueriesStr + " will find exactly what they are looking for right here.\n\nIf you enjoyed this video, please like, comment, and subscribe for more food content every week.\n\n" + tags + " #youtube #foodchannel"
+                            : "Welcome to today's video on " + cleanTopic + ".\n\nIn this video, we break down everything step by step so you can get results fast. Topics covered include: " + topQueriesStr + ". Whether you are just starting out or looking to level up, this guide has something for you.\n\nIf this helped you, please like the video and subscribe for more content like this every week.\n\n" + tags + " #youtube #tutorial";
                         break;
                 }
+
                 display.innerText = finalOutput;
                 container.style.display = "block";
             }
+        });
+
+        /* ── COPY BUTTON ── */
+        document.getElementById("copyTextBtn").addEventListener("click", function() {
+            var text = document.getElementById("outputResult").innerText;
+            navigator.clipboard.writeText(text).then(function() {
+                var btn = document.getElementById("copyTextBtn");
+                btn.textContent = "Copied!";
+                setTimeout(function() { btn.textContent = "Copy to Clipboard"; }, 2000);
+            });
         });
     </script>
 </body>
