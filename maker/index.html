@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Online YouTube Thumbnail Maker – No Signup Required | ThumbnailCreator</title>
-    <meta name="description" content="Create high-CTR YouTube thumbnails online for free. Custom templates, easy drag-and-drop text editor, custom badge placement, and no watermarks. Design your next viral cover!">
+    <!-- TITLE: Optimized under 60-75 chars limit -->
+    <title>Free YouTube Thumbnail Maker (No Signup) | ThumbnailCreator</title>
+    
+    <!-- FIXED META DESCRIPTION: Optimized to 153 characters (Green Zone) -->
+    <meta name="description" content="Create high-CTR YouTube thumbnails for free. Easy text editor, custom badge placement, and no watermarks. Design and download your next viral cover now!">
+    
+    <!-- CANONICAL: Strict Self-Referencing Canonical -->
     <link rel="canonical" href="https://thumbnailcreator.online/thumbnail-maker" />
     
     <!-- PLUS JAKARTA SANS FONT -->
@@ -83,19 +88,64 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
         body { background-color: #fff; color: var(--secondary); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
 
-        /* NAVBAR (Home Page Header Matching) */
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: rgba(255,255,255,.9); backdrop-filter: blur(12px); position: fixed; top: 0; width: 100%; z-index: 1000; border-bottom: 1px solid #f1f5f9; height: 80px; }
+        /* NAVBAR WITH CSS DROPDOWN */
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 0 8%; background: rgba(255,255,255,.9); backdrop-filter: blur(12px); position: fixed; top: 0; width: 100%; z-index: 1000; border-bottom: 1px solid #f1f5f9; height: 80px; }
         .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .logo { font-size: 22px; font-weight: 800; color: var(--secondary); text-decoration: none; }
         .logo span { color: var(--primary); }
         .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--secondary); font-weight: 600; font-size: 15px; transition: .2s; }
+        .nav-links li { position: relative; }
+        .nav-links a { text-decoration: none; color: var(--secondary); font-weight: 600; font-size: 15px; transition: .2s; display: block; padding: 10px 0; }
         .nav-links a:hover { color: var(--primary); }
-        .btn-start { background: var(--secondary); color: white !important; padding: 10px 20px; border-radius: 8px; transition: .3s; }
+
+        /* PREMIUM DROPDOWN LOGIC */
+        .dropdown { position: relative; }
+        .dropdown-menu { 
+            position: absolute; 
+            top: 100%; 
+            left: 50%; 
+            transform: translateX(-50%) translateY(10px); 
+            background: white; 
+            min-width: 240px; 
+            border: 1px solid var(--border-color); 
+            border-radius: 12px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+            padding: 10px; 
+            opacity: 0; 
+            visibility: hidden; 
+            transition: all 0.3s ease; 
+            z-index: 1100;
+        }
+        .dropdown:hover .dropdown-menu { 
+            opacity: 1; 
+            visibility: visible; 
+            transform: translateX(-50%) translateY(0); 
+        }
+        .dropdown-menu li { width: 100%; margin: 0; }
+        .dropdown-menu a { 
+            padding: 10px 15px; 
+            font-size: 13.5px; 
+            color: var(--secondary); 
+            font-weight: 500; 
+            border-radius: 8px; 
+            transition: .15s; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px;
+        }
+        .dropdown-menu a:hover { 
+            background: #f5f3ff; 
+            color: var(--primary); 
+        }
+        .dropdown-trigger { display: flex; align-items: center; gap: 4px; cursor: pointer; }
+        .dropdown-trigger svg { transition: transform 0.2s; }
+        .dropdown:hover .dropdown-trigger svg { transform: rotate(180deg); }
+
+        .btn-start { background: var(--secondary); color: white !important; padding: 10px 20px !important; border-radius: 8px; transition: .3s; }
         .btn-start:hover { background: var(--primary-dark); }
 
         /* HERO TITLE SECTION */
-        .hero-title-section { text-align: center; padding: 120px 8% 20px; max-width: 900px; margin: 0 auto; }
+        .hero-title-section { text-align: center; padding: 140px 8% 20px; max-width: 900px; margin: 0 auto; }
         .badge-pill { display: inline-block; padding: 6px 16px; background: #e0e7ff; color: var(--primary); border-radius: 100px; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 0.5px; }
         .hero-title-section h1 { font-size: 42px; font-weight: 800; color: var(--secondary); line-height: 1.2; margin-bottom: 15px; }
         .hero-title-section p { font-size: 16px; color: var(--text-muted); max-width: 700px; margin: 0 auto; }
@@ -163,7 +213,7 @@
         .main-seo-content a { color: var(--primary); font-weight: 700; text-decoration: none; border-bottom: 2px solid #e0e7ff; transition: .2s; }
         .main-seo-content a:hover { color: var(--primary-dark); background: #f5f3ff; }
 
-        /* COMPLETE THUMBNAIL TOOLKIT SECTION (Home Page Copy Match) */
+        /* COMPLETE THUMBNAIL TOOLKIT SECTION */
         .toolkit-section { margin: 80px 0; text-align: center; }
         .toolkit-section h2 { font-size: 30px; font-weight: 800; color: var(--secondary); margin-bottom: 10px; }
         .toolkit-section p.sec-desc { color: var(--text-muted); font-size: 15px; margin-bottom: 45px; }
@@ -183,7 +233,7 @@
         .tool-card p { font-size: 12px; color: var(--text-muted); line-height: 1.5; margin-bottom: 15px; flex-grow: 1; }
         .tool-card .card-link { font-size: 12px; font-weight: 700; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 5px; }
 
-        /* WHY CHOOSE US SECTION (Home Page Copy Match) */
+        /* WHY CHOOSE US SECTION */
         .why-choose-section { background: var(--bg-light); border: 1px solid var(--border-color); border-radius: 24px; padding: 50px 40px; margin: 80px 0; }
         .why-choose-section h2 { font-size: 28px; font-weight: 800; text-align: center; color: var(--secondary); margin-bottom: 10px; }
         .why-choose-section p.sec-desc { text-align: center; color: var(--text-muted); font-size: 15px; margin-bottom: 45px; }
@@ -196,7 +246,7 @@
         .banner-feature h3 { font-size: 16px; font-weight: 800; margin-bottom: 10px; color: var(--secondary); }
         .banner-feature p { font-size: 13px; color: #475569; }
 
-        /* FAQS SECTION (Home Page Copy Match) */
+        /* FAQS SECTION */
         .faq-section { margin: 80px 0; }
         .faq-section h2 { font-size: 28px; font-weight: 800; text-align: center; color: var(--secondary); margin-bottom: 40px; }
         .faq-grid { display: flex; flex-direction: column; gap: 15px; max-width: 850px; margin: 0 auto; }
@@ -208,9 +258,9 @@
         .faq-item.active .faq-body { max-height: 200px; }
         .faq-item.active .faq-icon { transform: rotate(45deg); }
 
-        /* PREMIUM FOOTER (Home Page Matching) */
+        /* PREMIUM FOOTER */
         .premium-footer { background: #0a0f1d; color: #94a3b8; padding: 70px 8% 30px; border-top: 1px solid #1e293b; font-size: 14px; width: 100%; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto 50px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1.2fr 1.2fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto 50px; }
         
         .footer-brand h3 { color: #fff; font-size: 22px; margin-bottom: 15px; font-weight: 800; }
         .footer-brand h3 span { color: var(--primary); }
@@ -227,7 +277,7 @@
         .footer-bottom-links a { color: #475569; text-decoration: none; transition: .2s; }
         .footer-bottom-links a:hover { color: #94a3b8; }
 
-        /* RESPONSIVE LAYOUT ADJUSTMENTS */
+        /* RESPONSIVE LAYOUT */
         @media (max-width: 1024px) {
             .workspace-grid { grid-template-columns: 1fr; }
             .control-panel { order: 2; }
@@ -238,568 +288,605 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-    <a href="https://thumbnailcreator.online/" class="logo-container">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:32px;height:32px;color:#6366f1">
-            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-            <polygon points="10 9 15 12 10 15 10 9" fill="#6366f1" style="stroke:none"></polygon>
-        </svg>
-        <span class="logo">Thumbnail<span>Creator</span></span>
-    </a>
-    <ul class="nav-links">
-        <li><a href="https://thumbnailcreator.online/thumbnail-downloader">Thumbnail Downloader</a></li>
-        <li><a href="https://thumbnailcreator.online/thumbnail-maker">Thumbnail Maker</a></li>
-        <li><a href="https://thumbnailcreator.online/ai-thumbnail-generator">AI Thumbnail Generator</a></li>
-        <li><a href="https://thumbnailcreator.online/" class="btn-start">Home Dashboard</a></li>
-    </ul>
-</nav>
+    <!-- STICKY NAVBAR -->
+    <nav class="navbar">
+        <a href="https://thumbnailcreator.online" class="logo-container">
+            <h2 class="logo">Thumbnail<span>Creator</span></h2>
+        </a>
+        <ul class="nav-links">
+            <li><a href="https://thumbnailcreator.online">Home</a></li>
+            <!-- CSS DROPDOWN FOR TOOLS -->
+            <li class="dropdown">
+                <a class="dropdown-trigger">
+                    Free Tools 
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="https://thumbnailcreator.online/thumbnail-maker">YouTube Thumbnail Maker</a></li>
+                    <li><a href="https://thumbnailcreator.online/thumbnail-downloader">YouTube Thumbnail Downloader</a></li>
+                    <li><a href="https://thumbnailcreator.online/description-generator">YouTube Description Generator</a></li>
+                    <li><a href="https://thumbnailcreator.online/tiktok-caption-generator">TikTok Caption Generator</a></li>
+                    <li><a href="https://thumbnailcreator.online/instagram-caption-generator">Instagram Caption Generator</a></li>
+                    <li><a href="https://thumbnailcreator.online/channel-bio-generator">Social Media Bio Generator</a></li>
+                </ul>
+            </li>
+            <li><a href="https://thumbnailcreator.online/about-us">About</a></li>
+            <li><a href="https://thumbnailcreator.online/contact-us">Contact</a></li>
+            <li><a href="https://thumbnailcreator.online/thumbnail-maker" class="btn-start">Launch Maker</a></li>
+        </ul>
+    </nav>
 
-<!-- HERO TITLE -->
-<div class="hero-title-section">
-    <span class="badge-pill">The Free Graphic Workspace</span>
-    <h1>Interactive YouTube Thumbnail Maker</h1>
-    <p>Upload layouts, add customized text overlays, customize drag-and-drop elements, and export professional visual cards instantly.</p>
-</div>
+    <!-- HERO SECTION -->
+    <header class="hero-title-section">
+        <span class="badge-pill">Free Web App</span>
+        <h1>Free Online YouTube Thumbnail Maker</h1>
+        <p>Design stunning, high-CTR thumbnails instantly with zero design experience. Upload background graphics, configure stroke borders, drag overlays, and export watermark-free covers for free.</p>
+    </header>
 
-<div class="page-wrapper">
-    <div class="main-container">
+    <!-- MAIN APP WRAPPER -->
+    <div class="page-wrapper">
+        <main class="main-container">
+            <div class="workspace-grid">
+                
+                <!-- CONTROL PANEL (LEFT SIDEBAR) -->
+                <aside class="control-panel">
+                    <!-- BACKGROUND SETTINGS -->
+                    <div class="panel-section">
+                        <h3>1. Canvas Background</h3>
+                        <div class="control-group">
+                            <label>Upload Base Image</label>
+                            <div class="upload-btn-wrapper">
+                                <span class="btn-upload">Browse Local File</span>
+                                <input type="file" id="bg-upload" accept="image/*">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label>Or Choose Flat Color</label>
+                            <div class="color-row">
+                                <div class="color-box">
+                                    <input type="color" id="bg-color" value="#0f172a">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- HEADLINE SETTINGS -->
+                    <div class="panel-section">
+                        <h3>2. Typography Text</h3>
+                        <div class="control-group">
+                            <label>Headline Text</label>
+                            <input type="text" id="overlay-text" class="text-input" value="VIRAL HEADLINE">
+                        </div>
+                        <div class="control-group">
+                            <label>Text Color & Border</label>
+                            <div class="color-row">
+                                <div class="color-box">
+                                    <label style="font-size:10px; margin-bottom:4px;">Fill</label>
+                                    <input type="color" id="text-color" value="#ffffff">
+                                </div>
+                                <div class="color-box">
+                                    <label style="font-size:10px; margin-bottom:4px;">Stroke</label>
+                                    <input type="color" id="stroke-color" value="#6366f1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label>Font Styling</label>
+                            <select id="font-family" class="select-input">
+                                <option value="Impact">Impact (Classic Bold)</option>
+                                <option value="'Plus Jakarta Sans', sans-serif">Plus Jakarta (Modern)</option>
+                                <option value="Arial Black">Arial Black (Heavy)</option>
+                                <option value="Courier New">Courier (Retro)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- ACCENT BADGE SETTINGS -->
+                    <div class="panel-section">
+                        <h3>3. Attention Badge</h3>
+                        <div class="control-group">
+                            <label>Badge Text</label>
+                            <input type="text" id="badge-text" class="text-input" value="NEW">
+                        </div>
+                        <div class="control-group">
+                            <label>Badge Styling</label>
+                            <div class="color-row">
+                                <div class="color-box">
+                                    <label style="font-size:10px; margin-bottom:4px;">BG</label>
+                                    <input type="color" id="badge-bg" value="#ef4444">
+                                </div>
+                                <div class="color-box">
+                                    <label style="font-size:10px; margin-bottom:4px;">Text</label>
+                                    <input type="color" id="badge-color" value="#ffffff">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- WORKSPACE CANVAS (RIGHT COLUMN) -->
+                <section class="canvas-container">
+                    <div class="canvas-wrapper">
+                        <!-- Strict 16:9 1280x720 Canvas standard -->
+                        <canvas id="thumbnail-canvas" width="1280" height="720"></canvas>
+                    </div>
+                    
+                    <p class="canvas-instructions">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        Tip: Drag and slide both the headline and badge anywhere on the preview above!
+                    </p>
+
+                    <div class="action-row">
+                        <button id="download-btn" class="btn-primary">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                            Export High-Definition (PNG)
+                        </button>
+                        <button id="reset-btn" class="btn-secondary">Reset Canvas</button>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- MARKETING AND SEO SECTIONS -->
+            <div class="marketing-sections">
+                
+                <!-- HOW TO USE -->
+                <section class="how-to-section">
+                    <h2>How to Create a YouTube Thumbnail Online</h2>
+                    <p class="subtitle">Publish professional, eye-catching video covers in three simple steps.</p>
+                    <div class="steps-grid">
+                        <div class="step-card">
+                            <span class="step-number">01</span>
+                            <h3>Setup Your Canvas Background</h3>
+                            <p>Upload a custom visual reference directly from your local device or pick a solid background color to start your design layout.</p>
+                        </div>
+                        <div class="step-card">
+                            <span class="step-number">02</span>
+                            <h3>Style Headlines & Badges</h3>
+                            <p>Type your key visual hook, customize font colors with stark borders (strokes), and append a bright badge alert (like 'NEW' or '100%').</p>
+                        </div>
+                        <div class="step-card">
+                            <span class="step-number">03</span>
+                            <h3>Drag & Export (HD)</h3>
+                            <p>Drag elements freely to optimal focal points. When ready, click export to get a perfectly aligned, unwatermarked 1280x720 graphic instantly.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- DEEP SEO EDITORIAL SECTION -->
+                <section class="main-seo-content">
+                    <div class="intro-block">
+                        Looking to analyze trending visuals from top creators before designing? Reverse-engineer winning ideas instantly with our fast, free <a href="https://thumbnailcreator.online/thumbnail-downloader">YouTube Thumbnail Downloader Online</a> tool to download high-definition covers instantly.
+                    </div>
+                    <h2>Unlocking Better Click-Through Rates with Custom Thumbnail Styles</h2>
+                    <p>When it comes to winning the organic search game on video sharing platforms, a thumb-stopping design decides the fate of your channel's visibility. Even if your content's script, editing, and sound design are top-tier, zero viewer clicks mean your video remains buried in the algorithmic crawl space. By combining highly vibrant backgrounds with heavy, contrasting text overlays, you give searchers an instant hook that forces action.</p>
+                    <p>Our online canvas generator eliminates the tedious setup of heavy corporate graphic software, allowing you to establish custom branding variables on the fly. Simply upload templates, assign responsive margins, and coordinate text highlights in a responsive workspace that works great across both mobile screens and desktop platforms.</p>
+                </section>
+
+                <!-- COMPLETE SUITE OF TOOLS -->
+                <section class="toolkit-section">
+                    <h2>Our Complete YouTube Optimization Suite</h2>
+                    <p class="sec-desc">A bunch of 100% free, fast, and secure tools designed to supercharge your reach and streamline publishing workflows.</p>
+                    <div class="toolkit-grid">
+                        <a href="https://thumbnailcreator.online/thumbnail-maker" class="tool-card">
+                            <div class="tool-icon indigo">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="21" x2="9" y2="9"/><line x1="9" y1="9" x2="21" y2="9"/></svg>
+                            </div>
+                            <h3>Thumbnail Maker</h3>
+                            <p>Design drag-and-drop custom YouTube graphics with high-contrast text and badge placements.</p>
+                            <span class="card-link">Launch Maker &rarr;</span>
+                        </a>
+                        <a href="https://thumbnailcreator.online/thumbnail-downloader" class="tool-card">
+                            <div class="tool-icon blue">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                            </div>
+                            <h3>Thumbnail Downloader</h3>
+                            <p>Download maximum-resolution YouTube video covers instantly by pasting video URLs.</p>
+                            <span class="card-link">Fetch Cover &rarr;</span>
+                        </a>
+                        <a href="https://thumbnailcreator.online/description-generator" class="tool-card">
+                            <div class="tool-icon green">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 21 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                            </div>
+                            <h3>Description Generator</h3>
+                            <p>Convert video ideas into structured, keyword-optimized descriptions and meta tags.</p>
+                            <span class="card-link">Write Metadata &rarr;</span>
+                        </a>
+                        <a href="https://thumbnailcreator.online/tiktok-caption-generator" class="tool-card">
+                            <div class="tool-icon red">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                            </div>
+                            <h3>TikTok Captions</h3>
+                            <p>Create catchy, fast-paced captions, hooks, and trending hashtag profiles for TikTok clips.</p>
+                            <span class="card-link">Create Captions &rarr;</span>
+                        </a>
+                        <a href="https://thumbnailcreator.online/instagram-caption-generator" class="tool-card">
+                            <div class="tool-icon purple">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                            </div>
+                            <h3>Instagram Outlines</h3>
+                            <p>Structure high-engagement visual post captions and bio descriptions with hashtags.</p>
+                            <span class="card-link">Outline Post &rarr;</span>
+                        </a>
+                        <a href="https://thumbnailcreator.online/channel-bio-generator" class="tool-card">
+                            <div class="tool-icon orange">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            </div>
+                            <h3>Bio Generator</h3>
+                            <p>Generate highly descriptive channel outlines, bio tags, and profile summaries.</p>
+                            <span class="card-link">Build Bio &rarr;</span>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- WHY CHOOSE US -->
+                <section class="why-choose-section">
+                    <h2>Why Use Our Creator Canvas Toolkit?</h2>
+                    <p class="sec-desc">Engineered for modern video publishing platforms and speed-driven channel management.</p>
+                    <div class="choose-grid">
+                        <div class="choose-card">
+                            <h3>No Signup Required</h3>
+                            <p>Bypass tedious authentication sheets, login screens, or dynamic billing constraints. Access the workspace and download resources instantly.</p>
+                        </div>
+                        <div class="choose-card">
+                            <h3>High Definition Outputs</h3>
+                            <p>All canvas layouts compile cleanly to high-fidelity 1280x720 PNG files to perfectly match YouTube's standard upload guidelines.</p>
+                        </div>
+                        <div class="choose-card">
+                            <h3>Fluid Drag Controls</h3>
+                            <p>Position headlines and custom visual banners anywhere across our real-time rendering canvas using intuitive mouse or mobile touch controls.</p>
+                        </div>
+                        <div class="banner-feature">
+                            <h3>Designed for Strict Algorithmic Verification</h3>
+                            <p>Tested by SEO experts to ensure that text ratios, custom badges, and color profiles stand out cleanly on standard, dark, and mobile feeds.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FAQS -->
+                <section class="faq-section">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-grid">
+                        <div class="faq-item">
+                            <div class="faq-header" onclick="toggleFaq(this)">
+                                What is the ideal size for a YouTube thumbnail?
+                                <span class="faq-icon">+</span>
+                            </div>
+                            <div class="faq-body">
+                                <div class="faq-content">
+                                    The recommended size for an optimized YouTube thumbnail is <strong>1280x720 pixels</strong> (an aspect ratio of 16:9), with a minimum width of 640 pixels. Saving your files in PNG or JPEG format under the 2MB limit guarantees clean loading across search results. Our generator automatically exports at this exact 1280x720 specification.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-header" onclick="toggleFaq(this)">
+                                Do you place watermarks on downscaled designs?
+                                <span class="faq-icon">+</span>
+                            </div>
+                            <div class="faq-body">
+                                <div class="faq-content">
+                                    No. We believe in providing unrestricted resources to rising creators. Every single file generated, adjusted, and exported from our site is 100% free of promotional watermarks or hidden branding layers.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-header" onclick="toggleFaq(this)">
+                                Can I use custom background patterns?
+                                <span class="faq-icon">+</span>
+                            </div>
+                            <div class="faq-body">
+                                <div class="faq-content">
+                                    Yes! The custom canvas background accepts JPEG, PNG, and standard graphic formats. Simply click the "Browse Local File" trigger under the Canvas section to style your canvas.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- PREMIUM FOOTER WITH REAL COMPLETED LINKS -->
+    <footer class="premium-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Thumbnail<span>Creator</span></h3>
+                <p>Empowering digital video publishers, online graphic designers, and social media managers with premium, lightweight utility tools built for growth.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Free Toolkit</h4>
+                <ul>
+                    <li><a href="https://thumbnailcreator.online/thumbnail-maker">YouTube Thumbnail Maker</a></li>
+                    <li><a href="https://thumbnailcreator.online/thumbnail-downloader">YouTube Thumbnail Downloader</a></li>
+                    <li><a href="https://thumbnailcreator.online/description-generator">YouTube Description Generator</a></li>
+                    <li><a href="https://thumbnailcreator.online/tiktok-caption-generator">TikTok Caption Generator</a></li>
+                    <li><a href="https://thumbnailcreator.online/instagram-caption-generator">Instagram Caption Generator</a></li>
+                    <li><a href="https://thumbnailcreator.online/channel-bio-generator">Social Media Bio Generator</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Site Pages</h4>
+                <ul>
+                    <li><a href="https://thumbnailcreator.online">Home Dashboard</a></li>
+                    <li><a href="https://thumbnailcreator.online/about-us">About Our Mission</a></li>
+                    <li><a href="https://thumbnailcreator.online/contact-us">Contact Customer Support</a></li>
+                    <li><a href="https://thumbnailcreator.online/privacy-policy">Privacy & Security Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact Info</h4>
+                <ul style="color: #64748b; font-size: 13px;">
+                    <li style="margin-bottom: 12px;">Support: <a href="mailto:support@thumbnailcreator.online" style="color: #94a3b8; display: inline;">support@thumbnailcreator.online</a></li>
+                    <li>Hours: 24/7 Service Desk</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ThumbnailCreator. All rights reserved. Built for creators globally.</p>
+            <div class="footer-bottom-links">
+                <a href="https://thumbnailcreator.online/privacy-policy">Privacy Policy</a>
+                <a href="https://thumbnailcreator.online/contact-us">Support Desk</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LIGHTWEIGHT DRAG & DRAW LOGIC -->
+    <script>
+        const canvas = document.getElementById('thumbnail-canvas');
+        const ctx = canvas.getContext('2d');
         
-        <!-- WORKSPACE INTERFACE -->
-        <div class="workspace-grid">
-            
-            <!-- SIDEBAR CONTROLS -->
-            <div class="control-panel">
-                <div class="panel-section">
-                    <h3>1. Canvas Background</h3>
-                    <div class="control-group">
-                        <label>Upload Image</label>
-                        <div class="upload-btn-wrapper">
-                            <button class="btn-upload">📁 Choose Background</button>
-                            <input type="file" id="imageLoader" accept="image/*" />
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label>Solid Background Color</label>
-                        <input type="color" id="bgColor" class="text-input" value="#0f172a" style="height:45px; padding:2px;">
-                    </div>
-                </div>
+        // Element Positions & Dimensions
+        let bgImage = null;
+        let elements = {
+            headline: { text: "VIRAL HEADLINE", x: 100, y: 250, size: 85, color: "#ffffff", strokeColor: "#6366f1", font: "Impact", isDragging: false },
+            badge: { text: "NEW", x: 100, y: 100, size: 36, color: "#ffffff", bgColor: "#ef4444", padX: 24, padY: 12, isDragging: false }
+        };
 
-                <div class="panel-section">
-                    <h3>2. Overlay Text</h3>
-                    <div class="control-group">
-                        <label>Main Heading</label>
-                        <textarea id="textValue" class="text-input" placeholder="Type your title..." rows="2" style="resize:none;">VIRAL VIDEO COVER</textarea>
-                    </div>
-                    <div class="control-group">
-                        <label>Font Family</label>
-                        <select id="fontFamily" class="select-input">
-                            <option value="Plus Jakarta Sans">Plus Jakarta Sans</option>
-                            <option value="Arial">Arial Black</option>
-                            <option value="Impact">Impact</option>
-                            <option value="Montserrat">Montserrat</option>
-                        </select>
-                    </div>
-                    <div class="control-group">
-                        <label>Font Size</label>
-                        <input type="range" id="fontSize" min="20" max="120" value="65" style="width:100%;">
-                    </div>
-                    <div class="control-group">
-                        <div class="color-row">
-                            <div class="color-box">
-                                <label>Text Color</label>
-                                <input type="color" id="textColor" value="#ffffff">
-                            </div>
-                            <div class="color-box">
-                                <label>Stroke</label>
-                                <input type="color" id="strokeColor" value="#000000">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="panel-section">
-                    <h3>3. Custom Badge</h3>
-                    <div class="control-group">
-                        <label>Badge Text</label>
-                        <input type="text" id="badgeText" class="text-input" placeholder="e.g., NEW, 2026, FREE" value="NEW">
-                    </div>
-                </div>
-            </div>
+        let activeDragElement = null;
+        let dragOffset = { x: 0, y: 0 };
 
-            <!-- CANVAS PREVIEW -->
-            <div class="canvas-container">
-                <div class="canvas-wrapper">
-                    <canvas id="thumbnailCanvas" width="1280" height="720"></canvas>
-                </div>
-                <p class="canvas-instructions">💡 Pro Tip: Aap screen par mojood Text aur Badge ko mouse se drag karke kahin bhi move kar sakte hain!</p>
-                
-                <div class="action-row">
-                    <button class="btn-secondary" id="resetBtn">🔄 Reset Editor</button>
-                    <button class="btn-primary" id="downloadBtn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                        Download HD PNG (1280x720)
-                    </button>
-                </div>
-            </div>
+        // DOM Inputs
+        const bgUpload = document.getElementById('bg-upload');
+        const bgColorInput = document.getElementById('bg-color');
+        const overlayTextInput = document.getElementById('overlay-text');
+        const textColorInput = document.getElementById('text-color');
+        const strokeColorInput = document.getElementById('stroke-color');
+        const fontFamilySelect = document.getElementById('font-family');
+        const badgeTextInput = document.getElementById('badge-text');
+        const badgeBgInput = document.getElementById('badge-bg');
+        const badgeColorInput = document.getElementById('badge-color');
+        const downloadBtn = document.getElementById('download-btn');
+        const resetBtn = document.getElementById('reset-btn');
 
-        </div>
+        // Draw Canvas Routine
+        function drawCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        <!-- MARKETING SECTIONS WRAPPER -->
-        <div class="marketing-sections">
-
-            <!-- HOW TO USE -->
-            <section class="how-to-section">
-                <h2>How to Use the Free Thumbnail Maker</h2>
-                <p class="subtitle">Design perfect, attention-grabbing assets in three incredibly simple steps</p>
-                <div class="steps-grid">
-                    <div class="step-card">
-                        <span class="step-number">01</span>
-                        <h3>Setup Background</h3>
-                        <p>Either drop your custom graphic banner to use it as a layout, or configure a dynamic base color canvas directly from the editor palette.</p>
-                    </div>
-                    <div class="step-card">
-                        <span class="step-number">02</span>
-                        <h3>Write and Style Text</h3>
-                        <p>Write down your target video hook line, customize font sizes, pick high-visibility typography faces, and add sharp borders to optimize readability.</p>
-                    </div>
-                    <div class="step-card">
-                        <span class="step-number">03</span>
-                        <h3>Position & Download</h3>
-                        <p>Drag the custom badges and overlay headings anywhere on the preview panel. Click download to get a water-mark free 1280x720 PNG file.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SEO CONTENT WITH BACKLINK TO HOME PAGE -->
-            <section class="main-seo-content">
-                <div class="intro-block">
-                    Looking for a comprehensive dashboard? You can check out our ultimate <a href="https://thumbnailcreator.online/">Thumbnail Creator Toolkit</a> to run quick analysis diagnostics, download live assets, and generate AI-driven cover designs.
-                </div>
-                <h2>Create Eye-Catching Custom Assets</h2>
-                <p>Establishing unique visual aesthetics on digital media channels plays a crucial role in building sustainable audience attention. Standard software demands excessive licensing fees and complex learning phases. That's why we engineered this free, open workspace utility. You don't need design accounts or complex configuration steps—simply drop your image, apply thick stroke-text layers to maintain excellent mobile-screen legibility, and hit export.</p>
-                <p>Designed strictly inside browser sessions, our system operates directly through client-side scripting protocols. That means your high-resolution image uploads and custom files are processed safely on your machine, rather than sent to standard databases. It’s quick, private, highly accessible, and lets you craft viral video covers in less than a minute.</p>
-            </section>
-
-            <!-- COMPLETE THUMBNAIL TOOLKIT (Home Page Matching) -->
-            <section class="toolkit-section">
-                <h2>Our Complete Thumbnail Toolkit</h2>
-                <p class="sec-desc">Everything you need to analyze, download, edit, and make outstanding graphics in seconds</p>
-                <div class="toolkit-grid">
-                    
-                    <a href="https://thumbnailcreator.online/thumbnail-downloader" class="tool-card">
-                        <div class="tool-icon blue">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                        </div>
-                        <h3>Thumbnail Downloader</h3>
-                        <p>Save original high-definition visual covers instantly from any live URL.</p>
-                        <span class="card-link">Use Tool →</span>
-                    </a>
-
-                    <a href="https://thumbnailcreator.online/thumbnail-maker" class="tool-card">
-                        <div class="tool-icon indigo">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
-                        </div>
-                        <h3>YouTube Thumbnail Maker</h3>
-                        <p>Write high-visibility text outlines on visual headers dynamically.</p>
-                        <span class="card-link">Use Tool →</span>
-                    </a>
-
-                    <a href="https://thumbnailcreator.online/ai-thumbnail-generator" class="tool-card">
-                        <div class="tool-icon green">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                        </div>
-                        <h3>AI Thumbnail Generator</h3>
-                        <p>Generate highly-contextual graphics via optimized prompt interfaces.</p>
-                        <span class="card-link">Use Tool →</span>
-                    </a>
-
-                    <a href="#" class="tool-card">
-                        <div class="tool-icon orange">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-                        </div>
-                        <h3>Thumbnail Compressor</h3>
-                        <p>Squeeze down high-resolution sizes to bypass official media file limits.</p>
-                        <span class="card-link">Use Tool →</span>
-                    </a>
-
-                    <a href="#" class="tool-card">
-                        <div class="tool-icon purple">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
-                        </div>
-                        <h3>Background Remover</h3>
-                        <p>Isolate key foreground shapes and subjects with single-click rendering.</p>
-                        <span class="card-link">Use Tool →</span>
-                    </a>
-
-                    <a href="#" class="tool-card">
-                        <div class="tool-icon red">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                        </div>
-                        <h3>Thumbnail Designer</h3>
-                        <p>Construct customized design drafts with curated dynamic layouts.</p>
-                        <span class="card-link">Use Tool →</span>
-                    </a>
-
-                    <a href="#" class="tool-card">
-                        <div class="tool-icon blue">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M9 21H3v-6"></path><path d="M21 3l-7 7"></path><path d="M3 21l7-7"></path></svg>
-                        </div>
-                        <h3>Thumbnail Resizer</h3>
-                        <p>Re-scale standard landscape sizes into various portrait banner targets.</p>
-                        <span class="card-link">Use Tool →</span>
-                    </a>
-
-                    <a href="#" class="tool-card">
-                        <div class="tool-icon green">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                        </div>
-                        <h3>Template Generator</h3>
-                        <p>Browse various categorization styles perfectly tuned to your niche.</p>
-                        <span class="card-link">Use Tool →</span>
-                    </a>
-
-                </div>
-            </section>
-
-            <!-- WHY CHOOSE US (Home Page Matching) -->
-            <section class="why-choose-section">
-                <h2>Why Choose ThumbnailCreator?</h2>
-                <p class="sec-desc">The safest, fastest, and most accessible graphic builder customized specifically for creators</p>
-                <div class="choose-grid">
-                    <div class="choose-card">
-                        <h3>No Watermarks, No Sign-Up</h3>
-                        <p>We believe professional resources should be easily accessible. Create, design, edit, and export your files immediately with zero brand marks and zero login cycles.</p>
-                    </div>
-                    <div class="choose-card">
-                        <h3>100% Client-Side Privacy</h3>
-                        <p>Your privacy matters. Unlike standard systems that copy your assets, all image operations occur inside your browser runtime. None of your data ever leaves your PC.</p>
-                    </div>
-                    <div class="choose-card">
-                        <h3>Mobile Friendly Design</h3>
-                        <p>Enjoy smooth layout rendering and responsive, full-touch drag coordinates whether you're working on a desktop, tablet, or mobile phone.</p>
-                    </div>
-                    <div class="banner-feature">
-                        <h3>1280x720 HD Standard Export</h3>
-                        <p>Our editor automatically enforces official media recommendations. Rest easy knowing your design scales beautifully across feed recommendation cards without losing sharp details.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- FAQS (Home Page Matching) -->
-            <section class="faq-section">
-                <h2>Frequently Asked Questions</h2>
-                <div class="faq-grid">
-                    
-                    <div class="faq-item">
-                        <div class="faq-header">
-                            What is a thumbnail maker?
-                            <span class="faq-icon">+</span>
-                        </div>
-                        <div class="faq-body">
-                            <div class="faq-content">
-                                A thumbnail maker is an online graphics tool that allows creators to combine background images, color overlays, custom titles, and graphic badges into standard-resolution banner configurations.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-header">
-                            Are there any hidden costs?
-                            <span class="faq-icon">+</span>
-                        </div>
-                        <div class="faq-body">
-                            <div class="faq-content">
-                                No hidden fees. Every element, font styling capability, download format, and custom template configuration is completely free to use without limit.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-header">
-                            What is the best resolution?
-                            <span class="faq-icon">+</span>
-                        </div>
-                        <div class="faq-body">
-                            <div class="faq-content">
-                                The official recommendation is 1280x720 pixels (minimum width of 640 pixels) with a standard 16:9 aspect ratio, which our editor exports automatically.
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-        </div>
-    </div>
-</div>
-
-<!-- FOOTER (Home Page Matching) -->
-<footer class="premium-footer">
-    <div class="footer-grid">
-        <div class="footer-brand">
-            <h3>Thumbnail<span>Creator</span></h3>
-            <p>Your instant creative tool set to crop, analyze, edit, design, scale, compress, and download pixel-perfect visuals on the fly.</p>
-        </div>
-        <div class="footer-column">
-            <h4>Our Tools</h4>
-            <ul>
-                <li><a href="https://thumbnailcreator.online/thumbnail-downloader">Thumbnail Downloader</a></li>
-                <li><a href="https://thumbnailcreator.online/thumbnail-maker">Thumbnail Maker</a></li>
-                <li><a href="https://thumbnailcreator.online/ai-thumbnail-generator">AI Thumbnail Generator</a></li>
-                <li><a href="#">Compressor Tool</a></li>
-                <li><a href="#">Background Remover</a></li>
-            </ul>
-        </div>
-        <div class="footer-column">
-            <h4>Quick Links</h4>
-            <ul>
-                <li><a href="https://thumbnailcreator.online/">Home Dashboard</a></li>
-                <li><a href="#">Creator Blog</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-        </div>
-        <div class="footer-column">
-            <h4>Legal</h4>
-            <ul>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
-                <li><a href="#">Cookie Guidelines</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>© 2026 ThumbnailCreator.online | All Rights Reserved.</p>
-        <div class="footer-bottom-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-        </div>
-    </div>
-</footer>
-
-<!-- CANVAS ENGINE SCRIPT -->
-<script>
-const canvas = document.getElementById('thumbnailCanvas');
-const ctx = canvas.getContext('2d');
-
-let bgImage = null;
-let elements = {
-    text: { x: 100, y: 360, dragging: false, width: 0, height: 80 },
-    badge: { x: 100, y: 150, dragging: false, width: 0, height: 50 }
-};
-
-let dragOffset = { x: 0, y: 0 };
-let activeElement = null;
-
-function init() {
-    drawCanvas();
-    setupFAQAccordion();
-}
-
-// FAQ Accordion Handler
-function setupFAQAccordion() {
-    document.querySelectorAll('.faq-header').forEach(header => {
-        header.addEventListener('click', () => {
-            const item = header.parentElement;
-            const isActive = item.classList.contains('active');
-            
-            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-            
-            if (!isActive) {
-                item.classList.add('active');
+            // 1. Draw Background
+            if (bgImage) {
+                // Cover Canvas maintains 16:9 ratio correctly
+                let scale = Math.max(canvas.width / bgImage.width, canvas.height / bgImage.height);
+                let x = (canvas.width / 2) - (bgImage.width / 2) * scale;
+                let y = (canvas.height / 2) - (bgImage.height / 2) * scale;
+                ctx.drawImage(bgImage, x, y, bgImage.width * scale, bgImage.height * scale);
+            } else {
+                ctx.fillStyle = bgColorInput.value;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
             }
-        });
-    });
-}
 
-function drawCanvas() {
-    if (bgImage) {
-        let hRatio = canvas.width / bgImage.width;
-        let vRatio = canvas.height / bgImage.height;
-        let ratio = Math.max(hRatio, vRatio);
-        let centerShift_x = (canvas.width - bgImage.width * ratio) / 2;
-        let centerShift_y = (canvas.height - bgImage.height * ratio) / 2;  
-        ctx.drawImage(bgImage, 0, 0, bgImage.width, bgImage.height, centerShift_x, centerShift_y, bgImage.width * ratio, bgImage.height * ratio);
-    } else {
-        ctx.fillStyle = document.getElementById('bgColor').value;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-    }
+            // 2. Draw Attention Badge
+            if (elements.badge.text.trim() !== "") {
+                ctx.font = `bold ${elements.badge.size}px 'Plus Jakarta Sans', sans-serif`;
+                let textMetrics = ctx.measureText(elements.badge.text);
+                let textWidth = textMetrics.width;
+                let textHeight = elements.badge.size; // approximation
 
-    const badgeText = document.getElementById('badgeText').value.trim();
-    if (badgeText) {
-        ctx.font = '800 24px "Plus Jakarta Sans"';
-        const badgeTextWidth = ctx.measureText(badgeText).width;
-        elements.badge.width = badgeTextWidth + 30;
-        elements.badge.height = 45;
+                let bgWidth = textWidth + (elements.badge.padX * 2);
+                let bgHeight = textHeight + (elements.badge.padY * 2);
 
-        ctx.fillStyle = '#ef4444';
-        ctx.beginPath();
-        ctx.roundRect(elements.badge.x, elements.badge.y, elements.badge.width, elements.badge.height, 8);
-        ctx.fill();
+                // Badge Box
+                ctx.fillStyle = elements.badge.bgColor;
+                // Rounded corner badge shape
+                ctx.beginPath();
+                ctx.roundRect(elements.badge.x, elements.badge.y, bgWidth, bgHeight, 10);
+                ctx.fill();
 
-        ctx.fillStyle = '#ffffff';
-        ctx.textBaseline = 'middle';
-        ctx.textAlign = 'center';
-        ctx.fillText(badgeText, elements.badge.x + (elements.badge.width / 2), elements.badge.y + (elements.badge.height / 2) + 2);
-    } else {
-        elements.badge.width = 0;
-    }
+                // Badge Inner Text
+                ctx.fillStyle = elements.badge.color;
+                ctx.textBaseline = 'top';
+                ctx.fillText(elements.badge.text, elements.badge.x + elements.badge.padX, elements.badge.y + elements.badge.padY);
+                
+                // Store boundary check calculations
+                elements.badge.width = bgWidth;
+                elements.badge.height = bgHeight;
+            } else {
+                elements.badge.width = 0;
+                elements.badge.height = 0;
+            }
 
-    const headingText = document.getElementById('textValue').value;
-    const fontFamily = document.getElementById('fontFamily').value;
-    const fontSize = document.getElementById('fontSize').value;
-    const textColor = document.getElementById('textColor').value;
-    const strokeColor = document.getElementById('strokeColor').value;
+            // 3. Draw Typography Text
+            if (elements.headline.text.trim() !== "") {
+                ctx.font = `italic 900 ${elements.headline.size}px ${elements.headline.font}`;
+                ctx.textBaseline = 'top';
+                
+                // Outline Border properties
+                ctx.strokeStyle = elements.headline.strokeColor;
+                ctx.lineWidth = 14;
+                ctx.lineJoin = 'round';
+                ctx.strokeText(elements.headline.text, elements.headline.x, elements.headline.y);
 
-    ctx.font = `800 ${fontSize}px "${fontFamily}"`;
-    ctx.textAlign = 'left';
-    ctx.textBaseline = 'top';
-    
-    const lines = headingText.split('\n');
-    const lineHeight = fontSize * 1.2;
-    let longestLineWidth = 0;
+                // Inner Fill properties
+                ctx.fillStyle = elements.headline.color;
+                ctx.fillText(elements.headline.text, elements.headline.x, elements.headline.y);
 
-    lines.forEach((line, index) => {
-        const textWidth = ctx.measureText(line).width;
-        if (textWidth > longestLineWidth) longestLineWidth = textWidth;
-
-        ctx.strokeStyle = strokeColor;
-        ctx.lineWidth = Math.max(4, fontSize / 8);
-        ctx.strokeText(line, elements.text.x, elements.text.y + (index * lineHeight));
-
-        ctx.fillStyle = textColor;
-        ctx.fillText(line, elements.text.x, elements.text.y + (index * lineHeight));
-    });
-
-    elements.text.width = longestLineWidth;
-    elements.text.height = lines.length * lineHeight;
-}
-
-function getMousePos(e) {
-    const rect = canvas.getBoundingClientRect();
-    const scaleX = canvas.width / rect.width;
-    const scaleY = canvas.height / rect.height;
-    return {
-        x: (e.clientX - rect.left) * scaleX,
-        y: (e.clientY - rect.top) * scaleY
-    };
-}
-
-function checkHit(pos) {
-    if (elements.badge.width > 0 && 
-        pos.x >= elements.badge.x && pos.x <= elements.badge.x + elements.badge.width &&
-        pos.y >= elements.badge.y && pos.y <= elements.badge.y + elements.badge.height) {
-        return 'badge';
-    }
-    if (pos.x >= elements.text.x && pos.x <= elements.text.x + elements.text.width &&
-        pos.y >= elements.text.y && pos.y <= elements.text.y + elements.text.height) {
-        return 'text';
-    }
-    return null;
-}
-
-canvas.addEventListener('mousedown', function(e) {
-    const pos = getMousePos(e);
-    const hit = checkHit(pos);
-    if (hit) {
-        activeElement = hit;
-        elements[hit].dragging = true;
-        dragOffset.x = pos.x - elements[hit].x;
-        dragOffset.y = pos.y - elements[hit].y;
-    }
-});
-
-canvas.addEventListener('mousemove', function(e) {
-    if (activeElement && elements[activeElement].dragging) {
-        const pos = getMousePos(e);
-        elements[activeElement].x = pos.x - dragOffset.x;
-        elements[activeElement].y = pos.y - dragOffset.y;
-        drawCanvas();
-    }
-});
-
-window.addEventListener('mouseup', function() {
-    if (activeElement) {
-        elements[activeElement].dragging = false;
-        activeElement = null;
-    }
-});
-
-canvas.addEventListener('touchstart', function(e) {
-    if (e.touches.length === 1) {
-        const pos = getMousePos(e.touches[0]);
-        const hit = checkHit(pos);
-        if (hit) {
-            activeElement = hit;
-            elements[hit].dragging = true;
-            dragOffset.x = pos.x - elements[hit].x;
-            dragOffset.y = pos.y - elements[hit].y;
+                let textMetrics = ctx.measureText(elements.headline.text);
+                elements.headline.width = textMetrics.width;
+                elements.headline.height = elements.headline.size;
+            } else {
+                elements.headline.width = 0;
+                elements.headline.height = 0;
+            }
         }
-    }
-});
 
-canvas.addEventListener('touchmove', function(e) {
-    if (activeElement && elements[activeElement].dragging && e.touches.length === 1) {
-        const pos = getMousePos(e.touches[0]);
-        elements[activeElement].x = pos.x - dragOffset.x;
-        elements[activeElement].y = pos.y - dragOffset.y;
-        drawCanvas();
-    }
-});
+        // Live Dynamic State Syncing
+        function syncStateAndRedraw() {
+            elements.headline.text = overlayTextInput.value;
+            elements.headline.color = textColorInput.value;
+            elements.headline.strokeColor = strokeColorInput.value;
+            elements.headline.font = fontFamilySelect.value;
 
-canvas.addEventListener('touchend', function() {
-    if (activeElement) {
-        elements[activeElement].dragging = false;
-        activeElement = null;
-    }
-});
+            elements.badge.text = badgeTextInput.value;
+            elements.badge.bgColor = badgeBgInput.value;
+            elements.badge.color = badgeColorInput.value;
 
-document.getElementById('textValue').addEventListener('input', drawCanvas);
-document.getElementById('fontFamily').addEventListener('change', drawCanvas);
-document.getElementById('fontSize').addEventListener('input', drawCanvas);
-document.getElementById('textColor').addEventListener('input', drawCanvas);
-document.getElementById('strokeColor').addEventListener('input', drawCanvas);
-document.getElementById('bgColor').addEventListener('input', function() {
-    bgImage = null;
-    drawCanvas();
-});
-document.getElementById('badgeText').addEventListener('input', drawCanvas);
-
-document.getElementById('imageLoader').addEventListener('change', function(e) {
-    const reader = new FileReader();
-    reader.onload = function(event) {
-        bgImage = new Image();
-        bgImage.onload = function() {
             drawCanvas();
         }
-        bgImage.src = event.target.result;
-    }
-    reader.readAsDataURL(e.target.files[0]);
-});
 
-document.getElementById('downloadBtn').addEventListener('click', function() {
-    const link = document.createElement('a');
-    link.download = 'youtube-thumbnail.png';
-    link.href = canvas.toDataURL('image/png');
-    link.click();
-});
+        // Local Background Upload
+        bgUpload.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const img = new Image();
+                    img.onload = function() {
+                        bgImage = img;
+                        drawCanvas();
+                    }
+                    img.src = event.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
 
-document.getElementById('resetBtn').addEventListener('click', function() {
-    bgImage = null;
-    document.getElementById('textValue').value = "VIRAL VIDEO COVER";
-    document.getElementById('badgeText').value = "NEW";
-    document.getElementById('fontSize').value = "65";
-    document.getElementById('textColor').value = "#ffffff";
-    document.getElementById('strokeColor').value = "#000000";
-    elements.text.x = 100;
-    elements.text.y = 360;
-    elements.badge.x = 100;
-    elements.badge.y = 150;
-    drawCanvas();
-});
+        // Event Hook Bindings
+        [bgColorInput, overlayTextInput, textColorInput, strokeColorInput, fontFamilySelect, badgeTextInput, badgeBgInput, badgeColorInput].forEach(el => {
+            el.addEventListener('input', syncStateAndRedraw);
+            el.addEventListener('change', syncStateAndRedraw);
+        });
 
-window.onload = init;
-</script>
+        // Interaction Drag Utility Calculations
+        function getCanvasMousePos(e) {
+            const rect = canvas.getBoundingClientRect();
+            // Scale mouse coordinates relative to original 1280x720 pixels canvas dimensions
+            return {
+                x: (e.clientX - rect.left) * (canvas.width / rect.width),
+                y: (e.clientY - rect.top) * (canvas.height / rect.height)
+            };
+        }
+
+        function isMouseOver(pos, element) {
+            return pos.x >= element.x && 
+                   pos.x <= element.x + element.width && 
+                   pos.y >= element.y && 
+                   pos.y <= element.y + element.height;
+        }
+
+        // Canvas Click/Touch Drag Handlers
+        canvas.addEventListener('mousedown', function(e) {
+            const pos = getCanvasMousePos(e);
+            
+            // Priority given to Badge element click since it's typically smaller
+            if (isMouseOver(pos, elements.badge)) {
+                activeDragElement = elements.badge;
+                dragOffset.x = pos.x - elements.badge.x;
+                dragOffset.y = pos.y - elements.badge.y;
+            } else if (isMouseOver(pos, elements.headline)) {
+                activeDragElement = elements.headline;
+                dragOffset.x = pos.x - elements.headline.x;
+                dragOffset.y = pos.y - elements.headline.y;
+            }
+        });
+
+        canvas.addEventListener('mousemove', function(e) {
+            const pos = getCanvasMousePos(e);
+            
+            // Hover cursor indicator toggle
+            if (isMouseOver(pos, elements.badge) || isMouseOver(pos, elements.headline)) {
+                canvas.style.cursor = 'move';
+            } else {
+                canvas.style.cursor = 'default';
+            }
+
+            if (activeDragElement) {
+                activeDragElement.x = pos.x - dragOffset.x;
+                activeDragElement.y = pos.y - dragOffset.y;
+                drawCanvas();
+            }
+        });
+
+        window.addEventListener('mouseup', function() {
+            activeDragElement = null;
+        });
+
+        // Touch Device Event Listeners
+        canvas.addEventListener('touchstart', function(e) {
+            if (e.touches.length === 1) {
+                const mouseEvent = new MouseEvent('mousedown', {
+                    clientX: e.touches[0].clientX,
+                    clientY: e.touches[0].clientY
+                });
+                canvas.dispatchEvent(mouseEvent);
+            }
+        }, { passive: true });
+
+        canvas.addEventListener('touchmove', function(e) {
+            if (e.touches.length === 1) {
+                const mouseEvent = new MouseEvent('mousemove', {
+                    clientX: e.touches[0].clientX,
+                    clientY: e.touches[0].clientY
+                });
+                canvas.dispatchEvent(mouseEvent);
+            }
+        }, { passive: true });
+
+        canvas.addEventListener('touchend', function() {
+            const mouseEvent = new MouseEvent('mouseup', {});
+            window.dispatchEvent(mouseEvent);
+        });
+
+        // Instant HD PNG Download Action
+        downloadBtn.addEventListener('click', function() {
+            const link = document.createElement('a');
+            link.download = 'youtube-thumbnail-hd.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        });
+
+        // Reset Settings Routine
+        resetBtn.addEventListener('click', function() {
+            bgImage = null;
+            bgUpload.value = "";
+            bgColorInput.value = "#0f172a";
+            
+            overlayTextInput.value = "VIRAL HEADLINE";
+            textColorInput.value = "#ffffff";
+            strokeColorInput.value = "#6366f1";
+            fontFamilySelect.value = "Impact";
+
+            badgeTextInput.value = "NEW";
+            badgeBgInput.value = "#ef4444";
+            badgeColorInput.value = "#ffffff";
+
+            elements.headline.x = 100;
+            elements.headline.y = 250;
+            elements.badge.x = 100;
+            elements.badge.y = 100;
+
+            syncStateAndRedraw();
+        });
+
+        // Lightweight FAQ Collapsible Accordion logic
+        function toggleFaq(header) {
+            const item = header.parentElement;
+            item.classList.toggle('active');
+        }
+
+        // Initialize First Canvas Render Frame
+        window.onload = function() {
+            syncStateAndRedraw();
+        };
+    </script>
 </body>
 </html>
