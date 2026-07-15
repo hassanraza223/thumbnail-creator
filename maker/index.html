@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="canonical" href="https://thumbnailcreator.online/youtube-thumbnail-maker" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thumbnailcreator.online/youtube-thumbnail-maker">
+    <meta property="og:title" content="Free YouTube Thumbnail Maker Online – No Watermark | ThumbnailCreator">
+    <meta property="og:description" content="Create high-clickrate YouTube thumbnails online for free. Add layouts, background masks, badges, and high-contrast text. No registration or signup required.">
+    <title>Free YouTube Thumbnail Maker Online – No Watermark | ThumbnailCreator</title>
+    <meta name="description" content="Design stunning, high-CTR YouTube thumbnails instantly. Use professional layout frameworks, add custom accents, textures, and shape highlights with zero watermarks.">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #6366f1; --primary-dark: #4f46e5; --secondary: #0f172a; --text-muted: #64748b; --bg-light: #f8fafc; --border-color: #e2e8f0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: #fff; color: var(--secondary); line-height: 1.6; padding-top: 90px; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: rgba(255,255,255,.9); backdrop-filter: blur(12px); position: fixed; top: 0; width: 100%; z-index: 1000; border-bottom: 1px solid #f1f5f9; }
+        .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo { font-size: 22px; font-weight: 800; color: var(--secondary); text-decoration: none; }
+        .logo span { color: var(--primary); }
+        .hero-section { padding: 60px 8% 40px; background: radial-gradient(100% 100% at 50% 0%, rgba(99,102,241,.06) 0%, rgba(255,255,255,0) 100%); text-align: center; display: flex; flex-direction: column; align-items: center; }
+        .hero-badge { background: rgba(99,102,241,.1); color: var(--primary); padding: 6px 16px; border-radius: 50px; font-size: 13px; font-weight: 700; margin-bottom: 20px; }
+        .hero-section h1 { font-size: 40px; font-weight: 800; max-width: 800px; letter-spacing: -1px; margin-bottom: 15px; }
+        .hero-section h1 span { color: var(--primary); }
+        .workspace-card { background: white; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,.05); border: 1px solid #f1f5f9; width: 100%; max-width: 1000px; padding: 30px; text-align: left; display: grid; grid-template-columns: 320px 1fr; gap: 30px; }
+        .control-panel { background: var(--bg-light); padding: 20px; border-radius: 16px; border: 1px solid var(--border-color); }
+        .canvas-area { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #1e293b; border-radius: 16px; padding: 20px; position: relative; }
+        .canvas-container { width: 100%; aspect-ratio: 16/9; background: #0f172a; position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        label { display: block; font-weight: 700; font-size: 13px; margin-bottom: 6px; color: var(--secondary); }
+        input, select, textarea { width: 100%; padding: 12px; border-radius: 8px; border: 2px solid #e2e8f0; font-size: 14px; margin-bottom: 15px; outline: none; }
+        input:focus, select:focus { border-color: var(--primary); }
+        .btn-group { display: flex; gap: 10px; margin-top: 15px; }
+        .action-btn { flex: 1; background: var(--primary); color: white; border: none; padding: 14px; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; transition: .2s; text-align: center; }
+        .action-btn:hover { background: var(--primary-dark); }
+        .sec-btn { background: white; border: 2px solid var(--border-color); color: var(--secondary); }
+        .sec-btn:hover { border-color: var(--secondary); }
+        @media(max-width: 900px) { .workspace-card { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:32px;height:32px;color:#6366f1"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polygon points="10 9 15 12 10 15 10 9" fill="#6366f1" style="stroke:none"></polygon></svg>
+            <span class="logo">Thumbnail<span>Creator</span></span>
+        </a>
+    </nav>
+    <header class="hero-section">
+        <div class="hero-badge">Studio Canvas Framework</div>
+        <h1>YouTube <span>Thumbnail Maker</span> Online</h1>
+        <p style="color:var(--text-muted); margin-bottom:30px;">Build stunning custom canvas graphics natively inside your dynamic browser window sandbox.</p>
+        <div class="workspace-card">
+            <div class="control-panel">
+                <label>Background Preset</label>
+                <select id="bgPreset"><option>Solid Midnight Dark</option><option>Vibrant Neon Gradient</option><option>Custom Raw Upload</option></select>
+                <label>Overlay Text Content</label>
+                <textarea placeholder="Enter catch phrase..." rows="2"></textarea>
+                <label>Typography Accent Color</label>
+                <input type="color" value="#f59e0b">
+                <label>Badge Counter Layout</label>
+                <select id="badgeStyle"><option>None</option><option>Red Live Badge</option><option>Progress 100% Chip</option></select>
+                <button class="action-btn">Render Layer Changes</button>
+            </div>
+            <div class="canvas-area">
+                <div class="canvas-container" id="makerWorkspace"></div>
+                <div class="btn-group" style="width:100%">
+                    <button class="action-btn">Download High-Res Master PNG</button>
+                    <button class="action-btn sec-btn">Reset All Matrix Settings</button>
+                </div>
+            </div>
+        </div>
+    </header>
+</body>
+</html>
