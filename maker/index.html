@@ -1,75 +1,459 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="canonical" href="https://thumbnailcreator.online/youtube-thumbnail-maker" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://thumbnailcreator.online/youtube-thumbnail-maker">
-    <meta property="og:title" content="Free YouTube Thumbnail Maker Online – No Watermark | ThumbnailCreator">
-    <meta property="og:description" content="Create high-clickrate YouTube thumbnails online for free. Add layouts, background masks, badges, and high-contrast text. No registration or signup required.">
-    <title>Free YouTube Thumbnail Maker Online – No Watermark | ThumbnailCreator</title>
-    <meta name="description" content="Design stunning, high-CTR YouTube thumbnails instantly. Use professional layout frameworks, add custom accents, textures, and shape highlights with zero watermarks.">
+    <title>Free Online Thumbnail Maker – No Signup Required | ThumbnailCreator</title>
+    <meta name="description" content="Create stunning, high-CTR YouTube thumbnails online for free. Custom templates, drag-and-drop editor, and no watermarks. Design your next viral cover now!">
+    <link rel="canonical" href="https://thumbnailcreator.online/maker/" />
+    
+    <!-- PLUS JAKARTA SANS FONT -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- STYLES -->
     <style>
-        :root { --primary: #6366f1; --primary-dark: #4f46e5; --secondary: #0f172a; --text-muted: #64748b; --bg-light: #f8fafc; --border-color: #e2e8f0; }
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #0f172a;
+            --text-muted: #64748b;
+            --bg-light: #f8fafc;
+            --border-color: #e2e8f0;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
-        body { background-color: #fff; color: var(--secondary); line-height: 1.6; padding-top: 90px; }
+        body { background-color: #fff; color: var(--secondary); line-height: 1.6; }
+
+        /* NAVBAR Same as Home */
         .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: rgba(255,255,255,.9); backdrop-filter: blur(12px); position: fixed; top: 0; width: 100%; z-index: 1000; border-bottom: 1px solid #f1f5f9; }
         .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .logo { font-size: 22px; font-weight: 800; color: var(--secondary); text-decoration: none; }
         .logo span { color: var(--primary); }
-        .hero-section { padding: 60px 8% 40px; background: radial-gradient(100% 100% at 50% 0%, rgba(99,102,241,.06) 0%, rgba(255,255,255,0) 100%); text-align: center; display: flex; flex-direction: column; align-items: center; }
-        .hero-badge { background: rgba(99,102,241,.1); color: var(--primary); padding: 6px 16px; border-radius: 50px; font-size: 13px; font-weight: 700; margin-bottom: 20px; }
-        .hero-section h1 { font-size: 40px; font-weight: 800; max-width: 800px; letter-spacing: -1px; margin-bottom: 15px; }
-        .hero-section h1 span { color: var(--primary); }
-        .workspace-card { background: white; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,.05); border: 1px solid #f1f5f9; width: 100%; max-width: 1000px; padding: 30px; text-align: left; display: grid; grid-template-columns: 320px 1fr; gap: 30px; }
-        .control-panel { background: var(--bg-light); padding: 20px; border-radius: 16px; border: 1px solid var(--border-color); }
-        .canvas-area { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #1e293b; border-radius: 16px; padding: 20px; position: relative; }
-        .canvas-container { width: 100%; aspect-ratio: 16/9; background: #0f172a; position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-        label { display: block; font-weight: 700; font-size: 13px; margin-bottom: 6px; color: var(--secondary); }
-        input, select, textarea { width: 100%; padding: 12px; border-radius: 8px; border: 2px solid #e2e8f0; font-size: 14px; margin-bottom: 15px; outline: none; }
-        input:focus, select:focus { border-color: var(--primary); }
-        .btn-group { display: flex; gap: 10px; margin-top: 15px; }
-        .action-btn { flex: 1; background: var(--primary); color: white; border: none; padding: 14px; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; transition: .2s; text-align: center; }
-        .action-btn:hover { background: var(--primary-dark); }
-        .sec-btn { background: white; border: 2px solid var(--border-color); color: var(--secondary); }
-        .sec-btn:hover { border-color: var(--secondary); }
-        @media(max-width: 900px) { .workspace-card { grid-template-columns: 1fr; } }
+        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--secondary); font-weight: 600; font-size: 15px; transition: .2s; }
+        .nav-links a:hover { color: var(--primary); }
+        .btn-start { background: var(--secondary); color: white !important; padding: 10px 20px; border-radius: 8px; transition: .3s; }
+        .btn-start:hover { background: var(--primary-dark); }
+
+        /* WORKSPACE INTERFACE */
+        .main-container { padding: 120px 5% 60px; max-width: 1400px; margin: 0 auto; }
+        
+        .workspace-grid { display: grid; grid-template-columns: 350px 1fr; gap: 30px; margin-top: 20px; align-items: start; }
+        
+        /* SIDEBAR CONTROLS */
+        .control-panel { background: white; border-radius: 20px; border: 1px solid var(--border-color); padding: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
+        .panel-section { margin-bottom: 25px; }
+        .panel-section h3 { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; color: var(--secondary); border-bottom: 2px solid var(--bg-light); padding-bottom: 8px; }
+        
+        .control-group { margin-bottom: 15px; }
+        .control-group label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 8px; color: var(--secondary); }
+        
+        /* FORM CONTROLS */
+        .text-input, .select-input { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #e2e8f0; font-size: 14px; outline: none; font-weight: 600; transition: .2s; }
+        .text-input:focus, .select-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1); }
+        
+        .color-pickers { display: flex; gap: 10px; }
+        .color-box { flex: 1; text-align: center; }
+        .color-box input[type="color"] { width: 100%; height: 40px; border: 1px solid #e2e8f0; border-radius: 8px; cursor: pointer; background: none; padding: 2px; }
+        
+        /* FILE UPLOAD BUTTON */
+        .upload-btn-wrapper { position: relative; overflow: hidden; display: inline-block; width: 100%; }
+        .btn-upload { border: 2px dashed var(--primary); background: #f5f3ff; color: var(--primary); padding: 12px; border-radius: 10px; font-weight: 700; font-size: 14px; text-align: center; cursor: pointer; display: block; width: 100%; transition: .2s; }
+        .btn-upload:hover { background: #ebe8ff; }
+        .upload-btn-wrapper input[type=file] { font-size: 100px; position: absolute; left: 0; top: 0; opacity: 0; cursor: pointer; }
+
+        /* CANVAS AREA */
+        .canvas-container { background: var(--bg-light); border-radius: 20px; border: 1px solid var(--border-color); padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
+        
+        .canvas-wrapper { width: 100%; max-width: 800px; aspect-ratio: 16/9; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); position: relative; }
+        canvas { width: 100%; height: 100%; display: block; cursor: move; }
+
+        /* ACTIONS */
+        .canvas-instructions { font-size: 13px; color: var(--text-muted); font-weight: 600; margin-top: 15px; text-align: center; }
+        .action-row { display: flex; gap: 15px; margin-top: 25px; width: 100%; max-width: 800px; }
+        .btn-primary { flex: 1; background: var(--primary); color: white; border: none; padding: 15px; border-radius: 12px; font-size: 15px; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: .2s; }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
+        .btn-secondary { background: white; border: 1px solid var(--border-color); color: var(--secondary); padding: 15px 25px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: .2s; }
+        .btn-secondary:hover { background: var(--bg-light); }
+
+        /* SEO CONTENT & OTHER TOOLS */
+        .content-area { max-width: 850px; margin: 60px auto 40px; }
+        .direct-answer { background: #eef2ff; border-left: 5px solid var(--primary); padding: 20px; border-radius: 0 12px 12px 0; font-weight: 600; font-size: 16px; color: var(--secondary); margin-bottom: 30px; line-height: 1.7; }
+        .content-area h2 { font-size: 26px; font-weight: 800; margin: 35px 0 15px; }
+        .content-area p { color: #334155; font-size: 15px; margin-bottom: 15px; line-height: 1.7; }
+        .content-area ul { margin-bottom: 20px; padding-left: 20px; }
+        .content-area ul li { color: #334155; font-size: 15px; margin-bottom: 8px; }
+
+        .other-tools-box { background: var(--bg-light); padding: 40px 8%; border-radius: 20px; margin: 50px 0; }
+        .other-tools-box h3 { text-align: center; margin-bottom: 30px; font-weight: 800; font-size: 22px; }
+        .grid-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+        .link-card { background: white; border: 1px solid #e2e8f0; padding: 15px; border-radius: 12px; text-align: center; text-decoration: none; color: var(--secondary); font-weight: 700; transition: .2s; font-size: 14px; }
+        .link-card:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
+
+        /* FOOTER */
+        .premium-footer { background: #0b0f19; color: #94a3b8; padding: 60px 8% 30px; margin-top: 80px; border-top: 1px solid #1e293b; font-size: 14px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto 50px; }
+        .footer-brand h3 { color: #fff; font-size: 20px; margin-bottom: 15px; font-weight: 800; }
+        .footer-brand h3 span { color: var(--primary); }
+        .footer-column h4 { color: #fff; font-size: 13px; margin-bottom: 18px; text-transform: uppercase; }
+        .footer-column ul { list-style: none; }
+        .footer-column ul li { margin-bottom: 11px; }
+        .footer-column ul li a { color: #94a3b8; text-decoration: none; }
+        .footer-column ul li a:hover { color: #fff; }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <a href="/" class="logo-container">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:32px;height:32px;color:#6366f1"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polygon points="10 9 15 12 10 15 10 9" fill="#6366f1" style="stroke:none"></polygon></svg>
-            <span class="logo">Thumbnail<span>Creator</span></span>
-        </a>
-    </nav>
-    <header class="hero-section">
-        <div class="hero-badge">Studio Canvas Framework</div>
-        <h1>YouTube <span>Thumbnail Maker</span> Online</h1>
-        <p style="color:var(--text-muted); margin-bottom:30px;">Build stunning custom canvas graphics natively inside your dynamic browser window sandbox.</p>
-        <div class="workspace-card">
-            <div class="control-panel">
-                <label>Background Preset</label>
-                <select id="bgPreset"><option>Solid Midnight Dark</option><option>Vibrant Neon Gradient</option><option>Custom Raw Upload</option></select>
-                <label>Overlay Text Content</label>
-                <textarea placeholder="Enter catch phrase..." rows="2"></textarea>
-                <label>Typography Accent Color</label>
-                <input type="color" value="#f59e0b">
-                <label>Badge Counter Layout</label>
-                <select id="badgeStyle"><option>None</option><option>Red Live Badge</option><option>Progress 100% Chip</option></select>
-                <button class="action-btn">Render Layer Changes</button>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <a href="https://thumbnailcreator.online/" class="logo-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:32px;height:32px;color:#6366f1">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polygon points="10 9 15 12 10 15 10 9" fill="#6366f1" style="stroke:none"></polygon>
+        </svg>
+        <span class="logo">Thumbnail<span>Creator</span></span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="https://thumbnailcreator.online/downloader/">Thumbnail Downloader</a></li>
+        <li><a href="https://thumbnailcreator.online/maker/">Thumbnail Maker</a></li>
+        <li><a href="https://thumbnailcreator.online/generator/">AI Thumbnail Generator</a></li>
+        <li><a href="https://thumbnailcreator.online/" class="btn-start">Home Dashboard</a></li>
+    </ul>
+</nav>
+
+<div class="main-container">
+    
+    <!-- WORKSPACE -->
+    <div class="workspace-grid">
+        
+        <!-- SIDEBAR CONTROLS -->
+        <div class="control-panel">
+            <div class="panel-section">
+                <h3>1. Canvas Background</h3>
+                <div class="control-group">
+                    <label>Upload Image</label>
+                    <div class="upload-btn-wrapper">
+                        <button class="btn-upload">📁 Choose Background</button>
+                        <input type="file" id="imageLoader" accept="image/*" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label>Solid Background Color</label>
+                    <input type="color" id="bgColor" class="text-input" value="#0f172a" style="height:45px; padding:2px;">
+                </div>
             </div>
-            <div class="canvas-area">
-                <div class="canvas-container" id="makerWorkspace"></div>
-                <div class="btn-group" style="width:100%">
-                    <button class="action-btn">Download High-Res Master PNG</button>
-                    <button class="action-btn sec-btn">Reset All Matrix Settings</button>
+
+            <div class="panel-section">
+                <h3>2. Overlay Text</h3>
+                <div class="control-group">
+                    <label>Main Heading</label>
+                    <textarea id="textValue" class="text-input" placeholder="Type your title..." rows="2" style="resize:none;">VIRAL VIDEO COVER</textarea>
+                </div>
+                <div class="control-group">
+                    <label>Font Family</label>
+                    <select id="fontFamily" class="select-input">
+                        <option value="Plus Jakarta Sans">Plus Jakarta Sans</option>
+                        <option value="Arial">Arial Black</option>
+                        <option value="Impact">Impact</option>
+                        <option value="Montserrat">Montserrat</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label>Font Size</label>
+                    <input type="range" id="fontSize" min="20" max="120" value="65" style="width:100%;">
+                </div>
+                <div class="control-group">
+                    <div class="color-pickers">
+                        <div class="color-box">
+                            <label>Text Color</label>
+                            <input type="color" id="textColor" value="#ffffff">
+                        </div>
+                        <div class="color-box">
+                            <label>Stroke (Border)</label>
+                            <input type="color" id="strokeColor" value="#000000">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="panel-section">
+                <h3>3. Custom Badge</h3>
+                <div class="control-group">
+                    <label>Badge Text</label>
+                    <input type="text" id="badgeText" class="text-input" placeholder="e.g., NEW, 2026, FREE" value="NEW">
                 </div>
             </div>
         </div>
-    </header>
+
+        <!-- CANVAS PREVIEW -->
+        <div class="canvas-container">
+            <div class="canvas-wrapper">
+                <!-- Standard YouTube Aspect Ratio 1280x720 rendered natively -->
+                <canvas id="thumbnailCanvas" width="1280" height="720"></canvas>
+            </div>
+            <p class="canvas-instructions">💡 Pro Tip: Aap screen par mojood Text aur Badge ko mouse se drag karke kahin bhi move kar sakte hain!</p>
+            
+            <div class="action-row">
+                <button class="btn-secondary" id="resetBtn">🔄 Reset Editor</button>
+                <button class="btn-primary" id="downloadBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Download HD PNG (1280x720)
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SEO ARTICLE CONTENT -->
+    <section class="content-area">
+        <div class="direct-answer">
+            Our <strong>Free Online Thumbnail Maker</strong> is an interactive web suite developed for modern creators. Drag and position bold typography, change colors, configure backdrops, and download perfectly scaled 1280x720 pixel (16:9) PNG files instantly with zero watermarks.
+        </div>
+        <h2>Professional YouTube Thumbnails Made Effortless</h2>
+        <p>No more struggling with slow design software. This browser-based utility renders high-resolution graphics directly inside your window, giving you quick drag-and-drop tools to construct outstanding covers within seconds.</p>
+    </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="premium-footer">
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <h3>Thumbnail<span>Creator</span></h3>
+            <p>Your instant suite for editing, building, cropping, scaling, and downloading rich visuals perfectly tailored for modern online content.</p>
+        </div>
+    </div>
+    <div style="text-align:center; border-top: 1px solid #1e293b; padding-top:20px;">
+        <p>© 2026 ThumbnailCreator.online | All Rights Reserved.</p>
+    </div>
+</footer>
+
+<!-- CANVAS ENGINE SCRIPT -->
+<script>
+const canvas = document.getElementById('thumbnailCanvas');
+const ctx = canvas.getContext('2d');
+
+// Loaded background image holder
+let bgImage = null;
+
+// Draggable Elements States
+let elements = {
+    text: { x: 100, y: 360, dragging: false, width: 0, height: 80 },
+    badge: { x: 100, y: 150, dragging: false, width: 0, height: 50 }
+};
+
+let dragOffset = { x: 0, y: 0 };
+let activeElement = null;
+
+// Initialize Elements & Render
+function init() {
+    drawCanvas();
+}
+
+function drawCanvas() {
+    // 1. Draw Background
+    if (bgImage) {
+        // Aspect-ratio cover calculation
+        let hRatio = canvas.width / bgImage.width;
+        let vRatio = canvas.height / bgImage.height;
+        let ratio = Math.max(hRatio, vRatio);
+        let centerShift_x = (canvas.width - bgImage.width * ratio) / 2;
+        let centerShift_y = (canvas.height - bgImage.height * ratio) / 2;  
+        ctx.drawImage(bgImage, 0, 0, bgImage.width, bgImage.height, centerShift_x, centerShift_y, bgImage.width * ratio, bgImage.height * ratio);
+    } else {
+        ctx.fillStyle = document.getElementById('bgColor').value;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+
+    // 2. Draw Custom Badge
+    const badgeText = document.getElementById('badgeText').value.trim();
+    if (badgeText) {
+        ctx.font = '800 24px "Plus Jakarta Sans"';
+        const badgeTextWidth = ctx.measureText(badgeText).width;
+        elements.badge.width = badgeTextWidth + 30;
+        elements.badge.height = 45;
+
+        // Draw Badge Background
+        ctx.fillStyle = '#ef4444'; // Bright Red Badge
+        ctx.beginPath();
+        ctx.roundRect(elements.badge.x, elements.badge.y, elements.badge.width, elements.badge.height, 8);
+        ctx.fill();
+
+        // Draw Badge Text
+        ctx.fillStyle = '#ffffff';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(badgeText, elements.badge.x + (elements.badge.width / 2), elements.badge.y + (elements.badge.height / 2) + 2);
+    } else {
+        elements.badge.width = 0;
+    }
+
+    // 3. Draw Heading Text
+    const headingText = document.getElementById('textValue').value;
+    const fontFamily = document.getElementById('fontFamily').value;
+    const fontSize = document.getElementById('fontSize').value;
+    const textColor = document.getElementById('textColor').value;
+    const strokeColor = document.getElementById('strokeColor').value;
+
+    ctx.font = `800 ${fontSize}px "${fontFamily}"`;
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'top';
+    
+    // Support multi-line rendering
+    const lines = headingText.split('\n');
+    const lineHeight = fontSize * 1.2;
+    let longestLineWidth = 0;
+
+    lines.forEach((line, index) => {
+        const textWidth = ctx.measureText(line).width;
+        if (textWidth > longestLineWidth) longestLineWidth = textWidth;
+
+        // Border/Stroke rendering
+        ctx.strokeStyle = strokeColor;
+        ctx.lineWidth = Math.max(4, fontSize / 8);
+        ctx.strokeText(line, elements.text.x, elements.text.y + (index * lineHeight));
+
+        // Fill rendering
+        ctx.fillStyle = textColor;
+        ctx.fillText(line, elements.text.x, elements.text.y + (index * lineHeight));
+    });
+
+    elements.text.width = longestLineWidth;
+    elements.text.height = lines.length * lineHeight;
+}
+
+// DRAG AND DROP EVENTS
+function getMousePos(e) {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    return {
+        x: (e.clientX - rect.left) * scaleX,
+        y: (e.clientY - rect.top) * scaleY
+    };
+}
+
+function checkHit(pos) {
+    // Check Badge
+    if (elements.badge.width > 0 && 
+        pos.x >= elements.badge.x && pos.x <= elements.badge.x + elements.badge.width &&
+        pos.y >= elements.badge.y && pos.y <= elements.badge.y + elements.badge.height) {
+        return 'badge';
+    }
+    // Check Text
+    if (pos.x >= elements.text.x && pos.x <= elements.text.x + elements.text.width &&
+        pos.y >= elements.text.y && pos.y <= elements.text.y + elements.text.height) {
+        return 'text';
+    }
+    return null;
+}
+
+canvas.addEventListener('mousedown', function(e) {
+    const pos = getMousePos(e);
+    const hit = checkHit(pos);
+    if (hit) {
+        activeElement = hit;
+        elements[hit].dragging = true;
+        dragOffset.x = pos.x - elements[hit].x;
+        dragOffset.y = pos.y - elements[hit].y;
+    }
+});
+
+canvas.addEventListener('mousemove', function(e) {
+    if (activeElement && elements[activeElement].dragging) {
+        const pos = getMousePos(e);
+        elements[activeElement].x = pos.x - dragOffset.x;
+        elements[activeElement].y = pos.y - dragOffset.y;
+        drawCanvas();
+    }
+});
+
+window.addEventListener('mouseup', function() {
+    if (activeElement) {
+        elements[activeElement].dragging = false;
+        activeElement = null;
+    }
+});
+
+// Touch controls for mobile support
+canvas.addEventListener('touchstart', function(e) {
+    if (e.touches.length === 1) {
+        const pos = getMousePos(e.touches[0]);
+        const hit = checkHit(pos);
+        if (hit) {
+            activeElement = hit;
+            elements[hit].dragging = true;
+            dragOffset.x = pos.x - elements[hit].x;
+            dragOffset.y = pos.y - elements[hit].y;
+        }
+    }
+});
+
+canvas.addEventListener('touchmove', function(e) {
+    if (activeElement && elements[activeElement].dragging && e.touches.length === 1) {
+        const pos = getMousePos(e.touches[0]);
+        elements[activeElement].x = pos.x - dragOffset.x;
+        elements[activeElement].y = pos.y - dragOffset.y;
+        drawCanvas();
+    }
+});
+
+canvas.addEventListener('touchend', function() {
+    if (activeElement) {
+        elements[activeElement].dragging = false;
+        activeElement = null;
+    }
+});
+
+// CONTROL CHANGED LISTENERS
+document.getElementById('textValue').addEventListener('input', drawCanvas);
+document.getElementById('fontFamily').addEventListener('change', drawCanvas);
+document.getElementById('fontSize').addEventListener('input', drawCanvas);
+document.getElementById('textColor').addEventListener('input', drawCanvas);
+document.getElementById('strokeColor').addEventListener('input', drawCanvas);
+document.getElementById('bgColor').addEventListener('input', function() {
+    bgImage = null; // Clear image if color chosen
+    drawCanvas();
+});
+document.getElementById('badgeText').addEventListener('input', drawCanvas);
+
+// IMAGE LOADER ENGINE
+document.getElementById('imageLoader').addEventListener('change', function(e) {
+    const reader = new FileReader();
+    reader.onload = function(event) {
+        bgImage = new Image();
+        bgImage.onload = function() {
+            drawCanvas();
+        }
+        bgImage.src = event.target.result;
+    }
+    reader.readAsDataURL(e.target.files[0]);
+});
+
+// DOWNLOAD BUTTON
+document.getElementById('downloadBtn').addEventListener('click', function() {
+    const link = document.createElement('a');
+    link.download = 'youtube-thumbnail.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+});
+
+// RESET EDITOR
+document.getElementById('resetBtn').addEventListener('click', function() {
+    bgImage = null;
+    document.getElementById('textValue').value = "VIRAL VIDEO COVER";
+    document.getElementById('badgeText').value = "NEW";
+    document.getElementById('fontSize').value = "65";
+    document.getElementById('textColor').value = "#ffffff";
+    document.getElementById('strokeColor').value = "#000000";
+    elements.text.x = 100;
+    elements.text.y = 360;
+    elements.badge.x = 100;
+    elements.badge.y = 150;
+    drawCanvas();
+});
+
+// Initialize on Load
+window.onload = init;
+</script>
 </body>
 </html>
