@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YouTube Thumbnail Maker – Free Custom Thumbnail Design Tool</title>
+<meta name="description" content="Create custom YouTube thumbnails free with our online Thumbnail Maker. Add text, backgrounds, and effects, then download in HD — no login, no watermark ever.">
+<meta name="keywords" content="free youtube thumbnail maker online, custom youtube thumbnail creator, no watermark thumbnail design tool, youtube thumbnail generator free, create thumbnail online no login, best youtube thumbnail maker 2026, thumbnail maker for shorts and 4K">
+<link rel="canonical" href="https://thumbnailcreator.online/youtube-thumbnail-maker">
+<meta property="og:title" content="YouTube Thumbnail Maker – Free Custom Thumbnail Design Tool">
+<meta property="og:description" content="Create custom YouTube thumbnails free with our online Thumbnail Maker. Add text, backgrounds, and effects, then download in HD — no login, no watermark ever.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thumbnailcreator.online/youtube-thumbnail-maker">
+<meta property="og:site_name" content="ThumbnailCreator">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "YouTube Thumbnail Maker",
+  "url": "https://thumbnailcreator.online/youtube-thumbnail-maker",
+  "applicationCategory": "DesignApplication",
+  "operatingSystem": "Any (Web Browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Free online YouTube Thumbnail Maker to design custom thumbnails with text, backgrounds and colors. No login, no watermark."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thumbnailcreator.online/" },
+    { "@type": "ListItem", "position": 2, "name": "Thumbnail Maker", "item": "https://thumbnailcreator.online/youtube-thumbnail-maker" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is the YouTube Thumbnail Maker free to use?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, the Thumbnail Maker is 100% free with no login, no watermark, and no daily limits." } },
+    { "@type": "Question", "name": "What sizes can I create?", "acceptedAnswer": { "@type": "Answer", "text": "You can choose Standard YouTube (1280x720), 4K MaxRes (1920x1080), Square for posts (1080x1080), or vertical Shorts and Reels (1080x1920)." } },
+    { "@type": "Question", "name": "Can I download as JPG instead of PNG?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Choose PNG for the highest quality with no compression, or JPG for a smaller file size before downloading." } },
+    { "@type": "Question", "name": "Can I change the text font?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, you can choose between Poppins, Montserrat, Impact, Arial Black, or Georgia for your thumbnail text." } },
+    { "@type": "Question", "name": "Can I adjust the background and text opacity?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Both the background color density and the text opacity have their own sliders so you can create faded, watermark-style, or fully solid effects." } },
+    { "@type": "Question", "name": "Can I upload my own background image?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, you can upload any JPG, PNG, or WEBP image as your background, or pick a solid color instead." } },
+    { "@type": "Question", "name": "Do I need design experience to use this tool?", "acceptedAnswer": { "@type": "Answer", "text": "No. The tool is drag-and-drop simple — add text, adjust color and size, and download. No design skills required." } },
+    { "@type": "Question", "name": "Is my image uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. Everything is rendered directly in your browser using canvas, so nothing is uploaded or stored anywhere." } }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --purple:#6366f1;
+  --purple-dark:#4f46e5;
+  --bg:#f7f7fb;
+  --text:#1f2430;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;}
+h1,h2,.logo span,.foot-logo span,.badge{font-family:'Poppins','Inter',sans-serif;}
+a{text-decoration:none;color:inherit;}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
+
+/* HEADER */
+header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;}
+.logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:18px;color:var(--text);}
+.logo svg{width:26px;height:26px;color:var(--purple);}
+.logo-accent{color:var(--purple);}
+.navlinks{display:flex;align-items:center;gap:26px;font-size:14.5px;font-weight:500;}
+.navlinks > a:hover{color:var(--purple);}
+.dropdown{position:relative;}
+.dropdown-toggle{display:flex;align-items:center;gap:6px;background:none;border:none;font:inherit;font-weight:500;color:var(--text);cursor:pointer;}
+.dropdown-toggle svg{width:13px;height:13px;}
+.dropdown-menu{display:none;position:absolute;top:calc(100% + 14px);left:-16px;width:260px;background:#fff;border-radius:14px;box-shadow:0 14px 34px rgba(0,0,0,.12);padding:8px;}
+.dropdown.open .dropdown-menu{display:block;}
+.dropdown-menu a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;font-size:14px;color:#374151;}
+.dropdown-menu a:hover{background:#f3f0ff;color:var(--purple);}
+.dropdown-menu svg{width:17px;height:17px;stroke:var(--purple);flex-shrink:0;}
+.cta{background:var(--purple);color:#fff !important;padding:10px 20px;border-radius:999px;font-weight:600;font-size:14px;}
+.cta:hover{background:var(--purple-dark);}
+
+/* HERO */
+.hero{padding:52px 0 36px;text-align:center;}
+.badge{display:inline-block;background:#eef0ff;color:var(--purple-dark);font-size:12.5px;font-weight:600;padding:6px 14px;border-radius:999px;letter-spacing:.3px;margin-bottom:18px;}
+.hero h1{font-size:38px;font-weight:800;margin-bottom:18px;}
+.hero .lead{max-width:700px;margin:0 auto;color:#3b4152;font-size:16.5px;}
+.breadcrumb{font-size:13px;color:var(--muted);margin-bottom:14px;}
+.breadcrumb a{color:var(--purple);}
+
+/* TOOL WORKSPACE */
+.workspace{background:#fff;border-radius:18px;box-shadow:0 8px 30px rgba(0,0,0,.06);padding:28px;max-width:1000px;margin:0 auto 60px;}
+.ws-grid{display:grid;grid-template-columns:1fr 300px;gap:26px;}
+@media(max-width:800px){.ws-grid{grid-template-columns:1fr;}}
+#canvasBox{background:#111;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;aspect-ratio:16/9;}
+#thumbCanvas{width:100%;height:100%;cursor:grab;}
+.controls{display:flex;flex-direction:column;gap:15px;max-height:640px;overflow-y:auto;padding-right:4px;}
+.ctrl-group label{font-size:13px;font-weight:600;display:block;margin-bottom:6px;color:var(--text);}
+.ctrl-group .hint{font-weight:400;color:var(--muted);font-size:11.5px;}
+.ctrl-group input[type=file],
+.ctrl-group input[type=color],
+.ctrl-group input[type=range]{width:100%;}
+.select-input{width:100%;padding:10px 12px;border-radius:8px;border:1.5px solid var(--border);font:inherit;font-size:13.5px;color:var(--text);background:#fff;cursor:pointer;}
+.select-input:focus{outline:none;border-color:var(--purple);}
+.btn{background:var(--purple);color:#fff;border:none;padding:11px 16px;border-radius:10px;font-weight:600;font-size:14px;cursor:pointer;width:100%;}
+.btn:hover{background:var(--purple-dark);}
+.btn.secondary{background:#fff;border:1.5px solid var(--border);color:var(--text);}
+.btn.secondary:hover{border-color:var(--purple);color:var(--purple);}
+.btn.danger{background:#fef2f2;color:#dc2626;border:1.5px solid #fecaca;}
+.row2{display:flex;gap:10px;}
+.row2 .btn{flex:1;}
+
+/* TOOLS GRID */
+.tools-section{max-width:1150px;margin:0 auto 70px;}
+.section-head{text-align:center;max-width:640px;margin:0 auto 40px;}
+.section-head h2{font-size:30px;margin-bottom:10px;}
+.section-head p{color:var(--muted);font-size:15px;}
+.tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+@media(max-width:900px){.tools-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:520px){.tools-grid{grid-template-columns:1fr;}}
+.tool-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;transition:box-shadow .15s;}
+.tool-card:hover{box-shadow:0 10px 26px rgba(0,0,0,.07);}
+.tool-icon{width:44px;height:44px;background:#eef0ff;color:var(--purple);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+.tool-icon svg{width:22px;height:22px;}
+.tool-card h3{font-size:16.5px;margin-bottom:8px;}
+.tool-card p{font-size:13.5px;color:var(--muted);margin-bottom:18px;}
+.tool-card a{color:var(--purple);font-weight:600;font-size:13.5px;}
+
+/* WHY CHOOSE */
+.why-section{background:#fff;padding:64px 0;margin-bottom:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;max-width:1000px;margin:0 auto 40px;}
+@media(max-width:700px){.why-grid{grid-template-columns:1fr;}}
+.why-card{background:var(--bg);border-radius:14px;padding:24px;}
+.why-card h4{font-size:16px;margin-bottom:8px;}
+.why-card p{font-size:14px;color:var(--muted);}
+.why-note{max-width:820px;margin:0 auto;background:var(--bg);border-radius:16px;padding:28px;}
+.why-note h3{font-size:19px;margin-bottom:12px;}
+.why-note p{font-size:14.5px;color:#3b4152;margin-bottom:10px;}
+
+/* CONTENT / HOW TO USE */
+.content-section{max-width:820px;margin:60px auto;}
+.content-section h2{font-size:26px;margin-bottom:16px;}
+.content-section p{color:#3b4152;margin-bottom:14px;font-size:15.5px;}
+
+/* FAQ */
+.faq{max-width:820px;margin:0 auto 70px;}
+.faq h2{font-size:26px;margin-bottom:22px;text-align:center;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-item summary{padding:16px 4px;font-weight:600;font-size:15px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item p{padding:0 4px 16px;color:#4b5160;font-size:14.5px;}
+
+/* FOOTER */
+footer{background:#111318;color:#9ca3af;padding:50px 0 24px;}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px;}
+@media(max-width:700px){.foot-grid{grid-template-columns:1fr 1fr;}}
+.foot-logo{color:#fff;font-weight:700;font-size:17px;display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.foot-logo svg{width:22px;height:22px;color:var(--purple);}
+footer h4{color:#fff;font-size:13.5px;margin-bottom:14px;}
+footer a{display:block;font-size:13.5px;margin-bottom:9px;color:#9ca3af;}
+footer a:hover{color:#fff;}
+.foot-bottom{border-top:1px solid #262b36;padding-top:20px;text-align:center;font-size:12.5px;}
+.foot-bottom-links{display:flex;gap:16px;justify-content:center;margin-top:10px;flex-wrap:wrap;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="/" class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"></polygon></svg>
+      <span>Thumbnail<span class="logo-accent">Creator</span></span>
+    </a>
+    <nav class="navlinks">
+      <a href="/">Home</a>
+      <div class="dropdown" id="toolsDropdown">
+        <button class="dropdown-toggle" onclick="document.getElementById('toolsDropdown').classList.toggle('open')">
+          Our Tools
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="dropdown-menu">
+          <a href="/youtube-thumbnail-downloader">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Thumbnail Downloader
+          </a>
+          <a href="/youtube-thumbnail-maker">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path></svg>
+            Thumbnail Maker
+          </a>
+          <a href="/ai-thumbnail-generator">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            AI Thumbnail Generator
+          </a>
+          <a href="/thumbnail-text-generator">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+            Text Generator
+          </a>
+          <a href="/thumbnail-background-remover">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            Background Remover
+          </a>
+          <a href="/thumbnail-cropper">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.13 1L6 16a2 2 0 0 0 2 2h15"></path><path d="M1 6.13L16 6a2 2 0 0 1 2 2v15"></path></svg>
+            Thumbnail Cropper
+          </a>
+          <a href="/thumbnail-editor">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4Z"></path></svg>
+            Thumbnail Editor
+          </a>
+          <a href="/thumbnail-resizer">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+            Thumbnail Resizer
+          </a>
+          <a href="/#upscaleWorkspace">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+            AI Image Upscaler
+          </a>
+          <a href="/#textToImageWorkspace">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            AI Text to Image
+          </a>
+        </div>
+      </div>
+      <a href="/#why-choose">Why Us</a>
+      <a href="/#blog">Blog</a>
+      <a href="/how-to-use">How to Use</a>
+      <a href="/api-docs">API</a>
+      <a href="/about-us">About</a>
+      <a href="#workspace" class="cta">Get Started Free</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="/">Home</a> / Thumbnail Maker</div>
+    <span class="badge">Thumbnail Maker — Free, No Login</span>
+    <h1>YouTube Thumbnail Maker</h1>
+    <p class="lead">
+      The YouTube Thumbnail Maker is a free browser-based tool that lets you design a custom thumbnail from scratch — pick a background, add bold text, adjust colors and opacity, then download an HD PNG or JPG in seconds, with no login and no watermark.
+    </p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="workspace" id="workspace">
+    <div class="ws-grid">
+      <div id="canvasBox">
+        <canvas id="thumbCanvas" width="1280" height="720"></canvas>
+      </div>
+      <div class="controls">
+        <div class="ctrl-group">
+          <label>Thumbnail Size</label>
+          <select id="sizePreset" class="select-input">
+            <option value="1280x720">Standard YouTube (1280×720)</option>
+            <option value="1920x1080">4K MaxRes (1920×1080)</option>
+            <option value="1080x1080">Square — Profile/Post (1080×1080)</option>
+            <option value="1080x1920">Shorts / Reels (1080×1920)</option>
+          </select>
+        </div>
+        <div class="ctrl-group">
+          <label>Background Color</label>
+          <input type="color" id="bgColor" value="#6366f1">
+        </div>
+        <div class="ctrl-group">
+          <label>Background Density (<span id="bgOpacityVal">100</span>%) <span class="hint">— color/image opacity</span></label>
+          <input type="range" id="bgOpacity" min="10" max="100" value="100">
+        </div>
+        <div class="ctrl-group">
+          <label>Or Upload Background Image</label>
+          <input type="file" id="bgImage" accept="image/*">
+        </div>
+        <div class="ctrl-group">
+          <label>Font Family</label>
+          <select id="fontFamily" class="select-input">
+            <option value="'Poppins',sans-serif">Poppins (Bold Rounded)</option>
+            <option value="'Montserrat',sans-serif">Montserrat (Clean Modern)</option>
+            <option value="Impact,'Arial Narrow',sans-serif">Impact (Classic Bold)</option>
+            <option value="'Arial Black',Arial,sans-serif">Arial Black</option>
+            <option value="Georgia,serif">Georgia (Serif)</option>
+          </select>
+        </div>
+        <div class="ctrl-group">
+          <label>Text Color</label>
+          <input type="color" id="textColor" value="#ffffff">
+        </div>
+        <div class="ctrl-group">
+          <label>Text Density (<span id="textOpacityVal">100</span>%) <span class="hint">— text opacity</span></label>
+          <input type="range" id="textOpacity" min="10" max="100" value="100">
+        </div>
+        <div class="ctrl-group">
+          <label>Font Size (<span id="sizeVal">72</span>px)</label>
+          <input type="range" id="fontSize" min="24" max="140" value="72">
+        </div>
+        <button class="btn secondary" id="addTextBtn">+ Add Text Layer</button>
+        <div class="row2">
+          <button class="btn danger" id="deleteBtn">Delete Selected</button>
+          <button class="btn secondary" id="resetBtn">Reset</button>
+        </div>
+        <div class="ctrl-group">
+          <label>Download Format</label>
+          <select id="downloadFormat" class="select-input">
+            <option value="png">PNG (Best Quality, No Watermark)</option>
+            <option value="jpeg">JPG (Smaller File Size)</option>
+          </select>
+        </div>
+        <button class="btn" id="downloadBtn">⬇ Download Thumbnail</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="tools-section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Our Complete Thumbnail Toolkit</h2>
+      <p>Everything you need to create, download, edit, and optimize click-worthy thumbnails in one place.</p>
+    </div>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></div><h3>Thumbnail Downloader</h3><p>Extract high-quality thumbnails from any YouTube video, Shorts, or Vimeo URL instantly.</p></div>
+        <a href="/youtube-thumbnail-downloader">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path></svg></div><h3>AI Thumbnail Generator</h3><p>Generate highly-engaging thumbnail concepts using advanced AI from text prompts.</p></div>
+        <a href="/ai-thumbnail-generator">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg></div><h3>Thumbnail Text Generator</h3><p>Create bold, readable 3D & styled text effects optimized for mobile thumbnail CTR.</p></div>
+        <a href="/thumbnail-text-generator">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></div><h3>Background Remover</h3><p>Instantly cut out your face or product subjects with accurate AI edge detection.</p></div>
+        <a href="/thumbnail-background-remover">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.13 1L6 16a2 2 0 0 0 2 2h15"></path><path d="M1 6.13L16 6a2 2 0 0 1 2 2v15"></path></svg></div><h3>Thumbnail Cropper</h3><p>Crop images perfectly to the standard 16:9 aspect ratio required by YouTube.</p></div>
+        <a href="/thumbnail-cropper">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4Z"></path></svg></div><h3>Thumbnail Editor</h3><p>Apply filters, adjustments, overlays, and graphics directly to your thumbnails.</p></div>
+        <a href="/thumbnail-editor">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></div><h3>Thumbnail Resizer</h3><p>Compress and resize images to match the strict &lt;2MB YouTube upload file limit.</p></div>
+        <a href="/thumbnail-resizer">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></div><h3>AI Text to Image</h3><p>Generate original AI artwork from a text prompt to use as your thumbnail base.</p></div>
+        <a href="/#textToImageWorkspace">Use Tool →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why-section" id="why-choose">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Why Choose This Thumbnail Maker?</h2>
+      <p>Built specifically for YouTube creators who want full design control without the learning curve.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <h4>No Watermark, No Login, No Catch</h4>
+        <p>Every thumbnail you design and download is yours — no overlay, no branding, no account required. Export as many versions as you like.</p>
+      </div>
+      <div class="why-card">
+        <h4>Multiple Sizes, One Tool</h4>
+        <p>Switch instantly between Standard, 4K MaxRes, Square, and Shorts/Reels dimensions without starting over from scratch.</p>
+      </div>
+      <div class="why-card">
+        <h4>Full Density & Font Control</h4>
+        <p>Fine-tune background color density and text opacity independently, and pick from five distinct font styles for the exact look you want.</p>
+      </div>
+      <div class="why-card">
+        <h4>100% Private and Secure</h4>
+        <p>Your image and text never leave your browser. Everything is rendered locally on canvas, and nothing is stored on our servers.</p>
+      </div>
+    </div>
+    <div class="why-note">
+      <h3>Zero Sign-Ups. Quick & Free.</h3>
+      <p>Growing a channel on YouTube is harder than ever. With millions of videos uploaded daily, your thumbnail is the first thing a viewer sees — and they decide in less than a second whether to click. A great thumbnail can double or triple your click-through rate, which directly signals the algorithm to push your content to more people.</p>
+      <p>This YouTube Thumbnail Maker gives you the power to design professional, high-converting thumbnails from scratch — completely free, no login needed, nothing ever saved to our servers.</p>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <h2>How to Use the YouTube Thumbnail Maker</h2>
+  <p>
+    Using this free YouTube thumbnail maker online takes less than a minute, even if you have never designed anything before. Start by picking your thumbnail size from the dropdown — Standard 1280×720 for regular videos, 4K MaxRes for maximum sharpness, Square for community posts, or the vertical 1080×1920 frame for Shorts and Reels. Once your canvas is set, choose a background: either pick a solid color with the color picker, or upload your own photo, screenshot, or graphic to use as the base layer for your custom YouTube thumbnail. If you want a softer, faded, or watermark-style look, drag the background density slider down; keeping it at 100% gives you a fully solid, opaque backdrop.
+  </p>
+  <p>
+    Next, click "Add Text Layer" to type your headline. The tool automatically places bold, high-contrast text in the center of the canvas, which you can then drag anywhere with your mouse. Select a font family from Poppins, Montserrat, Impact, Arial Black, or Georgia to match the tone of your video — bold rounded fonts tend to work best for gaming and entertainment channels, while cleaner fonts suit tutorials and business content. Adjust the text color, font size, and text density independently, so your headline can be bright and fully solid, or subtle and semi-transparent depending on the effect you're going for. You can add multiple text layers, click any layer to reselect and edit it, and use the delete button to remove one you no longer need.
+  </p>
+  <p>
+    Once your custom thumbnail design looks right, choose your download format — PNG for the best quality with no compression and a transparent-friendly file, or JPG if you need a smaller file size for faster uploads. Click "Download Thumbnail," and your finished image saves directly to your device, ready to upload straight to YouTube. Because everything runs locally in your browser, there is no login, no watermark, no waiting for server processing, and no limit on how many thumbnails you can create. Whether you're building a thumbnail for a gaming channel, a tutorial series, a podcast clip, or a Shorts video, this thumbnail generator free tool adapts to any niche and any aspect ratio in just a few clicks.
+  </p>
+  <p>
+    A few practical tips help most creators get better results. Keep your headline short — three to five words in a bold font almost always outperforms a long sentence, since viewers scan thumbnails for less than a second before deciding to click. Use high contrast between your text color and background so the message stays readable even at the small size YouTube displays in search results and the sidebar. If you're designing for Shorts or Reels, switch to the vertical 1080×1920 preset early, since text placement that works on a horizontal 16:9 canvas often needs repositioning on a tall frame. And if you plan to reuse the same background across multiple videos in a series, lower the background density slightly and keep your text at full opacity — that consistency helps build recognizable branding across your channel.
+  </p>
+  <p>
+    Because this custom YouTube thumbnail creator saves nothing to a server, you're free to experiment as much as you want. Try a few different font and color combinations, compare a solid background against an uploaded photo, and download every version you like before picking a final one. Many creators run quick A/B tests this way, uploading two thumbnail variations to see which one earns a better click-through rate over the first 24 hours. Combined with the other free tools in this toolkit — the Resizer for file-size compliance, the Cropper for aspect ratio fixes, and the Background Remover for isolating a subject — this Thumbnail Maker becomes a complete, no-cost design workflow for growing any YouTube channel.
+  </p>
+</section>
+
+<section class="faq">
+  <h2>Frequently Asked Questions</h2>
+  <details class="faq-item"><summary>Is the YouTube Thumbnail Maker free to use?</summary><p>Yes, the Thumbnail Maker is 100% free with no login, no watermark, and no daily limits.</p></details>
+  <details class="faq-item"><summary>What sizes can I create?</summary><p>You can choose Standard YouTube (1280x720), 4K MaxRes (1920x1080), Square for posts (1080x1080), or vertical Shorts and Reels (1080x1920).</p></details>
+  <details class="faq-item"><summary>Can I download as JPG instead of PNG?</summary><p>Yes. Choose PNG for the highest quality with no compression, or JPG for a smaller file size before downloading.</p></details>
+  <details class="faq-item"><summary>Can I change the text font?</summary><p>Yes, you can choose between Poppins, Montserrat, Impact, Arial Black, or Georgia for your thumbnail text.</p></details>
+  <details class="faq-item"><summary>Can I adjust the background and text opacity?</summary><p>Yes. Both the background color density and the text opacity have their own sliders so you can create faded, watermark-style, or fully solid effects.</p></details>
+  <details class="faq-item"><summary>Can I upload my own background image?</summary><p>Yes, you can upload any JPG, PNG, or WEBP image as your background, or pick a solid color instead.</p></details>
+  <details class="faq-item"><summary>Do I need design experience to use this tool?</summary><p>No. The tool is drag-and-drop simple — add text, adjust color and size, and download. No design skills required.</p></details>
+  <details class="faq-item"><summary>Is my image uploaded to a server?</summary><p>No. Everything is rendered directly in your browser using canvas, so nothing is uploaded or stored anywhere.</p></details>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"></polygon></svg>
+          <span>Thumbnail<span style="color:var(--purple)">Creator</span></span>
+        </div>
+        <p style="font-size:13.5px;">Free YouTube thumbnail downloader for creators worldwide.</p>
+        <p style="font-size:13.5px;margin-top:10px;">support@thumbnailcreator.online</p>
+      </div>
+      <div>
+        <h4>Our Tools</h4>
+        <a href="/youtube-thumbnail-downloader">Thumbnail Downloader</a>
+        <a href="/youtube-thumbnail-maker">Thumbnail Maker</a>
+        <a href="/ai-thumbnail-generator">AI Thumbnail Generator</a>
+        <a href="/thumbnail-text-generator">Text Generator</a>
+        <a href="/thumbnail-background-remover">Background Remover</a>
+        <a href="/thumbnail-cropper">Thumbnail Cropper</a>
+        <a href="/thumbnail-editor">Thumbnail Editor</a>
+        <a href="/thumbnail-resizer">Thumbnail Resizer</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-of-service">Terms of Service</a>
+        <a href="/dmca">DMCA Policy</a>
+        <a href="/disclaimer">Disclaimer</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="/about-us">About Us</a>
+        <a href="/contact-us">Contact Us</a>
+        <a href="/blog">Blog</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      © 2026 ThumbnailCreator.online | All Rights Reserved.
+      <div class="foot-bottom-links">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-of-service">Terms</a>
+        <a href="/dmca">DMCA</a>
+        <a href="/disclaimer">Disclaimer</a>
+        <a href="/about-us">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('click', function(e){
+  const dd = document.getElementById('toolsDropdown');
+  if(!dd.contains(e.target)) dd.classList.remove('open');
+});
+
+const canvas = document.getElementById('thumbCanvas');
+const ctx = canvas.getContext('2d');
+let bgColor = '#6366f1';
+let bgImg = null;
+let layers = []; // {text, x, y, color, size, font, opacity}
+let selected = -1;
+let dragging = false;
+let dragOffset = {x:0, y:0};
+
+function hexToRgba(hex, alpha){
+  const r = parseInt(hex.slice(1,3),16);
+  const g = parseInt(hex.slice(3,5),16);
+  const b = parseInt(hex.slice(5,7),16);
+  return `rgba(${r},${g},${b},${alpha})`;
+}
+
+function currentFont(){ return document.getElementById('fontFamily').value; }
+
+function draw(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  const bgAlpha = parseInt(document.getElementById('bgOpacity').value)/100;
+  if(bgImg){
+    ctx.globalAlpha = bgAlpha;
+    ctx.drawImage(bgImg,0,0,canvas.width,canvas.height);
+    ctx.globalAlpha = 1;
+  } else {
+    ctx.fillStyle = hexToRgba(bgColor, bgAlpha);
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+  }
+  layers.forEach((l,i)=>{
+    ctx.font = `800 ${l.size}px ${l.font}`;
+    ctx.fillStyle = hexToRgba(l.color, l.opacity);
+    ctx.textBaseline = 'top';
+    ctx.strokeStyle = `rgba(0,0,0,${0.35*l.opacity})`;
+    ctx.lineWidth = l.size/18;
+    ctx.strokeText(l.text, l.x, l.y);
+    ctx.fillText(l.text, l.x, l.y);
+    if(i === selected){
+      const w = ctx.measureText(l.text).width;
+      ctx.strokeStyle = '#6366f1';
+      ctx.lineWidth = 3;
+      ctx.strokeRect(l.x-8, l.y-8, w+16, l.size+16);
+    }
+  });
+}
+
+document.getElementById('sizePreset').addEventListener('change', e=>{
+  const [w,h] = e.target.value.split('x').map(Number);
+  canvas.width = w; canvas.height = h;
+  document.getElementById('canvasBox').style.aspectRatio = `${w}/${h}`;
+  draw();
+});
+
+document.getElementById('bgColor').addEventListener('input', e=>{ bgColor = e.target.value; bgImg = null; draw(); });
+
+document.getElementById('bgOpacity').addEventListener('input', e=>{
+  document.getElementById('bgOpacityVal').textContent = e.target.value;
+  draw();
+});
+
+document.getElementById('bgImage').addEventListener('change', e=>{
+  const file = e.target.files[0];
+  if(!file) return;
+  const img = new Image();
+  img.onload = ()=>{ bgImg = img; draw(); };
+  img.src = URL.createObjectURL(file);
+});
+
+document.getElementById('fontFamily').addEventListener('change', e=>{
+  if(selected >= 0){ layers[selected].font = e.target.value; draw(); }
+});
+
+document.getElementById('fontSize').addEventListener('input', e=>{
+  document.getElementById('sizeVal').textContent = e.target.value;
+  if(selected >= 0){ layers[selected].size = parseInt(e.target.value); draw(); }
+});
+
+document.getElementById('textColor').addEventListener('input', e=>{
+  if(selected >= 0){ layers[selected].color = e.target.value; draw(); }
+});
+
+document.getElementById('textOpacity').addEventListener('input', e=>{
+  document.getElementById('textOpacityVal').textContent = e.target.value;
+  if(selected >= 0){ layers[selected].opacity = parseInt(e.target.value)/100; draw(); }
+});
+
+document.getElementById('addTextBtn').addEventListener('click', ()=>{
+  const txt = prompt('Enter your thumbnail text:', 'YOUR TEXT HERE');
+  if(!txt) return;
+  const size = parseInt(document.getElementById('fontSize').value);
+  layers.push({
+    text: txt.toUpperCase(),
+    x: canvas.width/2 - (txt.length*size*0.28),
+    y: canvas.height/2 - size/2,
+    color: document.getElementById('textColor').value,
+    size: size,
+    font: currentFont(),
+    opacity: parseInt(document.getElementById('textOpacity').value)/100
+  });
+  selected = layers.length - 1;
+  draw();
+});
+
+document.getElementById('deleteBtn').addEventListener('click', ()=>{
+  if(selected >= 0){ layers.splice(selected,1); selected=-1; draw(); }
+});
+
+document.getElementById('resetBtn').addEventListener('click', ()=>{
+  layers = []; selected = -1; bgImg = null; bgColor = '#6366f1';
+  document.getElementById('bgColor').value = '#6366f1';
+  document.getElementById('bgOpacity').value = 100;
+  document.getElementById('bgOpacityVal').textContent = 100;
+  document.getElementById('textOpacity').value = 100;
+  document.getElementById('textOpacityVal').textContent = 100;
+  draw();
+});
+
+document.getElementById('downloadBtn').addEventListener('click', ()=>{
+  selected = -1; draw();
+  const format = document.getElementById('downloadFormat').value;
+  const mime = format === 'jpeg' ? 'image/jpeg' : 'image/png';
+  const ext = format === 'jpeg' ? 'jpg' : 'png';
+  const link = document.createElement('a');
+  link.download = `youtube-thumbnail.${ext}`;
+  link.href = canvas.toDataURL(mime, 0.95);
+  link.click();
+});
+
+function getCanvasCoords(e){
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = canvas.width / rect.width;
+  const scaleY = canvas.height / rect.height;
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+  return { x:(clientX-rect.left)*scaleX, y:(clientY-rect.top)*scaleY };
+}
+
+function hitTest(x,y){
+  for(let i=layers.length-1;i>=0;i--){
+    const l = layers[i];
+    ctx.font = `800 ${l.size}px ${l.font}`;
+    const w = ctx.measureText(l.text).width;
+    if(x>=l.x && x<=l.x+w && y>=l.y && y<=l.y+l.size) return i;
+  }
+  return -1;
+}
+
+canvas.addEventListener('mousedown', e=>{
+  const {x,y} = getCanvasCoords(e);
+  const hit = hitTest(x,y);
+  selected = hit;
+  if(hit>=0){
+    dragging = true;
+    dragOffset = { x: x-layers[hit].x, y: y-layers[hit].y };
+    document.getElementById('fontSize').value = layers[hit].size;
+    document.getElementById('sizeVal').textContent = layers[hit].size;
+    document.getElementById('textColor').value = layers[hit].color;
+    document.getElementById('fontFamily').value = layers[hit].font;
+    document.getElementById('textOpacity').value = Math.round(layers[hit].opacity*100);
+    document.getElementById('textOpacityVal').textContent = Math.round(layers[hit].opacity*100);
+  }
+  draw();
+});
+canvas.addEventListener('mousemove', e=>{
+  if(!dragging || selected<0) return;
+  const {x,y} = getCanvasCoords(e);
+  layers[selected].x = x - dragOffset.x;
+  layers[selected].y = y - dragOffset.y;
+  draw();
+});
+window.addEventListener('mouseup', ()=> dragging=false);
+
+draw();
+</script>
+
+</body>
+</html>
