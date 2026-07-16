@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thumbnail Cropper – Free 16:9 Image Crop Tool, No Login</title>
+<meta name="description" content="Crop any image to the perfect YouTube thumbnail ratio free. Drag to adjust, pick 16:9, Square, or Shorts, then download HD — no login, no watermark.">
+<meta name="keywords" content="youtube thumbnail cropper free online, crop image to 16:9 ratio, thumbnail crop tool no login, shorts thumbnail cropper, square image cropper free, resize and crop youtube thumbnail">
+<link rel="canonical" href="https://thumbnailcreator.online/thumbnail-cropper">
+<meta property="og:title" content="Thumbnail Cropper – Free 16:9 Image Crop Tool, No Login">
+<meta property="og:description" content="Crop any image to the perfect YouTube thumbnail ratio free. Drag to adjust, pick 16:9, Square, or Shorts, then download HD — no login, no watermark.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thumbnailcreator.online/thumbnail-cropper">
+<meta property="og:site_name" content="ThumbnailCreator">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Thumbnail Cropper",
+  "url": "https://thumbnailcreator.online/thumbnail-cropper",
+  "applicationCategory": "DesignApplication",
+  "operatingSystem": "Any (Web Browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Free online tool to crop images to the exact YouTube thumbnail aspect ratio, with 16:9, Square, and Shorts presets. No login, no watermark."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thumbnailcreator.online/" },
+    { "@type": "ListItem", "position": 2, "name": "Thumbnail Cropper", "item": "https://thumbnailcreator.online/thumbnail-cropper" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is the Thumbnail Cropper free to use?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, it's 100% free with no login, no watermark, and no daily limits." } },
+    { "@type": "Question", "name": "What aspect ratios are available?", "acceptedAnswer": { "@type": "Answer", "text": "16:9 Standard YouTube, 1:1 Square, 9:16 Shorts/Reels, 4:3 Classic, and a Free-form option with no fixed ratio." } },
+    { "@type": "Question", "name": "Can I move and resize the crop box?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Drag the crop box to reposition it, and drag any corner handle to resize while keeping your chosen ratio locked." } },
+    { "@type": "Question", "name": "What format does it download as?", "acceptedAnswer": { "@type": "Answer", "text": "You can download as PNG for lossless quality or JPG for a smaller file size." } },
+    { "@type": "Question", "name": "Is my image uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. Cropping happens entirely inside your browser using canvas, so your image is never uploaded or stored." } },
+    { "@type": "Question", "name": "Does cropping reduce image quality?", "acceptedAnswer": { "@type": "Answer", "text": "No. The crop is a pixel-exact selection from your original image with no recompression until you choose your export format." } },
+    { "@type": "Question", "name": "Can I crop a screenshot instead of a photo?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Any image file works, including screenshots, graphics, and downloaded thumbnails." } }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --purple:#6366f1;
+  --purple-dark:#4f46e5;
+  --bg:#f7f7fb;
+  --text:#1f2430;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;}
+h1,h2,.logo span,.foot-logo span,.badge{font-family:'Poppins','Inter',sans-serif;}
+a{text-decoration:none;color:inherit;}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
+
+/* HEADER */
+header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;}
+.logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:18px;color:var(--text);}
+.logo svg{width:26px;height:26px;color:var(--purple);}
+.logo-accent{color:var(--purple);}
+.navlinks{display:flex;align-items:center;gap:26px;font-size:14.5px;font-weight:500;}
+.navlinks > a:hover{color:var(--purple);}
+.dropdown{position:relative;}
+.dropdown-toggle{display:flex;align-items:center;gap:6px;background:none;border:none;font:inherit;font-weight:500;color:var(--text);cursor:pointer;}
+.dropdown-toggle svg{width:13px;height:13px;}
+.dropdown-menu{display:none;position:absolute;top:calc(100% + 14px);left:-16px;width:260px;background:#fff;border-radius:14px;box-shadow:0 14px 34px rgba(0,0,0,.12);padding:8px;}
+.dropdown.open .dropdown-menu{display:block;}
+.dropdown-menu a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;font-size:14px;color:#374151;}
+.dropdown-menu a:hover{background:#f3f0ff;color:var(--purple);}
+.dropdown-menu svg{width:17px;height:17px;stroke:var(--purple);flex-shrink:0;}
+.cta{background:var(--purple);color:#fff !important;padding:10px 20px;border-radius:999px;font-weight:600;font-size:14px;}
+.cta:hover{background:var(--purple-dark);}
+
+/* HERO */
+.hero{padding:52px 0 36px;text-align:center;}
+.badge{display:inline-block;background:#eef0ff;color:var(--purple-dark);font-size:12.5px;font-weight:600;padding:6px 14px;border-radius:999px;letter-spacing:.3px;margin-bottom:18px;}
+.hero h1{font-size:38px;font-weight:800;margin-bottom:18px;}
+.hero .lead{max-width:700px;margin:0 auto;color:#3b4152;font-size:16.5px;}
+.breadcrumb{font-size:13px;color:var(--muted);margin-bottom:14px;}
+.breadcrumb a{color:var(--purple);}
+
+/* WORKSPACE */
+.workspace{background:#fff;border-radius:18px;box-shadow:0 8px 30px rgba(0,0,0,.06);padding:28px;max-width:980px;margin:0 auto 60px;}
+.ws-grid{display:grid;grid-template-columns:1fr 280px;gap:26px;}
+@media(max-width:800px){.ws-grid{grid-template-columns:1fr;}}
+#cropStage{position:relative;border-radius:12px;overflow:hidden;background:#111;min-height:400px;display:flex;align-items:center;justify-content:center;}
+#cropStage img{max-width:100%;max-height:480px;display:block;user-select:none;pointer-events:none;}
+.upload-hint{color:#9ca3af;font-size:13.5px;text-align:center;padding:40px;}
+#cropBox{position:absolute;border:2px solid #6366f1;box-shadow:0 0 0 2000px rgba(0,0,0,.55);cursor:move;display:none;}
+.handle{position:absolute;width:14px;height:14px;background:#6366f1;border:2px solid #fff;border-radius:50%;}
+.handle.nw{top:-8px;left:-8px;cursor:nwse-resize;}
+.handle.ne{top:-8px;right:-8px;cursor:nesw-resize;}
+.handle.sw{bottom:-8px;left:-8px;cursor:nesw-resize;}
+.handle.se{bottom:-8px;right:-8px;cursor:nwse-resize;}
+.controls{display:flex;flex-direction:column;gap:15px;}
+.ctrl-group label{font-size:13px;font-weight:600;display:block;margin-bottom:6px;color:var(--text);}
+.ctrl-group input[type=file]{width:100%;}
+.select-input{width:100%;padding:10px 12px;border-radius:8px;border:1.5px solid var(--border);font:inherit;font-size:13.5px;color:var(--text);background:#fff;cursor:pointer;}
+.select-input:focus{outline:none;border-color:var(--purple);}
+.btn{background:var(--purple);color:#fff;border:none;padding:12px 16px;border-radius:10px;font-weight:600;font-size:14.5px;cursor:pointer;width:100%;}
+.btn:hover{background:var(--purple-dark);}
+.btn:disabled{opacity:.5;cursor:not-allowed;}
+.btn.secondary{background:#fff;border:1.5px solid var(--border);color:var(--text);}
+.btn.secondary:hover{border-color:var(--purple);color:var(--purple);}
+.dims-box{background:var(--bg);border-radius:10px;padding:12px 14px;font-size:12.5px;color:var(--muted);}
+.dims-box b{color:var(--text);}
+
+/* TOOLS GRID */
+.tools-section{max-width:1150px;margin:0 auto 70px;}
+.section-head{text-align:center;max-width:640px;margin:0 auto 40px;}
+.section-head h2{font-size:30px;margin-bottom:10px;}
+.section-head p{color:var(--muted);font-size:15px;}
+.tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+@media(max-width:900px){.tools-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:520px){.tools-grid{grid-template-columns:1fr;}}
+.tool-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;transition:box-shadow .15s;}
+.tool-card:hover{box-shadow:0 10px 26px rgba(0,0,0,.07);}
+.tool-icon{width:44px;height:44px;background:#eef0ff;color:var(--purple);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+.tool-icon svg{width:22px;height:22px;}
+.tool-card h3{font-size:16.5px;margin-bottom:8px;}
+.tool-card p{font-size:13.5px;color:var(--muted);margin-bottom:18px;}
+.tool-card a{color:var(--purple);font-weight:600;font-size:13.5px;}
+
+/* WHY CHOOSE */
+.why-section{background:#fff;padding:64px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;max-width:1000px;margin:0 auto 40px;}
+@media(max-width:700px){.why-grid{grid-template-columns:1fr;}}
+.why-card{background:var(--bg);border-radius:14px;padding:24px;}
+.why-card h4{font-size:16px;margin-bottom:8px;}
+.why-card p{font-size:14px;color:var(--muted);}
+.why-note{max-width:820px;margin:0 auto;background:var(--bg);border-radius:16px;padding:28px;}
+.why-note h3{font-size:19px;margin-bottom:12px;}
+.why-note p{font-size:14.5px;color:#3b4152;margin-bottom:10px;}
+
+/* CONTENT */
+.content-section{max-width:820px;margin:60px auto;}
+.content-section h2{font-size:26px;margin-bottom:16px;}
+.content-section p{color:#3b4152;margin-bottom:14px;font-size:15.5px;}
+
+/* FAQ */
+.faq{max-width:820px;margin:0 auto 70px;}
+.faq h2{font-size:26px;margin-bottom:22px;text-align:center;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-item summary{padding:16px 4px;font-weight:600;font-size:15px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item p{padding:0 4px 16px;color:#4b5160;font-size:14.5px;}
+
+/* FOOTER */
+footer{background:#111318;color:#9ca3af;padding:50px 0 24px;}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px;}
+@media(max-width:700px){.foot-grid{grid-template-columns:1fr 1fr;}}
+.foot-logo{color:#fff;font-weight:700;font-size:17px;display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.foot-logo svg{width:22px;height:22px;color:var(--purple);}
+footer h4{color:#fff;font-size:13.5px;margin-bottom:14px;}
+footer a{display:block;font-size:13.5px;margin-bottom:9px;color:#9ca3af;}
+footer a:hover{color:#fff;}
+.foot-bottom{border-top:1px solid #262b36;padding-top:20px;text-align:center;font-size:12.5px;}
+.foot-bottom-links{display:flex;gap:16px;justify-content:center;margin-top:10px;flex-wrap:wrap;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="/" class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"></polygon></svg>
+      <span>Thumbnail<span class="logo-accent">Creator</span></span>
+    </a>
+    <nav class="navlinks">
+      <a href="/">Home</a>
+      <div class="dropdown" id="toolsDropdown">
+        <button class="dropdown-toggle" onclick="document.getElementById('toolsDropdown').classList.toggle('open')">
+          Our Tools
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="dropdown-menu">
+          <a href="/youtube-thumbnail-downloader">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Thumbnail Downloader
+          </a>
+          <a href="/youtube-thumbnail-maker">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path></svg>
+            Thumbnail Maker
+          </a>
+          <a href="/ai-thumbnail-generator">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            AI Thumbnail Generator
+          </a>
+          <a href="/thumbnail-text-generator">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+            Text Generator
+          </a>
+          <a href="/thumbnail-background-remover">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            Background Remover
+          </a>
+          <a href="/thumbnail-cropper">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.13 1L6 16a2 2 0 0 0 2 2h15"></path><path d="M1 6.13L16 6a2 2 0 0 1 2 2v15"></path></svg>
+            Thumbnail Cropper
+          </a>
+          <a href="/thumbnail-editor">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4Z"></path></svg>
+            Thumbnail Editor
+          </a>
+          <a href="/thumbnail-resizer">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+            Thumbnail Resizer
+          </a>
+          <a href="/#upscaleWorkspace">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+            AI Image Upscaler
+          </a>
+          <a href="/#textToImageWorkspace">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            AI Text to Image
+          </a>
+        </div>
+      </div>
+      <a href="/#why-choose">Why Us</a>
+      <a href="/#blog">Blog</a>
+      <a href="/how-to-use">How to Use</a>
+      <a href="/api-docs">API</a>
+      <a href="/about-us">About</a>
+      <a href="#workspace" class="cta">Get Started Free</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="/">Home</a> / Thumbnail Cropper</div>
+    <span class="badge">Thumbnail Cropper — Free, No Login</span>
+    <h1>Thumbnail Cropper</h1>
+    <p class="lead">
+      The Thumbnail Cropper lets you drag and resize a crop box over any image, lock it to YouTube's exact 16:9 ratio or switch to Square and Shorts presets, then download a pixel-perfect crop in HD — no login and no watermark.
+    </p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="workspace" id="workspace">
+    <div class="ws-grid">
+      <div id="cropStage">
+        <span class="upload-hint" id="uploadHint">Upload an image to start cropping →</span>
+      </div>
+      <div class="controls">
+        <div class="ctrl-group">
+          <label>Upload Image</label>
+          <input type="file" id="photoInput" accept="image/*">
+        </div>
+        <div class="ctrl-group">
+          <label>Aspect Ratio</label>
+          <select id="ratioSelect" class="select-input">
+            <option value="16/9">16:9 — Standard YouTube</option>
+            <option value="1/1">1:1 — Square</option>
+            <option value="9/16">9:16 — Shorts / Reels</option>
+            <option value="4/3">4:3 — Classic</option>
+            <option value="free">Free-form — No Fixed Ratio</option>
+          </select>
+        </div>
+        <div class="dims-box" id="dimsBox">Crop size: <b>–</b></div>
+        <div class="ctrl-group">
+          <label>Download Format</label>
+          <select id="downloadFormat" class="select-input">
+            <option value="png">PNG (Lossless)</option>
+            <option value="jpeg">JPG (Smaller File)</option>
+          </select>
+        </div>
+        <button class="btn" id="cropBtn" disabled>⬇ Crop & Download</button>
+        <button class="btn secondary" id="resetBtn" disabled>Reset Crop</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="tools-section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Our Complete Thumbnail Toolkit</h2>
+      <p>Everything you need to create, download, edit, and optimize click-worthy thumbnails in one place.</p>
+    </div>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></div><h3>Thumbnail Downloader</h3><p>Extract high-quality thumbnails from any YouTube video, Shorts, or Vimeo URL instantly.</p></div>
+        <a href="/youtube-thumbnail-downloader">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path></svg></div><h3>Thumbnail Maker</h3><p>Design professional custom thumbnails from scratch with text, colors, and effects.</p></div>
+        <a href="/youtube-thumbnail-maker">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></div><h3>AI Thumbnail Generator</h3><p>Generate highly-engaging thumbnail concepts using advanced AI from text prompts.</p></div>
+        <a href="/ai-thumbnail-generator">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg></div><h3>Text Generator</h3><p>Create bold, readable 3D & styled text effects optimized for mobile thumbnail CTR.</p></div>
+        <a href="/thumbnail-text-generator">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></div><h3>Background Remover</h3><p>Instantly cut out your face or product subjects with accurate AI edge detection.</p></div>
+        <a href="/thumbnail-background-remover">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4Z"></path></svg></div><h3>Thumbnail Editor</h3><p>Apply filters, adjustments, overlays, and graphics directly to your thumbnails.</p></div>
+        <a href="/thumbnail-editor">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></div><h3>Thumbnail Resizer</h3><p>Compress and resize images to match the strict &lt;2MB YouTube upload file limit.</p></div>
+        <a href="/thumbnail-resizer">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></div><h3>AI Text to Image</h3><p>Generate original AI artwork from a text prompt to use as your thumbnail base.</p></div>
+        <a href="/#textToImageWorkspace">Use Tool →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why-section" id="why-choose">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Why Choose This Thumbnail Cropper?</h2>
+      <p>Exact ratios, real drag-and-resize control, and zero quality loss.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <h4>Locked, Accurate Ratios</h4>
+        <p>16:9, Square, Shorts, and 4:3 presets keep your crop box mathematically exact — no guessing, no manual measuring.</p>
+      </div>
+      <div class="why-card">
+        <h4>True Drag & Resize</h4>
+        <p>Move the crop box anywhere on your image and resize from any corner, with the aspect ratio locked automatically.</p>
+      </div>
+      <div class="why-card">
+        <h4>No Quality Loss</h4>
+        <p>Your crop is a pixel-exact selection from the original file — nothing is recompressed until you choose your export format.</p>
+      </div>
+      <div class="why-card">
+        <h4>100% Private and Secure</h4>
+        <p>Cropping happens entirely inside your browser using canvas. Your image is never uploaded or stored anywhere.</p>
+      </div>
+    </div>
+    <div class="why-note">
+      <h3>Zero Sign-Ups. Quick & Free.</h3>
+      <p>YouTube automatically rejects thumbnails that don't fit its expected ratio guidance, and even when it doesn't reject them outright, an awkwardly cropped thumbnail looks unprofessional next to well-composed competitors in search and suggested feeds.</p>
+      <p>This youtube thumbnail cropper free online tool makes it simple to get the exact ratio right every time, with no login, no watermark, and no daily limit.</p>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <h2>How to Use the Thumbnail Cropper</h2>
+  <p>
+    Cropping an image to the right ratio for YouTube takes only a few clicks with this free crop tool. Start by uploading any photo, screenshot, or graphic you want to reframe. As soon as it loads, a crop box appears directly on top of your image, already locked to the default 16:9 standard YouTube ratio. If your source image is wider or taller than that ratio, the crop box will show you exactly which portion of the frame will be kept and which parts fall outside the selection.
+  </p>
+  <p>
+    Switch the aspect ratio dropdown to change what the crop box locks to — choose 1:1 Square if you're preparing an image for a community post or profile-style graphic, 9:16 for a YouTube Shorts or Reels thumbnail, 4:3 for a more classic frame, or Free-form if you want to crop without any fixed ratio at all. Once your ratio is set, drag the crop box anywhere on the image to reposition it over the part of the photo you want to keep — a face, a product, or a specific detail — and drag any of the four corner handles to resize the box larger or smaller while the ratio stays locked exactly.
+  </p>
+  <p>
+    The dimensions readout below the image updates live as you resize, so you always know the exact pixel size of your final crop before downloading. This crop image to 16:9 ratio workflow is especially useful when you've downloaded a thumbnail reference with the Thumbnail Downloader tool and need to reframe it, or when a photo you're using for a custom thumbnail was shot in the wrong orientation for YouTube. Once the crop box is positioned exactly where you want it, choose PNG for a lossless export or JPG for a smaller file size, then click "Crop & Download." Your cropped image saves instantly, ready to pair with the Thumbnail Text Generator or Thumbnail Editor elsewhere in this toolkit to finish your design.
+  </p>
+  <p>
+    A couple of habits make this thumbnail crop tool no login workflow even faster. If you're cropping several images for the same series, keep the aspect ratio dropdown on the same setting between uploads so every thumbnail in your channel stays visually consistent — mismatched ratios across a channel's thumbnail grid tend to look unpolished compared to a uniform, well-cropped set. When cropping a photo that includes a face, try to keep it roughly centered or slightly off-center within the box rather than pushed to an edge, since most thumbnail layouts place text on one side and the subject on the other. And if you're repurposing the same source photo for both a horizontal video thumbnail and a vertical Shorts cover, simply switch the ratio dropdown between 16:9 and 9:16 and reposition the crop box — no need to re-upload the image each time.
+  </p>
+</section>
+
+<section class="faq">
+  <h2>Frequently Asked Questions</h2>
+  <details class="faq-item"><summary>Is the Thumbnail Cropper free to use?</summary><p>Yes, it's 100% free with no login, no watermark, and no daily limits.</p></details>
+  <details class="faq-item"><summary>What aspect ratios are available?</summary><p>16:9 Standard YouTube, 1:1 Square, 9:16 Shorts/Reels, 4:3 Classic, and a Free-form option with no fixed ratio.</p></details>
+  <details class="faq-item"><summary>Can I move and resize the crop box?</summary><p>Yes. Drag the crop box to reposition it, and drag any corner handle to resize while keeping your chosen ratio locked.</p></details>
+  <details class="faq-item"><summary>What format does it download as?</summary><p>You can download as PNG for lossless quality or JPG for a smaller file size.</p></details>
+  <details class="faq-item"><summary>Is my image uploaded to a server?</summary><p>No. Cropping happens entirely inside your browser using canvas, so your image is never uploaded or stored.</p></details>
+  <details class="faq-item"><summary>Does cropping reduce image quality?</summary><p>No. The crop is a pixel-exact selection from your original image with no recompression until you choose your export format.</p></details>
+  <details class="faq-item"><summary>Can I crop a screenshot instead of a photo?</summary><p>Yes. Any image file works, including screenshots, graphics, and downloaded thumbnails.</p></details>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"></polygon></svg>
+          <span>Thumbnail<span style="color:var(--purple)">Creator</span></span>
+        </div>
+        <p style="font-size:13.5px;">Free YouTube thumbnail downloader for creators worldwide.</p>
+        <p style="font-size:13.5px;margin-top:10px;">support@thumbnailcreator.online</p>
+      </div>
+      <div>
+        <h4>Our Tools</h4>
+        <a href="/youtube-thumbnail-downloader">Thumbnail Downloader</a>
+        <a href="/youtube-thumbnail-maker">Thumbnail Maker</a>
+        <a href="/ai-thumbnail-generator">AI Thumbnail Generator</a>
+        <a href="/thumbnail-text-generator">Text Generator</a>
+        <a href="/thumbnail-background-remover">Background Remover</a>
+        <a href="/thumbnail-cropper">Thumbnail Cropper</a>
+        <a href="/thumbnail-editor">Thumbnail Editor</a>
+        <a href="/thumbnail-resizer">Thumbnail Resizer</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-of-service">Terms of Service</a>
+        <a href="/dmca">DMCA Policy</a>
+        <a href="/disclaimer">Disclaimer</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="/about-us">About Us</a>
+        <a href="/contact-us">Contact Us</a>
+        <a href="/blog">Blog</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      © 2026 ThumbnailCreator.online | All Rights Reserved.
+      <div class="foot-bottom-links">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-of-service">Terms</a>
+        <a href="/dmca">DMCA</a>
+        <a href="/disclaimer">Disclaimer</a>
+        <a href="/about-us">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('click', function(e){
+  const dd = document.getElementById('toolsDropdown');
+  if(!dd.contains(e.target)) dd.classList.remove('open');
+});
+
+const cropStage = document.getElementById('cropStage');
+const uploadHint = document.getElementById('uploadHint');
+const cropBtn = document.getElementById('cropBtn');
+const resetBtn = document.getElementById('resetBtn');
+const dimsBox = document.getElementById('dimsBox');
+
+let sourceImage = null;
+let imgEl = null;
+let cropBoxEl = null;
+let box = { x:50, y:50, w:200, h:112.5 }; // in displayed (screen) px, relative to image element
+let dragging = false, resizing = false, resizeHandle = null;
+let dragStart = {x:0,y:0};
+let boxStart = {x:0,y:0,w:0,h:0};
+
+function ratioValue(){
+  const v = document.getElementById('ratioSelect').value;
+  if(v === 'free') return null;
+  const [a,b] = v.split('/').map(Number);
+  return a/b;
+}
+
+document.getElementById('photoInput').addEventListener('change', e=>{
+  const file = e.target.files[0];
+  if(!file) return;
+  const img = new Image();
+  img.onload = ()=>{
+    sourceImage = img;
+    setupStage();
+  };
+  img.src = URL.createObjectURL(file);
+});
+
+function setupStage(){
+  cropStage.innerHTML = '';
+  imgEl = document.createElement('img');
+  imgEl.src = sourceImage.src;
+  cropStage.appendChild(imgEl);
+
+  cropBoxEl = document.createElement('div');
+  cropBoxEl.id = 'cropBox';
+  cropBoxEl.innerHTML = `
+    <div class="handle nw"></div>
+    <div class="handle ne"></div>
+    <div class="handle sw"></div>
+    <div class="handle se"></div>
+  `;
+  cropStage.appendChild(cropBoxEl);
+
+  imgEl.onload = initBox;
+  if(imgEl.complete) initBox();
+
+  cropBtn.disabled = false;
+  resetBtn.disabled = false;
+}
+
+function initBox(){
+  const rect = imgEl.getBoundingClientRect();
+  const ratio = ratioValue() || (imgEl.clientWidth / imgEl.clientHeight);
+  let w = imgEl.clientWidth * 0.6;
+  let h = w / ratio;
+  if(h > imgEl.clientHeight * 0.9){ h = imgEl.clientHeight * 0.9; w = h * ratio; }
+  box = { x: (imgEl.clientWidth - w)/2, y: (imgEl.clientHeight - h)/2, w, h };
+  cropBoxEl.style.display = 'block';
+  updateBoxUI();
+}
+
+function updateBoxUI(){
+  const imgRect = imgEl.getBoundingClientRect();
+  const stageRect = cropStage.getBoundingClientRect();
+  const offsetX = imgRect.left - stageRect.left;
+  const offsetY = imgRect.top - stageRect.top;
+  cropBoxEl.style.left = (offsetX + box.x) + 'px';
+  cropBoxEl.style.top = (offsetY + box.y) + 'px';
+  cropBoxEl.style.width = box.w + 'px';
+  cropBoxEl.style.height = box.h + 'px';
+
+  const scale = sourceImage.naturalWidth / imgEl.clientWidth;
+  const realW = Math.round(box.w * scale);
+  const realH = Math.round(box.h * scale);
+  dimsBox.innerHTML = `Crop size: <b>${realW} × ${realH}px</b>`;
+}
+
+document.getElementById('ratioSelect').addEventListener('change', ()=>{
+  if(!imgEl) return;
+  const ratio = ratioValue();
+  if(ratio){
+    box.h = box.w / ratio;
+    if(box.y + box.h > imgEl.clientHeight) box.y = Math.max(0, imgEl.clientHeight - box.h);
+  }
+  updateBoxUI();
+});
+
+cropStage.addEventListener('mousedown', e=>{
+  if(!cropBoxEl) return;
+  if(e.target.classList.contains('handle')){
+    resizing = true;
+    resizeHandle = [...e.target.classList].find(c=>c!=='handle');
+  } else if(e.target === cropBoxEl){
+    dragging = true;
+  } else return;
+  dragStart = { x:e.clientX, y:e.clientY };
+  boxStart = { ...box };
+  e.preventDefault();
+});
+
+window.addEventListener('mousemove', e=>{
+  if(!dragging && !resizing) return;
+  const dx = e.clientX - dragStart.x;
+  const dy = e.clientY - dragStart.y;
+  const ratio = ratioValue();
+
+  if(dragging){
+    box.x = Math.min(Math.max(0, boxStart.x + dx), imgEl.clientWidth - box.w);
+    box.y = Math.min(Math.max(0, boxStart.y + dy), imgEl.clientHeight - box.h);
+  } else if(resizing){
+    let newW = boxStart.w, newH = boxStart.h, newX = boxStart.x, newY = boxStart.y;
+    if(resizeHandle.includes('e')) newW = boxStart.w + dx;
+    if(resizeHandle.includes('s')) newH = boxStart.h + dy;
+    if(resizeHandle.includes('w')){ newW = boxStart.w - dx; newX = boxStart.x + dx; }
+    if(resizeHandle.includes('n')){ newH = boxStart.h - dy; newY = boxStart.y + dy; }
+
+    if(ratio){
+      newH = newW / ratio;
+      if(resizeHandle.includes('n')) newY = boxStart.y + boxStart.h - newH;
+    }
+    newW = Math.max(30, newW);
+    newH = Math.max(30, newH);
+    if(newX >= 0 && newX + newW <= imgEl.clientWidth) { box.x = newX; box.w = newW; }
+    if(newY >= 0 && newY + newH <= imgEl.clientHeight) { box.y = newY; box.h = newH; }
+  }
+  updateBoxUI();
+});
+window.addEventListener('mouseup', ()=>{ dragging=false; resizing=false; });
+
+resetBtn.addEventListener('click', ()=>{ if(imgEl) initBox(); });
+
+cropBtn.addEventListener('click', ()=>{
+  if(!sourceImage || !imgEl) return;
+  const scale = sourceImage.naturalWidth / imgEl.clientWidth;
+  const sx = box.x * scale;
+  const sy = box.y * scale;
+  const sw = box.w * scale;
+  const sh = box.h * scale;
+
+  const outCanvas = document.createElement('canvas');
+  outCanvas.width = sw; outCanvas.height = sh;
+  const octx = outCanvas.getContext('2d');
+  octx.drawImage(sourceImage, sx, sy, sw, sh, 0, 0, sw, sh);
+
+  const format = document.getElementById('downloadFormat').value;
+  const mime = format === 'jpeg' ? 'image/jpeg' : 'image/png';
+  const ext = format === 'jpeg' ? 'jpg' : 'png';
+  const link = document.createElement('a');
+  link.download = `cropped-thumbnail.${ext}`;
+  link.href = outCanvas.toDataURL(mime, 0.95);
+  link.click();
+});
+
+window.addEventListener('resize', ()=>{ if(imgEl) updateBoxUI(); });
+</script>
+
+</body>
+</html>
