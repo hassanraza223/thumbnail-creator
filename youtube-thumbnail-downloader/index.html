@@ -126,6 +126,12 @@ header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top
 .mini-btn:hover{border-color:var(--purple);color:var(--purple);}
 .mini-btn.primary{background:var(--purple);color:#fff;border-color:var(--purple);}
 .mini-btn.primary:hover{background:var(--purple-dark);}
+.custom-size-box{border-top:1px solid var(--border);margin-top:24px;padding-top:18px;}
+.custom-size-row{display:flex;gap:14px;}
+.custom-size-row > div{flex:1;}
+.custom-size-row label{font-size:12.5px;font-weight:600;display:block;margin-bottom:6px;}
+.custom-size-row input{width:100%;padding:10px 12px;border-radius:8px;border:1.5px solid var(--border);font:inherit;font-size:13.5px;}
+.custom-size-row input:focus{outline:none;border-color:var(--purple);}
 
 /* TOOLS GRID */
 .tools-section{max-width:1150px;margin:0 auto 70px;}
@@ -281,6 +287,22 @@ footer a:hover{color:#fff;}
     <div class="results" id="results">
       <h3>All available resolutions — Download or Copy URL:</h3>
       <div class="result-grid" id="resultGrid"></div>
+      <div class="custom-size-box" id="customSizeBox">
+        <h3 style="margin-top:22px;">Need a Custom Size?</h3>
+        <p style="font-size:12.5px;color:var(--muted);margin-bottom:12px;">Resize the best available thumbnail to any width and height you need.</p>
+        <div class="custom-size-row">
+          <div>
+            <label>Width (px)</label>
+            <input type="number" id="customWidth" value="1280" min="16" max="4096">
+          </div>
+          <div>
+            <label>Height (px)</label>
+            <input type="number" id="customHeight" value="720" min="16" max="4096">
+          </div>
+        </div>
+        <button class="btn secondary" id="customSizeBtn" style="margin-top:10px;">⬇ Download Custom Size</button>
+        <canvas id="customCanvas" style="display:none;"></canvas>
+      </div>
     </div>
   </div>
 </div>
@@ -444,6 +466,8 @@ document.addEventListener('click', function(e){
   if(!dd.contains(e.target)) dd.classList.remove('open');
 });
 
+let bestThumbUrl = null;
+
 function extractYouTubeId(url){
   const patterns = [
     /(?:youtube\.com\/watch\?v=)([a-zA-Z0-9_-]{11})/,
@@ -480,6 +504,7 @@ document.getElementById('fetchBtn').addEventListener('click', async ()=>{
   errorBox.style.display = 'none';
   results.style.display = 'none';
   grid.innerHTML = '';
+  bestThumbUrl = null;
 
   if(!url){ errorBox.style.display='block'; return; }
 
@@ -500,6 +525,7 @@ document.getElementById('fetchBtn').addEventListener('click', async ()=>{
       const exists = await checkImageExists(imgUrl);
       if(!exists) continue;
       found++;
+      if(!bestThumbUrl) bestThumbUrl = imgUrl;
       grid.insertAdjacentHTML('beforeend', `
         <div class="result-card">
           <img src="${imgUrl}" alt="${s.label} thumbnail">
@@ -521,6 +547,7 @@ document.getElementById('fetchBtn').addEventListener('click', async ()=>{
       const res = await fetch(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${vimeoId}`);
       if(!res.ok) throw new Error('fail');
       const data = await res.json();
+      bestThumbUrl = data.thumbnail_url;
       grid.insertAdjacentHTML('beforeend', `
         <div class="result-card">
           <img src="${data.thumbnail_url}" alt="Vimeo thumbnail">
@@ -541,6 +568,33 @@ document.getElementById('fetchBtn').addEventListener('click', async ()=>{
   } else {
     errorBox.style.display = 'block';
   }
+});
+
+document.getElementById('customSizeBtn').addEventListener('click', ()=>{
+  if(!bestThumbUrl){ alert('Please fetch a thumbnail first.'); return; }
+  const w = parseInt(document.getElementById('customWidth').value) || 1280;
+  const h = parseInt(document.getElementById('customHeight').value) || 720;
+  const canvas = document.getElementById('customCanvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = w;
+  canvas.height = h;
+  const img = new Image();
+  img.crossOrigin = 'anonymous';
+  img.onload = ()=>{
+    ctx.clearRect(0,0,w,h);
+    ctx.drawImage(img,0,0,w,h);
+    try{
+      const link = document.createElement('a');
+      link.download = `thumbnail-${w}x${h}.jpg`;
+      link.href = canvas.toDataURL('image/jpeg', 0.95);
+      link.click();
+    } catch(e){
+      window.open(bestThumbUrl, '_blank');
+      alert('Custom resize is blocked by CORS for this source. Opening the original image in a new tab instead — right-click to save, then resize with the Thumbnail Resizer tool.');
+    }
+  };
+  img.onerror = ()=>{ alert('Could not load the image for resizing.'); };
+  img.src = bestThumbUrl;
 });
 </script>
 
