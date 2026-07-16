@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thumbnail Text Generator – Bold 3D Text Effects, Free</title>
+<meta name="description" content="Create bold 3D thumbnail text with gradients, outlines, shadows, and transparent PNG export. Free online text effect generator — no login, no watermark.">
+<meta name="keywords" content="youtube thumbnail text generator free, bold 3D text effect maker, thumbnail text with outline and shadow, transparent text png generator, gradient text effect online, thumbnail text overlay tool">
+<link rel="canonical" href="https://thumbnailcreator.online/thumbnail-text-generator">
+<meta property="og:title" content="Thumbnail Text Generator – Bold 3D Text Effects, Free">
+<meta property="og:description" content="Create bold 3D thumbnail text with gradients, outlines, shadows, and transparent PNG export. Free online text effect generator — no login, no watermark.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thumbnailcreator.online/thumbnail-text-generator">
+<meta property="og:site_name" content="ThumbnailCreator">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&family=Montserrat:wght@700;800&family=Anton&family=Bebas+Neue&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Thumbnail Text Generator",
+  "url": "https://thumbnailcreator.online/thumbnail-text-generator",
+  "applicationCategory": "DesignApplication",
+  "operatingSystem": "Any (Web Browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Free online tool to generate bold 3D, gradient, outlined, and shadowed thumbnail text with transparent PNG export."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thumbnailcreator.online/" },
+    { "@type": "ListItem", "position": 2, "name": "Text Generator", "item": "https://thumbnailcreator.online/thumbnail-text-generator" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is the Thumbnail Text Generator free to use?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, it's 100% free with no login, no watermark, and no daily limits." } },
+    { "@type": "Question", "name": "Can I download text with a transparent background?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Choose PNG format with the transparent background option to get just your styled text, ready to layer over any image." } },
+    { "@type": "Question", "name": "What text effects are available?", "acceptedAnswer": { "@type": "Answer", "text": "You can add gradients, outlines/strokes, drop shadows, and a bold 3D depth effect, plus adjust letter spacing and opacity." } },
+    { "@type": "Question", "name": "Can I combine multiple effects on one text?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Gradient, outline, shadow, and 3D depth can all be toggled on at the same time for a fully custom look." } },
+    { "@type": "Question", "name": "Which fonts are included?", "acceptedAnswer": { "@type": "Answer", "text": "Poppins, Montserrat, Anton, Bebas Neue, Oswald, Impact, Arial Black, and Georgia." } },
+    { "@type": "Question", "name": "Can I add more than one line of text?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Add as many text layers as you like, then drag each one into position on the canvas." } },
+    { "@type": "Question", "name": "Do I need design experience to use this?", "acceptedAnswer": { "@type": "Answer", "text": "No. Every effect is a simple toggle or slider — no design background required." } },
+    { "@type": "Question", "name": "Is my data uploaded anywhere?", "acceptedAnswer": { "@type": "Answer", "text": "No. Everything renders locally in your browser using canvas, so nothing is uploaded or stored." } }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --purple:#6366f1;
+  --purple-dark:#4f46e5;
+  --bg:#f7f7fb;
+  --text:#1f2430;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;}
+h1,h2,.logo span,.foot-logo span,.badge{font-family:'Poppins','Inter',sans-serif;}
+a{text-decoration:none;color:inherit;}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
+
+/* HEADER */
+header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;}
+.logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:18px;color:var(--text);}
+.logo svg{width:26px;height:26px;color:var(--purple);}
+.logo-accent{color:var(--purple);}
+.navlinks{display:flex;align-items:center;gap:26px;font-size:14.5px;font-weight:500;}
+.navlinks > a:hover{color:var(--purple);}
+.dropdown{position:relative;}
+.dropdown-toggle{display:flex;align-items:center;gap:6px;background:none;border:none;font:inherit;font-weight:500;color:var(--text);cursor:pointer;}
+.dropdown-toggle svg{width:13px;height:13px;}
+.dropdown-menu{display:none;position:absolute;top:calc(100% + 14px);left:-16px;width:260px;background:#fff;border-radius:14px;box-shadow:0 14px 34px rgba(0,0,0,.12);padding:8px;}
+.dropdown.open .dropdown-menu{display:block;}
+.dropdown-menu a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;font-size:14px;color:#374151;}
+.dropdown-menu a:hover{background:#f3f0ff;color:var(--purple);}
+.dropdown-menu svg{width:17px;height:17px;stroke:var(--purple);flex-shrink:0;}
+.cta{background:var(--purple);color:#fff !important;padding:10px 20px;border-radius:999px;font-weight:600;font-size:14px;}
+.cta:hover{background:var(--purple-dark);}
+
+/* HERO */
+.hero{padding:52px 0 36px;text-align:center;}
+.badge{display:inline-block;background:#eef0ff;color:var(--purple-dark);font-size:12.5px;font-weight:600;padding:6px 14px;border-radius:999px;letter-spacing:.3px;margin-bottom:18px;}
+.hero h1{font-size:38px;font-weight:800;margin-bottom:18px;}
+.hero .lead{max-width:700px;margin:0 auto;color:#3b4152;font-size:16.5px;}
+.breadcrumb{font-size:13px;color:var(--muted);margin-bottom:14px;}
+.breadcrumb a{color:var(--purple);}
+
+/* WORKSPACE */
+.workspace{background:#fff;border-radius:18px;box-shadow:0 8px 30px rgba(0,0,0,.06);padding:28px;max-width:1050px;margin:0 auto 60px;}
+.ws-grid{display:grid;grid-template-columns:1fr 320px;gap:26px;}
+@media(max-width:850px){.ws-grid{grid-template-columns:1fr;}}
+#canvasBox{border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;aspect-ratio:16/9;
+  background-image:linear-gradient(45deg,#ddd 25%,transparent 25%),linear-gradient(-45deg,#ddd 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#ddd 75%),linear-gradient(-45deg,transparent 75%,#ddd 75%);
+  background-size:20px 20px;background-position:0 0,0 10px,10px -10px,-10px 0px;background-color:#f3f3f3;}
+#thumbCanvas{width:100%;height:100%;cursor:grab;}
+.controls{display:flex;flex-direction:column;gap:14px;max-height:660px;overflow-y:auto;padding-right:4px;}
+.ctrl-group label{font-size:12.5px;font-weight:600;display:block;margin-bottom:6px;color:var(--text);}
+.ctrl-group .hint{font-weight:400;color:var(--muted);font-size:11px;}
+.ctrl-group input[type=file],
+.ctrl-group input[type=color],
+.ctrl-group input[type=range],
+.ctrl-group input[type=text]{width:100%;}
+.ctrl-group input[type=text]{padding:10px 12px;border-radius:8px;border:1.5px solid var(--border);font:inherit;font-size:13.5px;}
+.select-input{width:100%;padding:9px 11px;border-radius:8px;border:1.5px solid var(--border);font:inherit;font-size:13px;color:var(--text);background:#fff;cursor:pointer;}
+.select-input:focus{outline:none;border-color:var(--purple);}
+.toggle-row{display:flex;align-items:center;justify-content:space-between;background:var(--bg);padding:10px 12px;border-radius:8px;}
+.toggle-row span{font-size:13px;font-weight:600;}
+.toggle-row input[type=checkbox]{width:18px;height:18px;accent-color:var(--purple);}
+.sub-panel{display:none;flex-direction:column;gap:10px;padding:10px 4px 4px;border-left:2px solid var(--border);padding-left:12px;margin-left:4px;}
+.sub-panel.show{display:flex;}
+.color-pair{display:flex;gap:10px;}
+.color-pair > div{flex:1;}
+.btn{background:var(--purple);color:#fff;border:none;padding:11px 16px;border-radius:10px;font-weight:600;font-size:14px;cursor:pointer;width:100%;}
+.btn:hover{background:var(--purple-dark);}
+.btn.secondary{background:#fff;border:1.5px solid var(--border);color:var(--text);}
+.btn.secondary:hover{border-color:var(--purple);color:var(--purple);}
+.btn.danger{background:#fef2f2;color:#dc2626;border:1.5px solid #fecaca;}
+.row2{display:flex;gap:10px;}
+.row2 .btn{flex:1;}
+hr.sep{border:none;border-top:1px solid var(--border);margin:2px 0;}
+
+/* TOOLS GRID */
+.tools-section{max-width:1150px;margin:0 auto 70px;}
+.section-head{text-align:center;max-width:640px;margin:0 auto 40px;}
+.section-head h2{font-size:30px;margin-bottom:10px;}
+.section-head p{color:var(--muted);font-size:15px;}
+.tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+@media(max-width:900px){.tools-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:520px){.tools-grid{grid-template-columns:1fr;}}
+.tool-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;transition:box-shadow .15s;}
+.tool-card:hover{box-shadow:0 10px 26px rgba(0,0,0,.07);}
+.tool-icon{width:44px;height:44px;background:#eef0ff;color:var(--purple);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+.tool-icon svg{width:22px;height:22px;}
+.tool-card h3{font-size:16.5px;margin-bottom:8px;}
+.tool-card p{font-size:13.5px;color:var(--muted);margin-bottom:18px;}
+.tool-card a{color:var(--purple);font-weight:600;font-size:13.5px;}
+
+/* WHY CHOOSE */
+.why-section{background:#fff;padding:64px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;max-width:1000px;margin:0 auto 40px;}
+@media(max-width:700px){.why-grid{grid-template-columns:1fr;}}
+.why-card{background:var(--bg);border-radius:14px;padding:24px;}
+.why-card h4{font-size:16px;margin-bottom:8px;}
+.why-card p{font-size:14px;color:var(--muted);}
+.why-note{max-width:820px;margin:0 auto;background:var(--bg);border-radius:16px;padding:28px;}
+.why-note h3{font-size:19px;margin-bottom:12px;}
+.why-note p{font-size:14.5px;color:#3b4152;margin-bottom:10px;}
+
+/* CONTENT */
+.content-section{max-width:820px;margin:60px auto;}
+.content-section h2{font-size:26px;margin-bottom:16px;}
+.content-section p{color:#3b4152;margin-bottom:14px;font-size:15.5px;}
+
+/* FAQ */
+.faq{max-width:820px;margin:0 auto 70px;}
+.faq h2{font-size:26px;margin-bottom:22px;text-align:center;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-item summary{padding:16px 4px;font-weight:600;font-size:15px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item p{padding:0 4px 16px;color:#4b5160;font-size:14.5px;}
+
+/* FOOTER */
+footer{background:#111318;color:#9ca3af;padding:50px 0 24px;}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px;}
+@media(max-width:700px){.foot-grid{grid-template-columns:1fr 1fr;}}
+.foot-logo{color:#fff;font-weight:700;font-size:17px;display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.foot-logo svg{width:22px;height:22px;color:var(--purple);}
+footer h4{color:#fff;font-size:13.5px;margin-bottom:14px;}
+footer a{display:block;font-size:13.5px;margin-bottom:9px;color:#9ca3af;}
+footer a:hover{color:#fff;}
+.foot-bottom{border-top:1px solid #262b36;padding-top:20px;text-align:center;font-size:12.5px;}
+.foot-bottom-links{display:flex;gap:16px;justify-content:center;margin-top:10px;flex-wrap:wrap;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="/" class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"></polygon></svg>
+      <span>Thumbnail<span class="logo-accent">Creator</span></span>
+    </a>
+    <nav class="navlinks">
+      <a href="/">Home</a>
+      <div class="dropdown" id="toolsDropdown">
+        <button class="dropdown-toggle" onclick="document.getElementById('toolsDropdown').classList.toggle('open')">
+          Our Tools
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="dropdown-menu">
+          <a href="/youtube-thumbnail-downloader">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Thumbnail Downloader
+          </a>
+          <a href="/youtube-thumbnail-maker">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path></svg>
+            Thumbnail Maker
+          </a>
+          <a href="/ai-thumbnail-generator">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            AI Thumbnail Generator
+          </a>
+          <a href="/thumbnail-text-generator">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+            Text Generator
+          </a>
+          <a href="/thumbnail-background-remover">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            Background Remover
+          </a>
+          <a href="/thumbnail-cropper">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.13 1L6 16a2 2 0 0 0 2 2h15"></path><path d="M1 6.13L16 6a2 2 0 0 1 2 2v15"></path></svg>
+            Thumbnail Cropper
+          </a>
+          <a href="/thumbnail-editor">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4Z"></path></svg>
+            Thumbnail Editor
+          </a>
+          <a href="/thumbnail-resizer">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+            Thumbnail Resizer
+          </a>
+          <a href="/#upscaleWorkspace">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+            AI Image Upscaler
+          </a>
+          <a href="/#textToImageWorkspace">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            AI Text to Image
+          </a>
+        </div>
+      </div>
+      <a href="/#why-choose">Why Us</a>
+      <a href="/#blog">Blog</a>
+      <a href="/how-to-use">How to Use</a>
+      <a href="/api-docs">API</a>
+      <a href="/about-us">About</a>
+      <a href="#workspace" class="cta">Get Started Free</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="/">Home</a> / Text Generator</div>
+    <span class="badge">Text Generator — Free, No Login</span>
+    <h1>Thumbnail Text Generator</h1>
+    <p class="lead">
+      The Thumbnail Text Generator creates bold, high-CTR text effects — gradients, outlines, drop shadows, and 3D depth — then exports as a transparent PNG so you can layer it over any thumbnail, screenshot, or background in seconds.
+    </p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="workspace" id="workspace">
+    <div class="ws-grid">
+      <div id="canvasBox">
+        <canvas id="thumbCanvas" width="1280" height="720"></canvas>
+      </div>
+      <div class="controls">
+        <div class="ctrl-group">
+          <label>Canvas Size</label>
+          <select id="sizePreset" class="select-input">
+            <option value="1280x720">Standard YouTube (1280×720)</option>
+            <option value="1920x1080">4K MaxRes (1920×1080)</option>
+            <option value="1080x1080">Square (1080×1080)</option>
+            <option value="1080x1920">Shorts / Reels (1080×1920)</option>
+          </select>
+        </div>
+
+        <div class="ctrl-group">
+          <label>Background</label>
+          <select id="bgType" class="select-input">
+            <option value="transparent">Transparent (for PNG overlay)</option>
+            <option value="color">Solid Color</option>
+            <option value="image">Upload Image</option>
+          </select>
+        </div>
+        <div class="ctrl-group" id="bgColorGroup" style="display:none;">
+          <input type="color" id="bgColor" value="#111318">
+        </div>
+        <div class="ctrl-group" id="bgImageGroup" style="display:none;">
+          <input type="file" id="bgImage" accept="image/*">
+        </div>
+
+        <hr class="sep">
+        <div class="ctrl-group">
+          <label>Text Content</label>
+          <input type="text" id="textInput" value="YOUR TEXT HERE">
+        </div>
+        <div class="ctrl-group">
+          <label>Font Family</label>
+          <select id="fontFamily" class="select-input">
+            <option value="'Anton',sans-serif">Anton (Ultra Bold Display)</option>
+            <option value="'Bebas Neue',sans-serif">Bebas Neue (Tall Condensed)</option>
+            <option value="'Oswald',sans-serif">Oswald (Strong Condensed)</option>
+            <option value="'Poppins',sans-serif">Poppins (Rounded Bold)</option>
+            <option value="'Montserrat',sans-serif">Montserrat (Clean Modern)</option>
+            <option value="Impact,'Arial Narrow',sans-serif">Impact (Classic)</option>
+            <option value="'Arial Black',Arial,sans-serif">Arial Black</option>
+            <option value="Georgia,serif">Georgia (Serif)</option>
+          </select>
+        </div>
+        <div class="ctrl-group">
+          <label>Font Size (<span id="sizeVal">96</span>px)</label>
+          <input type="range" id="fontSize" min="24" max="220" value="96">
+        </div>
+        <div class="ctrl-group">
+          <label>Letter Spacing (<span id="spacingVal">0</span>px)</label>
+          <input type="range" id="letterSpacing" min="0" max="40" value="0">
+        </div>
+        <div class="ctrl-group">
+          <label>Text Opacity (<span id="opacityVal">100</span>%)</label>
+          <input type="range" id="textOpacity" min="10" max="100" value="100">
+        </div>
+
+        <hr class="sep">
+        <div class="toggle-row">
+          <span>Gradient Fill</span>
+          <input type="checkbox" id="gradientToggle">
+        </div>
+        <div class="sub-panel" id="gradientPanel">
+          <div class="color-pair">
+            <div><label>Color 1</label><input type="color" id="gradColor1" value="#6366f1"></div>
+            <div><label>Color 2</label><input type="color" id="gradColor2" value="#ec4899"></div>
+          </div>
+        </div>
+        <div class="ctrl-group" id="solidColorGroup">
+          <label>Text Color</label>
+          <input type="color" id="textColor" value="#ffffff">
+        </div>
+
+        <div class="toggle-row">
+          <span>Outline / Stroke</span>
+          <input type="checkbox" id="strokeToggle">
+        </div>
+        <div class="sub-panel" id="strokePanel">
+          <label>Outline Color</label>
+          <input type="color" id="strokeColor" value="#000000">
+          <label>Outline Width (<span id="strokeWidthVal">6</span>px)</label>
+          <input type="range" id="strokeWidth" min="1" max="20" value="6">
+        </div>
+
+        <div class="toggle-row">
+          <span>Drop Shadow</span>
+          <input type="checkbox" id="shadowToggle">
+        </div>
+        <div class="sub-panel" id="shadowPanel">
+          <label>Shadow Color</label>
+          <input type="color" id="shadowColor" value="#000000">
+          <label>Blur (<span id="blurVal">10</span>px)</label>
+          <input type="range" id="shadowBlur" min="0" max="40" value="10">
+          <label>Offset X / Y</label>
+          <div class="color-pair">
+            <input type="range" id="shadowX" min="-30" max="30" value="6">
+            <input type="range" id="shadowY" min="-30" max="30" value="6">
+          </div>
+        </div>
+
+        <div class="toggle-row">
+          <span>3D Depth Effect</span>
+          <input type="checkbox" id="threeDToggle">
+        </div>
+        <div class="sub-panel" id="threeDPanel">
+          <label>Depth Color</label>
+          <input type="color" id="threeDColor" value="#4f46e5">
+          <label>Depth (<span id="depthVal">8</span>px)</label>
+          <input type="range" id="depthAmount" min="2" max="30" value="8">
+        </div>
+
+        <hr class="sep">
+        <button class="btn secondary" id="addTextBtn">+ Add Text Layer</button>
+        <div class="row2">
+          <button class="btn danger" id="deleteBtn">Delete Selected</button>
+          <button class="btn secondary" id="resetBtn">Reset</button>
+        </div>
+        <div class="ctrl-group">
+          <label>Download Format</label>
+          <select id="downloadFormat" class="select-input">
+            <option value="png">PNG (Supports Transparency)</option>
+            <option value="jpeg">JPG (Solid Background)</option>
+          </select>
+        </div>
+        <button class="btn" id="downloadBtn">⬇ Download Text</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="tools-section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Our Complete Thumbnail Toolkit</h2>
+      <p>Everything you need to create, download, edit, and optimize click-worthy thumbnails in one place.</p>
+    </div>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></div><h3>Thumbnail Downloader</h3><p>Extract high-quality thumbnails from any YouTube video, Shorts, or Vimeo URL instantly.</p></div>
+        <a href="/youtube-thumbnail-downloader">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path></svg></div><h3>Thumbnail Maker</h3><p>Design professional custom thumbnails from scratch with text, colors, and effects.</p></div>
+        <a href="/youtube-thumbnail-maker">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></div><h3>AI Thumbnail Generator</h3><p>Generate highly-engaging thumbnail concepts using advanced AI from text prompts.</p></div>
+        <a href="/ai-thumbnail-generator">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></div><h3>Background Remover</h3><p>Instantly cut out your face or product subjects with accurate AI edge detection.</p></div>
+        <a href="/thumbnail-background-remover">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.13 1L6 16a2 2 0 0 0 2 2h15"></path><path d="M1 6.13L16 6a2 2 0 0 1 2 2v15"></path></svg></div><h3>Thumbnail Cropper</h3><p>Crop images perfectly to the standard 16:9 aspect ratio required by YouTube.</p></div>
+        <a href="/thumbnail-cropper">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4Z"></path></svg></div><h3>Thumbnail Editor</h3><p>Apply filters, adjustments, overlays, and graphics directly to your thumbnails.</p></div>
+        <a href="/thumbnail-editor">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></div><h3>Thumbnail Resizer</h3><p>Compress and resize images to match the strict &lt;2MB YouTube upload file limit.</p></div>
+        <a href="/thumbnail-resizer">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></div><h3>AI Text to Image</h3><p>Generate original AI artwork from a text prompt to use as your thumbnail base.</p></div>
+        <a href="/#textToImageWorkspace">Use Tool →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why-section" id="why-choose">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Why Choose This Text Generator?</h2>
+      <p>Built for creators who want scroll-stopping thumbnail text without opening Photoshop.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <h4>Transparent PNG Export</h4>
+        <p>Export just the text with a transparent background, so it drops cleanly onto any existing thumbnail, photo, or design.</p>
+      </div>
+      <div class="why-card">
+        <h4>Stack Multiple Effects</h4>
+        <p>Combine gradient fills, outlines, drop shadows, and a 3D depth effect together for a fully custom, layered look.</p>
+      </div>
+      <div class="why-card">
+        <h4>8 High-Impact Fonts</h4>
+        <p>From ultra-bold Anton to clean Montserrat, pick a style that matches gaming, tutorial, vlog, or business content.</p>
+      </div>
+      <div class="why-card">
+        <h4>100% Private and Secure</h4>
+        <p>Your text and images never leave your browser. Everything renders locally on canvas, nothing is stored on our servers.</p>
+      </div>
+    </div>
+    <div class="why-note">
+      <h3>Zero Sign-Ups. Quick & Free.</h3>
+      <p>Bold, readable text is one of the biggest drivers of thumbnail click-through rate — viewers decide whether to click in under a second, and a short, high-contrast headline is often what tips that decision. This thumbnail text generator gives you full control over that headline without needing any design software.</p>
+      <p>Every effect is free, with no daily limits and no account required, so you can experiment until the text looks exactly right.</p>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <h2>How to Use the Thumbnail Text Generator</h2>
+  <p>
+    This free youtube thumbnail text generator is built for full creative control while staying simple enough to use in under a minute. Start by choosing your canvas size to match your final thumbnail — Standard, 4K, Square, or Shorts — and decide on a background: leave it transparent if you plan to layer the exported text over an existing image, or pick a solid color or upload a photo if you want a complete standalone graphic. Type your headline into the text field, keeping it short — three to six words almost always reads better at thumbnail size than a full sentence, since viewers only glance at a thumbnail for a fraction of a second before deciding whether to click.
+  </p>
+  <p>
+    Next, pick a font from the eight included styles. Anton and Bebas Neue give you an ultra-bold, tall display look that dominates the frame, which works well for gaming, reaction, and entertainment content. Oswald and Montserrat feel cleaner and more professional, suited to tutorials, business, and educational channels. Once your font is set, this is where the advanced options come in: turn on Gradient Fill to blend two colors across your text instead of a flat color, enable Outline/Stroke to add a bold border that keeps text readable over busy backgrounds, switch on Drop Shadow for depth and separation from the background, or activate the 3D Depth Effect to create a thick, extruded look similar to bold thumbnail text with outline and shadow you'll see on top-performing channels. All four effects can be combined at once for a fully layered, professional result.
+  </p>
+  <p>
+    Fine-tune the letter spacing to open up or tighten your headline, and adjust text opacity if you want a semi-transparent watermark-style effect instead of solid text. You can drag any text layer to reposition it on the canvas, add multiple layers for a headline plus a smaller subtitle, and click any existing layer to reselect and keep editing it. When everything looks right, choose PNG if you want a transparent text png generator output that layers cleanly over another image, or JPG if you're exporting a complete flattened design with a solid background. Click "Download Text," and your file saves instantly — no login, no watermark, and no limit on how many versions you create. Pair this tool with the Thumbnail Maker or Background Remover elsewhere in this toolkit to build a complete thumbnail from a background image, a subject cutout, and a bold styled headline, all without leaving your browser.
+  </p>
+</section>
+
+<section class="faq">
+  <h2>Frequently Asked Questions</h2>
+  <details class="faq-item"><summary>Is the Thumbnail Text Generator free to use?</summary><p>Yes, it's 100% free with no login, no watermark, and no daily limits.</p></details>
+  <details class="faq-item"><summary>Can I download text with a transparent background?</summary><p>Yes. Choose PNG format with the transparent background option to get just your styled text, ready to layer over any image.</p></details>
+  <details class="faq-item"><summary>What text effects are available?</summary><p>You can add gradients, outlines/strokes, drop shadows, and a bold 3D depth effect, plus adjust letter spacing and opacity.</p></details>
+  <details class="faq-item"><summary>Can I combine multiple effects on one text?</summary><p>Yes. Gradient, outline, shadow, and 3D depth can all be toggled on at the same time for a fully custom look.</p></details>
+  <details class="faq-item"><summary>Which fonts are included?</summary><p>Poppins, Montserrat, Anton, Bebas Neue, Oswald, Impact, Arial Black, and Georgia.</p></details>
+  <details class="faq-item"><summary>Can I add more than one line of text?</summary><p>Yes. Add as many text layers as you like, then drag each one into position on the canvas.</p></details>
+  <details class="faq-item"><summary>Do I need design experience to use this?</summary><p>No. Every effect is a simple toggle or slider — no design background required.</p></details>
+  <details class="faq-item"><summary>Is my data uploaded anywhere?</summary><p>No. Everything renders locally in your browser using canvas, so nothing is uploaded or stored.</p></details>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"></polygon></svg>
+          <span>Thumbnail<span style="color:var(--purple)">Creator</span></span>
+        </div>
+        <p style="font-size:13.5px;">Free YouTube thumbnail downloader for creators worldwide.</p>
+        <p style="font-size:13.5px;margin-top:10px;">support@thumbnailcreator.online</p>
+      </div>
+      <div>
+        <h4>Our Tools</h4>
+        <a href="/youtube-thumbnail-downloader">Thumbnail Downloader</a>
+        <a href="/youtube-thumbnail-maker">Thumbnail Maker</a>
+        <a href="/ai-thumbnail-generator">AI Thumbnail Generator</a>
+        <a href="/thumbnail-text-generator">Text Generator</a>
+        <a href="/thumbnail-background-remover">Background Remover</a>
+        <a href="/thumbnail-cropper">Thumbnail Cropper</a>
+        <a href="/thumbnail-editor">Thumbnail Editor</a>
+        <a href="/thumbnail-resizer">Thumbnail Resizer</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-of-service">Terms of Service</a>
+        <a href="/dmca">DMCA Policy</a>
+        <a href="/disclaimer">Disclaimer</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="/about-us">About Us</a>
+        <a href="/contact-us">Contact Us</a>
+        <a href="/blog">Blog</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      © 2026 ThumbnailCreator.online | All Rights Reserved.
+      <div class="foot-bottom-links">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-of-service">Terms</a>
+        <a href="/dmca">DMCA</a>
+        <a href="/disclaimer">Disclaimer</a>
+        <a href="/about-us">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('click', function(e){
+  const dd = document.getElementById('toolsDropdown');
+  if(!dd.contains(e.target)) dd.classList.remove('open');
+});
+
+const canvas = document.getElementById('thumbCanvas');
+const ctx = canvas.getContext('2d');
+let bgColor = '#111318';
+let bgImg = null;
+let layers = [];
+let selected = -1;
+let dragging = false;
+let dragOffset = {x:0,y:0};
+
+function hexToRgba(hex, alpha){
+  const r = parseInt(hex.slice(1,3),16);
+  const g = parseInt(hex.slice(3,5),16);
+  const b = parseInt(hex.slice(5,7),16);
+  return `rgba(${r},${g},${b},${alpha})`;
+}
+
+// --- letter-spacing aware helpers ---
+function measureSpaced(text, spacing){
+  let w = 0;
+  for(const ch of text) w += ctx.measureText(ch).width + spacing;
+  return w > 0 ? w - spacing : 0;
+}
+function fillSpaced(text, x, y, spacing){
+  let cx = x;
+  for(const ch of text){ ctx.fillText(ch, cx, y); cx += ctx.measureText(ch).width + spacing; }
+}
+function strokeSpaced(text, x, y, spacing){
+  let cx = x;
+  for(const ch of text){ ctx.strokeText(ch, cx, y); cx += ctx.measureText(ch).width + spacing; }
+}
+
+function drawLayer(l){
+  ctx.font = `800 ${l.size}px ${l.font}`;
+  ctx.textBaseline = 'top';
+  const w = measureSpaced(l.text, l.spacing);
+
+  // 3D depth (behind everything)
+  if(l.threeD){
+    ctx.save();
+    ctx.globalAlpha = l.opacity;
+    ctx.fillStyle = l.threeDColor;
+    for(let d = l.depth; d > 0; d--){
+      fillSpaced(l.text, l.x + d, l.y + d, l.spacing);
+    }
+    ctx.restore();
+  }
+
+  ctx.save();
+  ctx.globalAlpha = l.opacity;
+
+  if(l.shadow){
+    ctx.shadowColor = l.shadowColor;
+    ctx.shadowBlur = l.shadowBlur;
+    ctx.shadowOffsetX = l.shadowX;
+    ctx.shadowOffsetY = l.shadowY;
+  }
+
+  if(l.stroke){
+    ctx.strokeStyle = l.strokeColor;
+    ctx.lineWidth = l.strokeWidth;
+    ctx.lineJoin = 'round';
+    strokeSpaced(l.text, l.x, l.y, l.spacing);
+  }
+
+  if(l.gradient){
+    const grad = ctx.createLinearGradient(l.x, l.y, l.x + w, l.y + l.size);
+    grad.addColorStop(0, l.gradColor1);
+    grad.addColorStop(1, l.gradColor2);
+    ctx.fillStyle = grad;
+  } else {
+    ctx.fillStyle = l.color;
+  }
+  fillSpaced(l.text, l.x, l.y, l.spacing);
+  ctx.restore();
+
+  return w;
+}
+
+function draw(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  const bgType = document.getElementById('bgType').value;
+  if(bgType === 'color'){
+    ctx.fillStyle = bgColor;
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+  } else if(bgType === 'image' && bgImg){
+    ctx.drawImage(bgImg,0,0,canvas.width,canvas.height);
+  }
+  layers.forEach((l,i)=>{
+    const w = drawLayer(l);
+    if(i === selected){
+      ctx.save();
+      ctx.strokeStyle = '#6366f1';
+      ctx.lineWidth = 3;
+      ctx.strokeRect(l.x-10, l.y-10, w+20, l.size+20);
+      ctx.restore();
+    }
+  });
+}
+
+// --- UI wiring ---
+document.getElementById('sizePreset').addEventListener('change', e=>{
+  const [w,h] = e.target.value.split('x').map(Number);
+  canvas.width = w; canvas.height = h;
+  document.getElementById('canvasBox').style.aspectRatio = `${w}/${h}`;
+  draw();
+});
+
+document.getElementById('bgType').addEventListener('change', e=>{
+  document.getElementById('bgColorGroup').style.display = e.target.value === 'color' ? 'block' : 'none';
+  document.getElementById('bgImageGroup').style.display = e.target.value === 'image' ? 'block' : 'none';
+  draw();
+});
+document.getElementById('bgColor').addEventListener('input', e=>{ bgColor = e.target.value; draw(); });
+document.getElementById('bgImage').addEventListener('change', e=>{
+  const file = e.target.files[0]; if(!file) return;
+  const img = new Image();
+  img.onload = ()=>{ bgImg = img; draw(); };
+  img.src = URL.createObjectURL(file);
+});
+
+['gradientToggle','strokeToggle','shadowToggle','threeDToggle'].forEach(id=>{
+  document.getElementById(id).addEventListener('change', e=>{
+    const panelMap = { gradientToggle:'gradientPanel', strokeToggle:'strokePanel', shadowToggle:'shadowPanel', threeDToggle:'threeDPanel' };
+    document.getElementById(panelMap[id]).classList.toggle('show', e.target.checked);
+    if(id === 'gradientToggle'){
+      document.getElementById('solidColorGroup').style.display = e.target.checked ? 'none' : 'block';
+    }
+    syncSelectedFromControls();
+  });
+});
+
+function currentControls(){
+  return {
+    font: document.getElementById('fontFamily').value,
+    size: parseInt(document.getElementById('fontSize').value),
+    spacing: parseInt(document.getElementById('letterSpacing').value),
+    opacity: parseInt(document.getElementById('textOpacity').value)/100,
+    color: document.getElementById('textColor').value,
+    gradient: document.getElementById('gradientToggle').checked,
+    gradColor1: document.getElementById('gradColor1').value,
+    gradColor2: document.getElementById('gradColor2').value,
+    stroke: document.getElementById('strokeToggle').checked,
+    strokeColor: document.getElementById('strokeColor').value,
+    strokeWidth: parseInt(document.getElementById('strokeWidth').value),
+    shadow: document.getElementById('shadowToggle').checked,
+    shadowColor: document.getElementById('shadowColor').value,
+    shadowBlur: parseInt(document.getElementById('shadowBlur').value),
+    shadowX: parseInt(document.getElementById('shadowX').value),
+    shadowY: parseInt(document.getElementById('shadowY').value),
+    threeD: document.getElementById('threeDToggle').checked,
+    threeDColor: document.getElementById('threeDColor').value,
+    depth: parseInt(document.getElementById('depthAmount').value)
+  };
+}
+
+function syncSelectedFromControls(){
+  if(selected < 0) return;
+  Object.assign(layers[selected], currentControls());
+  draw();
+}
+
+[
+  'fontFamily','fontSize','letterSpacing','textOpacity','textColor',
+  'gradColor1','gradColor2','strokeColor','strokeWidth',
+  'shadowColor','shadowBlur','shadowX','shadowY','threeDColor','depthAmount'
+].forEach(id=>{
+  document.getElementById(id).addEventListener('input', e=>{
+    if(id==='fontSize') document.getElementById('sizeVal').textContent = e.target.value;
+    if(id==='letterSpacing') document.getElementById('spacingVal').textContent = e.target.value;
+    if(id==='textOpacity') document.getElementById('opacityVal').textContent = e.target.value;
+    if(id==='strokeWidth') document.getElementById('strokeWidthVal').textContent = e.target.value;
+    if(id==='shadowBlur') document.getElementById('blurVal').textContent = e.target.value;
+    if(id==='depthAmount') document.getElementById('depthVal').textContent = e.target.value;
+    syncSelectedFromControls();
+  });
+});
+
+document.getElementById('addTextBtn').addEventListener('click', ()=>{
+  const txt = (document.getElementById('textInput').value || 'YOUR TEXT HERE').toUpperCase();
+  const c = currentControls();
+  const size = c.size;
+  const approxW = txt.length * size * 0.55;
+  layers.push(Object.assign({ text: txt, x: canvas.width/2 - approxW/2, y: canvas.height/2 - size/2 }, c));
+  selected = layers.length - 1;
+  draw();
+});
+
+document.getElementById('deleteBtn').addEventListener('click', ()=>{
+  if(selected >= 0){ layers.splice(selected,1); selected=-1; draw(); }
+});
+
+document.getElementById('resetBtn').addEventListener('click', ()=>{
+  layers = []; selected = -1; bgImg = null; bgColor = '#111318';
+  document.getElementById('bgType').value = 'transparent';
+  document.getElementById('bgColorGroup').style.display = 'none';
+  document.getElementById('bgImageGroup').style.display = 'none';
+  draw();
+});
+
+document.getElementById('downloadBtn').addEventListener('click', ()=>{
+  selected = -1; draw();
+  const format = document.getElementById('downloadFormat').value;
+  if(format === 'jpeg'){
+    const temp = document.createElement('canvas');
+    temp.width = canvas.width; temp.height = canvas.height;
+    const tctx = temp.getContext('2d');
+    tctx.fillStyle = '#ffffff';
+    tctx.fillRect(0,0,temp.width,temp.height);
+    tctx.drawImage(canvas,0,0);
+    const link = document.createElement('a');
+    link.download = 'thumbnail-text.jpg';
+    link.href = temp.toDataURL('image/jpeg', 0.95);
+    link.click();
+  } else {
+    const link = document.createElement('a');
+    link.download = 'thumbnail-text.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  }
+});
+
+function getCanvasCoords(e){
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = canvas.width / rect.width;
+  const scaleY = canvas.height / rect.height;
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+  return { x:(clientX-rect.left)*scaleX, y:(clientY-rect.top)*scaleY };
+}
+
+function hitTest(x,y){
+  for(let i=layers.length-1;i>=0;i--){
+    const l = layers[i];
+    ctx.font = `800 ${l.size}px ${l.font}`;
+    const w = measureSpaced(l.text, l.spacing);
+    if(x>=l.x && x<=l.x+w && y>=l.y && y<=l.y+l.size) return i;
+  }
+  return -1;
+}
+
+function loadControlsFromLayer(l){
+  document.getElementById('fontFamily').value = l.font;
+  document.getElementById('fontSize').value = l.size; document.getElementById('sizeVal').textContent = l.size;
+  document.getElementById('letterSpacing').value = l.spacing; document.getElementById('spacingVal').textContent = l.spacing;
+  document.getElementById('textOpacity').value = Math.round(l.opacity*100); document.getElementById('opacityVal').textContent = Math.round(l.opacity*100);
+  document.getElementById('textColor').value = l.color;
+  document.getElementById('gradientToggle').checked = l.gradient;
+  document.getElementById('gradientPanel').classList.toggle('show', l.gradient);
+  document.getElementById('solidColorGroup').style.display = l.gradient ? 'none' : 'block';
+  document.getElementById('gradColor1').value = l.gradColor1;
+  document.getElementById('gradColor2').value = l.gradColor2;
+  document.getElementById('strokeToggle').checked = l.stroke;
+  document.getElementById('strokePanel').classList.toggle('show', l.stroke);
+  document.getElementById('strokeColor').value = l.strokeColor;
+  document.getElementById('strokeWidth').value = l.strokeWidth; document.getElementById('strokeWidthVal').textContent = l.strokeWidth;
+  document.getElementById('shadowToggle').checked = l.shadow;
+  document.getElementById('shadowPanel').classList.toggle('show', l.shadow);
+  document.getElementById('shadowColor').value = l.shadowColor;
+  document.getElementById('shadowBlur').value = l.shadowBlur; document.getElementById('blurVal').textContent = l.shadowBlur;
+  document.getElementById('shadowX').value = l.shadowX;
+  document.getElementById('shadowY').value = l.shadowY;
+  document.getElementById('threeDToggle').checked = l.threeD;
+  document.getElementById('threeDPanel').classList.toggle('show', l.threeD);
+  document.getElementById('threeDColor').value = l.threeDColor;
+  document.getElementById('depthAmount').value = l.depth; document.getElementById('depthVal').textContent = l.depth;
+}
+
+canvas.addEventListener('mousedown', e=>{
+  const {x,y} = getCanvasCoords(e);
+  const hit = hitTest(x,y);
+  selected = hit;
+  if(hit>=0){
+    dragging = true;
+    dragOffset = { x: x-layers[hit].x, y: y-layers[hit].y };
+    loadControlsFromLayer(layers[hit]);
+  }
+  draw();
+});
+canvas.addEventListener('mousemove', e=>{
+  if(!dragging || selected<0) return;
+  const {x,y} = getCanvasCoords(e);
+  layers[selected].x = x - dragOffset.x;
+  layers[selected].y = y - dragOffset.y;
+  draw();
+});
+window.addEventListener('mouseup', ()=> dragging=false);
+
+draw();
+</script>
+
+</body>
+</html>
