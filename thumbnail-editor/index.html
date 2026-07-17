@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thumbnail Editor – Free Filters & Overlay Tool Online</title>
+<meta name="description" content="Edit any thumbnail free with filters, brightness, vignette, and shape overlays. Rotate, flip, and download in HD — no login, no watermark, ever.">
+<meta name="keywords" content="youtube thumbnail editor free online, add filters to thumbnail free, thumbnail overlay tool no login, vignette effect thumbnail editor, rotate flip image online free, edit thumbnail brightness contrast">
+<link rel="canonical" href="https://thumbnailcreator.online/thumbnail-editor">
+<meta property="og:title" content="Thumbnail Editor – Free Filters & Overlay Tool Online">
+<meta property="og:description" content="Edit any thumbnail free with filters, brightness, vignette, and shape overlays. Rotate, flip, and download in HD — no login, no watermark, ever.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thumbnailcreator.online/thumbnail-editor">
+<meta property="og:site_name" content="ThumbnailCreator">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Thumbnail Editor",
+  "url": "https://thumbnailcreator.online/thumbnail-editor",
+  "applicationCategory": "DesignApplication",
+  "operatingSystem": "Any (Web Browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Free online thumbnail editor with filters, brightness and contrast adjustments, vignette, shape overlays, and rotate/flip tools. No login, no watermark."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thumbnailcreator.online/" },
+    { "@type": "ListItem", "position": 2, "name": "Thumbnail Editor", "item": "https://thumbnailcreator.online/thumbnail-editor" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is the Thumbnail Editor free to use?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, it's 100% free with no login, no watermark, and no daily limits." } },
+    { "@type": "Question", "name": "What filter presets are included?", "acceptedAnswer": { "@type": "Answer", "text": "Original, Vivid, Black & White, Warm, Cool, Vintage, and Dramatic, plus manual sliders for full control." } },
+    { "@type": "Question", "name": "Can I add shapes and overlays?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Add rectangles, circles, arrows, or lines, then drag them anywhere and adjust color and opacity." } },
+    { "@type": "Question", "name": "Can I rotate or flip my image?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Rotate in 90-degree steps and flip horizontally or vertically with one click each." } },
+    { "@type": "Question", "name": "What does the vignette effect do?", "acceptedAnswer": { "@type": "Answer", "text": "It darkens the edges of your image to draw the viewer's eye toward the center, a common technique in high-CTR thumbnails." } },
+    { "@type": "Question", "name": "Is my image uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. All editing happens locally in your browser using canvas, so your image is never uploaded or stored." } },
+    { "@type": "Question", "name": "What format can I download in?", "acceptedAnswer": { "@type": "Answer", "text": "You can export as PNG for lossless quality or JPG for a smaller file size." } }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --purple:#6366f1;
+  --purple-dark:#4f46e5;
+  --bg:#f7f7fb;
+  --text:#1f2430;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;}
+h1,h2,.logo span,.foot-logo span,.badge{font-family:'Poppins','Inter',sans-serif;}
+a{text-decoration:none;color:inherit;}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
+
+/* HEADER */
+header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;}
+.logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:18px;color:var(--text);}
+.logo svg{width:26px;height:26px;color:var(--purple);}
+.logo-accent{color:var(--purple);}
+.navlinks{display:flex;align-items:center;gap:26px;font-size:14.5px;font-weight:500;}
+.navlinks > a:hover{color:var(--purple);}
+.dropdown{position:relative;}
+.dropdown-toggle{display:flex;align-items:center;gap:6px;background:none;border:none;font:inherit;font-weight:500;color:var(--text);cursor:pointer;}
+.dropdown-toggle svg{width:13px;height:13px;}
+.dropdown-menu{display:none;position:absolute;top:calc(100% + 14px);left:-16px;width:260px;background:#fff;border-radius:14px;box-shadow:0 14px 34px rgba(0,0,0,.12);padding:8px;}
+.dropdown.open .dropdown-menu{display:block;}
+.dropdown-menu a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;font-size:14px;color:#374151;}
+.dropdown-menu a:hover{background:#f3f0ff;color:var(--purple);}
+.dropdown-menu svg{width:17px;height:17px;stroke:var(--purple);flex-shrink:0;}
+.cta{background:var(--purple);color:#fff !important;padding:10px 20px;border-radius:999px;font-weight:600;font-size:14px;}
+.cta:hover{background:var(--purple-dark);}
+
+/* HERO */
+.hero{padding:52px 0 36px;text-align:center;}
+.badge{display:inline-block;background:#eef0ff;color:var(--purple-dark);font-size:12.5px;font-weight:600;padding:6px 14px;border-radius:999px;letter-spacing:.3px;margin-bottom:18px;}
+.hero h1{font-size:38px;font-weight:800;margin-bottom:18px;}
+.hero .lead{max-width:700px;margin:0 auto;color:#3b4152;font-size:16.5px;}
+.breadcrumb{font-size:13px;color:var(--muted);margin-bottom:14px;}
+.breadcrumb a{color:var(--purple);}
+
+/* WORKSPACE */
+.workspace{background:#fff;border-radius:18px;box-shadow:0 8px 30px rgba(0,0,0,.06);padding:28px;max-width:1050px;margin:0 auto 60px;}
+.ws-grid{display:grid;grid-template-columns:1fr 320px;gap:26px;}
+@media(max-width:850px){.ws-grid{grid-template-columns:1fr;}}
+#canvasBox{background:#111;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;aspect-ratio:16/9;min-height:360px;}
+#editCanvas{width:100%;height:100%;cursor:grab;}
+.upload-hint{color:#9ca3af;font-size:13.5px;text-align:center;padding:40px;}
+.controls{display:flex;flex-direction:column;gap:14px;max-height:660px;overflow-y:auto;padding-right:4px;}
+.ctrl-group label{font-size:12.5px;font-weight:600;display:block;margin-bottom:6px;color:var(--text);}
+.ctrl-group input[type=file],
+.ctrl-group input[type=range],
+.ctrl-group input[type=color]{width:100%;}
+.select-input{width:100%;padding:9px 11px;border-radius:8px;border:1.5px solid var(--border);font:inherit;font-size:13px;color:var(--text);background:#fff;cursor:pointer;}
+.preset-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.preset-btn{padding:9px 4px;border-radius:8px;border:1.5px solid var(--border);background:#fff;font-size:11.5px;font-weight:600;cursor:pointer;color:var(--text);}
+.preset-btn:hover{border-color:var(--purple);color:var(--purple);}
+.preset-btn.active{background:#eef0ff;border-color:var(--purple);color:var(--purple-dark);}
+.row2{display:flex;gap:10px;}
+.row2 .btn{flex:1;}
+.row4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.icon-btn{padding:10px 4px;border-radius:8px;border:1.5px solid var(--border);background:#fff;font-size:16px;cursor:pointer;}
+.icon-btn:hover{border-color:var(--purple);}
+.shape-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.btn{background:var(--purple);color:#fff;border:none;padding:11px 16px;border-radius:10px;font-weight:600;font-size:14px;cursor:pointer;width:100%;}
+.btn:hover{background:var(--purple-dark);}
+.btn.secondary{background:#fff;border:1.5px solid var(--border);color:var(--text);}
+.btn.secondary:hover{border-color:var(--purple);color:var(--purple);}
+.btn.danger{background:#fef2f2;color:#dc2626;border:1.5px solid #fecaca;}
+hr.sep{border:none;border-top:1px solid var(--border);margin:2px 0;}
+
+/* TOOLS GRID */
+.tools-section{max-width:1150px;margin:0 auto 70px;}
+.section-head{text-align:center;max-width:640px;margin:0 auto 40px;}
+.section-head h2{font-size:30px;margin-bottom:10px;}
+.section-head p{color:var(--muted);font-size:15px;}
+.tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+@media(max-width:900px){.tools-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:520px){.tools-grid{grid-template-columns:1fr;}}
+.tool-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;transition:box-shadow .15s;}
+.tool-card:hover{box-shadow:0 10px 26px rgba(0,0,0,.07);}
+.tool-icon{width:44px;height:44px;background:#eef0ff;color:var(--purple);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+.tool-icon svg{width:22px;height:22px;}
+.tool-card h3{font-size:16.5px;margin-bottom:8px;}
+.tool-card p{font-size:13.5px;color:var(--muted);margin-bottom:18px;}
+.tool-card a{color:var(--purple);font-weight:600;font-size:13.5px;}
+
+/* WHY CHOOSE */
+.why-section{background:#fff;padding:64px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;max-width:1000px;margin:0 auto 40px;}
+@media(max-width:700px){.why-grid{grid-template-columns:1fr;}}
+.why-card{background:var(--bg);border-radius:14px;padding:24px;}
+.why-card h4{font-size:16px;margin-bottom:8px;}
+.why-card p{font-size:14px;color:var(--muted);}
+.why-note{max-width:820px;margin:0 auto;background:var(--bg);border-radius:16px;padding:28px;}
+.why-note h3{font-size:19px;margin-bottom:12px;}
+.why-note p{font-size:14.5px;color:#3b4152;margin-bottom:10px;}
+
+/* CONTENT */
+.content-section{max-width:820px;margin:60px auto;}
+.content-section h2{font-size:26px;margin-bottom:16px;}
+.content-section p{color:#3b4152;margin-bottom:14px;font-size:15.5px;}
+
+/* FAQ */
+.faq{max-width:820px;margin:0 auto 70px;}
+.faq h2{font-size:26px;margin-bottom:22px;text-align:center;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-item summary{padding:16px 4px;font-weight:600;font-size:15px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item p{padding:0 4px 16px;color:#4b5160;font-size:14.5px;}
+
+/* FOOTER */
+footer{background:#111318;color:#9ca3af;padding:50px 0 24px;}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px;}
+@media(max-width:700px){.foot-grid{grid-template-columns:1fr 1fr;}}
+.foot-logo{color:#fff;font-weight:700;font-size:17px;display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.foot-logo svg{width:22px;height:22px;color:var(--purple);}
+footer h4{color:#fff;font-size:13.5px;margin-bottom:14px;}
+footer a{display:block;font-size:13.5px;margin-bottom:9px;color:#9ca3af;}
+footer a:hover{color:#fff;}
+.foot-bottom{border-top:1px solid #262b36;padding-top:20px;text-align:center;font-size:12.5px;}
+.foot-bottom-links{display:flex;gap:16px;justify-content:center;margin-top:10px;flex-wrap:wrap;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="/" class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"></polygon></svg>
+      <span>Thumbnail<span class="logo-accent">Creator</span></span>
+    </a>
+    <nav class="navlinks">
+      <a href="/">Home</a>
+      <div class="dropdown" id="toolsDropdown">
+        <button class="dropdown-toggle" onclick="document.getElementById('toolsDropdown').classList.toggle('open')">
+          Our Tools
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="dropdown-menu">
+          <a href="/youtube-thumbnail-downloader">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Thumbnail Downloader
+          </a>
+          <a href="/youtube-thumbnail-maker">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path></svg>
+            Thumbnail Maker
+          </a>
+          <a href="/ai-thumbnail-generator">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            AI Thumbnail Generator
+          </a>
+          <a href="/thumbnail-text-generator">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+            Text Generator
+          </a>
+          <a href="/thumbnail-background-remover">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            Background Remover
+          </a>
+          <a href="/thumbnail-cropper">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.13 1L6 16a2 2 0 0 0 2 2h15"></path><path d="M1 6.13L16 6a2 2 0 0 1 2 2v15"></path></svg>
+            Thumbnail Cropper
+          </a>
+          <a href="/thumbnail-editor">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4Z"></path></svg>
+            Thumbnail Editor
+          </a>
+          <a href="/thumbnail-resizer">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+            Thumbnail Resizer
+          </a>
+          <a href="/#upscaleWorkspace">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+            AI Image Upscaler
+          </a>
+          <a href="/#textToImageWorkspace">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            AI Text to Image
+          </a>
+        </div>
+      </div>
+      <a href="/#why-choose">Why Us</a>
+      <a href="/#blog">Blog</a>
+      <a href="/how-to-use">How to Use</a>
+      <a href="/api-docs">API</a>
+      <a href="/about-us">About</a>
+      <a href="#workspace" class="cta">Get Started Free</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="/">Home</a> / Thumbnail Editor</div>
+    <span class="badge">Thumbnail Editor — Free, No Login</span>
+    <h1>Thumbnail Editor</h1>
+    <p class="lead">
+      The Thumbnail Editor applies filters, brightness and contrast adjustments, a vignette effect, and shape overlays directly to your image — plus rotate and flip — then exports in HD, with no login and no watermark.
+    </p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="workspace" id="workspace">
+    <div class="ws-grid">
+      <div id="canvasBox">
+        <span class="upload-hint" id="uploadHint">Upload an image to start editing →</span>
+        <canvas id="editCanvas" width="1280" height="720" style="display:none;"></canvas>
+      </div>
+      <div class="controls">
+        <div class="ctrl-group">
+          <label>Upload Image</label>
+          <input type="file" id="photoInput" accept="image/*">
+        </div>
+
+        <div class="ctrl-group">
+          <label>Filter Presets</label>
+          <div class="preset-grid">
+            <button class="preset-btn active" data-preset="original">Original</button>
+            <button class="preset-btn" data-preset="vivid">Vivid</button>
+            <button class="preset-btn" data-preset="bw">B & W</button>
+            <button class="preset-btn" data-preset="warm">Warm</button>
+            <button class="preset-btn" data-preset="cool">Cool</button>
+            <button class="preset-btn" data-preset="vintage">Vintage</button>
+            <button class="preset-btn" data-preset="dramatic">Dramatic</button>
+          </div>
+        </div>
+
+        <hr class="sep">
+        <div class="ctrl-group">
+          <label>Brightness (<span id="brightVal">100</span>%)</label>
+          <input type="range" id="brightness" min="40" max="160" value="100">
+        </div>
+        <div class="ctrl-group">
+          <label>Contrast (<span id="contrastVal">100</span>%)</label>
+          <input type="range" id="contrast" min="40" max="160" value="100">
+        </div>
+        <div class="ctrl-group">
+          <label>Saturation (<span id="satVal">100</span>%)</label>
+          <input type="range" id="saturation" min="0" max="200" value="100">
+        </div>
+        <div class="ctrl-group">
+          <label>Blur (<span id="blurVal">0</span>px)</label>
+          <input type="range" id="blur" min="0" max="8" value="0">
+        </div>
+        <div class="ctrl-group">
+          <label>Vignette (<span id="vignetteVal">0</span>%)</label>
+          <input type="range" id="vignette" min="0" max="100" value="0">
+        </div>
+
+        <hr class="sep">
+        <div class="ctrl-group">
+          <label>Rotate & Flip</label>
+          <div class="row4">
+            <button class="icon-btn" id="rotateLeft" title="Rotate Left">⟲</button>
+            <button class="icon-btn" id="rotateRight" title="Rotate Right">⟳</button>
+            <button class="icon-btn" id="flipH" title="Flip Horizontal">⇋</button>
+            <button class="icon-btn" id="flipV" title="Flip Vertical">⇵</button>
+          </div>
+        </div>
+
+        <hr class="sep">
+        <div class="ctrl-group">
+          <label>Add Shape Overlay</label>
+          <div class="shape-grid">
+            <button class="icon-btn" data-shape="rect">▭</button>
+            <button class="icon-btn" data-shape="circle">◯</button>
+            <button class="icon-btn" data-shape="arrow">➤</button>
+            <button class="icon-btn" data-shape="line">╱</button>
+          </div>
+        </div>
+        <div class="ctrl-group">
+          <label>Shape Color</label>
+          <input type="color" id="shapeColor" value="#6366f1">
+        </div>
+        <div class="ctrl-group">
+          <label>Shape Opacity (<span id="shapeOpacityVal">100</span>%)</label>
+          <input type="range" id="shapeOpacity" min="10" max="100" value="100">
+        </div>
+        <button class="btn danger" id="deleteShapeBtn">Delete Selected Shape</button>
+
+        <hr class="sep">
+        <div class="ctrl-group">
+          <label>Download Format</label>
+          <select id="downloadFormat" class="select-input">
+            <option value="png">PNG (Lossless)</option>
+            <option value="jpeg">JPG (Smaller File)</option>
+          </select>
+        </div>
+        <button class="btn" id="downloadBtn">⬇ Download Edited Image</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="tools-section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Our Complete Thumbnail Toolkit</h2>
+      <p>Everything you need to create, download, edit, and optimize click-worthy thumbnails in one place.</p>
+    </div>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></div><h3>Thumbnail Downloader</h3><p>Extract high-quality thumbnails from any YouTube video, Shorts, or Vimeo URL instantly.</p></div>
+        <a href="/youtube-thumbnail-downloader">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path></svg></div><h3>Thumbnail Maker</h3><p>Design professional custom thumbnails from scratch with text, colors, and effects.</p></div>
+        <a href="/youtube-thumbnail-maker">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></div><h3>AI Thumbnail Generator</h3><p>Generate highly-engaging thumbnail concepts using advanced AI from text prompts.</p></div>
+        <a href="/ai-thumbnail-generator">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg></div><h3>Text Generator</h3><p>Create bold, readable 3D & styled text effects optimized for mobile thumbnail CTR.</p></div>
+        <a href="/thumbnail-text-generator">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></div><h3>Background Remover</h3><p>Instantly cut out your face or product subjects with accurate AI edge detection.</p></div>
+        <a href="/thumbnail-background-remover">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.13 1L6 16a2 2 0 0 0 2 2h15"></path><path d="M1 6.13L16 6a2 2 0 0 1 2 2v15"></path></svg></div><h3>Thumbnail Cropper</h3><p>Crop images perfectly to the standard 16:9 aspect ratio required by YouTube.</p></div>
+        <a href="/thumbnail-cropper">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></div><h3>Thumbnail Resizer</h3><p>Compress and resize images to match the strict &lt;2MB YouTube upload file limit.</p></div>
+        <a href="/thumbnail-resizer">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></div><h3>AI Text to Image</h3><p>Generate original AI artwork from a text prompt to use as your thumbnail base.</p></div>
+        <a href="/#textToImageWorkspace">Use Tool →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why-section" id="why-choose">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Why Choose This Thumbnail Editor?</h2>
+      <p>Professional filters and overlays without opening Photoshop.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <h4>7 One-Click Presets</h4>
+        <p>Vivid, B&W, Warm, Cool, Vintage, and Dramatic apply a full color grade instantly, or fine-tune manually with sliders.</p>
+      </div>
+      <div class="why-card">
+        <h4>Shape Overlays Built In</h4>
+        <p>Add rectangles, circles, arrows, and lines to highlight details or guide the viewer's eye, all draggable on canvas.</p>
+      </div>
+      <div class="why-card">
+        <h4>Rotate, Flip, Vignette</h4>
+        <p>Fix orientation instantly and add a subtle vignette to frame your subject the way top-performing thumbnails do.</p>
+      </div>
+      <div class="why-card">
+        <h4>100% Private and Secure</h4>
+        <p>Every edit happens locally in your browser using canvas. Your image is never uploaded or stored anywhere.</p>
+      </div>
+    </div>
+    <div class="why-note">
+      <h3>Zero Sign-Ups. Quick & Free.</h3>
+      <p>A well-graded, well-composed thumbnail consistently outperforms a flat, unedited photo — color and contrast changes are one of the fastest ways to make an image feel more professional and click-worthy without redesigning it from scratch.</p>
+      <p>This add filters to thumbnail free tool gives you that polish instantly, with no login, no watermark, and no daily limit.</p>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <h2>How to Use the Thumbnail Editor</h2>
+  <p>
+    Editing a thumbnail with this free tool starts the same way every time: upload the image you want to work on, whether it's a photo, a screenshot, or a graphic exported from another tool in this toolkit. Once it loads onto the canvas, the fastest way to get a professional look is to try one of the seven filter presets — Vivid boosts color and contrast for punchy, attention-grabbing thumbnails, Black & White strips color entirely for a bold editorial look, Warm and Cool shift the color temperature for a cozy or crisp mood, Vintage adds a faded, retro color grade, and Dramatic pushes contrast and saturation together for a high-impact, cinematic feel. Clicking any preset applies it instantly, and you can always click Original to reset back to the unedited image.
+  </p>
+  <p>
+    If you want more control than the presets offer, use the manual sliders for brightness, contrast, saturation, and blur — each one updates the canvas live as you drag, so you can fine-tune the exact look you want. The vignette slider darkens the edges of your image gradually, drawing the viewer's eye toward the center of the frame, which is a technique widely used in high-CTR thumbnails to keep attention on a face or key subject. If your source photo was uploaded sideways or needs reframing, the rotate and flip buttons fix orientation instantly, rotating in clean 90-degree steps or mirroring the image horizontally or vertically with a single click.
+  </p>
+  <p>
+    For adding emphasis, use the shape overlay tools to place a rectangle, circle, arrow, or diagonal line directly onto your thumbnail — useful for highlighting a specific detail, pointing at something important, or adding a simple graphic accent without leaving this thumbnail overlay tool no login workflow. Drag any shape to reposition it, adjust its color and opacity from the sidebar, and delete it if it's no longer needed. Once your edit looks right, choose PNG for a lossless export or JPG for a smaller file, then click "Download Edited Image." Pair this tool with the Thumbnail Text Generator for a finished design, complete with color grading, framing, and bold text, all built entirely for free in your browser.
+  </p>
+  <p>
+    A few combinations tend to work especially well for YouTube thumbnails specifically. The Vivid preset paired with a light vignette makes gaming and entertainment thumbnails pop against a busy suggested-videos feed, while Warm plus a subtle arrow overlay pointing at a product works well for review and unboxing content. If you're editing a screenshot rather than a photo, keep contrast adjustments modest — screenshots often already have sharp, high-contrast edges from UI elements, and pushing contrast too far can make text inside the screenshot harder to read. Because every adjustment renders live on canvas before you download, you can compare several combinations quickly, undo by clicking back to Original, and settle on the version that best matches the tone of your video.
+  </p>
+</section>
+
+<section class="faq">
+  <h2>Frequently Asked Questions</h2>
+  <details class="faq-item"><summary>Is the Thumbnail Editor free to use?</summary><p>Yes, it's 100% free with no login, no watermark, and no daily limits.</p></details>
+  <details class="faq-item"><summary>What filter presets are included?</summary><p>Original, Vivid, Black & White, Warm, Cool, Vintage, and Dramatic, plus manual sliders for full control.</p></details>
+  <details class="faq-item"><summary>Can I add shapes and overlays?</summary><p>Yes. Add rectangles, circles, arrows, or lines, then drag them anywhere and adjust color and opacity.</p></details>
+  <details class="faq-item"><summary>Can I rotate or flip my image?</summary><p>Yes. Rotate in 90-degree steps and flip horizontally or vertically with one click each.</p></details>
+  <details class="faq-item"><summary>What does the vignette effect do?</summary><p>It darkens the edges of your image to draw the viewer's eye toward the center, a common technique in high-CTR thumbnails.</p></details>
+  <details class="faq-item"><summary>Is my image uploaded to a server?</summary><p>No. All editing happens locally in your browser using canvas, so your image is never uploaded or stored.</p></details>
+  <details class="faq-item"><summary>What format can I download in?</summary><p>You can export as PNG for lossless quality or JPG for a smaller file size.</p></details>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"></polygon></svg>
+          <span>Thumbnail<span style="color:var(--purple)">Creator</span></span>
+        </div>
+        <p style="font-size:13.5px;">Free YouTube thumbnail downloader for creators worldwide.</p>
+        <p style="font-size:13.5px;margin-top:10px;">support@thumbnailcreator.online</p>
+      </div>
+      <div>
+        <h4>Our Tools</h4>
+        <a href="/youtube-thumbnail-downloader">Thumbnail Downloader</a>
+        <a href="/youtube-thumbnail-maker">Thumbnail Maker</a>
+        <a href="/ai-thumbnail-generator">AI Thumbnail Generator</a>
+        <a href="/thumbnail-text-generator">Text Generator</a>
+        <a href="/thumbnail-background-remover">Background Remover</a>
+        <a href="/thumbnail-cropper">Thumbnail Cropper</a>
+        <a href="/thumbnail-editor">Thumbnail Editor</a>
+        <a href="/thumbnail-resizer">Thumbnail Resizer</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-of-service">Terms of Service</a>
+        <a href="/dmca">DMCA Policy</a>
+        <a href="/disclaimer">Disclaimer</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="/about-us">About Us</a>
+        <a href="/contact-us">Contact Us</a>
+        <a href="/blog">Blog</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      © 2026 ThumbnailCreator.online | All Rights Reserved.
+      <div class="foot-bottom-links">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-of-service">Terms</a>
+        <a href="/dmca">DMCA</a>
+        <a href="/disclaimer">Disclaimer</a>
+        <a href="/about-us">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('click', function(e){
+  const dd = document.getElementById('toolsDropdown');
+  if(!dd.contains(e.target)) dd.classList.remove('open');
+});
+
+const canvas = document.getElementById('editCanvas');
+const ctx = canvas.getContext('2d');
+const uploadHint = document.getElementById('uploadHint');
+
+let sourceImage = null;
+let rotation = 0; // 0,90,180,270
+let flipH = false, flipV = false;
+let shapes = [];
+let selectedShape = -1;
+let dragging = false, dragOffset = {x:0,y:0};
+
+const adjust = { brightness:100, contrast:100, saturation:100, blur:0, vignette:0, grayscale:0, sepia:0 };
+
+document.getElementById('photoInput').addEventListener('change', e=>{
+  const file = e.target.files[0];
+  if(!file) return;
+  const img = new Image();
+  img.onload = ()=>{
+    sourceImage = img;
+    canvas.width = img.naturalWidth;
+    canvas.height = img.naturalHeight;
+    canvas.style.display = 'block';
+    uploadHint.style.display = 'none';
+    rotation = 0; flipH = false; flipV = false; shapes = [];
+    resetAdjustSliders();
+    render();
+  };
+  img.src = URL.createObjectURL(file);
+});
+
+function resetAdjustSliders(){
+  Object.assign(adjust, { brightness:100, contrast:100, saturation:100, blur:0, vignette:0, grayscale:0, sepia:0 });
+  document.getElementById('brightness').value = 100; document.getElementById('brightVal').textContent = 100;
+  document.getElementById('contrast').value = 100; document.getElementById('contrastVal').textContent = 100;
+  document.getElementById('saturation').value = 100; document.getElementById('satVal').textContent = 100;
+  document.getElementById('blur').value = 0; document.getElementById('blurVal').textContent = 0;
+  document.getElementById('vignette').value = 0; document.getElementById('vignetteVal').textContent = 0;
+  document.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector('.preset-btn[data-preset="original"]').classList.add('active');
+}
+
+function render(){
+  if(!sourceImage) return;
+  const w = sourceImage.naturalWidth, h = sourceImage.naturalHeight;
+  const rotated = rotation === 90 || rotation === 270;
+  canvas.width = rotated ? h : w;
+  canvas.height = rotated ? w : h;
+
+  ctx.save();
+  ctx.filter = `brightness(${adjust.brightness}%) contrast(${adjust.contrast}%) saturate(${adjust.saturation}%) blur(${adjust.blur}px) grayscale(${adjust.grayscale}%) sepia(${adjust.sepia}%)`;
+  ctx.translate(canvas.width/2, canvas.height/2);
+  ctx.rotate(rotation * Math.PI/180);
+  ctx.scale(flipH ? -1 : 1, flipV ? -1 : 1);
+  ctx.drawImage(sourceImage, -w/2, -h/2, w, h);
+  ctx.restore();
+
+  if(adjust.vignette > 0){
+    ctx.save();
+    ctx.filter = 'none';
+    const grad = ctx.createRadialGradient(
+      canvas.width/2, canvas.height/2, canvas.width*0.25,
+      canvas.width/2, canvas.height/2, canvas.width*0.7
+    );
+    grad.addColorStop(0, 'rgba(0,0,0,0)');
+    grad.addColorStop(1, `rgba(0,0,0,${adjust.vignette/100})`);
+    ctx.fillStyle = grad;
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.restore();
+  }
+
+  ctx.filter = 'none';
+  shapes.forEach((s,i)=>{
+    ctx.save();
+    ctx.globalAlpha = s.opacity;
+    ctx.strokeStyle = s.color;
+    ctx.fillStyle = s.color;
+    ctx.lineWidth = 6;
+    if(s.type === 'rect'){
+      ctx.strokeRect(s.x, s.y, s.w, s.h);
+    } else if(s.type === 'circle'){
+      ctx.beginPath();
+      ctx.ellipse(s.x+s.w/2, s.y+s.h/2, s.w/2, s.h/2, 0, 0, Math.PI*2);
+      ctx.stroke();
+    } else if(s.type === 'arrow'){
+      ctx.beginPath();
+      ctx.moveTo(s.x, s.y+s.h/2);
+      ctx.lineTo(s.x+s.w*0.7, s.y+s.h/2);
+      ctx.moveTo(s.x+s.w*0.5, s.y);
+      ctx.lineTo(s.x+s.w, s.y+s.h/2);
+      ctx.lineTo(s.x+s.w*0.5, s.y+s.h);
+      ctx.stroke();
+    } else if(s.type === 'line'){
+      ctx.beginPath();
+      ctx.moveTo(s.x, s.y+s.h);
+      ctx.lineTo(s.x+s.w, s.y);
+      ctx.stroke();
+    }
+    if(i === selectedShape){
+      ctx.strokeStyle = '#6366f1';
+      ctx.lineWidth = 2;
+      ctx.setLineDash([6,4]);
+      ctx.strokeRect(s.x-6, s.y-6, s.w+12, s.h+12);
+      ctx.setLineDash([]);
+    }
+    ctx.restore();
+  });
+}
+
+['brightness','contrast','saturation','blur','vignette'].forEach(id=>{
+  document.getElementById(id).addEventListener('input', e=>{
+    const key = id === 'saturation' ? 'saturation' : id;
+    adjust[key] = parseFloat(e.target.value);
+    const labelMap = { brightness:'brightVal', contrast:'contrastVal', saturation:'satVal', blur:'blurVal', vignette:'vignetteVal' };
+    document.getElementById(labelMap[id]).textContent = e.target.value;
+    document.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('active'));
+    render();
+  });
+});
+
+const presets = {
+  original: { brightness:100, contrast:100, saturation:100, blur:0, vignette:0, grayscale:0, sepia:0 },
+  vivid:    { brightness:108, contrast:120, saturation:150, blur:0, vignette:0,  grayscale:0, sepia:0 },
+  bw:       { brightness:105, contrast:115, saturation:0,   blur:0, vignette:0,  grayscale:100, sepia:0 },
+  warm:     { brightness:105, contrast:105, saturation:115, blur:0, vignette:0,  grayscale:0, sepia:25 },
+  cool:     { brightness:102, contrast:108, saturation:105, blur:0, vignette:0,  grayscale:0, sepia:0 },
+  vintage:  { brightness:100, contrast:90,  saturation:75,  blur:0, vignette:35, grayscale:0, sepia:35 },
+  dramatic: { brightness:95,  contrast:140, saturation:120, blur:0, vignette:45, grayscale:0, sepia:0 }
+};
+
+document.querySelectorAll('.preset-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const p = presets[btn.dataset.preset];
+    Object.assign(adjust, p);
+    document.getElementById('brightness').value = p.brightness; document.getElementById('brightVal').textContent = p.brightness;
+    document.getElementById('contrast').value = p.contrast; document.getElementById('contrastVal').textContent = p.contrast;
+    document.getElementById('saturation').value = p.saturation; document.getElementById('satVal').textContent = p.saturation;
+    document.getElementById('blur').value = p.blur; document.getElementById('blurVal').textContent = p.blur;
+    document.getElementById('vignette').value = p.vignette; document.getElementById('vignetteVal').textContent = p.vignette;
+    document.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    render();
+  });
+});
+
+document.getElementById('rotateLeft').addEventListener('click', ()=>{ rotation = (rotation + 270) % 360; render(); });
+document.getElementById('rotateRight').addEventListener('click', ()=>{ rotation = (rotation + 90) % 360; render(); });
+document.getElementById('flipH').addEventListener('click', ()=>{ flipH = !flipH; render(); });
+document.getElementById('flipV').addEventListener('click', ()=>{ flipV = !flipV; render(); });
+
+document.querySelectorAll('[data-shape]').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    if(!sourceImage) return;
+    const size = Math.min(canvas.width, canvas.height) * 0.25;
+    shapes.push({
+      type: btn.dataset.shape,
+      x: canvas.width/2 - size/2,
+      y: canvas.height/2 - size/2,
+      w: size, h: size,
+      color: document.getElementById('shapeColor').value,
+      opacity: parseInt(document.getElementById('shapeOpacity').value)/100
+    });
+    selectedShape = shapes.length - 1;
+    render();
+  });
+});
+
+document.getElementById('shapeColor').addEventListener('input', e=>{
+  if(selectedShape >= 0){ shapes[selectedShape].color = e.target.value; render(); }
+});
+document.getElementById('shapeOpacity').addEventListener('input', e=>{
+  document.getElementById('shapeOpacityVal').textContent = e.target.value;
+  if(selectedShape >= 0){ shapes[selectedShape].opacity = parseInt(e.target.value)/100; render(); }
+});
+document.getElementById('deleteShapeBtn').addEventListener('click', ()=>{
+  if(selectedShape >= 0){ shapes.splice(selectedShape,1); selectedShape = -1; render(); }
+});
+
+function getCanvasCoords(e){
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = canvas.width / rect.width;
+  const scaleY = canvas.height / rect.height;
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+  return { x:(clientX-rect.left)*scaleX, y:(clientY-rect.top)*scaleY };
+}
+function hitTestShape(x,y){
+  for(let i=shapes.length-1;i>=0;i--){
+    const s = shapes[i];
+    if(x>=s.x && x<=s.x+s.w && y>=s.y && y<=s.y+s.h) return i;
+  }
+  return -1;
+}
+canvas.addEventListener('mousedown', e=>{
+  const {x,y} = getCanvasCoords(e);
+  const hit = hitTestShape(x,y);
+  selectedShape = hit;
+  if(hit>=0){
+    dragging = true;
+    dragOffset = { x:x-shapes[hit].x, y:y-shapes[hit].y };
+    document.getElementById('shapeColor').value = shapes[hit].color;
+    document.getElementById('shapeOpacity').value = Math.round(shapes[hit].opacity*100);
+    document.getElementById('shapeOpacityVal').textContent = Math.round(shapes[hit].opacity*100);
+  }
+  render();
+});
+canvas.addEventListener('mousemove', e=>{
+  if(!dragging || selectedShape<0) return;
+  const {x,y} = getCanvasCoords(e);
+  shapes[selectedShape].x = x - dragOffset.x;
+  shapes[selectedShape].y = y - dragOffset.y;
+  render();
+});
+window.addEventListener('mouseup', ()=> dragging=false);
+
+document.getElementById('downloadBtn').addEventListener('click', ()=>{
+  selectedShape = -1; render();
+  const format = document.getElementById('downloadFormat').value;
+  const mime = format === 'jpeg' ? 'image/jpeg' : 'image/png';
+  const ext = format === 'jpeg' ? 'jpg' : 'png';
+  const link = document.createElement('a');
+  link.download = `edited-thumbnail.${ext}`;
+  link.href = canvas.toDataURL(mime, 0.95);
+  link.click();
+});
+</script>
+
+</body>
+</html>
