@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Thumbnail Generator – Free AI Image Tool, No Login</title>
+<meta name="description" content="Generate custom YouTube thumbnails from a text prompt using AI. Pick an art style and aspect ratio, then download in HD — free, no login, no watermark.">
+<meta name="keywords" content="ai thumbnail generator free online, generate youtube thumbnail from text, ai image generator no login, youtube thumbnail ai art free, text to thumbnail generator, ai generated youtube thumbnail free">
+<link rel="canonical" href="https://thumbnailcreator.online/ai-thumbnail-generator">
+<meta property="og:title" content="AI Thumbnail Generator – Free AI Image Tool, No Login">
+<meta property="og:description" content="Generate custom YouTube thumbnails from a text prompt using AI. Pick an art style and aspect ratio, then download in HD — free, no login, no watermark.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thumbnailcreator.online/ai-thumbnail-generator">
+<meta property="og:site_name" content="ThumbnailCreator">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "AI Thumbnail Generator",
+  "url": "https://thumbnailcreator.online/ai-thumbnail-generator",
+  "applicationCategory": "DesignApplication",
+  "operatingSystem": "Any (Web Browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Free AI-powered tool that generates custom YouTube thumbnail artwork from a text prompt, with style and aspect ratio controls. No login, no watermark."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thumbnailcreator.online/" },
+    { "@type": "ListItem", "position": 2, "name": "AI Thumbnail Generator", "item": "https://thumbnailcreator.online/ai-thumbnail-generator" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is the AI Thumbnail Generator free to use?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, it's 100% free with no login and no watermark." } },
+    { "@type": "Question", "name": "What art styles are available?", "acceptedAnswer": { "@type": "Answer", "text": "Photorealistic, 3D Render & Clay, Anime/Manga, and Cyberpunk, with more styles added over time." } },
+    { "@type": "Question", "name": "What aspect ratios can I generate?", "acceptedAnswer": { "@type": "Answer", "text": "16:9 for standard YouTube thumbnails, 1:1 Square, and 9:16 for Shorts and TikTok." } },
+    { "@type": "Question", "name": "How do I write a good prompt?", "acceptedAnswer": { "@type": "Answer", "text": "Describe the subject, action, mood, and setting clearly — for example, 'a shocked gamer reacting to a glowing treasure chest, neon background.'" } },
+    { "@type": "Question", "name": "Can I add text to the AI-generated image afterward?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Download the image, then bring it into the Thumbnail Text Generator or Thumbnail Editor to add a headline and effects." } },
+    { "@type": "Question", "name": "Is my prompt stored anywhere?", "acceptedAnswer": { "@type": "Answer", "text": "No. Prompts are sent only to generate your image and are not saved on our servers." } },
+    { "@type": "Question", "name": "Why did my generation fail?", "acceptedAnswer": { "@type": "Answer", "text": "This usually happens with very short prompts or prompts that violate content guidelines. Try adding more descriptive detail and generating again." } }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --purple:#6366f1;
+  --purple-dark:#4f46e5;
+  --bg:#f7f7fb;
+  --text:#1f2430;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;}
+h1,h2,.logo span,.foot-logo span,.badge{font-family:'Poppins','Inter',sans-serif;}
+a{text-decoration:none;color:inherit;}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
+
+/* HEADER */
+header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;}
+.logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:18px;color:var(--text);}
+.logo svg{width:26px;height:26px;color:var(--purple);}
+.logo-accent{color:var(--purple);}
+.navlinks{display:flex;align-items:center;gap:26px;font-size:14.5px;font-weight:500;}
+.navlinks > a:hover{color:var(--purple);}
+.dropdown{position:relative;}
+.dropdown-toggle{display:flex;align-items:center;gap:6px;background:none;border:none;font:inherit;font-weight:500;color:var(--text);cursor:pointer;}
+.dropdown-toggle svg{width:13px;height:13px;}
+.dropdown-menu{display:none;position:absolute;top:calc(100% + 14px);left:-16px;width:260px;background:#fff;border-radius:14px;box-shadow:0 14px 34px rgba(0,0,0,.12);padding:8px;}
+.dropdown.open .dropdown-menu{display:block;}
+.dropdown-menu a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;font-size:14px;color:#374151;}
+.dropdown-menu a:hover{background:#f3f0ff;color:var(--purple);}
+.dropdown-menu svg{width:17px;height:17px;stroke:var(--purple);flex-shrink:0;}
+.cta{background:var(--purple);color:#fff !important;padding:10px 20px;border-radius:999px;font-weight:600;font-size:14px;}
+.cta:hover{background:var(--purple-dark);}
+
+/* HERO */
+.hero{padding:52px 0 36px;text-align:center;}
+.badge{display:inline-block;background:#eef0ff;color:var(--purple-dark);font-size:12.5px;font-weight:600;padding:6px 14px;border-radius:999px;letter-spacing:.3px;margin-bottom:18px;}
+.hero h1{font-size:38px;font-weight:800;margin-bottom:18px;}
+.hero .lead{max-width:700px;margin:0 auto;color:#3b4152;font-size:16.5px;}
+.breadcrumb{font-size:13px;color:var(--muted);margin-bottom:14px;}
+.breadcrumb a{color:var(--purple);}
+
+/* WORKSPACE */
+.workspace{background:#fff;border-radius:18px;box-shadow:0 8px 30px rgba(0,0,0,.06);padding:32px;max-width:900px;margin:0 auto 60px;}
+.ctrl-group{margin-bottom:16px;}
+.ctrl-group label{font-size:13px;font-weight:600;display:block;margin-bottom:8px;color:var(--text);}
+#promptInput{width:100%;padding:14px 16px;border-radius:10px;border:1.5px solid var(--border);font:inherit;font-size:14.5px;resize:vertical;min-height:80px;}
+#promptInput:focus{outline:none;border-color:var(--purple);}
+.option-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:600px){.option-row{grid-template-columns:1fr;}}
+.pill-group{display:flex;gap:8px;flex-wrap:wrap;}
+.pill{padding:9px 14px;border-radius:999px;border:1.5px solid var(--border);background:#fff;font-size:13px;font-weight:600;cursor:pointer;color:var(--text);}
+.pill:hover{border-color:var(--purple);}
+.pill.active{background:var(--purple);border-color:var(--purple);color:#fff;}
+.btn{background:var(--purple);color:#fff;border:none;padding:14px 16px;border-radius:10px;font-weight:700;font-size:15px;cursor:pointer;width:100%;margin-top:8px;}
+.btn:hover{background:var(--purple-dark);}
+.btn:disabled{opacity:.6;cursor:not-allowed;}
+.error-box{display:none;background:#fef2f2;color:#dc2626;border:1px solid #fecaca;padding:12px 14px;border-radius:10px;font-size:13.5px;margin-top:14px;}
+.result-box{display:none;margin-top:26px;text-align:center;}
+.result-box img{max-width:100%;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.1);}
+.result-meta{display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-size:12.5px;color:var(--muted);}
+.result-meta a{color:var(--purple);font-weight:700;}
+.loading-box{display:none;text-align:center;padding:40px 0;color:var(--muted);font-size:14px;}
+.spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--purple);border-radius:50%;margin:0 auto 12px;animation:spin 0.8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* TOOLS GRID */
+.tools-section{max-width:1150px;margin:0 auto 70px;}
+.section-head{text-align:center;max-width:640px;margin:0 auto 40px;}
+.section-head h2{font-size:30px;margin-bottom:10px;}
+.section-head p{color:var(--muted);font-size:15px;}
+.tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+@media(max-width:900px){.tools-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:520px){.tools-grid{grid-template-columns:1fr;}}
+.tool-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;transition:box-shadow .15s;}
+.tool-card:hover{box-shadow:0 10px 26px rgba(0,0,0,.07);}
+.tool-icon{width:44px;height:44px;background:#eef0ff;color:var(--purple);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+.tool-icon svg{width:22px;height:22px;}
+.tool-card h3{font-size:16.5px;margin-bottom:8px;}
+.tool-card p{font-size:13.5px;color:var(--muted);margin-bottom:18px;}
+.tool-card a{color:var(--purple);font-weight:600;font-size:13.5px;}
+
+/* WHY CHOOSE */
+.why-section{background:#fff;padding:64px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;max-width:1000px;margin:0 auto 40px;}
+@media(max-width:700px){.why-grid{grid-template-columns:1fr;}}
+.why-card{background:var(--bg);border-radius:14px;padding:24px;}
+.why-card h4{font-size:16px;margin-bottom:8px;}
+.why-card p{font-size:14px;color:var(--muted);}
+.why-note{max-width:820px;margin:0 auto;background:var(--bg);border-radius:16px;padding:28px;}
+.why-note h3{font-size:19px;margin-bottom:12px;}
+.why-note p{font-size:14.5px;color:#3b4152;margin-bottom:10px;}
+
+/* CONTENT */
+.content-section{max-width:820px;margin:60px auto;}
+.content-section h2{font-size:26px;margin-bottom:16px;}
+.content-section p{color:#3b4152;margin-bottom:14px;font-size:15.5px;}
+
+/* FAQ */
+.faq{max-width:820px;margin:0 auto 70px;}
+.faq h2{font-size:26px;margin-bottom:22px;text-align:center;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-item summary{padding:16px 4px;font-weight:600;font-size:15px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item p{padding:0 4px 16px;color:#4b5160;font-size:14.5px;}
+
+/* FOOTER */
+footer{background:#111318;color:#9ca3af;padding:50px 0 24px;}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px;}
+@media(max-width:700px){.foot-grid{grid-template-columns:1fr 1fr;}}
+.foot-logo{color:#fff;font-weight:700;font-size:17px;display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.foot-logo svg{width:22px;height:22px;color:var(--purple);}
+footer h4{color:#fff;font-size:13.5px;margin-bottom:14px;}
+footer a{display:block;font-size:13.5px;margin-bottom:9px;color:#9ca3af;}
+footer a:hover{color:#fff;}
+.foot-bottom{border-top:1px solid #262b36;padding-top:20px;text-align:center;font-size:12.5px;}
+.foot-bottom-links{display:flex;gap:16px;justify-content:center;margin-top:10px;flex-wrap:wrap;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="/" class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"></polygon></svg>
+      <span>Thumbnail<span class="logo-accent">Creator</span></span>
+    </a>
+    <nav class="navlinks">
+      <a href="/">Home</a>
+      <div class="dropdown" id="toolsDropdown">
+        <button class="dropdown-toggle" onclick="document.getElementById('toolsDropdown').classList.toggle('open')">
+          Our Tools
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="dropdown-menu">
+          <a href="/youtube-thumbnail-downloader">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Thumbnail Downloader
+          </a>
+          <a href="/youtube-thumbnail-maker">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path></svg>
+            Thumbnail Maker
+          </a>
+          <a href="/ai-thumbnail-generator">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            AI Thumbnail Generator
+          </a>
+          <a href="/thumbnail-text-generator">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+            Text Generator
+          </a>
+          <a href="/thumbnail-background-remover">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            Background Remover
+          </a>
+          <a href="/thumbnail-cropper">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.13 1L6 16a2 2 0 0 0 2 2h15"></path><path d="M1 6.13L16 6a2 2 0 0 1 2 2v15"></path></svg>
+            Thumbnail Cropper
+          </a>
+          <a href="/thumbnail-editor">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4Z"></path></svg>
+            Thumbnail Editor
+          </a>
+          <a href="/thumbnail-resizer">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+            Thumbnail Resizer
+          </a>
+          <a href="/#upscaleWorkspace">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+            AI Image Upscaler
+          </a>
+          <a href="/#textToImageWorkspace">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            AI Text to Image
+          </a>
+        </div>
+      </div>
+      <a href="/#why-choose">Why Us</a>
+      <a href="/#blog">Blog</a>
+      <a href="/how-to-use">How to Use</a>
+      <a href="/api-docs">API</a>
+      <a href="/about-us">About</a>
+      <a href="#workspace" class="cta">Get Started Free</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="/">Home</a> / AI Thumbnail Generator</div>
+    <span class="badge">AI Thumbnail Generator — Free, No Login</span>
+    <h1>AI Thumbnail Generator</h1>
+    <p class="lead">
+      Describe the thumbnail you want, pick an art style and aspect ratio, and the AI Thumbnail Generator creates original artwork in seconds — download it directly or bring it into the Text Generator for a finished headline.
+    </p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="workspace" id="workspace">
+    <div class="ctrl-group">
+      <label>Describe your thumbnail</label>
+      <textarea id="promptInput" placeholder="e.g. A shocked gamer reacting to a glowing treasure chest, neon purple background, dramatic lighting"></textarea>
+    </div>
+
+    <div class="option-row">
+      <div class="ctrl-group">
+        <label>Art Style</label>
+        <div class="pill-group" id="styleGroup">
+          <button class="pill active" data-value="Photorealistic">Photorealistic</button>
+          <button class="pill" data-value="3D Render & Clay">3D Render & Clay</button>
+          <button class="pill" data-value="Anime / Manga">Anime / Manga</button>
+          <button class="pill" data-value="Cyberpunk">Cyberpunk</button>
+        </div>
+      </div>
+      <div class="ctrl-group">
+        <label>Aspect Ratio</label>
+        <div class="pill-group" id="ratioGroup">
+          <button class="pill active" data-value="16:9">16:9 (YouTube)</button>
+          <button class="pill" data-value="1:1">1:1 (Square)</button>
+          <button class="pill" data-value="9:16">9:16 (Shorts)</button>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn" id="generateBtn">✨ Generate AI Image</button>
+    <div class="error-box" id="errorBox">Generation failed. Please try a different prompt.</div>
+
+    <div class="loading-box" id="loadingBox">
+      <div class="spinner"></div>
+      Generating your thumbnail — this can take a few seconds…
+    </div>
+
+    <div class="result-box" id="resultBox">
+      <img id="resultImg" alt="AI generated thumbnail artwork">
+      <div class="result-meta">
+        <span id="resultDims">1280 × 720 px</span>
+        <a href="#" id="downloadLink" download="ai-thumbnail.png">Download Image ⬇</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="tools-section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Our Complete Thumbnail Toolkit</h2>
+      <p>Everything you need to create, download, edit, and optimize click-worthy thumbnails in one place.</p>
+    </div>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></div><h3>Thumbnail Downloader</h3><p>Extract high-quality thumbnails from any YouTube video, Shorts, or Vimeo URL instantly.</p></div>
+        <a href="/youtube-thumbnail-downloader">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path></svg></div><h3>Thumbnail Maker</h3><p>Design professional custom thumbnails from scratch with text, colors, and effects.</p></div>
+        <a href="/youtube-thumbnail-maker">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg></div><h3>Text Generator</h3><p>Create bold, readable 3D & styled text effects optimized for mobile thumbnail CTR.</p></div>
+        <a href="/thumbnail-text-generator">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></div><h3>Background Remover</h3><p>Instantly cut out your face or product subjects with accurate AI edge detection.</p></div>
+        <a href="/thumbnail-background-remover">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.13 1L6 16a2 2 0 0 0 2 2h15"></path><path d="M1 6.13L16 6a2 2 0 0 1 2 2v15"></path></svg></div><h3>Thumbnail Cropper</h3><p>Crop images perfectly to the standard 16:9 aspect ratio required by YouTube.</p></div>
+        <a href="/thumbnail-cropper">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4Z"></path></svg></div><h3>Thumbnail Editor</h3><p>Apply filters, adjustments, overlays, and graphics directly to your thumbnails.</p></div>
+        <a href="/thumbnail-editor">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></div><h3>Thumbnail Resizer</h3><p>Compress and resize images to match the strict &lt;2MB YouTube upload file limit.</p></div>
+        <a href="/thumbnail-resizer">Use Tool →</a>
+      </div>
+      <div class="tool-card">
+        <div><div class="tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></div><h3>AI Text to Image</h3><p>Generate original AI artwork from a text prompt to use as your thumbnail base.</p></div>
+        <a href="/#textToImageWorkspace">Use Tool →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why-section" id="why-choose">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Why Choose This AI Thumbnail Generator?</h2>
+      <p>Skip the stock photo search and generate exactly the scene you're imagining.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <h4>4 Distinct Art Styles</h4>
+        <p>Photorealistic, 3D Render, Anime, and Cyberpunk cover most thumbnail styles across gaming, tech, and entertainment content.</p>
+      </div>
+      <div class="why-card">
+        <h4>Built-In Aspect Ratios</h4>
+        <p>Generate directly at 16:9, Square, or 9:16 — no separate cropping step needed afterward.</p>
+      </div>
+      <div class="why-card">
+        <h4>Fits the Rest of the Toolkit</h4>
+        <p>Send your generated artwork straight into the Text Generator or Editor to finish a complete thumbnail design.</p>
+      </div>
+      <div class="why-card">
+        <h4>No Stock Photo Limits</h4>
+        <p>Generate a completely original scene instead of searching through stock libraries for something close enough.</p>
+      </div>
+    </div>
+    <div class="why-note">
+      <h3>Zero Sign-Ups. Quick & Free.</h3>
+      <p>Sometimes the exact scene a thumbnail needs simply doesn't exist as a stock photo or a photo you can take yourself — a dragon, a futuristic cityscape, or a specific dramatic moment. This ai thumbnail generator free online tool builds that scene from a text description instead.</p>
+      <p>It's free to use, with no login and no watermark on the artwork you generate.</p>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <h2>How to Use the AI Thumbnail Generator</h2>
+  <p>
+    Generating a thumbnail with AI starts with a clear, descriptive prompt. In the text box, describe the subject, the action happening, the mood, and the setting — the more specific you are, the closer the result will match what you're picturing. A prompt like "a shocked gamer reacting to a glowing treasure chest, neon purple background, dramatic lighting" gives the AI far more to work with than a short prompt like "gamer thumbnail," because it defines the subject's expression, the object they're reacting to, the color palette, and the lighting style all at once.
+  </p>
+  <p>
+    Next, choose an art style that matches your channel's tone. Photorealistic works well for reaction content, vlogs, and anything meant to look like a real photograph. 3D Render & Clay gives a playful, stylized look popular in comedy and lifestyle content. Anime/Manga suits gaming and story-driven channels with an illustrated aesthetic, while Cyberpunk leans into neon, futuristic themes that work particularly well for tech, sci-fi, and gaming thumbnails. Pick the aspect ratio that matches your final use case — 16:9 for a standard YouTube video thumbnail, 1:1 Square for a community post, or 9:16 if you're generating artwork for a Shorts cover.
+  </p>
+  <p>
+    Click "Generate AI Image" and the tool sends your prompt, style, and ratio to the AI model, which typically takes a few seconds to return a result. If a generation fails, it's usually because the prompt was too short or vague, or it touched on content the model won't generate — try adding more descriptive detail about the subject and scene, and generate again. Once you have an image you like, download it directly, or take it a step further by opening the Thumbnail Text Generator to add a bold headline on top, or the Thumbnail Editor to apply color grading and a vignette. This text to thumbnail generator workflow is especially useful for channels that need a fresh, original visual every upload without relying on stock photography or repeating the same background footage as a thumbnail base.
+  </p>
+  <p>
+    A few prompt-writing habits consistently produce stronger results. Lead with the main subject and their expression or pose first, since that's usually the focal point of a thumbnail — "terrified explorer backing away from a glowing portal" reads more clearly to the model than burying the subject in the middle of a long sentence. Mention lighting and color explicitly if it matters to your brand, since phrases like "warm golden hour lighting" or "cold blue neon glow" noticeably shift the final result. If your first generation is close but not quite right, tweak just one or two details in the prompt rather than rewriting the whole thing, and generate again — small, targeted changes are usually faster than starting over. Combined with the rest of this toolkit, this ai image generator no login tool lets you go from a blank idea to a fully finished, text-overlaid thumbnail without ever opening a separate design program.
+  </p>
+</section>
+
+<section class="faq">
+  <h2>Frequently Asked Questions</h2>
+  <details class="faq-item"><summary>Is the AI Thumbnail Generator free to use?</summary><p>Yes, it's 100% free with no login and no watermark.</p></details>
+  <details class="faq-item"><summary>What art styles are available?</summary><p>Photorealistic, 3D Render & Clay, Anime/Manga, and Cyberpunk, with more styles added over time.</p></details>
+  <details class="faq-item"><summary>What aspect ratios can I generate?</summary><p>16:9 for standard YouTube thumbnails, 1:1 Square, and 9:16 for Shorts and TikTok.</p></details>
+  <details class="faq-item"><summary>How do I write a good prompt?</summary><p>Describe the subject, action, mood, and setting clearly — for example, "a shocked gamer reacting to a glowing treasure chest, neon background."</p></details>
+  <details class="faq-item"><summary>Can I add text to the AI-generated image afterward?</summary><p>Yes. Download the image, then bring it into the Thumbnail Text Generator or Thumbnail Editor to add a headline and effects.</p></details>
+  <details class="faq-item"><summary>Is my prompt stored anywhere?</summary><p>No. Prompts are sent only to generate your image and are not saved on our servers.</p></details>
+  <details class="faq-item"><summary>Why did my generation fail?</summary><p>This usually happens with very short prompts or prompts that violate content guidelines. Try adding more descriptive detail and generating again.</p></details>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"></polygon></svg>
+          <span>Thumbnail<span style="color:var(--purple)">Creator</span></span>
+        </div>
+        <p style="font-size:13.5px;">Free YouTube thumbnail downloader for creators worldwide.</p>
+        <p style="font-size:13.5px;margin-top:10px;">support@thumbnailcreator.online</p>
+      </div>
+      <div>
+        <h4>Our Tools</h4>
+        <a href="/youtube-thumbnail-downloader">Thumbnail Downloader</a>
+        <a href="/youtube-thumbnail-maker">Thumbnail Maker</a>
+        <a href="/ai-thumbnail-generator">AI Thumbnail Generator</a>
+        <a href="/thumbnail-text-generator">Text Generator</a>
+        <a href="/thumbnail-background-remover">Background Remover</a>
+        <a href="/thumbnail-cropper">Thumbnail Cropper</a>
+        <a href="/thumbnail-editor">Thumbnail Editor</a>
+        <a href="/thumbnail-resizer">Thumbnail Resizer</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-of-service">Terms of Service</a>
+        <a href="/dmca">DMCA Policy</a>
+        <a href="/disclaimer">Disclaimer</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="/about-us">About Us</a>
+        <a href="/contact-us">Contact Us</a>
+        <a href="/blog">Blog</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      © 2026 ThumbnailCreator.online | All Rights Reserved.
+      <div class="foot-bottom-links">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-of-service">Terms</a>
+        <a href="/dmca">DMCA</a>
+        <a href="/disclaimer">Disclaimer</a>
+        <a href="/about-us">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('click', function(e){
+  const dd = document.getElementById('toolsDropdown');
+  if(!dd.contains(e.target)) dd.classList.remove('open');
+});
+
+/* =========================================================
+   GEMINI API CONFIG — REPLACE BEFORE GOING LIVE
+   1. Get a Gemini API key from https://aistudio.google.com/apikey
+   2. Paste it below in place of "YOUR_GEMINI_API_KEY_HERE"
+   3. IMPORTANT: calling Gemini directly from client-side JS exposes
+      your key to anyone who views the page source. For production,
+      route this request through your own backend/serverless function
+      that holds the key server-side, and call that endpoint here instead.
+   ========================================================= */
+const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE";
+const GEMINI_IMAGE_MODEL = "gemini-2.5-flash-image"; // update to whichever Gemini image model your key has access to
+
+let selectedStyle = 'Photorealistic';
+let selectedRatio = '16:9';
+
+document.querySelectorAll('#styleGroup .pill').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('#styleGroup .pill').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedStyle = btn.dataset.value;
+  });
+});
+document.querySelectorAll('#ratioGroup .pill').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('#ratioGroup .pill').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedRatio = btn.dataset.value;
+  });
+});
+
+const generateBtn = document.getElementById('generateBtn');
+const errorBox = document.getElementById('errorBox');
+const loadingBox = document.getElementById('loadingBox');
+const resultBox = document.getElementById('resultBox');
+const resultImg = document.getElementById('resultImg');
+const resultDims = document.getElementById('resultDims');
+const downloadLink = document.getElementById('downloadLink');
+
+const ratioDims = {
+  '16:9': [1280,720],
+  '1:1': [1080,1080],
+  '9:16': [1080,1920]
+};
+
+generateBtn.addEventListener('click', async ()=>{
+  const prompt = document.getElementById('promptInput').value.trim();
+  errorBox.style.display = 'none';
+  resultBox.style.display = 'none';
+
+  if(!prompt){
+    errorBox.textContent = 'Please describe what you want to generate.';
+    errorBox.style.display = 'block';
+    return;
+  }
+  if(GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY_HERE'){
+    errorBox.textContent = 'AI generation is not configured yet — add your Gemini API key in the site code to enable this tool.';
+    errorBox.style.display = 'block';
+    return;
+  }
+
+  loadingBox.style.display = 'block';
+  generateBtn.disabled = true;
+
+  const fullPrompt = `${prompt}. Style: ${selectedStyle}. Aspect ratio: ${selectedRatio}. High quality, eye-catching YouTube thumbnail composition.`;
+
+  try{
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_IMAGE_MODEL}:generateContent?key=${GEMINI_API_KEY}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: fullPrompt }] }]
+      })
+    });
+    if(!res.ok) throw new Error('API request failed');
+    const data = await res.json();
+
+    // Extract the first inline image data returned by Gemini
+    const parts = data?.candidates?.[0]?.content?.parts || [];
+    const imagePart = parts.find(p => p.inlineData || p.inline_data);
+    const inline = imagePart?.inlineData || imagePart?.inline_data;
+    if(!inline) throw new Error('No image returned');
+
+    const mime = inline.mimeType || inline.mime_type || 'image/png';
+    const b64 = inline.data;
+    const dataUrl = `data:${mime};base64,${b64}`;
+
+    resultImg.src = dataUrl;
+    const [w,h] = ratioDims[selectedRatio];
+    resultDims.textContent = `${w} × ${h} px`;
+    downloadLink.href = dataUrl;
+    resultBox.style.display = 'block';
+  } catch(err){
+    errorBox.textContent = 'Generation failed. Please try a different prompt.';
+    errorBox.style.display = 'block';
+  } finally {
+    loadingBox.style.display = 'none';
+    generateBtn.disabled = false;
+  }
+});
+</script>
+
+</body>
+</html>
