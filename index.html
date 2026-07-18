@@ -99,6 +99,7 @@
         input:focus, select:focus { border-color: var(--primary); }
         .action-btn { width: 100%; background: var(--primary); color: white; border: none; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; transition: background .2s; }
         .action-btn:hover { background: var(--primary-dark); }
+        .action-btn:disabled { opacity: .6; cursor: not-allowed; }
 
         /* DRAG AND DROP AREA (UPSCALER) */
         .upload-area { border: 2px dashed var(--primary); border-radius: 12px; padding: 30px; text-align: center; cursor: pointer; background: var(--bg-light); margin-bottom: 20px; transition: background .2s; }
@@ -227,12 +228,11 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="color:var(--secondary); margin-left:2px;"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </span>
             <div class="dropdown-menu">
-                <!-- DROPDOWN ITEMS (Including New Tools) -->
                 <a href="/youtube-thumbnail-downloader" class="dropdown-item">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
                     Thumbnail Downloader
                 </a>
-                <a href="/youtube-thumbnail-maker/" class="dropdown-item">
+                <a href="/youtube-thumbnail-maker" class="dropdown-item">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
                     Thumbnail Maker
                 </a>
@@ -260,7 +260,6 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
                     Thumbnail Resizer
                 </a>
-                <!-- NEW ADDED TOOLS IN DROPDOWN -->
                 <a href="#upscaleWorkspace" class="dropdown-item">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
                     AI Image Upscaler
@@ -283,12 +282,11 @@
 <header class="hero-section">
     <div class="hero-badge">Thumbnail Downloader — Free, No Login</div>
     <h1>YouTube Thumbnail Creator & Toolkit</h1>
-    
+
     <p class="hero-p">
         <strong>ThumbnailCreator</strong> is a free online YouTube Thumbnail Creator and Thumbnail Maker that helps you create, edit, resize, crop, and customize professional thumbnails in minutes. Use our Thumbnail Editor, AI Thumbnail Maker, Thumbnail Designer, Background Remover, and Image Resizer to design eye-catching YouTube thumbnails. Whether you need a YouTube Thumbnail Creator, Thumbnail Generator, or a free Thumbnail Design Tool, ThumbnailCreator provides everything in one fast, easy-to-use platform with no watermark and no login required.
     </p>
 
-    <!-- Main Workspace Card (Thumbnail Extractor) -->
     <div class="workspace-card" id="workspace">
         <div id="thumbExtractor" class="tool-content">
             <div class="platform-badge-row">
@@ -315,10 +313,8 @@
         </div>
     </div>
 
-    <!-- MAIN TWO COLUMN WORKSPACE GRID (Image Upscaler & Text to Image Generator) -->
     <div class="tools-workspace-container" id="new-tools-workspace">
-        
-        <!-- IMAGE UPSCALE WORKSPACE -->
+
         <div class="workspace-card" id="upscaleWorkspace">
             <h2 style="font-size:20px; font-weight:800; margin-bottom:15px; border-bottom: 2px solid var(--border-color); padding-bottom:8px; text-align:left;">
                 ✨ AI Image Upscaler (Super Resolution)
@@ -331,18 +327,17 @@
             <div class="file-preview" id="filePreviewContainer">
                 <img id="upscaleInputPreview" src="" alt="Source Image">
             </div>
-            
+
             <label style="margin-top:15px;">Choose Upscale Scale:</label>
             <select id="upscaleScale">
                 <option value="2">2x (Double Resolution)</option>
                 <option value="4">4x (Ultra HD Quality)</option>
             </select>
-            
+
             <button class="action-btn" id="upscaleBtn">Upscale Image Now</button>
             <div class="spinner" id="upscaleSpinner"><div></div></div>
             <div class="fetch-error" id="upscaleError">Something went wrong during upscaling. Please try again.</div>
-            
-            <!-- Output Container -->
+
             <div class="preview-box" id="upscaleResultBox">
                 <label style="margin-bottom:12px;">Upscaled Image Output:</label>
                 <div class="res-card" style="border-color: var(--primary)">
@@ -360,14 +355,13 @@
             </div>
         </div>
 
-        <!-- TEXT TO IMAGE WORKSPACE -->
         <div class="workspace-card" id="textToImageWorkspace">
             <h2 style="font-size:20px; font-weight:800; margin-bottom:15px; border-bottom: 2px solid var(--border-color); padding-bottom:8px; text-align:left;">
                 🎨 AI Text to Image Generator
             </h2>
             <label>Describe your image / Prompt:</label>
             <input type="text" id="imagePrompt" placeholder="A futuristic cyberpunk gaming setup, neon lights, 8k resolution...">
-            
+
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
                 <div>
                     <label>Aspect Ratio:</label>
@@ -391,8 +385,7 @@
             <button class="action-btn" id="generateImgBtn">Generate AI Image</button>
             <div class="spinner" id="generatorSpinner"><div></div></div>
             <div class="fetch-error" id="generatorError">Generation failed. Please try a different prompt.</div>
-            
-            <!-- Output Container -->
+
             <div class="preview-box" id="generatedResultBox">
                 <label style="margin-bottom:12px;">Generated AI Art:</label>
                 <div class="res-card" style="border-color: var(--primary)">
@@ -400,7 +393,7 @@
                     <div class="res-card-footer">
                         <div class="res-info">
                             <div class="res-label">AI Generation</div>
-                            <div class="res-size">1280 x 720 px</div>
+                            <div class="res-size" id="generatedDimensions">1280 x 720 px</div>
                         </div>
                         <div class="res-actions">
                             <a class="res-dl-btn" id="generatedDownload" href="#" download="ai-generated-thumbnail.png">Download Image</a>
@@ -413,11 +406,10 @@
     </div>
 </header>
 
-<!-- ALL TOOLS SUITE SECTION -->
 <section class="all-tools-section" id="tools-suite">
     <h2 style="font-size:32px;font-weight:800">Our Complete Thumbnail Toolkit</h2>
     <p style="color:var(--text-muted);max-width:700px;margin:15px auto">Everything you need to create, download, edit, and optimize click-worthy thumbnails in one place.</p>
-    
+
     <div class="tools-grid">
         <a href="/youtube-thumbnail-downloader" class="tool-suite-card">
             <div>
@@ -430,7 +422,7 @@
             <span class="tool-btn-link">Use Tool <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
         </a>
 
-       <a href="/youtube-thumbnail-maker/" class="tool-suite-card">
+       <a href="/youtube-thumbnail-maker" class="tool-suite-card">
             <div>
                 <div class="tool-icon-wrapper">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
@@ -509,7 +501,6 @@
     </div>
 </section>
 
-<!-- VALUE SECTION -->
 <section class="value-section" id="why-choose">
     <h2 style="font-size:32px;font-weight:800">Why Choose ThumbnailCreator?</h2>
     <p style="color:var(--text-muted);max-width:700px;margin:15px auto">The ultimate free tool that lets you download YouTube thumbnails without a watermark — no login, no daily limits.</p>
@@ -538,7 +529,6 @@
     </div>
 </section>
 
-<!-- FAQ -->
 <section class="faq-section" id="faqs">
     <h2 style="text-align:center;margin-bottom:40px;font-size:32px;font-weight:800">Frequently Asked Questions</h2>
     <div class="accordion-item">
@@ -579,7 +569,6 @@
     </div>
 </section>
 
-<!-- BLOG -->
 <section class="blog-section" id="blog">
     <h2 style="font-size:32px;font-weight:800">Latest from the Blog</h2>
     <p style="color:var(--text-muted);margin-top:10px">Guides, tips and strategies for YouTube creators.</p>
@@ -615,12 +604,10 @@
     </div>
 </section>
 
-<!-- DISCLAIMER BAR -->
 <div class="disclaimer-bar">
     ThumbnailCreator is not affiliated with, endorsed by, or connected to YouTube, Google LLC, or Vimeo Inc. All thumbnails are publicly accessible images retrieved directly from their respective CDN servers. All rights belong to their original owners.
 </div>
 
-<!-- FOOTER -->
 <footer class="premium-footer">
     <div class="footer-grid">
         <div class="footer-brand">
@@ -788,18 +775,49 @@ document.getElementById('fetchThumbBtn').addEventListener('click', function(){
 });
 
 
-/* ─────────────────────────────────────────
-   AI IMAGE UPSCALE & TEXT-TO-IMAGE LOGIC
-───────────────────────────────────────── */
+/* =========================================================
+   GEMINI API CONFIG — REPLACE BEFORE GOING LIVE
+   1. Get a Gemini API key from https://aistudio.google.com/apikey
+   2. Paste it below in place of "YOUR_GEMINI_API_KEY_HERE"
+   3. IMPORTANT: calling Gemini directly from client-side JS exposes
+      your key to anyone who views the page source. For production,
+      route this request through your own backend/serverless function
+      that holds the key server-side, and call that endpoint here instead.
+   ========================================================= */
+var GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE";
+var GEMINI_IMAGE_MODEL = "gemini-2.5-flash-image"; // update to whichever Gemini image model your key has access to
 
-// File Upload Drag and Drop Elements
+function isGeminiConfigured() {
+    return GEMINI_API_KEY && GEMINI_API_KEY !== "YOUR_GEMINI_API_KEY_HERE";
+}
+
+function fileToBase64(file) {
+    return new Promise(function(resolve, reject){
+        var reader = new FileReader();
+        reader.onload = function(){ resolve(reader.result.split(',')[1]); };
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+    });
+}
+
+function extractInlineImage(data) {
+    var parts = (data && data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts) || [];
+    var imagePart = parts.find(function(p){ return p.inlineData || p.inline_data; });
+    if (!imagePart) return null;
+    var inline = imagePart.inlineData || imagePart.inline_data;
+    var mime = inline.mimeType || inline.mime_type || 'image/png';
+    return 'data:' + mime + ';base64,' + inline.data;
+}
+
+/* ─────────────────────────────────────────
+   AI IMAGE UPSCALER (real Gemini call)
+───────────────────────────────────────── */
 var dropArea = document.getElementById('dropArea');
 var fileElem = document.getElementById('fileElem');
 var filePreviewContainer = document.getElementById('filePreviewContainer');
 var upscaleInputPreview = document.getElementById('upscaleInputPreview');
 var activeImageFile = null;
 
-// Drag and drop events
 dropArea.addEventListener('click', function() { fileElem.click(); });
 dropArea.addEventListener('dragover', function(e) { e.preventDefault(); });
 dropArea.addEventListener('drop', function(e) {
@@ -824,55 +842,72 @@ function handleFileSelect(file) {
     reader.readAsDataURL(file);
 }
 
-// Upscale Button Action
-document.getElementById('upscaleBtn').addEventListener('click', function() {
+document.getElementById('upscaleBtn').addEventListener('click', async function() {
     if (!activeImageFile) {
         alert("Please upload or drag an image first!");
         return;
     }
-    
+
     var spinner = document.getElementById('upscaleSpinner');
     var errorDiv = document.getElementById('upscaleError');
     var resultBox = document.getElementById('upscaleResultBox');
-    
+    var btn = this;
+
     spinner.style.display = 'block';
     errorDiv.style.display = 'none';
     resultBox.style.display = 'none';
-    
-    setTimeout(function() {
-        var scale = document.getElementById('upscaleScale').value;
-        var reader = new FileReader();
-        reader.onload = function(event) {
-            var img = new Image();
-            img.onload = function() {
-                var canvas = document.createElement('canvas');
-                var ctx = canvas.getContext('2d');
-                canvas.width = img.width * scale;
-                canvas.height = img.height * scale;
-                
-                ctx.imageSmoothingEnabled = true;
-                ctx.imageSmoothingQuality = 'high';
-                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                
-                var dataUrl = canvas.toDataURL('image/png');
-                
-                document.getElementById('upscaledImgOutput').src = dataUrl;
-                document.getElementById('upscaledDimensions').textContent = canvas.width + " x " + canvas.height + " px";
-                
-                var downloadBtn = document.getElementById('upscaleDownload');
-                downloadBtn.href = dataUrl;
-                
-                spinner.style.display = 'none';
-                resultBox.style.display = 'block';
-            };
-            img.src = event.target.result;
+
+    if (!isGeminiConfigured()) {
+        spinner.style.display = 'none';
+        errorDiv.textContent = 'AI upscaling is not configured yet — add your Gemini API key in the site code to enable this tool.';
+        errorDiv.style.display = 'block';
+        return;
+    }
+
+    btn.disabled = true;
+    var scale = document.getElementById('upscaleScale').value;
+
+    try {
+        var base64 = await fileToBase64(activeImageFile);
+        var res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/' + GEMINI_IMAGE_MODEL + ':generateContent?key=' + GEMINI_API_KEY, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                contents: [{
+                    parts: [
+                        { text: 'Upscale this image to ' + scale + 'x resolution. Sharpen fine details, reduce noise and compression artifacts, and keep the exact same composition, colors, and content — do not add or remove anything.' },
+                        { inlineData: { mimeType: activeImageFile.type || 'image/png', data: base64 } }
+                    ]
+                }]
+            })
+        });
+        if (!res.ok) throw new Error('API request failed');
+        var data = await res.json();
+        var dataUrl = extractInlineImage(data);
+        if (!dataUrl) throw new Error('No image returned');
+
+        document.getElementById('upscaledImgOutput').src = dataUrl;
+        document.getElementById('upscaleDownload').href = dataUrl;
+
+        var img = new Image();
+        img.onload = function(){
+            document.getElementById('upscaledDimensions').textContent = img.width + ' x ' + img.height + ' px';
         };
-        reader.readAsDataURL(activeImageFile);
-    }, 1500); 
+        img.src = dataUrl;
+
+        resultBox.style.display = 'block';
+    } catch (err) {
+        errorDiv.style.display = 'block';
+    } finally {
+        spinner.style.display = 'none';
+        btn.disabled = false;
+    }
 });
 
-// Text to Image Generation Action
-document.getElementById('generateImgBtn').addEventListener('click', function() {
+/* ─────────────────────────────────────────
+   AI TEXT TO IMAGE GENERATOR (real Gemini call)
+───────────────────────────────────────── */
+document.getElementById('generateImgBtn').addEventListener('click', async function() {
     var promptText = document.getElementById('imagePrompt').value.trim();
     if (!promptText) {
         alert("Please enter an image prompt description!");
@@ -882,33 +917,53 @@ document.getElementById('generateImgBtn').addEventListener('click', function() {
     var spinner = document.getElementById('generatorSpinner');
     var errorDiv = document.getElementById('generatorError');
     var resultBox = document.getElementById('generatedResultBox');
-    
+    var btn = this;
+
     spinner.style.display = 'block';
     errorDiv.style.display = 'none';
     resultBox.style.display = 'none';
 
+    if (!isGeminiConfigured()) {
+        spinner.style.display = 'none';
+        errorDiv.textContent = 'AI generation is not configured yet — add your Gemini API key in the site code to enable this tool.';
+        errorDiv.style.display = 'block';
+        return;
+    }
+
+    btn.disabled = true;
+
     var aspect = document.getElementById('imageAspect').value;
     var style = document.getElementById('imageStyle').value;
+    var fullPrompt = promptText + '. Art style: ' + style + '. Aspect ratio: ' + aspect + '. High quality, eye-catching YouTube thumbnail composition.';
 
-    setTimeout(function() {
-        var query = encodeURIComponent(promptText + " " + style);
-        var dummyImageUrl = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1280&h=720&auto=format&fit=crop"; 
-        
-        if(promptText.toLowerCase().includes('cyber') || promptText.toLowerCase().includes('game')) {
-            dummyImageUrl = "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1280&h=720&auto=format&fit=crop";
-        } else if(promptText.toLowerCase().includes('nature') || promptText.toLowerCase().includes('mountain')) {
-            dummyImageUrl = "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1280&h=720&auto=format&fit=crop";
-        }
+    try {
+        var res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/' + GEMINI_IMAGE_MODEL + ':generateContent?key=' + GEMINI_API_KEY, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ contents: [{ parts: [{ text: fullPrompt }] }] })
+        });
+        if (!res.ok) throw new Error('API request failed');
+        var data = await res.json();
+        var dataUrl = extractInlineImage(data);
+        if (!dataUrl) throw new Error('No image returned');
 
         var img = document.getElementById('generatedImgOutput');
-        img.src = dummyImageUrl;
-        
-        var downloadBtn = document.getElementById('generatedDownload');
-        downloadBtn.href = dummyImageUrl;
-        
-        spinner.style.display = 'none';
+        img.src = dataUrl;
+        document.getElementById('generatedDownload').href = dataUrl;
+
+        var probe = new Image();
+        probe.onload = function(){
+            document.getElementById('generatedDimensions').textContent = probe.width + ' x ' + probe.height + ' px';
+        };
+        probe.src = dataUrl;
+
         resultBox.style.display = 'block';
-    }, 2000);
+    } catch (err) {
+        errorDiv.style.display = 'block';
+    } finally {
+        spinner.style.display = 'none';
+        btn.disabled = false;
+    }
 });
 </script>
 </body>
