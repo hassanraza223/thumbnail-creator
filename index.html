@@ -859,7 +859,7 @@ document.getElementById('upscaleBtn').addEventListener('click', async function()
 
     if (!isGeminiConfigured()) {
         spinner.style.display = 'none';
-        errorDiv.textContent = 'AI upscaling is not configured yet — add your Gemini API key in the site code to enable this tool.';
+        errorDiv.textContent = 'AI upscaling is not configured yet —const WORKER_URL = "https://falling-brook-df86.hr5263242.workers.dev";
         errorDiv.style.display = 'block';
         return;
     }
@@ -925,7 +925,7 @@ document.getElementById('generateImgBtn').addEventListener('click', async functi
 
     if (!isGeminiConfigured()) {
         spinner.style.display = 'none';
-        errorDiv.textContent = 'AI generation is not configured yet — add your Gemini API key in the site code to enable this tool.';
+        errorDiv.textContent = 'AI generation is not configured yet — const WORKER_URL = "https://falling-brook-df86.hr5263242.workers.dev".';
         errorDiv.style.display = 'block';
         return;
     }
