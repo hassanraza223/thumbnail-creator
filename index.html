@@ -661,6 +661,13 @@
 
 <script>
 /* ─────────────────────────────────────────
+   CONFIGURATIONS
+───────────────────────────────────────── */
+var WORKER_URL = "https://falling-brook-df86.hr5263242.workers.dev";
+var GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE";
+var GEMINI_IMAGE_MODEL = "gemini-2.5-flash-image";
+
+/* ─────────────────────────────────────────
    ACCORDION
 ───────────────────────────────────────── */
 function toggleAccordion(el) {
@@ -774,19 +781,9 @@ document.getElementById('fetchThumbBtn').addEventListener('click', function(){
     else renderVimeo(parsed.id);
 });
 
-
-/* =========================================================
-   GEMINI API CONFIG — REPLACE BEFORE GOING LIVE
-   1. Get a Gemini API key from https://aistudio.google.com/apikey
-   2. Paste it below in place of "YOUR_GEMINI_API_KEY_HERE"
-   3. IMPORTANT: calling Gemini directly from client-side JS exposes
-      your key to anyone who views the page source. For production,
-      route this request through your own backend/serverless function
-      that holds the key server-side, and call that endpoint here instead.
-   ========================================================= */
-var GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE";
-var GEMINI_IMAGE_MODEL = "gemini-2.5-flash-image"; // update to whichever Gemini image model your key has access to
-
+/* ─────────────────────────────────────────
+   HELPER FUNCTIONS
+───────────────────────────────────────── */
 function isGeminiConfigured() {
     return GEMINI_API_KEY && GEMINI_API_KEY !== "YOUR_GEMINI_API_KEY_HERE";
 }
@@ -810,7 +807,7 @@ function extractInlineImage(data) {
 }
 
 /* ─────────────────────────────────────────
-   AI IMAGE UPSCALER (real Gemini call)
+   AI IMAGE UPSCALER
 ───────────────────────────────────────── */
 var dropArea = document.getElementById('dropArea');
 var fileElem = document.getElementById('fileElem');
@@ -859,7 +856,7 @@ document.getElementById('upscaleBtn').addEventListener('click', async function()
 
     if (!isGeminiConfigured()) {
         spinner.style.display = 'none';
-        errorDiv.textContent = 'AI upscaling is not configured yet —const WORKER_URL = "https://falling-brook-df86.hr5263242.workers.dev";
+        errorDiv.textContent = 'AI upscaling is not configured yet.';
         errorDiv.style.display = 'block';
         return;
     }
@@ -905,7 +902,7 @@ document.getElementById('upscaleBtn').addEventListener('click', async function()
 });
 
 /* ─────────────────────────────────────────
-   AI TEXT TO IMAGE GENERATOR (real Gemini call)
+   AI TEXT TO IMAGE GENERATOR
 ───────────────────────────────────────── */
 document.getElementById('generateImgBtn').addEventListener('click', async function() {
     var promptText = document.getElementById('imagePrompt').value.trim();
@@ -925,7 +922,7 @@ document.getElementById('generateImgBtn').addEventListener('click', async functi
 
     if (!isGeminiConfigured()) {
         spinner.style.display = 'none';
-        errorDiv.textContent = 'AI generation is not configured yet — const WORKER_URL = "https://falling-brook-df86.hr5263242.workers.dev".';
+        errorDiv.textContent = 'AI generation is not configured yet.';
         errorDiv.style.display = 'block';
         return;
     }
