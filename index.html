@@ -775,21 +775,18 @@ document.getElementById('fetchThumbBtn').addEventListener('click', function(){
 });
 
 /* =========================================================
-   GEMINI API CONFIG — REPLACE BEFORE GOING LIVE
+   GEMINI & WORKER API CONFIG
    1. Get a Gemini API key from https://aistudio.google.com/apikey
-   2. Paste it below in place of "YOUR_GEMINI_API_KEY_HERE"
-   3. IMPORTANT: calling Gemini directly from client-side JS exposes
-      your key to anyone who views the page source. For production,
-      route this request through your own backend/serverless function
-      that holds the key server-side, and call that endpoint here instead.
+   2. Route requests through your Cloudflare Worker endpoint
+      to protect your API key server-side.
    ========================================================= */
+var WORKER_URL = "https://falling-brook-df86.hr5263242.workers.dev";
 var GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE";
 var GEMINI_IMAGE_MODEL = "gemini-2.5-flash-image"; // update to whichever Gemini image model your key has access to
 
 function isGeminiConfigured() {
-    return GEMINI_API_KEY && GEMINI_API_KEY !== "YOUR_GEMINI_API_KEY_HERE";
+    return (WORKER_URL && WORKER_URL !== "") || (GEMINI_API_KEY && GEMINI_API_KEY !== "YOUR_GEMINI_API_KEY_HERE");
 }
-
 function fileToBase64(file) {
     return new Promise(function(resolve, reject){
         var reader = new FileReader();
