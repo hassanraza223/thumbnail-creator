@@ -452,100 +452,99 @@ footer a:hover{color:#fff;}
 </footer>
 
 <script>
+// Close dropdown when clicked outside
 document.addEventListener('click', function(e){
   const dd = document.getElementById('toolsDropdown');
-  if(!dd.contains(e.target)) dd.classList.remove('open');
+  if(dd && !dd.contains(e.target)) dd.classList.remove('open');
 });
 
-/* =========================================================
-   WORKER API CONFIG
-   Route requests through your Cloudflare Worker endpoint
-   to protect your credentials.
-   ========================================================= */
+// WORKER URL CONFIG
 var WORKER_URL = "https://falling-brook-df86.hr5263242.workers.dev";
-const GEMINI_IMAGE_MODEL = "gemini-2.5-flash-image"; // update to whichever Gemini image model your key has access to
 
-let selectedStyle = 'Photorealistic';
-let selectedRatio = '16:9';
-
-document.querySelectorAll('#styleGroup .pill').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    document.querySelectorAll('#styleGroup .pill').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    selectedStyle = btn.dataset.value;
+// UI Pill Selection logic
+function setupPills(containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  const pills = container.querySelectorAll('.pill');
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+    });
   });
-});
-document.querySelectorAll('#ratioGroup .pill').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    document.querySelectorAll('#ratioGroup .pill').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    selectedRatio = btn.dataset.value;
-  });
-});
+}
 
-const generateBtn = document.getElementById('generateBtn');
-const errorBox = document.getElementById('errorBox');
-const loadingBox = document.getElementById('loadingBox');
-const resultBox = document.getElementById('resultBox');
-const resultImg = document.getElementById('resultImg');
-const resultDims = document.getElementById('resultDims');
-const downloadLink = document.getElementById('downloadLink');
+setupPills('styleGroup');
+setupPills('ratioGroup');
 
-const ratioDims = {
-  '16:9': [1280,720],
-  '1:1': [1080,1080],
-  '9:16': [1080,1920]
-};
+// Generate Image Function
+document.getElementById('generateBtn').addEventListener('click', async function() {
+  const promptInput = document.getElementById('promptInput').value.trim();
+  const errorBox = document.getElementById('errorBox');
+  const loadingBox = document.getElementById('loadingBox');
+  const resultBox = document.getElementById('resultBox');
+  const generateBtn = document.getElementById('generateBtn');
 
-generateBtn.addEventListener('click', async ()=>{
-  const prompt = document.getElementById('promptInput').value.trim();
+  if (!promptInput) {
+    errorBox.innerText = "Please enter a prompt to generate an image.";
+    errorBox.style.display = 'block';
+    return;
+  }
+
+  // Reset display
   errorBox.style.display = 'none';
   resultBox.style.display = 'none';
-
-  if(!prompt){
-    errorBox.textContent = 'Please describe what you want to generate.';
-    errorBox.style.display = 'block';
-    return;
-  }
-  if(GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY_HERE'){
-    errorBox.textContent = 'AI generation is not configured yet — add your Gemini API key in the site code to enable this tool.';
-    errorBox.style.display = 'block';
-    return;
-  }
-
   loadingBox.style.display = 'block';
   generateBtn.disabled = true;
 
-  const fullPrompt = `${prompt}. Style: ${selectedStyle}. Aspect ratio: ${selectedRatio}. High quality, eye-catching YouTube thumbnail composition.`;
+  const activeStyle = document.querySelector('#styleGroup .pill.active')?.dataset.value || 'Photorealistic';
+  const activeRatio = document.querySelector('#ratioGroup .pill.active')?.dataset.value || '16:9';
 
-  try{
-    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_IMAGE_MODEL}:generateContent?key=${GEMINI_API_KEY}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+  const fullPrompt = `${promptInput}, ${activeStyle} style, high quality thumbnail artwork, ${activeRatio} aspect ratio`;
+
+  try {
+    const response = await fetch(WORKER_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        contents: [{ parts: [{ text: fullPrompt }] }]
+        contents: [
+          {
+            parts: [{ text: fullPrompt }]
+          }
+        ]
       })
     });
-    if(!res.ok) throw new Error('API request failed');
-    const data = await res.json();
 
-    // Extract the first inline image data returned by Gemini
-    const parts = data?.candidates?.[0]?.content?.parts || [];
-    const imagePart = parts.find(p => p.inlineData || p.inline_data);
-    const inline = imagePart?.inlineData || imagePart?.inline_data;
-    if(!inline) throw new Error('No image returned');
+    const data = await response.json();
 
-    const mime = inline.mimeType || inline.mime_type || 'image/png';
-    const b64 = inline.data;
-    const dataUrl = `data:${mime};base64,${b64}`;
+    if (!response.ok || data.error) {
+      throw new Error(data.error?.message || "Failed to generate image.");
+    }
 
-    resultImg.src = dataUrl;
-    const [w,h] = ratioDims[selectedRatio];
-    resultDims.textContent = `${w} × ${h} px`;
-    downloadLink.href = dataUrl;
+    // Extract image from response (assuming inlineData/b64 returned by Worker)
+    let imageUri = "";
+    const candidate = data.candidates?.[0];
+    const part = candidate?.content?.parts?.[0];
+
+    if (part && part.inlineData) {
+      imageUri = `data:${part.inlineData.mimeType};base64,${part.inlineData.data}`;
+    } else if (data.image) {
+      imageUri = data.image;
+    } else {
+      throw new Error("No image data received from backend.");
+    }
+
+    // Display Result
+    const resultImg = document.getElementById('resultImg');
+    const downloadLink = document.getElementById('downloadLink');
+
+    resultImg.src = imageUri;
+    downloadLink.href = imageUri;
     resultBox.style.display = 'block';
-  } catch(err){
-    errorBox.textContent = 'Generation failed. Please try a different prompt.';
+
+  } catch (err) {
+    console.error("Generation Error:", err);
+    errorBox.innerText = err.message || "Generation failed. Please try again.";
     errorBox.style.display = 'block';
   } finally {
     loadingBox.style.display = 'none';
