@@ -774,19 +774,18 @@ document.getElementById('fetchThumbBtn').addEventListener('click', function(){
     else renderVimeo(parsed.id);
 });
 
+
 /* =========================================================
-   GEMINI & WORKER API CONFIG
-   1. Get a Gemini API key from https://aistudio.google.com/apikey
-   2. Route requests through your Cloudflare Worker endpoint
-      to protect your API key server-side.
+   GEMINI API CONFIG — SECURE (via Cloudflare Worker)
+   Key is stored as a secret inside the Cloudflare Worker, never here.
    ========================================================= */
 var WORKER_URL = "https://falling-brook-df86.hr5263242.workers.dev";
-var GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE";
 var GEMINI_IMAGE_MODEL = "gemini-2.5-flash-image"; // update to whichever Gemini image model your key has access to
 
 function isGeminiConfigured() {
-    return (WORKER_URL && WORKER_URL !== "") || (GEMINI_API_KEY && GEMINI_API_KEY !== "YOUR_GEMINI_API_KEY_HERE");
+    return WORKER_URL && WORKER_URL.indexOf('PASTE_') !== 0;
 }
+
 function fileToBase64(file) {
     return new Promise(function(resolve, reject){
         var reader = new FileReader();
@@ -855,7 +854,7 @@ document.getElementById('upscaleBtn').addEventListener('click', async function()
 
     if (!isGeminiConfigured()) {
         spinner.style.display = 'none';
-        errorDiv.textContent = 'AI upscaling is not configured yet —const WORKER_URL = "https://falling-brook-df86.hr5263242.workers.dev";
+        errorDiv.textContent = 'AI upscaling is not configured yet — deploy the Cloudflare Worker and paste its URL in the site code to enable this tool.';
         errorDiv.style.display = 'block';
         return;
     }
@@ -865,10 +864,11 @@ document.getElementById('upscaleBtn').addEventListener('click', async function()
 
     try {
         var base64 = await fileToBase64(activeImageFile);
-        var res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/' + GEMINI_IMAGE_MODEL + ':generateContent?key=' + GEMINI_API_KEY, {
+        var res = await fetch(WORKER_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
+                model: GEMINI_IMAGE_MODEL,
                 contents: [{
                     parts: [
                         { text: 'Upscale this image to ' + scale + 'x resolution. Sharpen fine details, reduce noise and compression artifacts, and keep the exact same composition, colors, and content — do not add or remove anything.' },
@@ -921,7 +921,7 @@ document.getElementById('generateImgBtn').addEventListener('click', async functi
 
     if (!isGeminiConfigured()) {
         spinner.style.display = 'none';
-        errorDiv.textContent = 'AI generation is not configured yet — const WORKER_URL = "https://falling-brook-df86.hr5263242.workers.dev".';
+        errorDiv.textContent = 'AI generation is not configured yet — deploy the Cloudflare Worker and paste its URL in the site code to enable this tool.';
         errorDiv.style.display = 'block';
         return;
     }
@@ -933,10 +933,10 @@ document.getElementById('generateImgBtn').addEventListener('click', async functi
     var fullPrompt = promptText + '. Art style: ' + style + '. Aspect ratio: ' + aspect + '. High quality, eye-catching YouTube thumbnail composition.';
 
     try {
-        var res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/' + GEMINI_IMAGE_MODEL + ':generateContent?key=' + GEMINI_API_KEY, {
+        var res = await fetch(WORKER_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ contents: [{ parts: [{ text: fullPrompt }] }] })
+            body: JSON.stringify({ model: GEMINI_IMAGE_MODEL, contents: [{ parts: [{ text: fullPrompt }] }] })
         });
         if (!res.ok) throw new Error('API request failed');
         var data = await res.json();
