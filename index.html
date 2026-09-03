@@ -39,16 +39,17 @@
       {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://thumbnailcreator.online/"}]},
       {"@context":"https://schema.org","@type":"SoftwareApplication","name":"ThumbnailCreator","applicationCategory":"MultimediaApplication","operatingSystem":"Any (Web Browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},
       {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-        {"@type":"Question","name":"Is this tool totally free?","acceptedAnswer":{"@type":"Answer","text":"Yes — 100% free, no account needed, no hidden fees, no daily limits."}},
-        {"@type":"Question","name":"Can I download a YouTube thumbnail without a watermark?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every thumbnail you download through ThumbnailCreator is the original file straight from YouTube's or Vimeo's CDN — no watermark, no overlay, no editing added."}},
-        {"@type":"Question","name":"Do I need to log in or sign up?","acceptedAnswer":{"@type":"Answer","text":"No. There is no login, no sign-up, and no email required. Paste a link and download instantly."}},
-        {"@type":"Question","name":"Does this work for YouTube Shorts?","acceptedAnswer":{"@type":"Answer","text":"Yes. Paste any youtube.com/shorts/... URL and all available thumbnail sizes appear instantly."}},
-        {"@type":"Question","name":"What is the maximum thumbnail resolution?","acceptedAnswer":{"@type":"Answer","text":"We fetch up to 4K MaxRes (1920x1080) where available, plus HD, SD, MQ, and Minimal — all shown at once."}},
-        {"@type":"Question","name":"Which platforms are supported?","acceptedAnswer":{"@type":"Answer","text":"YouTube (including Shorts, embeds, short links) and Vimeo."}},
-        {"@type":"Question","name":"Is downloading YouTube thumbnails legal?","acceptedAnswer":{"@type":"Answer","text":"Yes. Thumbnails are publicly accessible images. Downloading for personal use, research, or reference is legal."}},
-        {"@type":"Question","name":"Does ThumbnailCreator save my links?","acceptedAnswer":{"@type":"Answer","text":"No. We never store your URLs or generated content. Everything runs in real time."}}
-      ]}
-    ]
+        {"@type":"Question","name":"Is ThumbnailCreator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes. ThumbnailCreator can be used without creating an account. Individual tool or platform limits may apply."}},
+        {"@type":"Question","name":"Can I download a YouTube thumbnail without a watermark?","acceptedAnswer":{"@type":"Answer","text":"Yes. ThumbnailCreator does not add a watermark or branding to downloaded thumbnails."}},
+        {"@type":"Question","name":"Do I need to log in or sign up?","acceptedAnswer":{"@type":"Answer","text":"No. The thumbnail downloader does not require an account, login, or email."}},
+        {"@type":"Question","name":"Does ThumbnailCreator work with YouTube Shorts?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can paste a supported YouTube Shorts URL and retrieve the thumbnail when it is available."}},
+        {"@type":"Question","name":"What thumbnail resolutions are available?","acceptedAnswer":{"@type":"Answer","text":"Available resolutions depend on the video and what the platform provides. ThumbnailCreator displays the available image options it can retrieve."}},
+        {"@type":"Question","name":"Which platforms are supported?","acceptedAnswer":{"@type":"Answer","text":"The downloader supports YouTube URLs, including Shorts and youtu.be links, as well as supported Vimeo URLs."}},
+        {"@type":"Question","name":"Can I reuse a downloaded thumbnail commercially?","acceptedAnswer":{"@type":"Answer","text":"Downloading an image does not automatically grant copyright or commercial-use rights. Check the creator's permissions, applicable copyright law, and platform rules before reuse."}},
+        {"@type":"Question","name":"Does ThumbnailCreator store my video URLs?","acceptedAnswer":{"@type":"Answer","text":"The homepage downloader is designed to process thumbnail requests in real time and does not require an account or saved history."}},
+        {"@type":"Question","name":"Can I use ThumbnailCreator on mobile?","acceptedAnswer":{"@type":"Answer","text":"Yes. The website is designed to work in modern mobile and desktop web browsers."}},
+        {"@type":"Question","name":"What can I do besides download thumbnails?","acceptedAnswer":{"@type":"Answer","text":"ThumbnailCreator also provides tools for making, editing, cropping, resizing, generating text, and removing backgrounds from thumbnail images."}}
+      ]}    ]
     </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -260,17 +261,10 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
                     Thumbnail Resizer
                 </a>
-                <a href="#upscaleWorkspace" class="dropdown-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-                    AI Image Upscaler
-                </a>
-                <a href="#textToImageWorkspace" class="dropdown-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-                    AI Text to Image
-                </a>
             </div>
         </li>
         <li><a href="#why-choose">Why Us</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
         <li><a href="#blog">Blog</a></li>
         <li><a href="/how-to-use">How to Use</a></li>
         <li><a href="/api-docs" style="color:var(--primary);font-weight:700">API</a></li>
@@ -311,98 +305,6 @@
                 <div class="resolution-grid" id="resolutionGrid"></div>
             </div>
         </div>
-    </div>
-
-    <div class="tools-workspace-container" id="new-tools-workspace">
-
-        <div class="workspace-card" id="upscaleWorkspace">
-            <h2 style="font-size:20px; font-weight:800; margin-bottom:15px; border-bottom: 2px solid var(--border-color); padding-bottom:8px; text-align:left;">
-                ✨ AI Image Upscaler (Super Resolution)
-            </h2>
-            <div class="upload-area" id="dropArea">
-                <input type="file" id="fileElem" accept="image/*" style="display:none">
-                <p>Drag & Drop your image here or <strong>Browse</strong></p>
-                <span>Supports JPG, PNG, WEBP (Up to 10MB)</span>
-            </div>
-            <div class="file-preview" id="filePreviewContainer">
-                <img id="upscaleInputPreview" src="" alt="Source Image">
-            </div>
-
-            <label style="margin-top:15px;">Choose Upscale Scale:</label>
-            <select id="upscaleScale">
-                <option value="2">2x (Double Resolution)</option>
-                <option value="4">4x (Ultra HD Quality)</option>
-            </select>
-
-            <button class="action-btn" id="upscaleBtn">Upscale Image Now</button>
-            <div class="spinner" id="upscaleSpinner"><div></div></div>
-            <div class="fetch-error" id="upscaleError">Something went wrong during upscaling. Please try again.</div>
-
-            <div class="preview-box" id="upscaleResultBox">
-                <label style="margin-bottom:12px;">Upscaled Image Output:</label>
-                <div class="res-card" style="border-color: var(--primary)">
-                    <img id="upscaledImgOutput" src="" alt="Upscaled Image" style="aspect-ratio:auto;">
-                    <div class="res-card-footer">
-                        <div class="res-info">
-                            <div class="res-label">Upscaled Output</div>
-                            <div class="res-size" id="upscaledDimensions">4000 x 2250 px</div>
-                        </div>
-                        <div class="res-actions">
-                            <a class="res-dl-btn" id="upscaleDownload" href="#" download="upscaled-thumbnail.png">Download HD</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="workspace-card" id="textToImageWorkspace">
-            <h2 style="font-size:20px; font-weight:800; margin-bottom:15px; border-bottom: 2px solid var(--border-color); padding-bottom:8px; text-align:left;">
-                🎨 AI Text to Image Generator
-            </h2>
-            <label>Describe your image / Prompt:</label>
-            <input type="text" id="imagePrompt" placeholder="A futuristic cyberpunk gaming setup, neon lights, 8k resolution...">
-
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-                <div>
-                    <label>Aspect Ratio:</label>
-                    <select id="imageAspect">
-                        <option value="16:9">16:9 (YouTube Standard)</option>
-                        <option value="1:1">1:1 (Square)</option>
-                        <option value="9:16">9:16 (Shorts/TikTok)</option>
-                    </select>
-                </div>
-                <div>
-                    <label>Art Style:</label>
-                    <select id="imageStyle">
-                        <option value="photorealistic">Photorealistic</option>
-                        <option value="3d-render">3D Render & Clay</option>
-                        <option value="anime">Anime / Manga</option>
-                        <option value="cyberpunk">Cyberpunk</option>
-                    </select>
-                </div>
-            </div>
-
-            <button class="action-btn" id="generateImgBtn">Generate AI Image</button>
-            <div class="spinner" id="generatorSpinner"><div></div></div>
-            <div class="fetch-error" id="generatorError">Generation failed. Please try a different prompt.</div>
-
-            <div class="preview-box" id="generatedResultBox">
-                <label style="margin-bottom:12px;">Generated AI Art:</label>
-                <div class="res-card" style="border-color: var(--primary)">
-                    <img id="generatedImgOutput" src="" alt="AI Generated Artwork" style="aspect-ratio:auto;">
-                    <div class="res-card-footer">
-                        <div class="res-info">
-                            <div class="res-label">AI Generation</div>
-                            <div class="res-size" id="generatedDimensions">1280 x 720 px</div>
-                        </div>
-                        <div class="res-actions">
-                            <a class="res-dl-btn" id="generatedDownload" href="#" download="ai-generated-thumbnail.png">Download Image</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 </header>
 
@@ -501,17 +403,41 @@
     </div>
 </section>
 
+<section class="value-section" id="how-it-works">
+    <h2 style="font-size:32px;font-weight:800">How to Download a YouTube Thumbnail</h2>
+    <p style="color:var(--text-muted);max-width:760px;margin:15px auto;text-align:center">Use the downloader to quickly check the thumbnail images available for a YouTube or supported Vimeo video. No account is required.</p>
+    <div class="grid-container">
+        <div class="feature-card">
+            <h4>1. Copy the Video URL</h4>
+            <p>Copy the URL of the YouTube video, YouTube Short, youtu.be link, or supported Vimeo video you want to check.</p>
+        </div>
+        <div class="feature-card">
+            <h4>2. Paste It Into the Downloader</h4>
+            <p>Paste the link into the thumbnail downloader and select the option to fetch the available thumbnail images.</p>
+        </div>
+        <div class="feature-card">
+            <h4>3. Choose an Available Image</h4>
+            <p>Review the returned thumbnail options and download the image resolution that is available for that video.</p>
+        </div>
+    </div>
+    <div class="ranking-paragraph-box">
+        <h3 style="font-size:20px;font-weight:700;margin-bottom:12px;color:var(--secondary)">A Practical Thumbnail Research Workflow</h3>
+        <p>Creators can use thumbnail references to study how different channels use composition, contrast, faces, typography, and visual hierarchy. Use those references for inspiration while creating original designs for your own videos.</p>
+        <p>For creating and refining original thumbnails, ThumbnailCreator also provides dedicated tools for thumbnail making, editing, cropping, resizing, text styling, background removal, and AI thumbnail generation.</p>
+    </div>
+</section>
+
 <section class="value-section" id="why-choose">
     <h2 style="font-size:32px;font-weight:800">Why Choose ThumbnailCreator?</h2>
-    <p style="color:var(--text-muted);max-width:700px;margin:15px auto">The ultimate free tool that lets you download YouTube thumbnails without a watermark — no login, no daily limits.</p>
+    <p style="color:var(--text-muted);max-width:700px;margin:15px auto">A simple toolkit for downloading, creating, editing, and preparing thumbnail images without requiring an account.</p>
     <div class="grid-container">
         <div class="feature-card">
             <h4>No Watermark, No Login, No Catch</h4>
             <p>Every thumbnail you download is the original file straight from YouTube's or Vimeo's CDN — no overlay, no branding added, no account required. Study top creators' thumbnails as a free design reference.</p>
         </div>
         <div class="feature-card">
-            <h4>4K MaxRes in Under 2 Seconds</h4>
-            <p>Paste a video URL and get all 5 thumbnail sizes immediately — 4K MaxRes (1920×1080) where available, HD, SD, MQ and Minimal. No waiting, no sign-up, no email required.</p>
+            <h4>Highest Available Quality, Fast Results</h4>
+            <p>Paste a video URL to check the available thumbnail resolutions. Results depend on what the platform makes available for that video; no sign-up or email is required.</p>
         </div>
         <div class="feature-card">
             <h4>Full Shorts Support</h4>
@@ -524,7 +450,7 @@
     </div>
     <div class="ranking-paragraph-box">
         <h3 style="font-size:20px;font-weight:700;margin-bottom:12px;color:var(--secondary)">Zero Sign-Ups. Quick & Free.</h3>
-        <p>Growing a channel on YouTube is harder than ever. With millions of videos uploaded daily, your thumbnail is the first thing a viewer sees — and they decide in less than a second whether to click. A great thumbnail can double or triple your click-through rate, which directly signals the algorithm to push your content to more people.</p>
+        <p>Growing a channel on YouTube is harder than ever. With millions of videos uploaded daily, your thumbnail is the first thing a viewer sees — and they decide in less than a second whether to click. A clear, relevant thumbnail can improve how your video is presented to potential viewers, but results vary by audience, topic, title, and content quality.</p>
         <p>ThumbnailCreator gives you the power to download YouTube thumbnails without a watermark from top-performing videos to study what works in your niche — completely free, no login needed, nothing ever saved to our servers.</p>
     </div>
 </section>
@@ -532,40 +458,44 @@
 <section class="faq-section" id="faqs">
     <h2 style="text-align:center;margin-bottom:40px;font-size:32px;font-weight:800">Frequently Asked Questions</h2>
     <div class="accordion-item">
-        <button class="accordion-header" onclick="toggleAccordion(this)">Is this tool totally free? <span>+</span></button>
-        <div class="accordion-content"><p style="padding:10px 0">Yes — 100% free, no account needed, no hidden fees, no daily limits. Use it as much as you want.</p></div>
+        <button class="accordion-header" onclick="toggleAccordion(this)">Is ThumbnailCreator free to use? <span>+</span></button>
+        <div class="accordion-content"><p style="padding:10px 0">Yes. ThumbnailCreator can be used without creating an account. Individual tool or platform limits may apply.</p></div>
     </div>
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion(this)">Can I download a YouTube thumbnail without a watermark? <span>+</span></button>
-        <div class="accordion-content"><p style="padding:10px 0">Yes. Every thumbnail you download is the original file straight from YouTube's or Vimeo's CDN — no watermark, no overlay, no branding added.</p></div>
+        <div class="accordion-content"><p style="padding:10px 0">Yes. ThumbnailCreator does not add a watermark or branding to downloaded thumbnails.</p></div>
     </div>
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion(this)">Do I need to log in or sign up? <span>+</span></button>
-        <div class="accordion-content"><p style="padding:10px 0">No. There's no login, no sign-up, and no email required — paste a link and download instantly.</p></div>
+        <div class="accordion-content"><p style="padding:10px 0">No. The thumbnail downloader does not require an account, login, or email.</p></div>
     </div>
     <div class="accordion-item">
-        <button class="accordion-header" onclick="toggleAccordion(this)">Does this work for YouTube Shorts? <span>+</span></button>
-        <div class="accordion-content"><p style="padding:10px 0">Yes. Paste any YouTube Shorts URL (youtube.com/shorts/...) and all available thumbnail sizes appear instantly.</p></div>
+        <button class="accordion-header" onclick="toggleAccordion(this)">Does ThumbnailCreator work with YouTube Shorts? <span>+</span></button>
+        <div class="accordion-content"><p style="padding:10px 0">Yes. You can paste a supported YouTube Shorts URL and retrieve the thumbnail when it is available.</p></div>
     </div>
     <div class="accordion-item">
-        <button class="accordion-header" onclick="toggleAccordion(this)">Is the 4K MaxRes option available for every video? <span>+</span></button>
-        <div class="accordion-content"><p style="padding:10px 0">No — YouTube only creates a 4K thumbnail if the creator uploaded a custom image at that resolution. Videos without a custom thumbnail are usually limited to 1280×720 HD. Cards that are unavailable hide themselves automatically.</p></div>
+        <button class="accordion-header" onclick="toggleAccordion(this)">What thumbnail resolutions are available? <span>+</span></button>
+        <div class="accordion-content"><p style="padding:10px 0">Available resolutions depend on the video and what the platform provides. ThumbnailCreator displays the available image options it can retrieve.</p></div>
     </div>
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion(this)">Which platforms are supported? <span>+</span></button>
-        <div class="accordion-content"><p style="padding:10px 0">YouTube (standard videos, Shorts, embeds, short youtu.be links) and Vimeo.</p></div>
+        <div class="accordion-content"><p style="padding:10px 0">The downloader supports YouTube URLs, including Shorts and youtu.be links, as well as supported Vimeo URLs.</p></div>
     </div>
     <div class="accordion-item">
-        <button class="accordion-header" onclick="toggleAccordion(this)">Is downloading YouTube thumbnails legal? <span>+</span></button>
-        <div class="accordion-content"><p style="padding:10px 0">Yes. Thumbnails are publicly accessible images. Downloading for personal use, design reference, or research is legal. Do not reuse someone else's thumbnail commercially or claim it as your own. See our <a href="/disclaimer" style="color:var(--primary)">Disclaimer</a>.</p></div>
+        <button class="accordion-header" onclick="toggleAccordion(this)">Can I reuse a downloaded thumbnail commercially? <span>+</span></button>
+        <div class="accordion-content"><p style="padding:10px 0">Downloading an image does not automatically grant copyright or commercial-use rights. Check the creator's permissions, applicable copyright law, and platform rules before reuse. See our <a href="/disclaimer" style="color:var(--primary)">Disclaimer</a>.</p></div>
     </div>
     <div class="accordion-item">
-        <button class="accordion-header" onclick="toggleAccordion(this)">Does ThumbnailCreator save my data? <span>+</span></button>
-        <div class="accordion-content"><p style="padding:10px 0">No. We never store your video URLs or downloaded content. Everything is processed in real time.</p></div>
+        <button class="accordion-header" onclick="toggleAccordion(this)">Does ThumbnailCreator store my video URLs? <span>+</span></button>
+        <div class="accordion-content"><p style="padding:10px 0">The homepage downloader is designed to process thumbnail requests in real time and does not require an account or saved history.</p></div>
     </div>
     <div class="accordion-item">
-        <button class="accordion-header" onclick="toggleAccordion(this)">Is there a limit on downloads? <span>+</span></button>
-        <div class="accordion-content"><p style="padding:10px 0">No limits at all. Download as many thumbnails as you need, any time, completely free.</p></div>
+        <button class="accordion-header" onclick="toggleAccordion(this)">Can I use ThumbnailCreator on mobile? <span>+</span></button>
+        <div class="accordion-content"><p style="padding:10px 0">Yes. The website is designed to work in modern mobile and desktop web browsers.</p></div>
+    </div>
+    <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">What can I do besides download thumbnails? <span>+</span></button>
+        <div class="accordion-content"><p style="padding:10px 0">ThumbnailCreator also provides tools for making, editing, cropping, resizing, generating text, and removing backgrounds from thumbnail images.</p></div>
     </div>
 </section>
 
@@ -775,192 +705,7 @@ document.getElementById('fetchThumbBtn').addEventListener('click', function(){
 });
 
 
-/* =========================================================
-   GEMINI API CONFIG — SECURE (via Cloudflare Worker)
-   Key is stored as a secret inside the Cloudflare Worker, never here.
-   ========================================================= */
-var WORKER_URL = "https://falling-brook-df86.hr5263242.workers.dev";
-var GEMINI_IMAGE_MODEL = "gemini-2.5-flash-image"; // update to whichever Gemini image model your key has access to
 
-function isGeminiConfigured() {
-    return WORKER_URL && WORKER_URL.indexOf('PASTE_') !== 0;
-}
-
-function fileToBase64(file) {
-    return new Promise(function(resolve, reject){
-        var reader = new FileReader();
-        reader.onload = function(){ resolve(reader.result.split(',')[1]); };
-        reader.onerror = reject;
-        reader.readAsDataURL(file);
-    });
-}
-
-function extractInlineImage(data) {
-    var parts = (data && data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts) || [];
-    var imagePart = parts.find(function(p){ return p.inlineData || p.inline_data; });
-    if (!imagePart) return null;
-    var inline = imagePart.inlineData || imagePart.inline_data;
-    var mime = inline.mimeType || inline.mime_type || 'image/png';
-    return 'data:' + mime + ';base64,' + inline.data;
-}
-
-/* ─────────────────────────────────────────
-   AI IMAGE UPSCALER (real Gemini call)
-───────────────────────────────────────── */
-var dropArea = document.getElementById('dropArea');
-var fileElem = document.getElementById('fileElem');
-var filePreviewContainer = document.getElementById('filePreviewContainer');
-var upscaleInputPreview = document.getElementById('upscaleInputPreview');
-var activeImageFile = null;
-
-dropArea.addEventListener('click', function() { fileElem.click(); });
-dropArea.addEventListener('dragover', function(e) { e.preventDefault(); });
-dropArea.addEventListener('drop', function(e) {
-    e.preventDefault();
-    if (e.dataTransfer.files.length) {
-        handleFileSelect(e.dataTransfer.files[0]);
-    }
-});
-fileElem.addEventListener('change', function() {
-    if (this.files.length) {
-        handleFileSelect(this.files[0]);
-    }
-});
-
-function handleFileSelect(file) {
-    activeImageFile = file;
-    var reader = new FileReader();
-    reader.onload = function(e) {
-        upscaleInputPreview.src = e.target.result;
-        filePreviewContainer.style.display = 'block';
-    }
-    reader.readAsDataURL(file);
-}
-
-document.getElementById('upscaleBtn').addEventListener('click', async function() {
-    if (!activeImageFile) {
-        alert("Please upload or drag an image first!");
-        return;
-    }
-
-    var spinner = document.getElementById('upscaleSpinner');
-    var errorDiv = document.getElementById('upscaleError');
-    var resultBox = document.getElementById('upscaleResultBox');
-    var btn = this;
-
-    spinner.style.display = 'block';
-    errorDiv.style.display = 'none';
-    resultBox.style.display = 'none';
-
-    if (!isGeminiConfigured()) {
-        spinner.style.display = 'none';
-        errorDiv.textContent = 'AI upscaling is not configured yet — deploy the Cloudflare Worker and paste its URL in the site code to enable this tool.';
-        errorDiv.style.display = 'block';
-        return;
-    }
-
-    btn.disabled = true;
-    var scale = document.getElementById('upscaleScale').value;
-
-    try {
-        var base64 = await fileToBase64(activeImageFile);
-        var res = await fetch(WORKER_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                model: GEMINI_IMAGE_MODEL,
-                contents: [{
-                    parts: [
-                        { text: 'Upscale this image to ' + scale + 'x resolution. Sharpen fine details, reduce noise and compression artifacts, and keep the exact same composition, colors, and content — do not add or remove anything.' },
-                        { inlineData: { mimeType: activeImageFile.type || 'image/png', data: base64 } }
-                    ]
-                }]
-            })
-        });
-        if (!res.ok) throw new Error('API request failed');
-        var data = await res.json();
-        var dataUrl = extractInlineImage(data);
-        if (!dataUrl) throw new Error('No image returned');
-
-        document.getElementById('upscaledImgOutput').src = dataUrl;
-        document.getElementById('upscaleDownload').href = dataUrl;
-
-        var img = new Image();
-        img.onload = function(){
-            document.getElementById('upscaledDimensions').textContent = img.width + ' x ' + img.height + ' px';
-        };
-        img.src = dataUrl;
-
-        resultBox.style.display = 'block';
-    } catch (err) {
-        errorDiv.style.display = 'block';
-    } finally {
-        spinner.style.display = 'none';
-        btn.disabled = false;
-    }
-});
-
-/* ─────────────────────────────────────────
-   AI TEXT TO IMAGE GENERATOR (real Gemini call)
-───────────────────────────────────────── */
-document.getElementById('generateImgBtn').addEventListener('click', async function() {
-    var promptText = document.getElementById('imagePrompt').value.trim();
-    if (!promptText) {
-        alert("Please enter an image prompt description!");
-        return;
-    }
-
-    var spinner = document.getElementById('generatorSpinner');
-    var errorDiv = document.getElementById('generatorError');
-    var resultBox = document.getElementById('generatedResultBox');
-    var btn = this;
-
-    spinner.style.display = 'block';
-    errorDiv.style.display = 'none';
-    resultBox.style.display = 'none';
-
-    if (!isGeminiConfigured()) {
-        spinner.style.display = 'none';
-        errorDiv.textContent = 'AI generation is not configured yet — deploy the Cloudflare Worker and paste its URL in the site code to enable this tool.';
-        errorDiv.style.display = 'block';
-        return;
-    }
-
-    btn.disabled = true;
-
-    var aspect = document.getElementById('imageAspect').value;
-    var style = document.getElementById('imageStyle').value;
-    var fullPrompt = promptText + '. Art style: ' + style + '. Aspect ratio: ' + aspect + '. High quality, eye-catching YouTube thumbnail composition.';
-
-    try {
-        var res = await fetch(WORKER_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ model: GEMINI_IMAGE_MODEL, contents: [{ parts: [{ text: fullPrompt }] }] })
-        });
-        if (!res.ok) throw new Error('API request failed');
-        var data = await res.json();
-        var dataUrl = extractInlineImage(data);
-        if (!dataUrl) throw new Error('No image returned');
-
-        var img = document.getElementById('generatedImgOutput');
-        img.src = dataUrl;
-        document.getElementById('generatedDownload').href = dataUrl;
-
-        var probe = new Image();
-        probe.onload = function(){
-            document.getElementById('generatedDimensions').textContent = probe.width + ' x ' + probe.height + ' px';
-        };
-        probe.src = dataUrl;
-
-        resultBox.style.display = 'block';
-    } catch (err) {
-        errorDiv.style.display = 'block';
-    } finally {
-        spinner.style.display = 'none';
-        btn.disabled = false;
-    }
-});
 </script>
 </body>
 </html>
