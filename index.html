@@ -70,10 +70,11 @@
         .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .logo { font-size: 22px; font-weight: 800; color: var(--secondary); text-decoration: none; }
         .logo span { color: var(--primary); }
-        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--secondary); font-weight: 600; font-size: 15px; transition: .2s; }
+        .nav-links { display: flex; flex-wrap: nowrap; gap: 22px; list-style: none; align-items: center; }
+        .nav-links > li { white-space: nowrap; flex-shrink: 0; }
+        .nav-links a { text-decoration: none; color: var(--secondary); font-weight: 600; font-size: 14.5px; transition: .2s; white-space: nowrap; }
         .nav-links a:hover { color: var(--primary); }
-        .btn-start { background: var(--secondary); color: white !important; padding: 10px 20px; border-radius: 8px; transition: .3s; }
+        .btn-start { background: var(--secondary); color: white !important; padding: 10px 18px; border-radius: 8px; transition: .3s; display: inline-block; white-space: nowrap; }
         .btn-start:hover { background: var(--primary-dark); }
 
         /* DROPDOWN MENU */
@@ -201,8 +202,14 @@
         .footer-legal-links a { color: #64748b; text-decoration: none; margin-left: 18px; font-size: 13px; }
         .footer-legal-links a:hover { color: #fff; }
 
+        @media (max-width: 1200px) {
+            .nav-links { gap: 14px; }
+            .nav-links a { font-size: 13.5px; }
+            .btn-start { padding: 9px 14px; }
+        }
         @media (max-width: 1024px) {
-            .nav-links { gap: 15px; }
+            .nav-links { gap: 10px; }
+            .nav-links a { font-size: 13px; }
         }
         @media (max-width: 768px) {
             .nav-links { display: none; }
@@ -211,7 +218,13 @@
             .footer-bottom { flex-direction: column; text-align: center; }
         }
     </style>
-</head>
+<style>
+/* Multilingual selector: keeps the original header/navigation design intact. */
+.tc-language-li{display:flex!important;align-items:center;margin:0!important;padding:0!important;white-space:nowrap;flex-shrink:0;}
+.tc-language-select{appearance:none;-webkit-appearance:none;background:transparent;border:1px solid #e2e8f0;border-radius:8px;color:var(--secondary);font:600 14px/1.2 inherit;padding:8px 30px 8px 10px;cursor:pointer;outline:none;}
+.tc-language-select:focus{border-color:var(--primary);box-shadow:0 0 0 2px rgba(99,102,241,.12);}
+@media(max-width:768px){.tc-language-li{display:none!important;}}
+</style><script src="i18n.js" defer></script></head>
 <body>
 
 <nav class="navbar">
